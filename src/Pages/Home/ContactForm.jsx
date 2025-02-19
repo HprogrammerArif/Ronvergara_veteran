@@ -17,7 +17,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-10 px-4 md:px-8">
+    <section className="bg-gray-200 py-10 px-4 md:px-8">
       {/* Stats Section */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         {[ 
