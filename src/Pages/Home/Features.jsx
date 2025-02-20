@@ -4,7 +4,7 @@ import narrationImg from "../../assets/narration.png"; // Replace with the corre
 
 const FeaturesCard = () => {
   return (
-    <div className="bg-gray-200 py-10 px-4 md:px-8">
+    <div className="bg-gray-200 py-10 px-4 md:px-8 pt-32">
       <div className="md:flex items-stretch justify-center md:gap-10">
         
         {/* First Card */}

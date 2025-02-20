@@ -44,12 +44,12 @@ const Navbar = () => {
 
         {/* Buttons */}
         <div className="hidden md:flex space-x-3">
-          <button className="bg-[#B31942] font-semibold text-white px-6 py-2.5 rounded-md transition-all duration-300 hover:bg-opacity-90 hover:transform hover:scale-105 active:scale-95">
+          <Link to="/login" className="bg-[#B31942] font-semibold text-white px-6 py-2.5 rounded-md transition-all duration-300 hover:bg-opacity-90 hover:transform hover:scale-105 active:scale-95">
             Sign In
-          </button>
-          <button className="bg-white text-[#0A3161] font-semibold px-6 py-2.5 rounded-md transition-all duration-300 hover:bg-opacity-90 hover:transform hover:scale-105 active:scale-95">
+          </Link>
+          <Link to="/sign_up" className="bg-white text-[#0A3161] font-semibold px-6 py-2.5 rounded-md transition-all duration-300 hover:bg-opacity-90 hover:transform hover:scale-105 active:scale-95">
             Sign Up
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
