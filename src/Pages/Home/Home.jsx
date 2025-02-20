@@ -4,6 +4,9 @@ import DisabilityCalculator from "./DisabilityCalculator"
 import FeaturesCard from "./Features"
 import Pricing_Plan from "./Pricing_Plan"
 import Review from "./Review"
+import Services from "./Services"
+import VAC_Trust from "./VAC_Trust"
+import VeteransSlider from "./VeteransSlider"
 
 const Home = () => {
   return (
@@ -15,6 +18,9 @@ const Home = () => {
           <FeaturesCard/>
           <Pricing_Plan/>
           <Review/>
+          <VAC_Trust/>
+          <Services/>
+          <VeteransSlider/>
      
     </div>
   )
