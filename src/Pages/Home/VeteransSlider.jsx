@@ -137,12 +137,12 @@ const EmpoweringVeterans = () => {
   ];
 
   return (
-    <section className="bg-gray-200 pt-32 pb-10 ">
+    <section className="bg-gray-200 pt-32 pb-10 px-5 md:px-0">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl text-start font-bold text-gray-800 mb-8">
+        <h2 className="md:text-4xl md:text-start text-2xl  font-bold text-gray-800 mb-8">
           EMPOWERING VETERANS <br /> THROUGH EDUCATION
         </h2>
-        <p className="text-lg text-gray-600 mb-8 w-2/3 text-start">
+        <p className="md:text-lg text-gray-600 mb-8 md:w-2/3 md:text-start">
           Education transforms lives, and we're committed to empowering veterans with opportunities to learn, grow, and succeed. From skill-building to career advancement, we provide the resources and support needed to unlock your potential and shape a brighter future.
         </p>
 

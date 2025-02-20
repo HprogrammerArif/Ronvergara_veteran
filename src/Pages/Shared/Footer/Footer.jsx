@@ -6,7 +6,7 @@ import { IoMailOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
 export default function Footer() {
   return (
-    <footer className="bg-[#152A45] text-white py-6 px-4">
+    <footer className="bg-[#152A45] text-white py-6 px-4 mt-20 md:mt-0">
       <div className="container mx-auto">
         {/* Top Section: Logo and Description */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">

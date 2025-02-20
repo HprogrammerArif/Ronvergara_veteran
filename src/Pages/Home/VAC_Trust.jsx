@@ -11,41 +11,41 @@ const VAC_Trust = () => {
         <div className='container mx-auto '>
            <div className='md:flex items-center md:gap-32'>
 
-                <div className='basis-4/12'>
+                <div className='basis-4/12 w-2/3 md:w-full mx-auto'>
                     <img src={vetern} alt="" />
                 </div>
 
                 <div className='basis-8/12'>
-                    <h1 className='text-4xl uppercase md:text-4xl font-bold text-gray-900 pb-20'>Why Veterans Trust VAC</h1>
-<div className='space-y-10'>
+                    <h1 className='text-2xl text-center md:text-start mt-5 md:mt-0 uppercase md:text-4xl font-bold text-gray-900 md:pb-20 pb-10'>Why Veterans Trust VAC</h1>
+<div className='md:space-y-10 space-y-8 px-5'>
 
-                    <div className='flex items-start gap-10'>
+                    <div className='flex items-start md:gap-10 gap-5'>
                        <div className='bg-[#0A3161] p-3 px-4 rounded-md'>
-                         <img src={client} alt="" className='w-[67px] h-[67px]'/>
+                         <img src={client} alt="" className='md:w-[67px] md:h-[67px] h-[40px] w-[40px]'/>
                        </div>
-                        <div className='w-3/4'>
-                            <h1 className='uppercase text-2xl font-semibold text-gray-900 mb-2'>unmatched experience</h1>
-                            <p>With decades of experience, we’ve helped thousands of veterans secure their benefits. No case is too complex for our team.</p>
+                        <div className='md:w-3/4 w-full'>
+                            <h1 className='uppercase md:text-2xl text-lg font-semibold text-gray-900 mb-2'>unmatched experience</h1>
+                            <p className='text-sm md:text-base'>With decades of experience, we’ve helped thousands of veterans secure their benefits. No case is too complex for our team.</p>
                         </div>
                     </div>
 
-                       <div className='flex items-start gap-10'>
+                       <div className='flex items-start md:gap-10 gap-5'>
                        <div className='bg-[#0A3161] p-3 px-4 rounded-md'>
-                         <img src={confidence} alt="" className='w-[67px] h-[67px]'/>
+                         <img src={confidence} alt="" className='md:w-[67px] md:h-[67px] h-[40px] w-[40px]'/>
                        </div>
-                        <div className='w-3/4'>
-                            <h1 className='uppercase text-2xl font-semibold text-gray-900 mb-2'>Turn Your Disabilities Into Possibilities</h1>
-                            <p>We transform the challenges of navigating the VA system into a clear path toward the benefits you deserve.</p>
+                        <div className='md:w-3/4 w-full'>
+                            <h1 className='uppercase md:text-2xl text-lg font-semibold text-gray-900 mb-2'>Turn Your Disabilities Into Possibilities</h1>
+                            <p className='text-sm md:text-base'>We transform the challenges of navigating the VA system into a clear path toward the benefits you deserve.</p>
                         </div>
                     </div>
 
-                       <div className='flex items-start gap-10'>
+                       <div className='flex items-start md:gap-10 gap-5'>
                        <div className='bg-[#0A3161] p-3 px-4 rounded-md'>
-                         <img src={bar} alt="" className='w-[67px] h-[67px]'/>
+                         <img src={bar} alt="" className='md:w-[67px] md:h-[67px] h-[40px] w-[40px]'/>
                        </div>
-                        <div className='w-3/4'>
+                        <div className='md:w-3/4 w-full'>
                             <h1 className='uppercase text-2xl font-semibold text-gray-900 mb-2'>100% Success Rate</h1>
-                            <p>We’ve never failed to achieve our clients’ goals. Every veteran we’ve worked with has seen results.</p>
+                            <p className='text-sm md:text-base'>We’ve never failed to achieve our clients’ goals. Every veteran we’ve worked with has seen results.</p>
                         </div>
                     </div>
 </div>

@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="container mx-auto py-3  flex justify-between items-center">
         {/* Logo */}
         <div className="text-white text-lg font-bold flex items-center z-10">
-          <img src={logo} alt="logo" className="md:w-20 md:h-[80px] w-16 h-[60px] transition-all duration-300" />
+          <img src={logo} alt="logo" className="md:w-20 md:h-[80px] pl-2 md:pl-0 w-16 h-[60px] transition-all duration-300" />
         </div>
 
         {/* Desktop Menu */}
@@ -88,13 +88,24 @@ const Navbar = () => {
           </div>
 
           {/* Buttons for mobile */}
-          <div className="flex flex-col space-y-3 mt-4 pt-4 border-t border-white/10">
-            <button className="bg-[#B31942] text-white font-semibold w-full px-4 py-3 rounded-md transition-all duration-200 hover:bg-opacity-90 active:scale-95">
+          {/* <div className="flex justify-between gap-5 space-y-3 mt-4 pt-4 border-t border-white/10">
+            <Link to="/login" className="bg-[#B31942] text-white font-semibold w-full px-4  rounded-md transition-all duration-200 hover:bg-opacity-90 active:scale-95">
               Sign In
-            </button>
-            <button className="bg-white text-[#0A3161] font-semibold w-full px-4 py-3 rounded-md transition-all duration-200 hover:bg-opacity-90 active:scale-95">
+            </Link>
+            <Link to="/sign_up" className="bg-white text-[#0A3161] font-semibold w-full px-4  rounded-md transition-all duration-200 hover:bg-opacity-90 active:scale-95">
               Sign Up
-            </button>
+            </Link>
+          </div> */}
+
+
+          <div className="flex items-center justify-center gap-5 mt-5">
+
+              <Link to="/login" className="bg-[#B31942] px-10 py-2 font-semibold text-white rounded-md">
+                  Sign In
+              </Link>
+              <Link to="/sign_up" className="bg-white text-[#0A3161] px-10 py-2 font-semibold  rounded-md">
+                  Sign Up
+              </Link>
           </div>
         </div>
       </div>

@@ -32,17 +32,17 @@ export default function FAQ() {
   };
 
   return (
-   <section className="bg-gray-200 py-20 h-[90vh]">
-     <div className="bg-[#0A3161] container mx-auto text-white ">
-    <div className=" p-14 text-white">
+   <section className="bg-gray-200 md:py-20 md:h-[90vh] ">
+     <div className="bg-[#0A3161] container mx-auto text-white py-5 md:px-10">
+    <div className=" md:p-14 px-5 md:px-0 text-white">
   <div className=" mx-auto text-center mb-12">
-        <h2 className="text-4xl text-start font-bold">Frequently Asked Questions</h2>
-        <p className="text-xl text-start mt-4">We have your answers.</p>
+        <h2 className="md:text-4xl text-2xl md:text-start font-bold">Frequently Asked Questions</h2>
+        <p className="text-xl md:text-start mt-4">We have your answers.</p>
       </div>
 
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="border border-gray-200 rounded-none">
+          <div key={index} className="border border-gray-200 rounded-none ">
             <div
               onClick={() => toggleAccordion(index)}
               className="flex justify-between items-center p-3  cursor-pointer transition-all"

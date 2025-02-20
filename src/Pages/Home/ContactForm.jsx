@@ -26,8 +26,8 @@ const ContactForm = () => {
           { img: star, number: "1,000+", text: "Successful Cases" },
         ].map((item, index) => (
           <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-            <img src={item.img} alt="" className="w-12 mx-auto" />
-            <h1 className="text-4xl font-semibold text-[#B31942] py-2">{item.number}</h1>
+            <img src={item.img} alt="" className="md:w-12 w-10 mx-auto" />
+            <h1 className="md:text-4xl text-3xl font-semibold text-[#B31942] py-2">{item.number}</h1>
             <h2 className="uppercase text-xl font-semibold">{item.text}</h2>
           </div>
         ))}
@@ -38,8 +38,8 @@ const ContactForm = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Left - Form */}
           <div className="w-full md:w-1/2">
-            <h2 className="text-2xl font-bold text-gray-900">GET IN TOUCH TODAY</h2>
-            <p className="text-gray-600 mt-2">
+            <h2 className="md:text-4xl text-2xl font-bold text-gray-900">GET IN TOUCH TODAY</h2>
+            <p className="text-gray-600 mt-2 text-sm md:text-base">
               Reach out to us with your questions, concerns, or inquiries. We're here to help and look forward to connecting!
             </p>
 
@@ -114,7 +114,7 @@ const ContactForm = () => {
           </div>
 
           {/* Right - Image */}
-          <div className="hidden md:block md:w-1/2">
+          <div className=" md:w-1/2">
             <img src={soldierImage} alt="Soldier" className="rounded-xl shadow-lg w-full" />
           </div>
         </div>

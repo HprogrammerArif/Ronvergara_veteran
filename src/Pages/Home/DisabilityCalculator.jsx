@@ -252,7 +252,7 @@ export default function DisabilityCalculator() {
   };
 
   return (
-    <div className="container mx-auto md:py-20">
+    <div className="container mx-auto md:py-20 py-10 px-5 md:px-0">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">DISABILITY CALCULATOR</h1>
         <p className="text-gray-600 max-w-3xl mx-auto">
@@ -344,7 +344,7 @@ export default function DisabilityCalculator() {
       </div>
 
       {/* Step 2 - Additional Information */}
-      <div className="mt-8 w-2/3">
+      <div className="mt-8 md:w-2/3">
         <h2 className="font-semibold mb-4 text-lg">Step 2 - Add Additional Information</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
           

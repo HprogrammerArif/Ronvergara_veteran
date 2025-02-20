@@ -15,8 +15,8 @@ const Pricing_Plan = () => {
   ];
 
   return (
-   <section className="bg-gray-200 p-20">
- <div className="bg-white container p-20  mx-auto">
+   <section className="bg-gray-200 md:p-20 p-5">
+ <div className="bg-white container md:p-20 p-5  mx-auto">
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
@@ -25,7 +25,7 @@ const Pricing_Plan = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-20">
+      <div className="md:max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:gap-20 gap-8">
         {plans.map((plan, index) => (
           <div
             key={index}
