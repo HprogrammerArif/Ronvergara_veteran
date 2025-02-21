@@ -13,7 +13,7 @@ const Login = () => {
     <div className="flex justify-center items-center min-h-screen bg-[#0A3161] text-white p-4">
       <form onSubmit={handleSubmit(onSubmit)} className=" text-white md:p-8 rounded-lg md:shadow-lg w-full md:max-w-lg">
         <h2 className="md:text-4xl text-3xl font-bold mb-4 text-start">Login to Account</h2>
-        <p className="text-start md:text-base md:mb-16 mb-8">Please enter your details below</p>
+        <p className="text-start md:text-base md:mb-16 mb-8 text-gray-200">Please enter your details below</p>
 
         {/* Email */}
         <div className="mb-4">
@@ -47,7 +47,7 @@ const Login = () => {
             <input type="checkbox" {...register("rememberMe")} className="mr-2" />
             Remember Me
           </label>
-          <a href="#" className="text-sm text-[#B31942] font-medium">Forgot Password?</a>
+          <Link to="/email_verification" className="text-sm text-[#B31942] font-medium">Forgot Password?</Link>
         </div>
 
         {/* Submit Button */}
@@ -61,7 +61,7 @@ const Login = () => {
         {/* Sign-up Link */}
         <div className="mt-4 mb-4 text-center">
           <p className="text-base text-end">
-            Create account? <a href="#" className="text-[#B31942]">
+            Create account? <a  className="text-[#B31942]">
                 <Link to="/sign_up" className='font-semibold'>Sign Up</Link>
                 </a>
           </p>

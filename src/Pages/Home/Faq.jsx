@@ -28,7 +28,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index); // Toggle between open and closed state
+    setOpenIndex(openIndex === index ? null : index); 
   };
 
   return (
