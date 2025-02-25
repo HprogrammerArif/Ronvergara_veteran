@@ -245,13 +245,15 @@ function GulfWarLocationsForm() {
 
           {/* Buttons */}
        <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10  pb-10 md:pb-0">
-                     <Link
-                     
+                     <button>
+                      <Link
+                     to="/agent_location"
                        type="submit"
                        className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center"
                      >
                        Continue
                      </Link>
+                     </button>
                      <button
                        type="button"
                        className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"

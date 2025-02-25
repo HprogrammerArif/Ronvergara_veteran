@@ -12,6 +12,9 @@ import Auto_Narative from "../Pages/Auto_Narative/Auto_Narative";
 import Veteran_Information from "../Pages/Vatern_info/Veteran_Information";
 import IssueDetailsForm from "../Pages/Selected_Issue/IssueDetailsFrom";
 import GulfWarLocationsForm from "../Pages/War_location/GulfWarLocationsForm";
+import AgentOrangeLocationsForm from "../Pages/AgentOrangeLocationsForm/AgentOrangeLocationsForm";
+import ToxinExposureForm from "../Pages/ToxinExposureForm/ToxinExposureForm";
+import GreatConfirmation from "../Pages/GreatConfirmation/GreatConfirmation";
   
 export const router = createBrowserRouter([
     {
@@ -24,6 +27,9 @@ export const router = createBrowserRouter([
             {path: '/veteran_information', element: <Veteran_Information />},
             {path: '/issue_details', element: <IssueDetailsForm/>},
             {path: '/gulf_war_location', element: <GulfWarLocationsForm/>},
+            {path: '/agent_location', element: <AgentOrangeLocationsForm/>},
+            {path: '/toxin_exposure', element: <ToxinExposureForm/>},
+            {path: '/confirmation', element: <GreatConfirmation/>},
       ]
     },
 

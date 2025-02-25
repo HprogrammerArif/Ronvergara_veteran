@@ -88,7 +88,7 @@ function IssueDetailsForm() {
 
             {/* 2. Ankle Pain */}
             <div className="space-y-4">
-              <h2 className="md:text-2xl text-xl font-semibold text-blue-800">2. Ankle Pain</h2>
+              <h2 className="md:text-xl font-semibold text-blue-800">2. Ankle Pain</h2>
               <div>
                 
                 <div className="flex items-center space-x-4">
