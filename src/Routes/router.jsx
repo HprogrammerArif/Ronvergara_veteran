@@ -15,6 +15,7 @@ import GulfWarLocationsForm from "../Pages/War_location/GulfWarLocationsForm";
 import AgentOrangeLocationsForm from "../Pages/AgentOrangeLocationsForm/AgentOrangeLocationsForm";
 import ToxinExposureForm from "../Pages/ToxinExposureForm/ToxinExposureForm";
 import GreatConfirmation from "../Pages/GreatConfirmation/GreatConfirmation";
+import MentalHealthForm from "../Pages/MentalHealth/MentalHealthForm";
   
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
             {path: '/agent_location', element: <AgentOrangeLocationsForm/>},
             {path: '/toxin_exposure', element: <ToxinExposureForm/>},
             {path: '/confirmation', element: <GreatConfirmation/>},
+            {path: '/mental_health_info', element: <MentalHealthForm/>},
       ]
     },
 

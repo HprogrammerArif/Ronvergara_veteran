@@ -11,7 +11,7 @@ function GreatConfirmation() {
         </p>
     <button>
             <Link
-        to="/"
+        to="/mental_health_info"
 
           className="bg-[#0A3161] text-white py-3 px-20 rounded-md hover:bg-[#104381] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
         >
