@@ -8,6 +8,8 @@ import OTPVerification from "../Pages/Authentication/OTPVerification";
 import ResetPassword from "../Pages/Authentication/ResetPassword";
 import SuccessAuthentication from "../Pages/Authentication/SuccessAuthentication";
 import Dd_214 from "../Pages/DD_214/dd_214";
+import Auto_Narative from "../Pages/Auto_Narative/Auto_Narative";
+import Veteran_Information from "../Pages/Vatern_info/Veteran_Information";
   
 export const router = createBrowserRouter([
     {
@@ -15,7 +17,9 @@ export const router = createBrowserRouter([
         element: <Main />,
         children: [
             {path: '/', element: <Home/>},
-            {path: '/dd_214_info', element: <Dd_214 />}
+            {path: '/dd_214_info', element: <Dd_214 />},
+            {path: '/narrative', element: <Auto_Narative/>},
+            {path: '/veteran_information', element: <Veteran_Information />},
       ]
     },
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Pricing_Plan = () => {
   const plans = [
@@ -45,9 +46,9 @@ const Pricing_Plan = () => {
             </ul>
 
             {/* Button */}
-            <button className="mt-6 bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-700 transition duration-300">
+            <Link to="/veteran_information" className="mt-6 bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-700 transition duration-300">
               Get Started
-            </button>
+            </Link>
           </div>
         ))}
       </div>

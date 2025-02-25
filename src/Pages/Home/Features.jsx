@@ -15,10 +15,12 @@ const FeaturesCard = () => {
         </Link>
 
         {/* Second Card */}
-        <div className="bg-[#0A3161] p-10 flex flex-col items-center justify-center w-full md:w-2/6 rounded-lg shadow-lg">
+        <Link
+        to="/narrative"
+        className="bg-[#0A3161] p-10 flex flex-col items-center justify-center w-full md:w-2/6 rounded-lg shadow-lg">
           <img src={narrationImg} alt="Auto Generated Claim" className="w-[250px] h-auto cursor-pointer" />
           <h1 className="md:text-4xl text-2xl text-center font-bold mt-20 text-white capitalize">auto generated claim narrative</h1>
-        </div>
+        </Link>
 
       </div>
     </div>
