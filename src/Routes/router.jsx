@@ -7,16 +7,15 @@ import Forgot_Password from "../Pages/Authentication/Forgot_Password";
 import OTPVerification from "../Pages/Authentication/OTPVerification";
 import ResetPassword from "../Pages/Authentication/ResetPassword";
 import SuccessAuthentication from "../Pages/Authentication/SuccessAuthentication";
+import Dd_214 from "../Pages/DD_214/dd_214";
   
 export const router = createBrowserRouter([
     {
       path: "/",
         element: <Main />,
         children: [
-            {
-                path: '/',
-                element: <Home/>
-          }
+            {path: '/', element: <Home/>},
+            {path: '/dd_214_info', element: <Dd_214 />}
       ]
     },
 

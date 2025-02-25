@@ -1,6 +1,7 @@
 import React from "react";
 import uploadImg from "../../assets/DD_upload.png"; // Replace with the correct path
 import narrationImg from "../../assets/narration.png"; // Replace with the correct path
+import { Link } from "react-router-dom";
 
 const FeaturesCard = () => {
   return (
@@ -8,10 +9,10 @@ const FeaturesCard = () => {
       <div className="md:flex items-stretch justify-center md:gap-10">
         
         {/* First Card */}
-        <div className="bg-[#0A3161] p-10 flex flex-col mb-5 md:mb-0 items-center justify-center w-full md:w-2/6 rounded-lg shadow-lg">
+        <Link to="/dd_214_info" className="bg-[#0A3161] p-10 flex flex-col mb-5 md:mb-0 items-center justify-center w-full md:w-2/6 rounded-lg shadow-lg">
           <img src={uploadImg} alt="DD-214 Upload" className="w-[250px] h-auto cursor-pointer" />
           <h1 className="md:text-4xl text-2xl font-bold text-center mt-5 text-white capitalize">DD-214 Upload & Auto-Population</h1>
-        </div>
+        </Link>
 
         {/* Second Card */}
         <div className="bg-[#0A3161] p-10 flex flex-col items-center justify-center w-full md:w-2/6 rounded-lg shadow-lg">
