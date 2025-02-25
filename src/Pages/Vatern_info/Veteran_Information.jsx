@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 function Veteran_Information() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -10,9 +11,9 @@ function Veteran_Information() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex justify-center items-center md:pb-36 md:pt-36">
-      <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-2xl font-bold text-blue-800 mb-6 text-center">Veteran Information</h1>
+    <div className="min-h-screen bg-white flex justify-center items-center md:pb-36 pb-10 md:pt-36 pt-24">
+      <div className="w-full max-w-4xl bg-white md:shadow-md rounded-lg md:p-6 p-2">
+        <h1 className="md:text-2xl text-lg font-bold text-blue-800 mb-6 text-center">Veteran Information</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Full Name */}
@@ -134,7 +135,7 @@ function Veteran_Information() {
 
           {/* exit date */}
            <div>
-            <label className="block text-sm font-medium text-gray-700">Entry Date:</label>
+            <label className="block text-sm font-medium text-gray-700">Exit Date:</label>
             <input
               type="text"
               {...register('rank')}
@@ -143,14 +144,14 @@ function Veteran_Information() {
           </div>
 
           {/* Unit */}
-          <div>
+          {/* <div>
             <label className="block text-sm font-medium text-gray-700">Unit</label>
             <input
               type="text"
               {...register('unit')}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
             />
-          </div>
+          </div> */}
 
           {/* Place of Separation: */}
           <div>
@@ -216,7 +217,7 @@ function Veteran_Information() {
 
           {/* Are You Currently Enrolled in VA Health Care? */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Are You Currently Enrolled in VA Health Care?</label>
+            <label className="block text-sm font-medium text-gray-700">Are you currently homeless or at risk of becoming homeless?</label>
             <select
               {...register('vaHealthCare', { required: 'This field is required' })}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
@@ -229,13 +230,14 @@ function Veteran_Information() {
           </div>
 
           {/* Check the Answer That Most Applies to Your Living Situation */}
-        <div className="space-y-2">
+        <div className="space-y-2 ">
       <label className="block text-sm font-medium text-blue-800">
         Check The Answer That Most Closely Aligns To Your Living Situation:
       </label>
-      <select
+     <div >
+         <select
         {...register('livingSituation', { required: 'Living Situation is required' })}
-        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+        className="mt-1 block md:w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
       >
         <option value="">Select an option</option>
         <option value="Living In A Homeless Shelter">Living In A Homeless Shelter</option>
@@ -250,14 +252,17 @@ function Veteran_Information() {
       {errors.livingSituation && (
         <span className="text-red-500 text-sm">{errors.livingSituation.message}</span>
       )}
+     </div>
     </div>
 
-          <button
+         <div className='flex justify-center mx-auto w-[200px] text-center'>
+             <Link to="/issue_details"
             type="submit"
-            className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            className="w-full bg-[#B31942] text-white py-2 px-4 rounded-md hover:bg-[#aa2b4d] font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
             Continue
-          </button>
+          </Link>
+         </div>
         </form>
       </div>
     </div>

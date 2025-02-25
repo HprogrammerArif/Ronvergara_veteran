@@ -11,12 +11,12 @@ const DD214 = () => {
   };
 
   return (
-    <section className="h-screen bg-gray-200 flex flex-col justify-center items-center pt-10">
-      <h1 className="text-[#0A3161] text-4xl font-bold mb-10">DD-214 Upload & Auto-Population</h1>
-      <div className="bg-white p-20 flex items-center justify-center h-[50vh] w-[50vw] shadow-lg rounded-lg">
+    <section className="h-screen bg-gray-200 flex flex-col justify-center items-center pt-10 px-2 md:px-0">
+      <h1 className="text-[#0A3161] md:text-4xl text-xl text-center font-bold pb-10">DD-214 Upload & Auto-Population</h1>
+      <div className="bg-white md:p-20 flex items-center justify-center md:h-[50vh] md:w-[50vw] h-[60vh] w-full md:px-0 shadow-lg rounded-lg">
         <div className="flex flex-col items-center justify-center">
           {uploadedFile ? (
-            <div className="text-center">
+            <div className="text-center px-2 md:px-0">
               <h2 className="text-xl font-semibold mb-4">Uploaded File:</h2>
               {uploadedFile.type.startsWith('image/') ? (
                 <img
