@@ -16,6 +16,8 @@ import AgentOrangeLocationsForm from "../Pages/AgentOrangeLocationsForm/AgentOra
 import ToxinExposureForm from "../Pages/ToxinExposureForm/ToxinExposureForm";
 import GreatConfirmation from "../Pages/GreatConfirmation/GreatConfirmation";
 import MentalHealthForm from "../Pages/MentalHealth/MentalHealthForm";
+import MentalHealthSurvey from "../Pages/MentalHealth/MentalHealthSurvey";
+import MentailHealthDetails from "../Pages/MentalHealth/MentailHealthDetails";
   
 export const router = createBrowserRouter([
     {
@@ -32,6 +34,8 @@ export const router = createBrowserRouter([
             {path: '/toxin_exposure', element: <ToxinExposureForm/>},
             {path: '/confirmation', element: <GreatConfirmation/>},
             {path: '/mental_health_info', element: <MentalHealthForm/>},
+            {path: '/mental_health_survey', element: <MentalHealthSurvey/>},
+            {path: '/mental_health_details', element: <MentailHealthDetails/>},
       ]
     },
 
