@@ -23,6 +23,8 @@ import DisasterForm from "../Pages/MentalHealth/DisasterForm";
 import AbuseAssaultDetails from "../Pages/MentalHealth/AbuseAssaultDetails";
 import RiskDetails from "../Pages/MentalHealth/RiskDetails";
 import MedicalPositionDetails from "../Pages/MentalHealth/MedicalPositionDetails";
+import CrashAccidentDetails from "../Pages/MentalHealth/CrashAccidentDetails";
+import MedicalTraumaDetails from "../Pages/MentalHealth/MedicalTraumaDetails";
   
 export const router = createBrowserRouter([
     {
@@ -48,6 +50,8 @@ export const router = createBrowserRouter([
             {path: '/abuse_assault_form', element: <AbuseAssaultDetails/>},
             {path: '/risk_details', element: <RiskDetails/>},
             {path: '/medical_position_details', element: <MedicalPositionDetails/>},
+            {path: '/crash_details', element: <CrashAccidentDetails/>},
+            {path: '/medical_trauma_details', element: <MedicalTraumaDetails/>},
       ]
     },
 

@@ -90,7 +90,7 @@ const MedicalPositionDetails = () => {
        <div className="flex justify-center gap-10 md:mt-6 mt-20 md:pb-10 ">
                                             <button>
                                              <Link
-                                             to="/medical_position_details"
+                                            to="/crash_details"
                                               type="submit"
                                               className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
                                             >
