@@ -25,6 +25,13 @@ import RiskDetails from "../Pages/MentalHealth/RiskDetails";
 import MedicalPositionDetails from "../Pages/MentalHealth/MedicalPositionDetails";
 import CrashAccidentDetails from "../Pages/MentalHealth/CrashAccidentDetails";
 import MedicalTraumaDetails from "../Pages/MentalHealth/MedicalTraumaDetails";
+import HazingDetails from "../Pages/MentalHealth/HazingDetails";
+import AbuseOfPowerDetails from "../Pages/MentalHealth/AbuseOfPowerDetails";
+import DangerousItemsDetails from "../Pages/MentalHealth/DangerousItemsDetails";
+import FamilialIssuesDetails from "../Pages/MentalHealth/FamilialIssuesDetails";
+import ConfirmMentalHealth from "../Pages/MentalHealth/ConfirmMentalHealth";
+import MentalHealthDetails from "../Pages/MentalHealth/MentailHealthDetails";
+import MentalHealthSymptoms from "../Pages/MentalHealth/MentalHealthSymptoms";
   
 export const router = createBrowserRouter([
     {
@@ -52,6 +59,18 @@ export const router = createBrowserRouter([
             {path: '/medical_position_details', element: <MedicalPositionDetails/>},
             {path: '/crash_details', element: <CrashAccidentDetails/>},
             {path: '/medical_trauma_details', element: <MedicalTraumaDetails/>},
+            {path: '/hazing_details', element: <HazingDetails/>},
+            {path: '/abuse_power_details', element: <AbuseOfPowerDetails/>},
+            {path: '/dangerous_items_details', element: <DangerousItemsDetails/>},
+            {path: '/familiar_issues', element: <FamilialIssuesDetails/>},
+            {path: '/comfirm_mental_health', element: <ConfirmMentalHealth/>},
+            {path: '/mental_health_symptoms', element: <MentalHealthSymptoms/>},
+           
+
+            //2nd part
+
+            
+
       ]
     },
 

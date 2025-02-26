@@ -3,7 +3,7 @@ import mentalLogo from "../../assets/mental_health_logo.png";
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-const MedicalTraumaDetails = () => {
+const FamilialIssuesDetails = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
@@ -13,9 +13,8 @@ const MedicalTraumaDetails = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-24 pb-10 mt-10">
-      <div className="md:p-6 rounded-lg w-full max-w-4xl  flex flex-col justify-between">
-        {/* Header Section (Centered Image and Text) */}
-        <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
+      <div className="md:p-6 p-2 rounded-lg  w-full max-w-4xl  flex flex-col justify-between">
+         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
                                                           <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
                                                             <img src={mentalLogo} alt="Mental Health Logo" className="w-32 h-32 object-cover" />
                                                           </div>
@@ -23,18 +22,18 @@ const MedicalTraumaDetails = () => {
                                                         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-5">
-          {/* Did You Endure Any Medical Traumas That Still Affect You Mentally Today? */}
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow overflow-y-auto pt-5">
+          {/* Did You Experience Any Familial Issues During Your Time In Service? */}
           <label className="block text-lg font-medium text-gray-700">
-            Did You Endure Any Medical Traumas That Still Affect You Mentally Today?
+            Did You Experience Any Familial Issues During Your Time In Service?
             <select
-              {...register("medicalTrauma", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.medicalTrauma ? 'border-red-500' : ''}`}
+              {...register("familialIssues", { required: "This field is required" })}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.familialIssues ? 'border-red-500' : ''}`}
             >
               <option value="yes" selected>Yes</option>
               <option value="no">No</option>
             </select>
-            {errors.medicalTrauma && <span className="text-red-500 text-sm">{errors.medicalTrauma.message}</span>}
+            {errors.familialIssues && <span className="text-red-500 text-sm">{errors.familialIssues.message}</span>}
           </label>
 
           {/* Dates Of Incident */}
@@ -48,7 +47,6 @@ const MedicalTraumaDetails = () => {
             />
             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
           </label>
-
           {/* Location Of Incident */}
           <label className="block text-lg font-medium text-gray-700">
             Location Of Incident
@@ -61,18 +59,19 @@ const MedicalTraumaDetails = () => {
             {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
           </label>
 
-          {/* Type Of Medical Trauma */}
+          {/* Type Of Familial Issue */}
           <label className="block text-lg font-medium text-gray-700">
-            Type Of Medical Trauma
+            Type Of Familial Issue
             <select
-              {...register("traumaType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.traumaType ? 'border-red-500' : ''}`}
+              {...register("issueType", { required: "This field is required" })}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.issueType ? 'border-red-500' : ''}`}
             >
-              <option value="botchedSurgeries">Botched Surgeries</option>
-              <option value="severeInjuries" selected>Severe Injuries</option>
+              <option value="issuesWithChildren">Issues With Children</option>
+              <option value="divorce" selected>Divorce</option>
+              <option value="cheatingInfidelity">Cheating/Infidelity</option>
               <option value="other">Other</option>
             </select>
-            {errors.traumaType && <span className="text-red-500 text-sm">{errors.traumaType.message}</span>}
+            {errors.issueType && <span className="text-red-500 text-sm">{errors.issueType.message}</span>}
           </label>
 
           {/* Names Of Anyone Involved In Incident (If Applicable) */}
@@ -97,33 +96,32 @@ const MedicalTraumaDetails = () => {
             />
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
           </label>
-
-                    <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
-                                                                <button>
-                                                                 <Link
-                                                                 to="/hazing_details"
-                                                                  type="submit"
-                                                                  className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-                                                                >
-                                                                  Continue
-                                                                </Link>
-                                                                </button>
-                                                            <div>
-                                                                 <Link
-                                                                  type="button"
-                                                                  className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-                                                                  onClick={() => window.history.back()}
-                                                                >
-                                                                  Back
-                                                                </Link>
-                                                            </div>
-                                                              </div>
+           <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
+                                                                                                        <button>
+                                                                                                         <Link
+                                                                                                         to="/comfirm_mental_health"
+                                                                                                          type="submit"
+                                                                                                          className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+                                                                                                        >
+                                                                                                          Continue
+                                                                                                        </Link>
+                                                                                                        </button>
+                                                                                                    <div>
+                                                                                                         <Link
+                                                                                                          type="button"
+                                                                                                          className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+                                                                                                          onClick={() => window.history.back()}
+                                                                                                        >
+                                                                                                          Back
+                                                                                                        </Link>
+                                                                                                    </div>
+                                                                                                      </div>
         </form>
 
-      
+    
       </div>
     </div>
   );
 };
 
-export default MedicalTraumaDetails;
+export default FamilialIssuesDetails;
