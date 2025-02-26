@@ -18,6 +18,11 @@ import GreatConfirmation from "../Pages/GreatConfirmation/GreatConfirmation";
 import MentalHealthForm from "../Pages/MentalHealth/MentalHealthForm";
 import MentalHealthSurvey from "../Pages/MentalHealth/MentalHealthSurvey";
 import MentailHealthDetails from "../Pages/MentalHealth/MentailHealthDetails";
+import DeathDetails from "../Pages/MentalHealth/DeathDetails";
+import DisasterForm from "../Pages/MentalHealth/DisasterForm";
+import AbuseAssaultDetails from "../Pages/MentalHealth/AbuseAssaultDetails";
+import RiskDetails from "../Pages/MentalHealth/RiskDetails";
+import MedicalPositionDetails from "../Pages/MentalHealth/MedicalPositionDetails";
   
 export const router = createBrowserRouter([
     {
@@ -33,9 +38,16 @@ export const router = createBrowserRouter([
             {path: '/agent_location', element: <AgentOrangeLocationsForm/>},
             {path: '/toxin_exposure', element: <ToxinExposureForm/>},
             {path: '/confirmation', element: <GreatConfirmation/>},
+
+            //mental-health-info
             {path: '/mental_health_info', element: <MentalHealthForm/>},
             {path: '/mental_health_survey', element: <MentalHealthSurvey/>},
             {path: '/mental_health_details', element: <MentailHealthDetails/>},
+            {path: '/death_details', element: <DeathDetails/>},
+            {path: '/disaster_form', element: <DisasterForm/>},
+            {path: '/abuse_assault_form', element: <AbuseAssaultDetails/>},
+            {path: '/risk_details', element: <RiskDetails/>},
+            {path: '/medical_position_details', element: <MedicalPositionDetails/>},
       ]
     },
 

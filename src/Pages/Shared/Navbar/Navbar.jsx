@@ -404,9 +404,9 @@ export default function Navbar() {
           <img
             src={logo}
             alt="logo"
-            width={80}
-            height={80}
-            className="h-[60px] w-16 pl-2 transition-all duration-300 md:h-[80px] md:w-20 md:pl-0"
+            width={50}
+            height={50}
+            className="h-[60px] w-16 pl-2 transition-all duration-300 md:h-[50px] md:w-16 md:pl-0"
           />
         </div>
 
