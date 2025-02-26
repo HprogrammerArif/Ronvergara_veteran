@@ -57,7 +57,7 @@ const MentalHealthSymptoms = () => {
               key={index}
               className="p-4 border border-gray-300 rounded-lg bg-gray-50 shadow-sm"
             >
-              <label className="block text-lg font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700">
                 {question}
                 <div className="mt-1 flex items-center space-x-4">
                   <div className="flex items-center">
@@ -85,17 +85,20 @@ const MentalHealthSymptoms = () => {
               </label>
             </div>
           ))}
-        </form>
-
-        {/* Buttons Section (At the Bottom) */}
-        <div className="w-1/2 mx-auto mt-20">
-          <button
+             {/* Buttons Section (At the Bottom) */}
+         <button className="mt-4 w-full mx-auto text-center">
+          <Link
+          to="/mental_health_indicators"
             type="submit"
-            className="bg-[#B31942] text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-[#aa2b4d] w-full"
+            className="bg-[#B31942] mx-auto text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d]  focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
           >
             Continue
-          </button>
-        </div>
+          </Link>
+       
+        </button>
+        </form>
+
+     
       </div>
     </div>
   );

@@ -32,6 +32,7 @@ import FamilialIssuesDetails from "../Pages/MentalHealth/FamilialIssuesDetails";
 import ConfirmMentalHealth from "../Pages/MentalHealth/ConfirmMentalHealth";
 import MentalHealthDetails from "../Pages/MentalHealth/MentailHealthDetails";
 import MentalHealthSymptoms from "../Pages/MentalHealth/MentalHealthSymptoms";
+import MentalHealthIndicators from "../Pages/MentalHealth/MentalHealthIndicators";
   
 export const router = createBrowserRouter([
     {
@@ -65,6 +66,7 @@ export const router = createBrowserRouter([
             {path: '/familiar_issues', element: <FamilialIssuesDetails/>},
             {path: '/comfirm_mental_health', element: <ConfirmMentalHealth/>},
             {path: '/mental_health_symptoms', element: <MentalHealthSymptoms/>},
+            {path: '/mental_health_indicators', element: <MentalHealthIndicators/>},
            
 
             //2nd part
