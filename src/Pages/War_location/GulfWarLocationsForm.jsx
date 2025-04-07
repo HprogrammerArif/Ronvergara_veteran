@@ -41,7 +41,7 @@ function GulfWarLocationsForm() {
 
   return (
     <div className="min-h-screen bg-gray-200 flex justify-center items-center md:p-4 p-2 md:pt-32 pt-28">
-      <div className="w-full max-w-4xl h-full md:bg-white md:shadow-md border md:border-none rounded-lg md:p-6">
+      <div className="w-full max-w-5xl h-full md:bg-white md:shadow-md border md:border-none rounded-lg md:p-6">
         <h1 className="md:text-2xl text-lg font-bold text-blue-800 mb-6 text-center">
           Have you worked in the following Gulf War-risk locations?
         </h1>

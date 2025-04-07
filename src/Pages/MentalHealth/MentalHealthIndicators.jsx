@@ -79,7 +79,7 @@ const MentalHealthIndicators = () => {
             {/* Buttons Section (At the Bottom) */}
            <button className="mt-4 w-full mx-auto text-center">
                   <Link
-                  to="/mental_health_indicators"
+                  to="/migraine"
                     type="submit"
                     className="bg-[#B31942] mx-auto text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d]  focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
                   >

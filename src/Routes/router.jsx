@@ -34,6 +34,14 @@ import MentalHealthDetails from "../Pages/MentalHealth/MentailHealthDetails";
 import MentalHealthSymptoms from "../Pages/MentalHealth/MentalHealthSymptoms";
 import MentalHealthIndicators from "../Pages/MentalHealth/MentalHealthIndicators";
 import Issues from "../Pages/Selected_Issue/Issues";
+import Migraine from "../Pages/BodyClaims/Migraine/Migraine";
+import ServiceDetails from "../Pages/BodyClaims/Migraine/ServiceDetails";
+import Shifts from "../Pages/BodyClaims/Migraine/Shifts";
+import PhysicalTrainingDetails from "../Pages/BodyClaims/Migraine/PhysicalTrainingDetails";
+import InjuriesDetails from "../Pages/BodyClaims/Migraine/InjuriesDetails";
+import SickCallDetails from "../Pages/BodyClaims/Migraine/SickCallDetails";
+import DischargeCondition from "../Pages/BodyClaims/Migraine/DischargeCondition";
+import BodyHealthDetails from "../Pages/BodyClaims/Migraine/BodyHealthDetails";
   
 export const router = createBrowserRouter([
     {
@@ -72,6 +80,15 @@ export const router = createBrowserRouter([
            
 
             //2nd part
+
+            {path: "/migraine", element: <Migraine/>},
+            {path: '/service_details', element: <ServiceDetails/>},
+            {path: '/shifts', element: <Shifts/>},
+            {path: '/physical_training', element: <PhysicalTrainingDetails/>},
+            {path: '/injuries_details', element: <InjuriesDetails/>},
+            {path: '/sickcall_details', element: <SickCallDetails/>},
+            {path: '/discharge_condition', element: <DischargeCondition/>},
+            {path: '/health_details', element: <BodyHealthDetails/>},
 
             
 
