@@ -15,8 +15,8 @@ const Home = () => {
     <div className=" mx-auto">
         
           <Banner />
-          <ContactForm/>
-          <DisabilityCalculator/>
+         
+          {/* <DisabilityCalculator/> */}
           <FeaturesCard/>
           <Pricing_Plan/>
           <Review/>
@@ -24,7 +24,8 @@ const Home = () => {
           <Services/>
           <VeteransSlider/>
           <Testimonials/> 
-          <FAQ/>    
+          <FAQ/> 
+          <ContactForm/>   
     </div>
   )
 }
