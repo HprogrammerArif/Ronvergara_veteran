@@ -487,7 +487,7 @@ const BodyHealthDetails = () => {
           {/* Buttons */}
           <div className="flex flex-col justify-center gap-5 mx-auto">
             <Link
-              to="/sickcall_details"
+              to="/ai_narrative"
               className="btn bg-[#B31942] border-gray-400 py-2 text-white text-center font-semibold rounded-md"
             >
               Continue

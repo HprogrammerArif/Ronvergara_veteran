@@ -19,19 +19,7 @@ const ContactForm = () => {
   return (
     <section className="bg-gray-200 py-10 px-4 md:px-8">
       {/* Stats Section */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-        {[ 
-          { img: achievement, number: "100%", text: "Success Rate" },
-          { img: soldier, number: "60", text: "Veteran Owned" },
-          { img: star, number: "1,000+", text: "Successful Cases" },
-        ].map((item, index) => (
-          <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-            <img src={item.img} alt="" className="md:w-12 w-10 mx-auto" />
-            <h1 className="md:text-4xl text-3xl font-semibold text-[#B31942] py-2">{item.number}</h1>
-            <h2 className="uppercase text-xl font-semibold">{item.text}</h2>
-          </div>
-        ))}
-      </div>
+     
 
       {/* Contact Form Section */}
       <div className="max-w-6xl mx-auto bg-white shadow-md rounded-xl mt-12 p-6 md:p-10">

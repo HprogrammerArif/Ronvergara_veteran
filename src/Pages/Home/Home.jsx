@@ -6,6 +6,7 @@ import FeaturesCard from "./Features"
 import Pricing_Plan from "./Pricing_Plan"
 import Review from "./Review"
 import Services from "./Services"
+import StatsSection from "./StatsSection"
 import Testimonials from "./Testimonials"
 import VAC_Trust from "./VAC_Trust"
 import VeteransSlider from "./VeteransSlider"
@@ -15,6 +16,7 @@ const Home = () => {
     <div className=" mx-auto">
         
           <Banner />
+          <StatsSection/>
          
           {/* <DisabilityCalculator/> */}
           <FeaturesCard/>

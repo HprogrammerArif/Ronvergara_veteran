@@ -42,6 +42,15 @@ import InjuriesDetails from "../Pages/BodyClaims/Migraine/InjuriesDetails";
 import SickCallDetails from "../Pages/BodyClaims/Migraine/SickCallDetails";
 import DischargeCondition from "../Pages/BodyClaims/Migraine/DischargeCondition";
 import BodyHealthDetails from "../Pages/BodyClaims/Migraine/BodyHealthDetails";
+import AiNarativeGen from "../Pages/BodyClaims/Migraine/AiNarativeGen";
+import ProgressMessage from "../Pages/BodyClaims/Migraine/ProgressMessage";
+import EvidenceForm from "../Pages/BodyClaims/Migraine/EvidenceForm";
+import ESignature from "../Pages/BodyClaims/Migraine/ESignature";
+import VAForm from "../Pages/FinalVAForm/VAForm";
+import SinusitisForm from "../Pages/BodyClaims/SinusitisForm/SinusitisForm";
+import GastrointestinalForm from "../Pages/BodyClaims/Gastrointestinal/GastrointestinalForm";
+import TinnitusHearingLossForm from "../Pages/BodyClaims/TinnitusHearing/TinnitusHearingLossForm";
+import OthersIssues from "../Pages/BodyClaims/OthersIssue";
   
 export const router = createBrowserRouter([
     {
@@ -89,8 +98,27 @@ export const router = createBrowserRouter([
             {path: '/sickcall_details', element: <SickCallDetails/>},
             {path: '/discharge_condition', element: <DischargeCondition/>},
             {path: '/health_details', element: <BodyHealthDetails/>},
+            {path: '/ai_narrative', element: <AiNarativeGen />},
+            {path: '/progress', element: <ProgressMessage/>},
+            {path: '/evidence_form', element: <EvidenceForm/>},
+            {path: '/progress', element: <ProgressMessage/>},
+            {path: '/e_signature', element: <ESignature/>},
+            {path: '/va_form', element: <VAForm/>},
+           
 
-            
+            //SinusitisForm
+            {path: '/sinusitis_form', element: <SinusitisForm/>},
+
+            //GastrointestinalForm
+            {path: '/gastrointestinal_form', element: <GastrointestinalForm/>},
+
+            //TinnitusHearingLossForm
+            {path: '/tinnitus_hearing_loss', element: <TinnitusHearingLossForm/>},
+
+            //others
+            {path: '/others', element: <OthersIssues/>}
+
+
 
       ]
     },
