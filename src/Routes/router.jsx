@@ -51,6 +51,17 @@ import SinusitisForm from "../Pages/BodyClaims/SinusitisForm/SinusitisForm";
 import GastrointestinalForm from "../Pages/BodyClaims/Gastrointestinal/GastrointestinalForm";
 import TinnitusHearingLossForm from "../Pages/BodyClaims/TinnitusHearing/TinnitusHearingLossForm";
 import OthersIssues from "../Pages/BodyClaims/OthersIssue";
+import AdminLogin from "../Pages/AdminLogin/AdminLogin";
+import Recovery from "../Pages/AdminLogin/Recovery";
+import PasswordRecovery from "../Pages/AdminLogin/PasswordRecovery";
+import Dashboard from "../Pages/AdminDashboard/Dashboard";
+import Admin_home from "../Pages/AdminDashboard/Admin_home";
+import UserManagment from "../Pages/AdminDashboard/UserManagment";
+import FormView from "../Pages/AdminDashboard/FormView";
+import Payment from "../Pages/AdminDashboard/Payment";
+import Document from "../Pages/AdminDashboard/Document";
+import Submission from "../Pages/AdminDashboard/Submission";
+import Notification from "../Pages/AdminDashboard/Notification";
   
 export const router = createBrowserRouter([
     {
@@ -147,8 +158,33 @@ export const router = createBrowserRouter([
     {
       path: "/success",
       element: <SuccessAuthentication/>
+    },
+
+
+
+
+
+    //admin login
+
+    {path: '/admin_login', element: <AdminLogin/>  },
+    {path: '/recovery', element : <Recovery/>},
+    {path: '/recovery_password', element: <PasswordRecovery/>},
+
+
+
+    {
+      path: "admin",
+      element: <Dashboard/>,
+      children: [
+        {index: true, element: <Admin_home/>},
+        {path:"admin_home", element: <Admin_home/>},
+        {path:"users", element: <UserManagment/>},
+        {path: "forms", element: <FormView/>},
+        {path: "payment", element: <Payment/>},
+        {path: "document", element: <Document/>},
+        {path: "submission", element: <Submission/>},
+        {path: "notification", element: <Notification/>},
+      ] 
     }
-
-
 
   ]);
