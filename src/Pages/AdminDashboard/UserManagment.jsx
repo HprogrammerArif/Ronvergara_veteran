@@ -181,7 +181,7 @@ export default function UserManagement() {
   }, [isModalOpen])
 
   return (
-    <div className="p-4 md:p-6 bg-gray-50 min-h-screen">
+    <div className="  bg-gray-50 min-h-screen">
       {/* Page Title */}
       <h1 className="text-2xl font-bold text-gray-800 mb-6">User Management</h1>
 

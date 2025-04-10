@@ -62,6 +62,7 @@ import Payment from "../Pages/AdminDashboard/Payment";
 import Document from "../Pages/AdminDashboard/Document";
 import Submission from "../Pages/AdminDashboard/Submission";
 import Notification from "../Pages/AdminDashboard/Notification";
+import Profile from "../Pages/AdminDashboard/Profile";
   
 export const router = createBrowserRouter([
     {
@@ -184,6 +185,7 @@ export const router = createBrowserRouter([
         {path: "document", element: <Document/>},
         {path: "submission", element: <Submission/>},
         {path: "notification", element: <Notification/>},
+        {path: "profile", element: <Profile/>}
       ] 
     }
 

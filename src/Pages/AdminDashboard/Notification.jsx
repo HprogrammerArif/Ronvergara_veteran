@@ -53,7 +53,7 @@ const notificationsData = [
 
 export default function Notification() {
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className=" bg-gray-50 min-h-screen">
       {notificationsData.map((group, index) => (
         <div key={index} className="mb-6">
           {/* Group Header */}

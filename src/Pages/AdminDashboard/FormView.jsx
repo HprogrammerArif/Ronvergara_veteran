@@ -65,7 +65,7 @@ export default function FormView() {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className=" bg-gray-50 min-h-screen">
       {/* Header with Search and Filter */}
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-4">
