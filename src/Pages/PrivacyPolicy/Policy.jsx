@@ -19,7 +19,7 @@ const Policy = () => {
       {/* Content Container with Glassmorphism */}
       <div className="relative z-10 flex items-center min-h-screen p-6 md:p-12">
         <div 
-          className="max-w-4xl p-8 rounded-2xl "
+          className="container mx-auto rounded-2xl "
         >
           {/* Heading */}
           <div className="text-4xl md:text-5xl font-bold text-white">
@@ -36,7 +36,7 @@ const Policy = () => {
 
 
     {/* text */}
-    <div  className='mx-16 py-20'>
+    <div  className='container mx-auto py-20'>
         <div>
         <h1 className='text-[40px] font-bold'>Information We Collect</h1>
         <p className='text-[20px] font-semibold mb-10 '>Information You Provide to Us</p>

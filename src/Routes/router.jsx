@@ -66,6 +66,7 @@ import PrivacyPolicy from "../Pages/AdminDashboard/PrivacyPolicy";
 import TermsConditions from "../Pages/AdminDashboard/TermsConditions";
 import Policy from "../Pages/PrivacyPolicy/Policy";
 import Calculator from "../Pages/Calculator/Calculator";
+import AboutUs from "../Pages/AboutUs/AboutUs";
   
 export const router = createBrowserRouter([
     {
@@ -84,6 +85,8 @@ export const router = createBrowserRouter([
             {path: '/confirmation', element: <GreatConfirmation/>},
             {path: '/policy', element: <Policy/>},
             {path: '/calculator', element: <Calculator/>},
+            {path: '/about_us', element: <AboutUs/>},
+
 
 
             //mental-health-info

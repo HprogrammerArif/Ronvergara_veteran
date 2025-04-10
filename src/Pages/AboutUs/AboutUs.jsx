@@ -1,0 +1,94 @@
+import React from 'react'
+import vetern from "../../assets/vetern.png"
+import client from "../../assets/client.png"
+import confidence from "../../assets/confidence.png"
+import bar from "../../assets/bar.png"
+
+
+const AboutUs = () => {
+  return (
+   <section>
+     <div className="relative w-full">
+    {/* Background Image */}
+    <div 
+      className="absolute inset-0 bg-cover bg-center "
+      style={{
+        backgroundImage: `url('https://i.ibb.co.com/4gdCfshT/male-soldier-pressing-index-finger-invisible-screen.png')`,
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60"></div>
+    </div>
+
+    {/* Content Container with Glassmorphism */}
+    <div className="relative z-10 flex items-center min-h-screen p-6 md:p-12">
+      <div 
+        className="container mx-auto rounded-2xl "
+      >
+        {/* Heading */}
+        <div className="text-4xl md:text-5xl font-bold text-white">
+<h1 className='w-2/3'>        Dedicated to Simplifying <br /> the VA Process for <br /> Veterans
+</h1>
+        </div>
+
+        {/* Description */}
+        <p className="text-white/90 text-md mt-10 leading-relaxed w-2/3">
+        At VA, your privacy is our priority. We collect only the necessary personal information you provide and use it solely to fulfill your requests. This page outlines our website’s privacy policy, detailing how we collect, store, use, and share your data. You’ll also find important information about your rights and our compliance with federal regulations and user agreements."
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div className='container mx-auto md:py-32'>
+           <div className='md:flex items-center md:gap-32'>
+
+                <div className='basis-4/12 w-2/3 md:w-full mx-auto'>
+                    <img src={vetern} alt="" />
+                </div>
+
+                <div className='basis-8/12'>
+                    <h1 className='text-2xl text-center md:text-start mt-5 md:mt-0 uppercase md:text-4xl font-bold text-gray-900 md:pb-20 pb-10'>Why Veterans Trust VAC</h1>
+<div className='md:space-y-10 space-y-8 px-5'>
+
+                    <div className='flex items-start md:gap-10 gap-5'>
+                       <div className='bg-[#0A3161] p-3 px-4 rounded-md'>
+                         <img src={client} alt="" className='md:w-[67px] md:h-[67px] h-[40px] w-[40px]'/>
+                       </div>
+                        <div className='md:w-3/4 w-full'>
+                            <h1 className='uppercase md:text-2xl text-lg font-semibold text-gray-900 mb-2'>unmatched experience</h1>
+                            <p className='text-sm md:text-base'>With decades of experience, we’ve helped thousands of veterans secure their benefits. No case is too complex for our team.</p>
+                        </div>
+                    </div>
+
+                       <div className='flex items-start md:gap-10 gap-5'>
+                       <div className='bg-[#0A3161] p-3 px-4 rounded-md'>
+                         <img src={confidence} alt="" className='md:w-[67px] md:h-[67px] h-[40px] w-[40px]'/>
+                       </div>
+                        <div className='md:w-3/4 w-full'>
+                            <h1 className='uppercase md:text-2xl text-lg font-semibold text-gray-900 mb-2'>Turn Your Disabilities Into Possibilities</h1>
+                            <p className='text-sm md:text-base'>We transform the challenges of navigating the VA system into a clear path toward the benefits you deserve.</p>
+                        </div>
+                    </div>
+
+                       <div className='flex items-start md:gap-10 gap-5'>
+                       <div className='bg-[#0A3161] p-3 px-4 rounded-md'>
+                         <img src={bar} alt="" className='md:w-[67px] md:h-[67px] h-[40px] w-[40px]'/>
+                       </div>
+                        <div className='md:w-3/4 w-full'>
+                            <h1 className='uppercase text-2xl font-semibold text-gray-900 mb-2'>100% Success Rate</h1>
+                            <p className='text-sm md:text-base'>We’ve never failed to achieve our clients’ goals. Every veteran we’ve worked with has seen results.</p>
+                        </div>
+                    </div>
+</div>
+                    
+
+
+                </div>
+            
+           </div>
+        </div>
+   </section>
+  )
+}
+
+export default AboutUs
