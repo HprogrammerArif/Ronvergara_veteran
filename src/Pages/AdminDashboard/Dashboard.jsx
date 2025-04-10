@@ -26,18 +26,18 @@ export default function Dashboard() {
         { 
           name: "Settings",
           icon: <IoMdSettings size={20} />, 
-          path: "/dashboard/settings",
+          path: "/admin/settings",
           submenu: true,
           children: [
             {
               name: "Privacy Policy",
               icon: null,
-              path: "/dashboard/settings/privacy_policy",
+              path: "/admin/settings/privacy_policy",
             },
             {
               name: "Terms & Conditions",
               icon: null,
-              path: "/dashboard/settings/terms_conditions",
+              path: "/admin/settings/terms_conditions",
             },
           ]
         },
@@ -76,101 +76,107 @@ export default function Dashboard() {
       <aside
         className={`${
           isCollapsed ? "w-20" : "w-76"
-        } bg-white border-r border-gray-200 transition-all duration-500 ease-in-out`}
+        } bg-[#0A3161] border-r border-gray-200 transition-all duration-500 ease-in-out`}
       >
-        <div className="h-16 pt-20 flex items-center justify-center px-4">
+        <div className="h-16 pt-20 flex items-center justify-center px-4 ">
           <div className="flex items-center justify-center gap-2">
-            <div
+            <Link 
+            to="/"
               className={`transform transition-all duration-500 ${
                 isCollapsed ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0"
               }`}
             >
-              <img src="https://i.ibb.co.com/gZzqW3Bc/Logo1-1.png" alt="Logo" />
-            </div>
+              <img src="https://i.ibb.co.com/RZzJHnG/Group-2147225243.png"  alt="Logo" className="h-[130px] w-[120px] " />
+            </Link>
           </div>
         </div>
 
-        <nav className="p-4 md:mt-20">
-          {menuItems.map((section, idx) => (
-            <div key={idx} className="mb-8">
-              <ul className="space-y-2">
-                {section.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="w-full">
-                    {item.submenu ? (
-                      <div className="dropdown">
-                        <div tabIndex={0} role="button">
-                          <div
-                            className={`flex items-center w-[260px]  gap-3 px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-100 group relative ${
-                              selectedItem === item.name ? "bg-gray-200 text-gray-900 font-semibold" : ""
-                            }`}
-                          >
-                            <span
-                              className={`group-hover:text-gray-700 transition-colors duration-300 ${
-                                selectedItem === item.name ? "text-gray-900" : "text-gray-500"
-                              }`}
-                            >
-                              {item.icon}
-                            </span>
-                            <span
-                              className={`transform transition-all duration-500 ${
-                                isCollapsed ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0"
-                              } whitespace-nowrap`}
-                            >
-                              {item.name}
-                            </span>
-                          </div>
-                        </div>
-                        {!isCollapsed && (
-                          <ul tabIndex={0} className="dropdown-content ms-5 menu p-2 shadow bg-base-100 rounded-box w-[210px] mt-1 z-50">
-                            {item.children.map((child, childIdx) => (
-                              <li key={childIdx}>
-                                <Link
-                                  to={child.path}
-                                  onClick={() => handleItemClick(child.name, child.path)}
-                                  className={`flex items-center gap-2 px-3 py-2 my-1 ${
-                                    location.pathname === child.path 
-                                      ? "bg-gray-200 text-gray-900 font-semibold" 
-                                      : "text-gray-700 hover:bg-gray-100"
-                                  }`}
-                                >
-                                  {child.icon}
-                                  {child.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    ) : (
-                      <Link
-                        to={item.path}
-                        onClick={() => handleItemClick(item.name, item.path)}
-                        className={`flex items-center gap-3 px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-100 group relative ${
-                          selectedItem === item.name ? "bg-gray-200 text-gray-900 font-semibold" : ""
-                        }`}
-                      >
-                        <span
-                          className={`group-hover:text-gray-700 transition-colors duration-300 ${
-                            selectedItem === item.name ? "text-gray-900" : "text-gray-500"
+  
+     <nav className="p-4 md:mt-20 pt-10">
+  {menuItems.map((section, idx) => (
+    <div key={idx} className="mb-8">
+      <ul className="space-y-2">
+        {section.items.map((item, itemIdx) => (
+          <li key={itemIdx} className="w-full">
+            {item.submenu ? (
+              <div className="dropdown">
+                <div tabIndex={0} role="button">
+                  <div
+                    className={`flex items-center w-[260px] gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 group relative transition-all duration-300 ${
+                      selectedItem === item.name ? "bg-gray-200 font-semibold" : ""
+                    }`}
+                  >
+                    <span
+                      className={`group-hover:text-gray-700 transition-colors duration-300 ${
+                        selectedItem === item.name ? "text-[#0A3161]" : "text-white"
+                      }`}
+                    >
+                      {item.icon}
+                    </span>
+                    <span
+                      className={`transform transition-all duration-500 ${
+                        isCollapsed ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0"
+                      } whitespace-nowrap group-hover:text-gray-700 ${
+                        selectedItem === item.name ? "text-[#0A3161]" : "text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                  </div>
+                </div>
+                {!isCollapsed && (
+                  <ul tabIndex={0} className="dropdown-content ms-5 menu p-2 shadow bg-base-100 rounded-box w-[210px] mt-1 z-50">
+                    {item.children.map((child, childIdx) => (
+                      <li key={childIdx}>
+                        <Link
+                          to={child.path}
+                          onClick={() => handleItemClick(child.name, child.path)}
+                          className={`flex items-center gap-2 px-3 py-2 my-1 transition-all duration-300 ${
+                            location.pathname === child.path 
+                              ? "bg-gray-200 text-[#0A3161] font-semibold" 
+                              : "text-gray-700 hover:bg-gray-100"
                           }`}
                         >
-                          {item.icon}
-                        </span>
-                        <span
-                          className={`transform transition-all duration-500 ${
-                            isCollapsed ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0"
-                          } whitespace-nowrap`}
-                        >
-                          {item.name}
-                        </span>
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </nav>
+                          {child.icon}
+                          {child.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <Link
+                to={item.path}
+                onClick={() => handleItemClick(item.name, item.path)}
+                className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 group relative transition-all duration-300 ${
+                  selectedItem === item.name ? "bg-gray-200 font-semibold" : ""
+                }`}
+              >
+                <span
+                  className={`group-hover:text-gray-700 transition-colors duration-300 ${
+                    selectedItem === item.name ? "text-[#0A3161]" : "text-white"
+                  }`}
+                >
+                  {item.icon}
+                </span>
+                <span
+                  className={`transform transition-all duration-500 ${
+                    isCollapsed ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0"
+                  } whitespace-nowrap group-hover:text-gray-700 ${
+                    selectedItem === item.name ? "text-[#0A3161]" : "text-white"
+                  }`}
+                >
+                  {item.name}
+                </span>
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</nav>
       </aside>
 
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -205,8 +211,8 @@ export default function Dashboard() {
                   />
                 </div>
                 <div>
-                  <h2 className="font-bold">Admin</h2>
-                  <p className="text-gray-900">admin@hn.com</p>
+                  <h2 className="font-bold text-[14px]">Admin</h2>
+                  <p className="text-gray-900 text-[13px]">admin@hn.com</p>
                 </div>
                 <div className="dropdown dropdown-end">
                   <div tabIndex={0} role="button">

@@ -65,7 +65,7 @@ const Profile = () => {
               alt="Profile"
               className="w-32 h-32 rounded-full border-2 border-gray-900"
             />
-            <span className="absolute bottom-1 right-2 border border-gray-900 bg-gray-900 hover:bg-gray-900 text-white rounded-full p-1">
+            <span className="absolute bottom-1 right-2 border border-[#0A3161] bg-gray-900 hover:bg-gray-900 text-white rounded-full p-1">
               
                <CiEdit  size={22} className="flex  items-center justify-center mx-auto "/>
             

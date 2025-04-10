@@ -30,7 +30,6 @@ import AbuseOfPowerDetails from "../Pages/MentalHealth/AbuseOfPowerDetails";
 import DangerousItemsDetails from "../Pages/MentalHealth/DangerousItemsDetails";
 import FamilialIssuesDetails from "../Pages/MentalHealth/FamilialIssuesDetails";
 import ConfirmMentalHealth from "../Pages/MentalHealth/ConfirmMentalHealth";
-import MentalHealthDetails from "../Pages/MentalHealth/MentailHealthDetails";
 import MentalHealthSymptoms from "../Pages/MentalHealth/MentalHealthSymptoms";
 import MentalHealthIndicators from "../Pages/MentalHealth/MentalHealthIndicators";
 import Issues from "../Pages/Selected_Issue/Issues";
@@ -63,6 +62,10 @@ import Document from "../Pages/AdminDashboard/Document";
 import Submission from "../Pages/AdminDashboard/Submission";
 import Notification from "../Pages/AdminDashboard/Notification";
 import Profile from "../Pages/AdminDashboard/Profile";
+import PrivacyPolicy from "../Pages/AdminDashboard/PrivacyPolicy";
+import TermsConditions from "../Pages/AdminDashboard/TermsConditions";
+import Policy from "../Pages/PrivacyPolicy/Policy";
+import Calculator from "../Pages/Calculator/Calculator";
   
 export const router = createBrowserRouter([
     {
@@ -79,6 +82,9 @@ export const router = createBrowserRouter([
             {path: '/agent_location', element: <AgentOrangeLocationsForm/>},
             {path: '/toxin_exposure', element: <ToxinExposureForm/>},
             {path: '/confirmation', element: <GreatConfirmation/>},
+            {path: '/policy', element: <Policy/>},
+            {path: '/calculator', element: <Calculator/>},
+
 
             //mental-health-info
             {path: '/mental_health_info', element: <MentalHealthForm/>},
@@ -184,6 +190,8 @@ export const router = createBrowserRouter([
         {path: "payment", element: <Payment/>},
         {path: "document", element: <Document/>},
         {path: "submission", element: <Submission/>},
+        {path: "settings/privacy_policy", element: <PrivacyPolicy/>},
+        {path: "settings/terms_conditions", element: <TermsConditions/>},
         {path: "notification", element: <Notification/>},
         {path: "profile", element: <Profile/>}
       ] 
