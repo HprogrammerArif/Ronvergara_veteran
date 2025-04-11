@@ -68,6 +68,8 @@ import Policy from "../Pages/PrivacyPolicy/Policy";
 import Calculator from "../Pages/Calculator/Calculator";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Auto_Narative_Video from "../Pages/Auto_Narative/Auto_Narative_Video";
+import VaSubcription from "../Pages/Auto_Narative/VaSubcription";
+import Pricing_Plan from "../Pages/Home/Pricing_Plan";
   
 export const router = createBrowserRouter([
     {
@@ -78,6 +80,8 @@ export const router = createBrowserRouter([
             {path: '/dd_214_info', element: <Dd_214 />},
             {path: '/narrative', element: <Auto_Narative/>},
             {path: '/video', element: <Auto_Narative_Video/>},
+            {path: '/subscription', element: <VaSubcription/>},
+            {path: '/plan', element: <Pricing_Plan/>},
             {path: '/veteran_information', element: <Veteran_Information />},
             {path: '/issues', element: <Issues/>},
             {path: '/issue_details', element: <IssueDetailsForm/>},
