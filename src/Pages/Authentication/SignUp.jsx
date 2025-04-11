@@ -12,8 +12,8 @@ const SignUp     = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#0A3161] text-white p-4">
       <form onSubmit={handleSubmit(onSubmit)} className="md:p-8 rounded-lg md:shadow-lg w-full md:max-w-lg">
-        <h2 className="md:text-4xl text-3xl font-bold text-start mb-4">Create Account</h2>
-        <p className="text-start text-gray-200 md:mb-16 mb-8 md:text-base">Please enter information and click the button. We will send an email with a verification code for you to enter.</p>
+        <h2 className="md:text-4xl text-3xl font-bold text-center mb-4">Create Account</h2>
+        <p className="text-center text-gray-200 md:mb-16 mb-8 md:text-base">Please enter information and click the button. We will send an email with a verification code for you to enter.</p>
 
         {/* Name */}
         <div className="mb-4">
@@ -76,7 +76,7 @@ const SignUp     = () => {
         </button>
 
         {/* Login Link */}
-        <div className="mt-4 text-end">
+        <div className="mt-4 text-center">
           <p className="text-base ">
             Already have an account? 
             <Link to="/login" className="text-[#B31942] font-semibold"> Login</Link>

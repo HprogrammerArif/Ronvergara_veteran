@@ -67,6 +67,7 @@ import TermsConditions from "../Pages/AdminDashboard/TermsConditions";
 import Policy from "../Pages/PrivacyPolicy/Policy";
 import Calculator from "../Pages/Calculator/Calculator";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import Auto_Narative_Video from "../Pages/Auto_Narative/Auto_Narative_Video";
   
 export const router = createBrowserRouter([
     {
@@ -76,6 +77,7 @@ export const router = createBrowserRouter([
             {path: '/', element: <Home/>},
             {path: '/dd_214_info', element: <Dd_214 />},
             {path: '/narrative', element: <Auto_Narative/>},
+            {path: '/video', element: <Auto_Narative_Video/>},
             {path: '/veteran_information', element: <Veteran_Information />},
             {path: '/issues', element: <Issues/>},
             {path: '/issue_details', element: <IssueDetailsForm/>},
