@@ -70,6 +70,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Auto_Narative_Video from "../Pages/Auto_Narative/Auto_Narative_Video";
 import VaSubcription from "../Pages/Auto_Narative/VaSubcription";
 import Pricing_Plan from "../Pages/Home/Pricing_Plan";
+import ContactForm from "../Pages/Home/ContactForm";
   
 export const router = createBrowserRouter([
     {
@@ -92,6 +93,7 @@ export const router = createBrowserRouter([
             {path: '/policy', element: <Policy/>},
             {path: '/calculator', element: <Calculator/>},
             {path: '/about_us', element: <AboutUs/>},
+            {path: '/contact', element: <ContactForm/>},
 
 
 
