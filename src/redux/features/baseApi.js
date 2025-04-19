@@ -26,14 +26,23 @@ export const baseApi = createApi({
 
 
         //loggedIn user
-
         loggedInUser: builder.mutation({
             query: (userData) =>({
                 url: "api/auth/login/",
                 method: "POST",
                 body: userData
             })
+        }),
+
+        // forget password
+        forgetPassword: builder.mutation({
+            query: (email)=>({
+                url: "api/auth/otp/create/",
+                method: "POST",
+                body: email
+            })
         })
+
         
 
 
@@ -47,5 +56,9 @@ export const {
 
     //loggedUser
     useLoggedInUserMutation,
+
+    //forget password
+    useForgetPasswordMutation,
+
 
 } = baseApi;

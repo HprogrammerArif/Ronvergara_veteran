@@ -62,15 +62,25 @@
 // export default OTPVerification;
 
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const OTPVerification = () => {
-const [otp, setOtp] = useState(new Array(6).fill(""));
-const [otpVerify, setOTPVerify] = useState(false);
-
+  const [otp, setOtp] = useState(new Array(6).fill(""));
+  const [otpVerify, setOTPVerify] = useState(false);
+  const [email, setEmail] = useState(""); // State to store email
   const inputRefs = useRef([]);
   const navigate = useNavigate();
+
+  // Retrieve email from localStorage when component mounts
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("email");
+    if (storedEmail) {
+      setEmail(storedEmail);
+    } else {
+      console.warn("No email found in localStorage");
+    }
+  }, []);
 
   const handleChange = (e, index) => {
     const value = e.target.value.replace(/[^0-9]/g, ""); // Allow only numbers
@@ -104,21 +114,23 @@ const [otpVerify, setOTPVerify] = useState(false);
     if (e) e.preventDefault();
     if (otp.join("").length === 6) {
       console.log("OTP Entered:", otp.join(""));
-      setOTPVerify(true)
-      setTimeout(()=>navigate("/reset_password"), 1500);
+      setOTPVerify(true);
+      setTimeout(() => navigate("/reset_password"), 1500);
     }
   };
 
   const handleResend = () => {
     console.log("Resend Code Triggered");
+    // Optionally, re-trigger the forgetPassword mutation here with the stored email
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#0B2A52] text-white">
       <div className="max-w-md w-full p-4 md:px-0">
-        <h2 className="text-3xl font-bold mb-2 text-start ">Account Verification</h2>
+        <h2 className="text-3xl font-bold mb-2 text-start">Account Verification</h2>
         <p className="text-sm text-gray-300 mb-10 text-start">
-          Enter the code sent to <span className="font-semibold text-white">user@example.com</span>
+          Enter the code sent to{" "}
+          <span className="font-semibold text-white">{email || "user@example.com"}</span>
         </p>
 
         <form onSubmit={handleSubmit} className="flex md:gap-4 gap-2 justify-between mb-6">
@@ -146,9 +158,9 @@ const [otpVerify, setOTPVerify] = useState(false);
 
         <p className="mt-4 text-gray-300 text-end">
           Did not receive code?{" "}
-          <Link onClick={handleResend} className="text-[#B31942] font-semibold cursor-pointer">
+          <span onClick={handleResend} className="text-[#B31942] font-semibold cursor-pointer">
             Resend
-          </Link>
+          </span>
         </p>
       </div>
     </div>
