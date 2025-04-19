@@ -115,6 +115,8 @@ const SignUp = () => {
    
     const { name, email, password } = data;
     const userData = { name, email, password, role: 'user' };
+    
+    localStorage.setItem("email", userData?.email);
 
     try {
       const response = await createUser(userData).unwrap();

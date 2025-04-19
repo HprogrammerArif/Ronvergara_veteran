@@ -1,12 +1,31 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLoggedInUserMutation } from '../../redux/features/baseApi';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate()
+  const [loggedInUser] = useLoggedInUserMutation()
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const {email, password } = data;
+    const userData = { email, password, role: 'user' };
+
+    try {
+      const response = await loggedInUser(userData).unwrap();
+      console.log("login-response", response);
+
+      const access_token = localStorage.setItem("access_token", access_token);
+      const refresh_token = localStorage.setItem("refresh_token", refresh_token);
+
+      navigate("/")
+      
+    } catch (error) {
+      console.log("error", error)
+    }
+
+
   };
 
   return (
