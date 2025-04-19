@@ -41,7 +41,26 @@ export const baseApi = createApi({
                 method: "POST",
                 body: email
             })
-        })
+        }),
+
+        //otpVerification
+        otpVerification: builder.mutation({
+                query: ({email,otp}) =>({
+                    url: "api/auth/otp/verify/",
+                    method: "POST",
+                    body: {email, otp }  
+                })
+            }), 
+
+        //resetPassword
+        resetPassword: builder.mutation({
+            query: (payload) =>({
+                url: "api/auth/password-reset/confirm/",
+                method: "POST",
+                body: payload
+            })
+        }),
+    
 
         
 
@@ -60,5 +79,10 @@ export const {
     //forget password
     useForgetPasswordMutation,
 
+    //otpVerification
+    useOtpVerificationMutation,
+
+    //resetpassword
+    useResetPasswordMutation,
 
 } = baseApi;
