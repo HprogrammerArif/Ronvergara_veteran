@@ -71,6 +71,7 @@ import Auto_Narative_Video from "../Pages/Auto_Narative/Auto_Narative_Video";
 import VaSubcription from "../Pages/Auto_Narative/VaSubcription";
 import Pricing_Plan from "../Pages/Home/Pricing_Plan";
 import ContactForm from "../Pages/Home/ContactForm";
+import Verify_OTP from "../Pages/AdminLogin/Verify_OTP";
   
 export const router = createBrowserRouter([
     {
@@ -186,6 +187,10 @@ export const router = createBrowserRouter([
 
     {path: '/admin_login', element: <AdminLogin/>  },
     {path: '/recovery', element : <Recovery/>},
+    {
+      path: "/verify_otp",
+      element: <Verify_OTP/>
+    },
     {path: '/recovery_password', element: <PasswordRecovery/>},
 
 

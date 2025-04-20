@@ -234,7 +234,7 @@ const AdminLogin = () => {
       localStorage.setItem('refresh_token', response?.refresh_token);
       console.log('admin res', response);
 
-      // Keep loading state active during delay
+     
       setTimeout(() => {
         setIsSubmitting(false); // Stop loading
         navigate('/admin'); // Navigate to admin route

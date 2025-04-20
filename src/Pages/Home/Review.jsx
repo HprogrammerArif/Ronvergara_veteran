@@ -234,7 +234,7 @@ const Review = () => {
 
         {/* Video Slider */}
         <div className="relative px-2 sm:px-4 md:px-12">
-          <div ref={sliderRef} className="keen-slider md:min-h-[500px] min-h-[400px]">
+          <div ref={sliderRef} className="keen-slider md:min-h-[500px] min-h-[40s0px]">
             {videos.map((video) => (
               <div key={video.id} className="keen-slider__slide p-3">
                 <div className="bg-white shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl group">
