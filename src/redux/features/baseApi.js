@@ -34,6 +34,13 @@ export const baseApi = createApi({
             })
         }),
 
+        //getLoggedUser
+        getLoggedUser: builder.query({
+            query: ()=>"api/auth/profile/"
+        }),
+
+
+
         // forget password
         forgetPassword: builder.mutation({
             query: (email)=>({
@@ -75,6 +82,9 @@ export const {
 
     //loggedUser
     useLoggedInUserMutation,
+
+    //pertifucal user
+    useGetLoggedUserQuery,
 
     //forget password
     useForgetPasswordMutation,
