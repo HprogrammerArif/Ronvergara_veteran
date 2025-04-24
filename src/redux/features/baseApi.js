@@ -67,6 +67,21 @@ export const baseApi = createApi({
                 body: payload
             })
         }),
+
+        //subcription
+        getPlans: builder.query({
+            query: ()=>"/api/payment/get_all/subscribtions-plan/"
+        })
+        //va form start
+
+        //vainformation
+        // verternInfo: builder.mutation({
+        //     query: (vaData) =>({
+        //         url: "api/va/vaform/submit/",
+        //         method: "POST",
+        //         body: vaData
+        //     })
+        // })
     
 
         
@@ -94,5 +109,11 @@ export const {
 
     //resetpassword
     useResetPasswordMutation,
+
+    //get plans
+    useGetPlansQuery,
+
+    // vainfo
+    useVerternInfoMutation,
 
 } = baseApi;
