@@ -3,12 +3,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { useVerternInfoMutation } from '../../redux/features/baseApi';
+// import { useVerternInfoMutation } from '../../redux/features/baseApi';
 
 function Veteran_Information() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   // const [formData, setFormData] = React.useState(null);
-  const [verternInfo, {isLoading}] = useVerternInfoMutation()
+  // const [verternInfo, {isLoading}] = useVerternInfoMutation()
   const nagivate = useNavigate();
 
   const onSubmit = async (vaData) => {
@@ -17,13 +17,13 @@ function Veteran_Information() {
     
     localStorage.setItem('vaDataInfo', JSON.stringify(vaData));
 
-    try {
-      const response = await verternInfo(vaData).unwrap();
-      console.log(response, "response from server")
-      // nagivate('/issues'); 
-    } catch (error) {
-      console.log("error sending data", error)
-    }
+    // try {
+    //   const response = await verternInfo(vaData).unwrap();
+    //   console.log(response, "response from server")
+    //   // nagivate('/issues'); 
+    // } catch (error) {
+    //   console.log("error sending data", error)
+    // }
 
   };
 

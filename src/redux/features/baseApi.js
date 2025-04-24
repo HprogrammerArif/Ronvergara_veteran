@@ -71,6 +71,15 @@ export const baseApi = createApi({
         //subcription
         getPlans: builder.query({
             query: ()=>"/api/payment/get_all/subscribtions-plan/"
+        }),
+
+        //payment
+        paymentCheckout: builder.mutation({
+            query: (payload) =>({
+                url: "api/payment/create-checkout-session/",
+                method: "POST",
+                body: payload
+            })
         })
         //va form start
 
@@ -113,7 +122,10 @@ export const {
     //get plans
     useGetPlansQuery,
 
+    //paymentCheckout
+    usePaymentCheckoutMutation,
+
     // vainfo
-    useVerternInfoMutation,
+    // useVerternInfoMutation,
 
 } = baseApi;

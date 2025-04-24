@@ -72,6 +72,8 @@ import VaSubcription from "../Pages/Auto_Narative/VaSubcription";
 import Pricing_Plan from "../Pages/Home/Pricing_Plan";
 import ContactForm from "../Pages/Home/ContactForm";
 import Verify_OTP from "../Pages/AdminLogin/Verify_OTP";
+import Payment_Success from "../Pages/PaymentStatus/Payment_Success";
+import Payment_Error from "../Pages/PaymentStatus/Payment_Error";
   
 export const router = createBrowserRouter([
     {
@@ -146,7 +148,13 @@ export const router = createBrowserRouter([
             {path: '/tinnitus_hearing_loss', element: <TinnitusHearingLossForm/>},
 
             //others
-            {path: '/others', element: <OthersIssues/>}
+            {path: '/others', element: <OthersIssues/>},
+
+
+            //payment success
+
+            {path: '/payment_success', element: <Payment_Success/>},
+            {path: '/payment_cancel', element: <Payment_Error/>},
 
 
 

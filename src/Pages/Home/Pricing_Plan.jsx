@@ -1,24 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useGetPlansQuery } from "../../redux/features/baseApi";
+import { useGetPlansQuery, usePaymentCheckoutMutation } from "../../redux/features/baseApi";
 
 const Pricing_Plan = () => {
 
 const {data:plans} = useGetPlansQuery();
 console.log(plans)
 
-  // const plans = [
-  //   {
-  //     name: "Monthly",
-  //     price: "$6.50",
-  //     features: ["Exempel", "Exempel", "Exempel", "Exempel", "Exempel", "Exempel", "Exempel"],
-  //   },
-  //   {
-  //     name: "Feature",
-  //     price: "$9.50",
-  //     features: ["Exempel", "Exempel", "Exempel", "Exempel", "Exempel", "Exempel", "Exempel"],
-  //   },
-  // ];
+const [paymentCheckout] = usePaymentCheckoutMutation()
+
+
+const handleSubcription = async (data) =>{
+console.log(data)
+
+const payload = {
+  plan_name: data?.name,
+  price_id: data?.price_id,
+  duration_type: data?.duration_type,
+}
+
+console.log("payload", payload)
+
+try {
+  const response = await paymentCheckout(payload).unwrap();
+  console.log(response?.checkout_url);
+  window.location.href = response?.checkout_url;
+
+} catch (error) {
+  console.log("subcription error", error)
+}
+
+
+}
+
 
   return (
    <section className="bg-gray-200 md:p-20 p-5">
@@ -51,12 +64,13 @@ console.log(plans)
      
       
        <div className="mt-auto pt-10">
-         <Link
-           to="/veteran_information"
+         <button
+          //  to="/veteran_information"
+          onClick={()=>handleSubcription(plan)}
            className="bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-700 transition duration-300"
          >
            Get Started
-         </Link>
+         </button>
        </div>
      </div>
      
