@@ -1,121 +1,12 @@
-"use client"
 
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Search, Filter, MoreVertical, X, ChevronDown, User, FileText, Send } from "lucide-react"
+import { useGetUsersQuery } from "../../redux/features/baseApi"
 
-const usersData = [
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Inactive",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Inactive",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Inactive",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-  {
-    name: "John Smith",
-    email: "Pappyroy3956@gmail.com",
-    status: "Active",
-    role: "Veteran",
-    joinDate: "Jan 15, 2023",
-    submissions: 3,
-    address: "123 Main St, Anytown, USA",
-    serviceHistory: "US Army, 2010-2018",
-    lastLogin: "Today, 10:42 AM",
-  },
-]
+
+
+
 
 export default function UserManagement() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -123,24 +14,22 @@ export default function UserManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("userDetails")
 
-  const filteredUsers = usersData.filter(
-    (user) =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
+
+  const {data:allUsers} = useGetUsersQuery();
+  console.log(allUsers?.subscriptions)
+
+ const userInfo = allUsers?.subscriptions
+
 
   const openModal = (user) => {
     setSelectedUser(user)
     setIsModalOpen(true)
-    // Add body class to prevent scrolling when modal is open
     document.body.classList.add("overflow-hidden")
   }
 
   const closeModal = () => {
     setIsModalOpen(false)
-    // Remove body class to allow scrolling again
     document.body.classList.remove("overflow-hidden")
-    // Delay clearing selected user to allow for smooth animation
     setTimeout(() => {
       setSelectedUser(null)
     }, 300)
@@ -203,13 +92,7 @@ export default function UserManagement() {
             <span>Filter</span>
           </button>
         </div>
-        <Link
-          to="/add-user"
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center w-full md:w-auto"
-        >
-          <span className="mr-2">Add User</span>
-          <ChevronDown className="h-4 w-4" />
-        </Link>
+      
       </div>
 
       {/* Table */}
@@ -222,21 +105,20 @@ export default function UserManagement() {
                 <th className="py-3 px-4 text-left">Account Status</th>
                 <th className="py-3 px-4 text-left">Role</th>
                 <th className="py-3 px-4 text-left">Join Date</th>
-                <th className="py-3 px-4 text-left">Submissions</th>
                 <th className="py-3 px-4 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
-              {filteredUsers.length > 0 ? (
-                filteredUsers.map((user, index) => (
+              {userInfo?.length > 0 ? (
+                userInfo?.map((user, index) => (
                   <tr
                     key={index}
                     className={`border-b hover:bg-gray-50 transition-colors ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
                   >
                     <td className="py-3 px-4">
                       <div>
-                        <p className="font-medium text-gray-800">{user.name}</p>
-                        <p className="text-sm text-gray-500">{user.email}</p>
+                        <p className="font-medium text-gray-800">{user.user?.user_profile?.name}</p>
+                        <p className="text-sm text-gray-500">{user.user?.email}</p>
                       </div>
                     </td>
                     <td className="py-3 px-4">
@@ -248,9 +130,9 @@ export default function UserManagement() {
                         {user.status}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-gray-700">{user.role}</td>
-                    <td className="py-3 px-4 text-gray-700">{user.joinDate}</td>
-                    <td className="py-3 px-4 text-gray-700">{user.submissions}</td>
+                    <td className="py-3 px-4 text-gray-700">{user?.user?.role}</td>
+                    <td className="py-3 px-4 text-gray-700">{user?.user?.user_profile?.joined_date}</td>
+                   
                     <td className="py-3 px-4 text-center">
                       <button
                         className="p-1 rounded-full hover:bg-gray-200 transition-colors"
@@ -270,6 +152,7 @@ export default function UserManagement() {
                 </tr>
               )}
             </tbody>
+           
           </table>
         </div>
 
@@ -279,7 +162,7 @@ export default function UserManagement() {
             <div>
               <p className="text-sm text-gray-700">
                 Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{" "}
-                <span className="font-medium">{filteredUsers.length}</span> results
+                {/* <span className="font-medium">{filteredUsers.length}</span> results */}
               </p>
             </div>
             <div>

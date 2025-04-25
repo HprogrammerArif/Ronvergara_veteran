@@ -80,7 +80,7 @@ export const baseApi = createApi({
                 method: "POST",
                 body: payload
             })
-        })
+        }),
         //va form start
 
         //vainformation
@@ -91,6 +91,17 @@ export const baseApi = createApi({
         //         body: vaData
         //     })
         // })
+
+
+
+
+
+        //adminDashboard
+
+        //userManagement
+        getUsers: builder.query({
+            query: ()=>"api/payment/get_all/subscribtions/"
+        })
     
 
         
@@ -127,5 +138,10 @@ export const {
 
     // vainfo
     // useVerternInfoMutation,
+
+
+
+    //admindashboard
+    useGetUsersQuery,
 
 } = baseApi;

@@ -15,3 +15,4 @@ const Payment_Error = () => {
 }
 
 export default Payment_Error
+
