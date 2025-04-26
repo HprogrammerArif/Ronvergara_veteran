@@ -1,27 +1,31 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ToxinExposureForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: {
-      exposures: {
-        asbestos: false,
-        shipboardHazardAndDefense: false,
-        mustard: false,
-        militaryOccupationalSpecialties: false,
-        radiation: false,
-        contaminatedWaterCampLejeune: false,
-        jetFuel: false,
-      },
-      otherToxins: '',
-      additionalDetails: '',
-    },
-  });
+  // const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors } } = useForm(
+    // {
+  //   defaultValues: {
+  //     exposures: {
+  //       asbestos: false,
+  //       shipboardHazardAndDefense: false,
+  //       mustard: false,
+  //       militaryOccupationalSpecialties: false,
+  //       radiation: false,
+  //       contaminatedWaterCampLejeune: false,
+  //       jetFuel: false,
+  //     },
+  //     otherToxins: '',
+  //     additionalDetails: '',
+  //   },
+  // }
+  );
 
   const onSubmit = (data) => {
     console.log(data);
-    alert('Form submitted successfully!');
+    // navigate('/confirmation')
+    // alert('Form submitted successfully!');
   };
 
   return (
@@ -37,7 +41,7 @@ function ToxinExposureForm() {
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                {...register('exposures.asbestos')}
+                {...register('ASBESTOS[0]')}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <span className="text-blue-800">Asbestos</span>
@@ -45,7 +49,7 @@ function ToxinExposureForm() {
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                {...register('exposures.shipboardHazardAndDefense')}
+                {...register('SHAD_Shipboard_Hazard_And_Defense[0]')}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <span className="text-blue-800">Shipboard Hazard And Defense (SHAD)</span>
@@ -53,7 +57,7 @@ function ToxinExposureForm() {
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                {...register('exposures.mustard')}
+                {...register('Mustard_Gas[0]')}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <span className="text-blue-800">Mustard </span>
@@ -61,7 +65,7 @@ function ToxinExposureForm() {
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                {...register('exposures.militaryOccupationalSpecialties')}
+                {...register('Military_Occupational_Specialty_MOS_Related_Toxin[0]')}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <span className="text-blue-800">Military Occupational Specialties (MOS) Related Toxin</span>
@@ -77,7 +81,7 @@ function ToxinExposureForm() {
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
-                {...register('exposures.contaminatedWaterCampLejeune')}
+                {...register('Contaminated_Water_At_Camp_Lejeune[0]')}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <span className="text-blue-800">Contaminated Water At Camp Lejeune</span>
@@ -99,7 +103,7 @@ function ToxinExposureForm() {
             </label>
             <input  
               type="text"
-              {...register('otherToxins')}
+              {...register('OTHER_Specify[0]')}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
             />
           </div>
@@ -110,7 +114,7 @@ function ToxinExposureForm() {
               Please provide additional details in the space below
             </label>
             <textarea
-              {...register('additionalDetails')}
+              {...register('OTHER_Specify[2]')}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
               rows="4"
             />
@@ -118,14 +122,14 @@ function ToxinExposureForm() {
 
           {/* Buttons */}
           <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10  pb-10 md:pb-0">
-                                       <button>
-                                        <Link
-                                            to="/confirmation"
+                                       <button
+                                       
+                                         
                                          type="submit"
                                          className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center"
                                        >
                                          Continue
-                                       </Link>
+                                   
                                        </button>
                                        <button
                                          type="button"
