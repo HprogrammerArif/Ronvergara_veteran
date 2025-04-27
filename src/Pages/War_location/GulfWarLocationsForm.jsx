@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function GulfWarLocationsForm() {
+  const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       locations: {
@@ -36,7 +37,8 @@ function GulfWarLocationsForm() {
 
   const onSubmit = (data) => {
     console.log(data);
-    alert('Form submitted successfully!');
+    navigate('/agent_location')
+ 
   };
 
   return (
@@ -247,7 +249,8 @@ function GulfWarLocationsForm() {
        <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10  pb-10 md:pb-0">
                      <button>
                       <Link
-                     to="/agent_location"
+                    //  to="/agent_location"
+                    onClick={handleSubmit(onSubmit)}
                        type="submit"
                        className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center"
                      >

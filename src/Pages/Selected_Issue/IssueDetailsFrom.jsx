@@ -231,26 +231,373 @@
 
 
 
+// okey code
+// import React from 'react';
+// import { useForm } from 'react-hook-form';
+// import { useLocation, useNavigate } from 'react-router-dom';
+
+// function IssueDetailsForm() {
+//   const { register, handleSubmit, formState: { errors }, watch } = useForm();
+//   const location = useLocation();
+//   const navigate = useNavigate(); 
+//   const { selectedConditions = [] } = location.state || {};
+
+//   const onSubmit = (data) => {
+//     console.log('Submitted Data:', data); 
+//     navigate('/gulf_war_location');
+//   };
+
+//   const renderLocationCheckboxes = (condition) => {
+//     const locationField = `${condition.toLowerCase().replace(/\s+/g, '')}Location`;
+//     const locationValues = watch(locationField) || {};
+
+//     React.useEffect(() => {
+//       const values = Object.values(locationValues);
+//       const checkedCount = values.filter(Boolean).length;
+
+//       if (checkedCount > 1) {
+//         Object.keys(locationValues).forEach((key) => {
+//           if (locationValues[key] && values.lastIndexOf(true) !== values.indexOf(true)) {
+//             locationValues[key] = false;
+//           }
+//         });
+//       }
+//     }, [locationValues]);
+
+//     return (
+//       <div className="flex items-center space-x-4">
+//         <label className="flex items-center space-x-2">
+//           <input
+//             type="checkbox"
+//             {...register(`${locationField}.left`)}
+//             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//           />
+//           <span className="text-blue-800">Left</span>
+//         </label>
+//         <label className="flex items-center space-x-2">
+//           <input
+//             type="checkbox"
+//             {...register(`${locationField}.right`)}
+//             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//           />
+//           <span className="text-blue-800">Right</span>
+//         </label>
+//         <label className="flex items-center space-x-2">
+//           <input
+//             type="checkbox"
+//             {...register(`${locationField}.both`)}
+//             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//           />
+//           <span className="text-blue-800">Both</span>
+//         </label>
+//       </div>
+//     );
+//   };
+
+//   return (
+//     <section className="md:mt-44 md:mb-10 mb-0 mt-28">
+//       <div className="min-h-screen bg-white flex justify-center items-center md:p-4 p-2">
+//         <div className="w-full max-w-4xl bg-white md:shadow-md rounded-lg md:p-6">
+//           <h1 className="md:text-2xl text-xl font-bold text-blue-800 mb-6 text-center">
+//             Provide detailed information regarding your selected issue(s).
+//           </h1>
+
+//           {selectedConditions.length === 0 ? (
+//             <p className="text-red-500 text-center">No conditions selected. Please go back and select at least one condition.</p>
+//           ) : (
+//             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+//               {selectedConditions.map((condition, index) => (
+//                 <div key={index} className="space-y-4">
+//                   <h2 className="md:text-xl font-semibold text-blue-800">
+//                     {index + 1}. {condition}
+//                   </h2>
+
+//                   {/* Location (if applicable, e.g., for pain-related conditions) */}
+//                   {(condition.toLowerCase().includes('pain') || condition === 'Ankle Pain' || condition === 'Arm Pain') && (
+//                     <div>
+//                       <label className="block text-sm font-medium text-gray-700">Location</label>
+//                       {renderLocationCheckboxes(condition)}
+//                       {errors[`${condition.toLowerCase().replace(/\s+/g, '')}Location`] && (
+//                         <span className="text-red-500 text-sm">Please select at least one location</span>
+//                       )}
+//                     </div>
+//                   )}
+
+//                   {/* When Did The Problem Start */}
+//                   <div>
+//                     <label className="block text-sm font-medium text-gray-700">
+//                       When Did The Problem Start?
+//                     </label>
+//                     <input
+//                       type="text"
+//                       {...register(`${condition.toLowerCase().replace(/\s+/g, '')}Start`, {
+//                         required: 'This field is required',
+//                       })}
+//                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+//                     />
+//                     {errors[`${condition.toLowerCase().replace(/\s+/g, '')}Start`] && (
+//                       <span className="text-red-500 text-sm">
+//                         {errors[`${condition.toLowerCase().replace(/\s+/g, '')}Start`]?.message}
+//                       </span>
+//                     )}
+//                   </div>
+
+//                   {/* Details */}
+//                   <div>
+//                     <label className="block text-sm font-medium text-gray-700">Details</label>
+//                     <textarea
+//                       {...register(`${condition.toLowerCase().replace(/\s+/g, '')}Details`)}
+//                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+//                       rows="4"
+//                     />
+//                   </div>
+//                 </div>
+//               ))}
+
+//               {/* Buttons */}
+//               <div className="flex justify-center gap-10 mt-6 pb-10 md:pb-0">
+//                 <button
+//                   type="submit"
+//                   className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+//                 >
+//                   Continue
+//                 </button>
+//                 <button
+//                   type="button"
+//                   className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+//                   onClick={() => window.history.back()}
+//                 >
+//                   Back
+//                 </button>
+//               </div>
+//             </form>
+//           )}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// export default IssueDetailsForm;
+
+
+
+
+// half condition fullfill
+// import React from 'react';
+
+// import { useForm, useFieldArray } from 'react-hook-form';
+// import { useLocation, useNavigate } from 'react-router-dom';
+
+// function IssueDetailsForm() {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   const { selectedConditions = [] } = location.state || {};
+
+//   const { register, control, handleSubmit, formState: { errors }, watch } = useForm({
+//     defaultValues: {
+//       conditions: selectedConditions.map((condition) => ({
+//         Specify_Type_Of_Exposure_Event_Or_Injury: condition,
+//         ExplainHowDisabilityRelatesToEvent_Exposure_Injury: '',
+//         StartDate: '',
+//         Location: { left: false, right: false, both: false },
+//       })),
+//     },
+//   });
+
+//   const { fields } = useFieldArray({
+//     control,
+//     name: 'conditions',
+//   });
+
+//   const onSubmit = (data) => {
+//     console.log('Submitted Data:', data);
+//     navigate('/gulf_war_location', { state: { conditionDetails: data.conditions } });
+//   };
+
+//   const renderLocationCheckboxes = (index) => {
+//     const locationField = `conditions[${index}].Location`;
+//     const locationValues = watch(locationField) || {};
+
+//     React.useEffect(() => {
+//       const values = Object.values(locationValues);
+//       const checkedCount = values.filter(Boolean).length;
+
+//       if (checkedCount > 1) {
+//         const firstCheckedKey = Object.keys(locationValues).find((key) => locationValues[key]);
+//         Object.keys(locationValues).forEach((key) => {
+//           if (key !== firstCheckedKey) {
+//             locationValues[key] = false;
+//           }
+//         });
+//       }
+//     }, [locationValues]);
+
+//     return (
+//       <div className="flex items-center space-x-4">
+//         <label className="flex items-center space-x-2">
+//           <input
+//             type="checkbox"
+//             {...register(`${locationField}.left`)}
+//             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//           />
+//           <span className="text-blue-800">Left</span>
+//         </label>
+//         <label className="flex items-center space-x-2">
+//           <input
+//             type="checkbox"
+//             {...register(`${locationField}.right`)}
+//             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//           />
+//           <span className="text-blue-800">Right</span>
+//         </label>
+//         <label className="flex items-center space-x-2">
+//           <input
+//             type="checkbox"
+//             {...register(`${locationField}.both`)}
+//             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//           />
+//           <span className="text-blue-800">Both</span>
+//         </label>
+//       </div>
+//     );
+//   };
+
+//   return (
+//     <section className="md:mt-44 md:mb-10 mb-0 mt-28">
+//       <div className="min-h-screen bg-white flex justify-center items-center md:p-4 p-2">
+//         <div className="w-full max-w-4xl bg-white md:shadow-md rounded-lg md:p-6">
+//           <h1 className="md:text-2xl text-xl font-bold text-blue-800 mb-6 text-center">
+//             Provide detailed information regarding your selected issue(s).
+//           </h1>
+
+//           {selectedConditions.length === 0 ? (
+//             <p className="text-red-500 text-center">No conditions selected. Please go back and select at least one condition.</p>
+//           ) : (
+//             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+//               {fields.map((field, index) => (
+//                 <div key={field.id} className="space-y-4">
+//                   <h2 className="md:text-xl font-semibold text-blue-800">
+//                     {index + 1}. {field.Specify_Type_Of_Exposure_Event_Or_Injury}
+//                   </h2>
+
+//                   {/* Hidden input for condition */}
+//                   <input
+//                     type="hidden"
+//                     {...register(`conditions[${index}].Specify_Type_Of_Exposure_Event_Or_Injury`)}
+//                   />
+
+//                   {/* Location (if applicable, e.g., for pain-related conditions) */}
+//                   {(field.Specify_Type_Of_Exposure_Event_Or_Injury.toLowerCase().includes('pain') ||
+//                     field.Specify_Type_Of_Exposure_Event_Or_Injury === 'Ankle Pain' ||
+//                     field.Specify_Type_Of_Exposure_Event_Or_Injury === 'Arm Pain') && (
+//                     <div>
+//                       <label className="block text-sm font-medium text-gray-700">Location</label>
+//                       {renderLocationCheckboxes(index)}
+//                       {errors.conditions?.[index]?.Location && (
+//                         <span className="text-red-500 text-sm">Please select at least one location</span>
+//                       )}
+//                     </div>
+//                   )}
+
+//                   {/* When Did The Problem Start */}
+//                   <div>
+//                     <label className="block text-sm font-medium text-gray-700">
+//                       When Did The Problem Start?
+//                     </label>
+//                     <input
+//                       type="text"
+//                       {...register(`conditions[${index}].StartDate`, {
+//                         required: 'This field is required',
+//                       })}
+//                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+//                     />
+//                     {errors.conditions?.[index]?.StartDate && (
+//                       <span className="text-red-500 text-sm">
+//                         {errors.conditions[index].StartDate.message}
+//                       </span>
+//                     )}
+//                   </div>
+
+//                   {/* Details */}
+//                   <div>
+//                     <label className="block text-sm font-medium text-gray-700">Details</label>
+//                     <textarea
+//                       {...register(`conditions[${index}].ExplainHowDisabilityRelatesToEvent_Exposure_Injury`)}
+//                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+//                       rows="4"
+//                     />
+//                   </div>
+//                 </div>
+//               ))}
+
+//               {/* Buttons */}
+//               <div className="flex justify-center gap-10 mt-6 pb-10 md:pb-0">
+//                 <button
+//                   type="submit"
+//                   className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+//                 >
+//                   Continue
+//                 </button>
+//                 <button
+//                   type="button"
+//                   className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+//                   onClick={() => window.history.back()}
+//                 >
+//                   Back
+//                 </button>
+//               </div>
+//             </form>
+//           )}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// export default IssueDetailsForm;
+
+
 
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function IssueDetailsForm() {
-  const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const location = useLocation();
-  const navigate = useNavigate(); // Added for navigation after submission
+  const navigate = useNavigate();
   const { selectedConditions = [] } = location.state || {};
 
+  const { register, control, handleSubmit, formState: { errors }, watch } = useForm({
+    defaultValues: {
+      conditions: selectedConditions.map((condition) => ({
+        condition: condition,
+        details: '',
+        StartDate: '',
+        Location: { left: false, right: false, both: false },
+      })),
+    },
+  });
+
+  const { fields } = useFieldArray({
+    control,
+    name: 'conditions',
+  });
+
   const onSubmit = (data) => {
-    console.log('Submitted Data:', data); // Log the submitted data to the console
-    // Optionally navigate to the next page after logging
-    navigate('/gulf_war_location');
+    // Transform data to have conditions and details as arrays
+    const transformedData = {
+      Specify_Type_Of_Exposure_Event_Or_Injury: data.conditions.map((item) => item.condition),
+      ExplainHowDisabilityRelatesToEvent_Exposure_Injury: data.conditions.map((item) => item.details),
+      StartDate: data.conditions.map((item) => item.StartDate),
+      Location: data.conditions.map((item) => item.Location),
+    };
+    console.log('Submitted Data:', transformedData);
+    navigate('/gulf_war_location', { state: { conditionDetails: transformedData } });
   };
 
-  // Function to render location checkboxes dynamically
-  const renderLocationCheckboxes = (condition) => {
-    const locationField = `${condition.toLowerCase().replace(/\s+/g, '')}Location`;
+  const renderLocationCheckboxes = (index) => {
+    const locationField = `conditions[${index}].Location`;
     const locationValues = watch(locationField) || {};
 
     React.useEffect(() => {
@@ -258,8 +605,9 @@ function IssueDetailsForm() {
       const checkedCount = values.filter(Boolean).length;
 
       if (checkedCount > 1) {
+        const firstCheckedKey = Object.keys(locationValues).find((key) => locationValues[key]);
         Object.keys(locationValues).forEach((key) => {
-          if (locationValues[key] && values.lastIndexOf(true) !== values.indexOf(true)) {
+          if (key !== firstCheckedKey) {
             locationValues[key] = false;
           }
         });
@@ -308,18 +656,26 @@ function IssueDetailsForm() {
             <p className="text-red-500 text-center">No conditions selected. Please go back and select at least one condition.</p>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {selectedConditions.map((condition, index) => (
-                <div key={index} className="space-y-4">
+              {fields.map((field, index) => (
+                <div key={field.id} className="space-y-4">
                   <h2 className="md:text-xl font-semibold text-blue-800">
-                    {index + 1}. {condition}
+                    {index + 1}. {field.condition}
                   </h2>
 
+                  {/* Hidden input for condition */}
+                  <input
+                    type="hidden"
+                    {...register(`conditions[${index}].condition`)}
+                  />
+
                   {/* Location (if applicable, e.g., for pain-related conditions) */}
-                  {(condition.toLowerCase().includes('pain') || condition === 'Ankle Pain' || condition === 'Arm Pain') && (
+                  {(field.condition.toLowerCase().includes('pain') ||
+                    field.condition === 'Ankle Pain' ||
+                    field.condition === 'Arm Pain') && (
                     <div>
                       <label className="block text-sm font-medium text-gray-700">Location</label>
-                      {renderLocationCheckboxes(condition)}
-                      {errors[`${condition.toLowerCase().replace(/\s+/g, '')}Location`] && (
+                      {renderLocationCheckboxes(index)}
+                      {errors.conditions?.[index]?.Location && (
                         <span className="text-red-500 text-sm">Please select at least one location</span>
                       )}
                     </div>
@@ -332,14 +688,14 @@ function IssueDetailsForm() {
                     </label>
                     <input
                       type="text"
-                      {...register(`${condition.toLowerCase().replace(/\s+/g, '')}Start`, {
+                      {...register(`conditions[${index}].StartDate`, {
                         required: 'This field is required',
                       })}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
                     />
-                    {errors[`${condition.toLowerCase().replace(/\s+/g, '')}Start`] && (
+                    {errors.conditions?.[index]?.StartDate && (
                       <span className="text-red-500 text-sm">
-                        {errors[`${condition.toLowerCase().replace(/\s+/g, '')}Start`]?.message}
+                        {errors.conditions[index].StartDate.message}
                       </span>
                     )}
                   </div>
@@ -348,7 +704,7 @@ function IssueDetailsForm() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Details</label>
                     <textarea
-                      {...register(`${condition.toLowerCase().replace(/\s+/g, '')}Details`)}
+                      {...register(`conditions[${index}].details`)}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
                       rows="4"
                     />
@@ -381,8 +737,3 @@ function IssueDetailsForm() {
 }
 
 export default IssueDetailsForm;
-
-
-
-
-

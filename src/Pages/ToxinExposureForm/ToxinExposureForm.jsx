@@ -3,28 +3,14 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 
 function ToxinExposureForm() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm(
-    // {
-  //   defaultValues: {
-  //     exposures: {
-  //       asbestos: false,
-  //       shipboardHazardAndDefense: false,
-  //       mustard: false,
-  //       militaryOccupationalSpecialties: false,
-  //       radiation: false,
-  //       contaminatedWaterCampLejeune: false,
-  //       jetFuel: false,
-  //     },
-  //     otherToxins: '',
-  //     additionalDetails: '',
-  //   },
-  // }
+
   );
 
   const onSubmit = (data) => {
     console.log(data);
-    // navigate('/confirmation')
+    navigate('/confirmation')
     // alert('Form submitted successfully!');
   };
 
