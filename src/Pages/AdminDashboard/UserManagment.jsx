@@ -15,6 +15,7 @@ export default function UserManagement() {
 
 
   const {data:allUsers} = useGetUsersQuery();
+ 
   console.log(allUsers?.subscriptions)
 
  const userInfo = allUsers?.subscriptions

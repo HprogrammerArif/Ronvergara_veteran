@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CiEdit } from "react-icons/ci";
+import { useGetLoggedUserQuery } from "../../redux/features/baseApi";
 
 const Profile = () => {
   const {
@@ -20,6 +21,9 @@ const Profile = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const baseUrl = localStorage.getItem("baseUrl");
+  const {data:userData} = useGetLoggedUserQuery();
+  console.log("userData",userData)
 
   const newPassword = watch("newPassword");
 
@@ -43,7 +47,7 @@ const Profile = () => {
     try {
       setIsLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      setProfileData({ name: data.name, email: data.email });
+      setProfileData({ name: data.name, email: data.email, image:data.image });
       console.log("Profile update data:", data);
       alert("Profile updated successfully!");
     } catch (error) {
@@ -61,7 +65,8 @@ const Profile = () => {
         <div className="flex items-start justify-start mb-6">
           <div className="relative">
             <img
-              src="https://tse1.mm.bing.net/th/id/OET.7252da000e8341b2ba1fb61c275c1f30?w=594&h=594&c=7&rs=1&o=5&pid=1.9/80"
+             src={`${baseUrl}${profileData?.image}`}
+
               alt="Profile"
               className="w-32 h-32 rounded-full border-2 border-gray-900"
             />
