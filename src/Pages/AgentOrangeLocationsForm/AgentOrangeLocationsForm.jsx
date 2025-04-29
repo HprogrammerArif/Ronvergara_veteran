@@ -1,135 +1,5 @@
-// import React from 'react';
-// import { useForm } from 'react-hook-form';
-// import { Link } from 'react-router-dom';
-
-// function AgentOrangeLocationsForm() {
-//   const { register, handleSubmit, formState: { errors } } = useForm({
-//     defaultValues: {
-//       locations: {
-//         thailand: false,
-//         republicOfVietnam: false,
-//         laos: false,
-//         cambodia: false,
-//         guamOrAmericanSamoa: false,
-//         johnstonAtoll: false,
-//         koreanDMZ: false,
-//         c123Aircraft: false,
-//       },
-//     },
-//   });
-
-//   const onSubmit = (data) => {
-//     console.log(data);
-//       // to="/toxin_exposure"
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gray-100 flex justify-center items-center md:p-4 p-2 pt-32 md:mt-10">
-//       <div className="w-full max-w-4xl md:bg-white md:shadow-md rounded-lg md:p-6">
-//         <h1 className="md:text-2xl text-lg font-bold text-blue-800 mb-6 text-center">
-//           Did you serve in any of the below herbicide (Agent Orange) hazard locations? 
-//         </h1>
-
-//         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-//           {/* Checkboxes for locations */}
-//           <div className="grid grid-cols-1 gap-4">
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.thailand')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Thailand (Any U.S. or Royal Thai Base)</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.republicOfVietnam')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Republic of Vietnam, Including 12 Nautical Miles of Territorial Waters</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.laos')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Laos</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.cambodia')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Cambodia (Mimot, Krek, Kampong Cham Province)</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.guamOrAmericanSamoa')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Guam or American Samoa (Including Territorial Waters)</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.johnstonAtoll')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Johnston Atoll or Any Ship That Visited Johnston Atoll</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.koreanDMZ')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">Korean Demilitarized Zone (DMZ)</span>
-//             </label>
-//             <label className="flex items-center space-x-2">
-//               <input
-//                 type="checkbox"
-//                 {...register('locations.c123Aircraft')}
-//                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-//               />
-//               <span className="text-blue-800">C-123 Aircraft Used For Herbicide Spraying Operations (Air Force and Air Force Reserves)</span>
-//             </label>
-//           </div>
-
-//           {/* Buttons */}
-//             <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10  pb-10 md:pb-0">
-//                                <button
-                       
-                            
-//                                  type="submit"
-//                                  className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center">
-                       
-//                                  Continue
-                       
-//                                </button>
-//                                <button
-//                                  type="button"
-//                                  className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-//                                  onClick={() => window.history.back()}
-//                                >
-//                                  Back
-//                                </button>
-//                              </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default AgentOrangeLocationsForm;
-
-
-
-
 import React from 'react';
+
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -152,7 +22,7 @@ function AgentOrangeLocationsForm() {
 
   const onSubmit = (data) => {
     // Transform selected locations into an array
-    const List_Other_Locations_Where_You_Served = Object.keys(data.locations)
+    const locations = Object.keys(data.locations)
       .filter((key) => data.locations[key])
       .map((key) => {
         switch (key) {
@@ -177,7 +47,7 @@ function AgentOrangeLocationsForm() {
         }
       });
 
-    const submittedData = { List_Other_Locations_Where_You_Served };
+    const submittedData = { locations };
     console.log('Submitted Data:', submittedData);
     navigate('/toxin_exposure', { state: submittedData });
   };
@@ -281,3 +151,125 @@ function AgentOrangeLocationsForm() {
 }
 
 export default AgentOrangeLocationsForm;
+
+
+
+// import React from 'react';
+// import { useForm } from 'react-hook-form';
+// import { useNavigate } from 'react-router-dom';
+
+// function AgentOrangeLocationsForm() {
+//   const navigate = useNavigate();
+//   const { register, handleSubmit, setValue, watch } = useForm({
+//     defaultValues: {
+//       SHAD_Shipboard_Hazard_And_Defense: [],
+//     },
+//   });
+
+//   const selectedLocations = watch('SHAD_Shipboard_Hazard_And_Defense');
+
+//   const handleCheckboxChange = (location, isChecked) => {
+//     if (isChecked) {
+//       setValue('SHAD_Shipboard_Hazard_And_Defense', [...selectedLocations, location]);
+//     } else {
+//       setValue('SHAD_Shipboard_Hazard_And_Defense', selectedLocations.filter((loc) => loc !== location));
+//     }
+//   };
+
+//   const onSubmit = (data) => {
+//     // Transform selected locations into the desired format
+//     const transformedLocations = data.SHAD_Shipboard_Hazard_And_Defense.map((key) => {
+//       switch (key) {
+//         case 'Thailand':
+//           return 'Thailand (Any U.S. or Royal Thai Base)';
+//         case 'Republic of Vietnam':
+//           return 'Republic of Vietnam, Including 12 Nautical Miles of Territorial Waters';
+//         case 'Laos':
+//           return 'Laos';
+//         case 'Cambodia':
+//           return 'Cambodia (Mimot, Krek, Kampong Cham Province)';
+//         case 'Guam or American Samoa':
+//           return 'Guam or American Samoa (Including Territorial Waters)';
+//         case 'Johnston Atoll':
+//           return 'Johnston Atoll or Any Ship That Visited Johnston Atoll';
+//         case 'Korean DMZ':
+//           return 'Korean Demilitarized Zone (DMZ)';
+//         case 'C-123 Aircraft':
+//           return 'C-123 Aircraft Used For Herbicide Spraying Operations (Air Force and Air Force Reserves)';
+//         default:
+//           return key;
+//       }
+//     });
+
+//     const submittedData = { SHAD_Shipboard_Hazard_And_Defense: transformedLocations };
+//     console.log('Submitted Data:', submittedData);
+//     navigate('/toxin_exposure', { state: submittedData });
+//   };
+
+//   const locations = [
+//     'Thailand',
+//     'Republic of Vietnam',
+//     'Laos',
+//     'Cambodia',
+//     'Guam or American Samoa',
+//     'Johnston Atoll',
+//     'Korean DMZ',
+//     'C-123 Aircraft',
+//   ];
+
+//   return (
+//     <div className="min-h-screen bg-gray-100 flex justify-center items-center md:p-4 p-2 pt-32 md:mt-10">
+//       <div className="w-full max-w-4xl md:bg-white md:shadow-md rounded-lg md:p-6">
+//         <h1 className="md:text-2xl text-lg font-bold text-blue-800 mb-6 text-center">
+//           Did you serve in any of the below herbicide (Agent Orange) hazard locations?
+//         </h1>
+
+//         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+//           {/* Checkboxes for locations */}
+//           <div className="grid grid-cols-1 gap-4">
+//             {locations.map((location) => (
+//               <label key={location} className="flex items-center space-x-2">
+//                 <input
+//                   type="checkbox"
+//                   className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+//                   checked={selectedLocations.includes(location)}
+//                   onChange={(e) => handleCheckboxChange(location, e.target.checked)}
+//                 />
+//                 <span className="text-blue-800">
+//                   {location === 'Thailand' ? 'Thailand (Any U.S. or Royal Thai Base)' :
+//                    location === 'Republic of Vietnam' ? 'Republic of Vietnam, Including 12 Nautical Miles of Territorial Waters' :
+//                    location === 'Laos' ? 'Laos' :
+//                    location === 'Cambodia' ? 'Cambodia (Mimot, Krek, Kampong Cham Province)' :
+//                    location === 'Guam or American Samoa' ? 'Guam or American Samoa (Including Territorial Waters)' :
+//                    location === 'Johnston Atoll' ? 'Johnston Atoll or Any Ship That Visited Johnston Atoll' :
+//                    location === 'Korean DMZ' ? 'Korean Demilitarized Zone (DMZ)' :
+//                    location === 'C-123 Aircraft' ? 'C-123 Aircraft Used For Herbicide Spraying Operations (Air Force and Air Force Reserves)' :
+//                    location}
+//                 </span>
+//               </label>
+//             ))}
+//           </div>
+
+//           {/* Buttons */}
+//           <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10 pb-10 md:pb-0">
+//             <button
+//               type="submit"
+//               className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center"
+//             >
+//               Continue
+//             </button>
+//             <button
+//               type="button"
+//               className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+//               onClick={() => window.history.back()}
+//             >
+//               Back
+//             </button>
+//           </div>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default AgentOrangeLocationsForm;
