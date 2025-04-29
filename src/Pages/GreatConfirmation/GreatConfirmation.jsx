@@ -19,25 +19,25 @@ const navigate = useNavigate()
 
     switch (firstCategory) {
       case 'Mental Health':
-        navigate('/mental_health_static');
+        navigate('/mental_health_info');
         break;
       case 'Body Health':
-        navigate('/body_health_static');
+        navigate('/service_details');
         break;
       case 'Migraine & Headache Claim Information':
-        navigate('/migraine_static');
+        navigate('/migraine');
         break;
       case 'Sinusitis, Rhinitis & Asthma Claim Information':
-        navigate('/sinusitis_static');
+        navigate('/sinusitis_form');
         break;
       case 'Gastrointestinal Issues (GERD/IBS) Claim Information':
-        navigate('/gastrointestinal_static');
+        navigate('/gastrointestinal_form');
         break;
       case 'Tinnitus and Hearing Loss Claim Information':
-        navigate('/hearing_loss_static');
+        navigate('/tinnitus_hearing_loss');
         break;
       default:
-        navigate('/other_static');
+        navigate('/others');
   }
 }
 

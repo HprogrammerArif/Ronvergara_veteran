@@ -150,7 +150,7 @@ function Issues() {
       'Plantar Fasciitis', 'Ankle Condition', 'Hammer Toes', 'Ingrown Toenails', 'Radiculopathy of Upper Extremities',
       'Sciatica'
     ],
-    "Migraine & Headache Claim Information": ['Prostrating Migraines', 'Head Injury'],
+    "Migraine & Headache Claim Information": ['Prostrating Migraines'],
     "Sinusitis, Rhinitis & Asthma Claim Information": ['Rhinitis', 'Sinusitis'],
     "Gastrointestinal Issues (GERD/IBS) Claim Information": ['GERD (Acid Reflux)', 'IBS (Irritable Bowel Syndrome)'],
     "Tinnitus and Hearing Loss Claim Information": ['Tinnitus'],
