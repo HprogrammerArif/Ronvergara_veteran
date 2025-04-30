@@ -3,11 +3,14 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
+import { useSelector } from "react-redux";
 
 const Migraine = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const {navigateToNextCategory} = useCategoryNavigation()
-
+  const selectedCategories = useSelector(
+    (state) => state.issueSlice.selectedCategories
+  );
 
   const onSubmit = (data) => {
     console.log(data);
@@ -154,13 +157,13 @@ const Migraine = () => {
 
           {/* Buttons */}
           <div className="flex flex-col justify-center gap-5 mx-auto">
-            <Link
-            to="/service_details"
-              type="button"
+            <button
+            // to="/service_details"
+              type="submit"
               className="btn bg-[#B31942] border-gray-400  py-2 text-white text-center font-semibold rounded-md"
             >
               Continue
-            </Link>
+            </button>
             <button
               type="submit"
               className="btn  text-[#001F3F] font-semibold border  border-[#001F3F] py-2 rounded-md"  

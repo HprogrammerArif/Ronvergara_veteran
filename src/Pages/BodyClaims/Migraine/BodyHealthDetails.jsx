@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
 import { removeCategoryByName } from "../../../redux/slice/IssueSlice";
+import { store } from "../../../redux/store";
 
 const BodyHealthDetails = () => {
   const {
@@ -35,6 +36,7 @@ const BodyHealthDetails = () => {
     console.log("Body Health", data);
     const name = "Body Health";
     const currentCategoryIndex = selectedCategories.indexOf(name);
+    console.log(currentCategoryIndex)
     if (currentCategoryIndex !== -1) {
       dispatch(removeCategoryByName(name));
       const latestCategories = store.getState().issueSlice.selectedCategories;
