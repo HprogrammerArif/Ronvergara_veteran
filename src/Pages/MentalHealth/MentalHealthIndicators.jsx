@@ -209,11 +209,13 @@
 
 
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import mentalLogo from "../../assets/mental_health_logo.png";
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useCategoryNavigation from '../../hooks/useCategoryNavigation';
+import { removeCategoryByName } from '../../redux/slice/IssueSlice';
 
 const MentalHealthIndicators = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -222,37 +224,31 @@ const MentalHealthIndicators = () => {
     }
   });
 
+  const dispatch = useDispatch()
+
   const navigate = useNavigate();
-  const selectedCategories = useSelector((state) => state.issueSlice.selectedCategories); // Accessing the selected categories from the Redux state
+  const {navigateToNextCategory} = useCategoryNavigation()
+
+  const selectedCategories = useSelector((state) => state.issueSlice.selectedCategories); 
 
   const onSubmit = (data) => {
     console.log(data); 
+    console.log(selectedCategories); 
 
-    // Find out the current category index in the selectedCategories list
     const currentCategoryIndex = selectedCategories.indexOf("Mental Health");
 
-    // If Body Health is next in the selected categories, redirect to Body Health
-    if (currentCategoryIndex !== -1 && selectedCategories[currentCategoryIndex + 1]) {
-      const nextCategory = selectedCategories[currentCategoryIndex + 1];
+    if (currentCategoryIndex !== -1) {
+      dispatch(removeCategoryByName("Mental Health"))
 
-      // Redirect to the next category page dynamically
-      if (nextCategory === "Body Health") {
-        navigate('/service_details');  // Redirect to Body Health page
-      }
-      else if (nextCategory === "Migraine") {
-        navigate('/migraine');  // Redirect to Migraine page
-      }
-      else if(nextCategory==="Sinusitis, Rhinitis & Asthma Claim Information"){
-        navigate ('/sinusitis_form')}
-        else if(nextCategory==="Gastrointestinal Issues (GERD/IBS) Claim Information"){
-          navigate ('/gastrointestinal_form')}
-          else if (nextCategory==="Tinnitus and Hearing Loss Claim Information"){
-            navigate('/tinnitus_hearing_loss')
-          }
-      else {
-        navigate('/final_page'); // Redirect to a final page or last step
-      }
+      const nextCategory = selectedCategories?.[0]??"";
+      navigateToNextCategory(nextCategory)
     }
+
+ 
+    // if (currentCategoryIndex !== -1 && selectedCategories[currentCategoryIndex + 1]) { 
+    //   const nextCategory = selectedCategories[currentCategoryIndex + 1];
+    //   navigateToNextCategory(nextCategory)
+    // }
   };
 
 
@@ -319,12 +315,12 @@ const MentalHealthIndicators = () => {
             </div>
           ))}
           <button type="submit" className="mt-4 w-full mx-auto text-center">
-            <Link
+            <button
               type="submit"
               className="bg-[#B31942] mx-auto text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d]  focus:outline-none focus:ring-2 focus:ring-red-500 w-full"
             >
               Continue
-            </Link>
+            </button>
           </button>
         </form>
       </div>

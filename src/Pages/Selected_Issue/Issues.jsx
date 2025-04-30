@@ -132,7 +132,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { addCategoryByIssue, removeCategoryIfNoIssuesLeft } from '../../redux/slice/issueSlice';
 
 function Issues() {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors }, getValues } = useForm({
     defaultValues: {
       CURRENTDISABILITY: [],
     },

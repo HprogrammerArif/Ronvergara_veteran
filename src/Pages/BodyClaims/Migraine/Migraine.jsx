@@ -2,12 +2,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
 
 const Migraine = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const {navigateToNextCategory} = useCategoryNavigation()
+
 
   const onSubmit = (data) => {
     console.log(data);
+    const currentCategoryIndex = selectedCategories.indexOf("Migraine & Headache Claim Information");
+
+    if (currentCategoryIndex !== -1 && selectedCategories[currentCategoryIndex + 1]) { const nextCategory = selectedCategories[currentCategoryIndex + 1];
+      navigateToNextCategory(nextCategory)
+    }
   };
 
   return (

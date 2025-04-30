@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const AiNarativeGen = () => {
   return (
-    <div className='min-h-screen max-w-4xl mx-auto'>
+    <div className='min-h-screen bg-white flex justify-center items-center p-4 mt-14'>
       <h2 className='text-black mt-20'>Naravite negeration page..will be discuss about this page</h2>
 
         <div className="flex flex-col justify-center gap-5 mx-auto">

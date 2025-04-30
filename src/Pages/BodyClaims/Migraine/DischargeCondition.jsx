@@ -1,12 +1,29 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeCategoryByName } from "../../../redux/slice/IssueSlice";
+import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
 
 const DischargeCondition = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
+  const selectedCategories = useSelector
+  ((state) => state.issueSlice.selectedCategories)
+const dispatch = useDispatch()
+const {navigateToNextCategory} = useCategoryNavigation()
   const onSubmit = (data) => {
     console.log(data); 
+    console.log(selectedCategories); 
+
+    const currentCategoryIndex = selectedCategories.indexOf("Body Health");
+
+    if (currentCategoryIndex !== -1) {
+      dispatch(removeCategoryByName("Body Health"))
+
+      const nextCategory = selectedCategories?.[0]??"";
+      navigateToNextCategory(nextCategory)
+    }
+
   };
 
   return (
@@ -73,13 +90,20 @@ const DischargeCondition = () => {
       
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto pt-10">
-                    <Link
-                    to="/health_details"
-                      type="button"
-                      className="btn bg-[#B31942] border-gray-400  py-2 text-white text-center font-semibold rounded-md"
-                    >
-                      Continue
-                    </Link>
+        <button
+          type="submit"
+          
+        >
+        
+        <Link
+        to="/health_details"
+            
+              className="btn bg-[#B31942] w-full text-white py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
+            >
+              Continue
+            </Link>
+
+                </button>
                     <button
                       type="submit"
                       className="btn  text-[#001F3F] font-semibold border  border-[#001F3F] py-2 rounded-md"  
