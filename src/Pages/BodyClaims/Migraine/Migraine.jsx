@@ -14,6 +14,8 @@ const Migraine = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    localStorage.setItem('migraine', JSON.stringify(data));
+    
     const currentCategoryIndex = selectedCategories.indexOf("Migraine & Headache Claim Information");
 
     if (currentCategoryIndex !== -1) { 
