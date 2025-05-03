@@ -161,6 +161,7 @@ const MentalHealthIndicators = () => {
     }, {});
     
     console.log("Mental Health Indicators Responses:", responses);
+    localStorage.setItem('mental_health_indicators', JSON.stringify(responses));
 
     const currentCategoryIndex = selectedCategories.indexOf("Mental Health");
 

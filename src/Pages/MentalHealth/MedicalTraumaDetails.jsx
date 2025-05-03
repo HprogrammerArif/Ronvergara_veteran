@@ -8,6 +8,7 @@ const MedicalTraumaDetails = () => {
 const navigate = useNavigate()
   const onSubmit = (data) => {
     console.log("medical_trauma_details",data); 
+    localStorage.setItem("medical_trauma_details", JSON.stringify(data))
     navigate("/hazing_details")
     
   };

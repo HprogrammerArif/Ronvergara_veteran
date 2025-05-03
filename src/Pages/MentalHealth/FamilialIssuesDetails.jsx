@@ -8,6 +8,8 @@ const FamilialIssuesDetails = () => {
 const navigate = useNavigate()
   const onSubmit = (data) => {
     console.log("familiar_issues",data); 
+    localStorage.setItem("familiar_issues", JSON.stringify(data))
+
     navigate("/comfirm_mental_health")
   };
 

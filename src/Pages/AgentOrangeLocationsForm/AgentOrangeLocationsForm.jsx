@@ -49,6 +49,7 @@ function AgentOrangeLocationsForm() {
 
     const submittedData = { locations };
     console.log('Submitted Data:', submittedData);
+    localStorage.setItem("agentOrangeLocations", JSON.stringify(submittedData))
     navigate('/toxin_exposure', { state: submittedData });
   };
 

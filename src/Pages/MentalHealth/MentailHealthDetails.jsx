@@ -108,6 +108,7 @@ const MentalHealthDetails = () => {
 
   const onSubmit = (data) => {
     console.log(data); 
+    localStorage.setItem("mental_health_details", JSON.stringify(data))
     navigate("/death_details")
     
   };

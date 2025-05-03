@@ -17,7 +17,7 @@ function Veteran_Information() {
 
   const onSubmit = async (vaData) => {
     console.log(vaData);
-    localStorage.setItem('vaDataInfo', JSON.stringify(vaData));
+    localStorage.setItem('veteran_information', JSON.stringify(vaData));
     navigate('/issues'); // Navigate to the next step after submission
   };
 

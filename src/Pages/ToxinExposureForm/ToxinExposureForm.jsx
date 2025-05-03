@@ -156,6 +156,7 @@ function ToxinExposureForm() {
 
   const onSubmit = (data) => {
     console.log(data);
+    localStorage.setItem("toxinExposure", JSON.stringify(data) )
     navigate('/confirmation');
   };
 

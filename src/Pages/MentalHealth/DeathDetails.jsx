@@ -9,6 +9,7 @@ const DeathDetails = () => {
 
   const onSubmit = (data) => {
     console.log("Death details Form Data:", data);
+    localStorage.setItem("death_details", JSON.stringify(data))
     navigate("/disaster_form")
   };
 

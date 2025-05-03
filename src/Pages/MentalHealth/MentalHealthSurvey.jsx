@@ -15,7 +15,7 @@ const {
   // Handle form submission
   const onSubmit = (data) => {
     console.log('Form Data:', data);
-
+    localStorage.setItem("mental_health_survey", JSON.stringify(data))
     navigate("/mental_health_details")
   
   };

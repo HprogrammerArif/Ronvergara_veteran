@@ -8,6 +8,7 @@ const AbuseOfPowerDetails = () => {
 const navigate = useNavigate()
   const onSubmit = (data) => {
     console.log("abuse_power_details",data); 
+    localStorage.setItem("abuse_power_details", JSON.stringify(data))
 navigate("/dangerous_items_details")
   };
 

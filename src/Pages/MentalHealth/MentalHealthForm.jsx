@@ -1,7 +1,7 @@
 
 
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import mentalLogo from ".././../assets/mental_health_logo.png"
 
 export default function MentalHealthForm() {
@@ -11,10 +11,12 @@ export default function MentalHealthForm() {
     formState: { errors },
   } = useForm()
 
+  const navigate = useNavigate();
   const onSubmit = (data) => {
 
     console.log(data)
-    //  to="/mental_health_survey"
+    localStorage.setItem("mental_health_info", JSON.stringify(data))
+    navigate("/mental_health_survey")
     
   }
 
@@ -87,11 +89,14 @@ export default function MentalHealthForm() {
           </div>
 
           {/* Buttons */}
-         <div className="flex justify-center gap-10 mt-6 pb-10 md:pb-0">
-                       <button>
+         <div className="flex justify-center gap-10  pb-10 md:pb-0">
+                       <button 
+                        type="submit"
+                         className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+                       >
                       
                       
-                         {/* type="submit"
+                         {/* 
                          className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold" */}
                    
                          Continue

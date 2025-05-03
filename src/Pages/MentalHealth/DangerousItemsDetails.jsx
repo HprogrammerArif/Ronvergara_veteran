@@ -8,6 +8,7 @@ const DangerousItemsDetails = () => {
 const navigate = useNavigate()
   const onSubmit = (data) => {
     console.log("dengeriousItems",data); 
+    localStorage.setItem("dangerous_items_details", JSON.stringify(data))
     navigate("/familiar_issues")
   };
 

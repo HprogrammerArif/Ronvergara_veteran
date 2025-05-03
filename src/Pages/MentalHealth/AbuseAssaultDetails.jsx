@@ -8,7 +8,7 @@ const AbuseAssaultDetails = () => {
   const navigate = useNavigate()
   const onSubmit = (data) => {
     console.log("abuse_assault_form",data); 
-
+    localStorage.setItem("abuse_assault_form", JSON.stringify(data))
     navigate("/risk_details")
   };
 

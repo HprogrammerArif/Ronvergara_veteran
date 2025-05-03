@@ -8,6 +8,7 @@ const HazingDetails = () => {
 const navigate = useNavigate()
   const onSubmit = (data) => {
     console.log("hazing_details",data); 
+    localStorage.setItem("hazing_details", JSON.stringify(data))
   navigate("/abuse_power_details")
   };
 
