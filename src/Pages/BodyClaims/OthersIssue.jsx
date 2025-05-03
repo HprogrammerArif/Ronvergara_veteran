@@ -176,6 +176,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useCategoryNavigation from "../../hooks/useCategoryNavigation";
+import { useSelector } from "react-redux";
 
 const OthersIssues = () => {
   // Initialize React Hook Form
@@ -192,10 +194,23 @@ const OthersIssues = () => {
       details: "",
     },
   });
+  const {navigateToNextCategory} = useCategoryNavigation()
 
-  // Handle form submission
+  const selectedCategories = useSelector((state) => state.issueSlice.selectedCategories); 
+
   const onSubmit = (data) => {
-    console.log("Tinnitus and Hearing Loss Form Data:", data);
+
+    console.log(data);
+    const currentCategoryIndex = selectedCategories.indexOf("Other");
+
+    if (currentCategoryIndex !== -1) { 
+      if(selectedCategories[currentCategoryIndex + 1]){
+        const nextCategory = selectedCategories[currentCategoryIndex + 1];
+        navigateToNextCategory(nextCategory)
+      }else{
+        navigateToNextCategory("");
+      }
+    }
   };
 
   return (
@@ -336,7 +351,7 @@ const OthersIssues = () => {
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">
           <Link
-            to="/progress"
+            // to="/progress"
             className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
           >
             Continue

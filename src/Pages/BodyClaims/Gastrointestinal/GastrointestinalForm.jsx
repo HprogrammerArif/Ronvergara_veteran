@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
+import { useSelector } from "react-redux";
 
 const GastrointestinalForm = () => {
   // Initialize React Hook Form
@@ -19,9 +21,25 @@ const GastrointestinalForm = () => {
     },
   });
 
+
+  const {navigateToNextCategory} = useCategoryNavigation()
+
+  const selectedCategories = useSelector((state) => state.issueSlice.selectedCategories); 
+
   // Handle form submission
   const onSubmit = (data) => {
-    console.log("Gastrointestinal Form Data:", data);
+   
+    console.log(data);
+    const currentCategoryIndex = selectedCategories.indexOf("Gastrointestinal Issues (GERD/IBS) Claim Information");
+
+    if (currentCategoryIndex !== -1) { 
+      if(selectedCategories[currentCategoryIndex + 1]){
+        const nextCategory = selectedCategories[currentCategoryIndex + 1];
+        navigateToNextCategory(nextCategory)
+      }else{
+        navigateToNextCategory("");
+      }
+    }
   };
 
   return (
@@ -29,7 +47,7 @@ const GastrointestinalForm = () => {
       {/* Header */}
       <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto mb-10">
           <div className="w-28 h-28 mb-4">
-            <img
+            <img 
               src="https://i.ibb.co.com/jPjS13V8/OBJECTS.png"
               alt="Mental Health Logo"
               className="w-full h-full object-contain"

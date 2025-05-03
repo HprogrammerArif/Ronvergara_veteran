@@ -26,23 +26,24 @@ const BodyHealthDetails = () => {
     stuckInBed: "",
     greatlyDecreased: "",
   });
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
   const selectedCategories = useSelector(
     (state) => state.issueSlice.selectedCategories
   ); // Accessing the selected categories from the Redux state
   const { navigateToNextCategory } = useCategoryNavigation();
+  
   const onSubmit = (data) => {
-    console.log("Body Health", data);
-    const name = "Body Health";
-    const currentCategoryIndex = selectedCategories.indexOf(name);
-    console.log(currentCategoryIndex)
-    if (currentCategoryIndex !== -1) {
-      dispatch(removeCategoryByName(name));
-      const latestCategories = store.getState().issueSlice.selectedCategories;
-     console.log(latestCategories)
-      const nextCategory = latestCategories.selectedCategories?.[0] || "";
-      navigateToNextCategory(nextCategory);
+   
+    console.log(data);
+    const currentCategoryIndex = selectedCategories.indexOf("Body Health");
+
+    if (currentCategoryIndex !== -1) { 
+      if(selectedCategories[currentCategoryIndex + 1]){
+        const nextCategory = selectedCategories[currentCategoryIndex + 1];
+        navigateToNextCategory(nextCategory)
+      }else{
+        navigateToNextCategory("");
+      }
     }
   };
 

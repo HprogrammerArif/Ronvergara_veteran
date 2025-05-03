@@ -33,7 +33,7 @@ const Shifts = () => {
           How long were your
           shifts?
             <input
-              {...register("jobRole", { required: "This field is required" })}
+              {...register("shifts_period", { required: "This field is required" })}
               type="text"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
               placeholder="Enter your job/role"

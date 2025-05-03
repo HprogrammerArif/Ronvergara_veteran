@@ -16,8 +16,13 @@ const Migraine = () => {
     console.log(data);
     const currentCategoryIndex = selectedCategories.indexOf("Migraine & Headache Claim Information");
 
-    if (currentCategoryIndex !== -1 && selectedCategories[currentCategoryIndex + 1]) { const nextCategory = selectedCategories[currentCategoryIndex + 1];
-      navigateToNextCategory(nextCategory)
+    if (currentCategoryIndex !== -1) { 
+      if(selectedCategories[currentCategoryIndex + 1]){
+        const nextCategory = selectedCategories[currentCategoryIndex + 1];
+        navigateToNextCategory(nextCategory)
+      }else{
+        navigateToNextCategory("");
+      }
     }
   };
 

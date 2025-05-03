@@ -32,7 +32,7 @@ const ServiceDetails = () => {
           <label className="block text-sm font-medium text-gray-700">
             What was your job/role in the service?
             <input
-              {...register("jobRole", { required: "This field is required" })}
+              {...register("body_jobRole", { required: "This field is required" })}
               type="text"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
               placeholder="Enter your job/role"
@@ -44,7 +44,7 @@ const ServiceDetails = () => {
           <label className="block text-sm font-medium text-gray-700">
             Please describe your responsibilities
             <textarea
-              {...register("responsibilities", { required: "This field is required" })}
+              {...register("body_responsibilities", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.responsibilities ? 'border-red-500' : ''}`}
               placeholder="Enter description"
             />

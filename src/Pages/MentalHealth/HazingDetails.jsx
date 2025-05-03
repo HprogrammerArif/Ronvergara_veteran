@@ -1,14 +1,14 @@
 import React from 'react';
 import mentalLogo from "../../assets/mental_health_logo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const HazingDetails = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
+const navigate = useNavigate()
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission (e.g., API call, state update, etc.)
-    // You can add your submission logic here
+    console.log("hazing_details",data); 
+  navigate("/abuse_power_details")
   };
 
   return (
@@ -16,11 +16,11 @@ const HazingDetails = () => {
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section (Centered Image and Text) */}
           <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
-                                                          <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
-                                                            <img src={mentalLogo} alt="Mental Health Logo" className="w-32 h-32 object-cover" />
-                                                          </div>
-                                                          <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
-                                                        </div>
+             <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
+                 <img src={mentalLogo} alt="Mental Health Logo" className="w-32 h-32 object-cover" />
+               </div>
+                    <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
+                     </div>
 
         {/* Form Section */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow ">
@@ -42,7 +42,7 @@ const HazingDetails = () => {
             Dates Of Incident
             <input
               {...register("incidentDates", { required: "This field is required" })}
-              type="text"
+              type="date"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
@@ -84,23 +84,21 @@ const HazingDetails = () => {
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
           </label>
                    <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
-                                                                          <button>
-                                                                           <Link
-                                                                           to="/abuse_power_details"
-                                                                            type="submit"
-                                                                            className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-                                                                          >
-                                                                            Continue
-                                                                          </Link>
-                                                                          </button>
-                                                                      <div>
-                                                                           <Link
-                                                                            type="button"
-                                                                            className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-                                                                            onClick={() => window.history.back()}
-                                                                          >
-                                                                            Back
-                                                                          </Link>
+                      <button>
+                         <button
+                          
+                             type="submit"
+                              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold">
+                                Continue
+                              </button>
+                 </button>
+                            <div>
+                                <Link
+                                 type="button"
+                                  className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+                                  onClick={() => window.history.back()}>
+                                     Back
+                                   </Link>
                                                                       </div>
                                                                         </div>
         </form>

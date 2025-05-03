@@ -12,8 +12,10 @@ export default function MentalHealthForm() {
   } = useForm()
 
   const onSubmit = (data) => {
+
     console.log(data)
-    // Handle form submission
+    //  to="/mental_health_survey"
+    
   }
 
   return (
@@ -38,7 +40,7 @@ export default function MentalHealthForm() {
             </label>
             <input
               type="text"
-              {...register("jobRole", { required: true })}
+              {...register("mentail_jobRole", { required: true })}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             />
           </div>
@@ -49,8 +51,8 @@ export default function MentalHealthForm() {
               How Many Hours Did You Typically Work?
             </label>
             <input
-              type="text"
-              {...register("hours", { required: true })}
+              type="number"
+              {...register("mentail_hours", { required: true })}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             />
           </div>
@@ -65,7 +67,7 @@ export default function MentalHealthForm() {
             </div>
             <input
               type="text"
-              {...register("stressLevel1", { required: true })}
+              {...register("mentail_stressLevel1", { required: true })}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             />
           </div>
@@ -77,7 +79,7 @@ export default function MentalHealthForm() {
               
             </div>
             <textarea
-              {...register("rolesAndDuties", { required: true })}
+              {...register("mentail_rolesAndDuties", { required: true })}
               rows={4}
               placeholder="Please provide as much detail as possible as it will help to strengthen your claim"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
@@ -87,13 +89,13 @@ export default function MentalHealthForm() {
           {/* Buttons */}
          <div className="flex justify-center gap-10 mt-6 pb-10 md:pb-0">
                        <button>
-                        <Link
-                       to="/mental_health_survey"
-                         type="submit"
-                         className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-                       >
+                      
+                      
+                         {/* type="submit"
+                         className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold" */}
+                   
                          Continue
-                       </Link>
+                   
                        </button>
                    <div>
                         <Link

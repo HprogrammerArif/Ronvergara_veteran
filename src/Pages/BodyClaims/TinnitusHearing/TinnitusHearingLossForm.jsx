@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
 
 const TinnitusHearingLossForm = () => {
   // Initialize React Hook Form
@@ -18,12 +20,24 @@ const TinnitusHearingLossForm = () => {
       details: "",
     },
   });
-
-  // Handle form submission
+  const selectedCategories = useSelector(
+    (state) => state.issueSlice.selectedCategories
+  ); // Accessing the selected categories from the Redux state
+  const { navigateToNextCategory } = useCategoryNavigation();
   const onSubmit = (data) => {
-    console.log("Tinnitus and Hearing Loss Form Data:", data);
-  };
+   
+    console.log(data);
+    const currentCategoryIndex = selectedCategories.indexOf("Tinnitus and Hearing Loss Claim Information");
 
+    if (currentCategoryIndex !== -1) { 
+      if(selectedCategories[currentCategoryIndex + 1]){
+        const nextCategory = selectedCategories[currentCategoryIndex + 1];
+        navigateToNextCategory(nextCategory)
+      }else{
+        navigateToNextCategory("");
+      }
+    }
+  };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto py-20 pt-40">
       {/* Header */}
@@ -36,7 +50,7 @@ const TinnitusHearingLossForm = () => {
             />
           </div>
           <h1 className="text-2xl md:text-[24px] font-semibold text-center text-white">
-          Gastrointestinal Issues <br /> (GERD/IBS) Claim <br />Information          </h1>
+          Tinnitus and Hearing <br /> Loss Claim Information          </h1>
         </div>
 
       {/* Form */}

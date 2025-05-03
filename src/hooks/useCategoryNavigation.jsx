@@ -9,7 +9,7 @@ const useCategoryNavigation = () => {
       navigate("/mental_health_info");
     } else if (nextCategory === "Body Health") {
       navigate("/service_details");
-    } else if (nextCategory === "Migraine") {
+    } else if (nextCategory === "Migraine & Headache Claim Information") {
       navigate("/migraine");
     } else if (
       nextCategory === "Sinusitis, Rhinitis & Asthma Claim Information"

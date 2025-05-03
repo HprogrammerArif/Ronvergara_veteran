@@ -1,14 +1,14 @@
 import React from 'react';
 import mentalLogo from "../../assets/mental_health_logo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const DangerousItemsDetails = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
+const navigate = useNavigate()
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission (e.g., API call, state update, etc.)
-    // You can add your submission logic here
+    console.log("dengeriousItems",data); 
+    navigate("/familiar_issues")
   };
 
   return (
@@ -42,7 +42,7 @@ const DangerousItemsDetails = () => {
             Dates Of Incident
             <input
               {...register("incidentDates", { required: "This field is required" })}
-              type="text"
+              type="date"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
@@ -99,13 +99,13 @@ const DangerousItemsDetails = () => {
           </label>
             <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
                                                                                               <button>
-                                                                                               <Link
-                                                                                               to="/familiar_issues"
+                                                                                               <button
+                                                                                              
                                                                                                 type="submit"
                                                                                                 className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
                                                                                               >
                                                                                                 Continue
-                                                                                              </Link>
+                                                                                              </button>
                                                                                               </button>
                                                                                           <div>
                                                                                                <Link

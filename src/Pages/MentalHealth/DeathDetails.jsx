@@ -8,7 +8,7 @@ const DeathDetails = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Form Submitted Data:", data);
+    console.log("Death details Form Data:", data);
     navigate("/disaster_form")
   };
 
@@ -86,13 +86,13 @@ const DeathDetails = () => {
           {/* Buttons Section */}
           <div className="flex justify-center gap-10 md:mt-6 mt-20 pb-10 md:pb-0">
            <button>
-             <Link
+             <button
              to="/disaster_form"
               type="submit"
               className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
             >
               Continue
-            </Link>
+            </button>
            </button>
  
             <button>

@@ -33,18 +33,17 @@ const SinusitisForm = () => {
   const { navigateToNextCategory } = useCategoryNavigation();
   // Handle form submission
   const onSubmit = (data) => {
-    console.log("Sinusitis Form Data:", data);
+ 
     console.log(data);
-    console.log(selectedCategories);
-    const name = "Sinusitis, Rhinitis & Asthma Claim Information";
+    const currentCategoryIndex = selectedCategories.indexOf("Sinusitis, Rhinitis & Asthma Claim Information");
 
-    const currentCategoryIndex = selectedCategories.indexOf(name);
-
-    if (currentCategoryIndex !== -1) {
-      dispatch(removeCategoryByName(name));
-      const latestCategories = store.getState().issueSlice.selectedCategories;
-      const nextCategory = latestCategories.selectedCategories?.[0] || "";
-      navigateToNextCategory(nextCategory);
+    if (currentCategoryIndex !== -1) { 
+      if(selectedCategories[currentCategoryIndex + 1]){
+        const nextCategory = selectedCategories[currentCategoryIndex + 1];
+        navigateToNextCategory(nextCategory)
+      }else{
+        navigateToNextCategory("");
+      }
     }
   };
 

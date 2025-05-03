@@ -1,13 +1,15 @@
 import React from 'react';
 import mentalLogo from "../../assets/mental_health_logo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const AbuseAssaultDetails = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-
+  const navigate = useNavigate()
   const onSubmit = (data) => {
-    console.log(data); 
+    console.log("abuse_assault_form",data); 
+
+    navigate("/risk_details")
   };
 
   return (
@@ -42,7 +44,7 @@ const AbuseAssaultDetails = () => {
             Date Of Incident
             <input
               {...register("incidentDate", { required: "This field is required" })}
-              type="text"
+              type="date"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500  text-sm ${errors.incidentDate ? 'border-red-500' : ''}`}
               placeholder="YYYY"
             />
@@ -93,13 +95,12 @@ const AbuseAssaultDetails = () => {
              {/* Buttons Section (At the Bottom) */}
           <div className="flex justify-center gap-10 md:mt-6 mt-20 pb-10 md:pb-0">
                                   <button>
-                                   <Link
-                                   to="/risk_details"
+                                   <button
                                     type="submit"
                                     className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
                                   >
                                     Continue
-                                  </Link>
+                                  </button>
                                   </button>
                               <div>
                                    <Link

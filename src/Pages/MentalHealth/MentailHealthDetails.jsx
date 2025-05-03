@@ -155,7 +155,7 @@ const MentalHealthDetails = () => {
             Duration Of Deployment
             <input
               {...register("duration", { required: "This field is required" })}
-              type="text"
+              type="number"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.duration ? 'border-red-500' : ''}`}
               placeholder="Enter duration"
             />
@@ -196,7 +196,7 @@ const MentalHealthDetails = () => {
               
               type="submit"
               className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-              onClick={handleSubmit(onSubmit)} // Trigger form submission on click
+              onClick={handleSubmit(onSubmit)} 
             >
               Continue
             </Link>
