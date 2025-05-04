@@ -74,6 +74,7 @@ import ContactForm from "../Pages/Home/ContactForm";
 import Verify_OTP from "../Pages/AdminLogin/Verify_OTP";
 import Payment_Success from "../Pages/PaymentStatus/Payment_Success";
 import Payment_Error from "../Pages/PaymentStatus/Payment_Error";
+import Final_Sub from "../Pages/FinalSubmissio/Final_Sub";
   
 export const router = createBrowserRouter([
     {
@@ -136,6 +137,7 @@ export const router = createBrowserRouter([
             {path: '/progress', element: <ProgressMessage/>},
             {path: '/e_signature', element: <ESignature/>},
             {path: '/va_form', element: <VAForm/>},
+            {path: '/submission', element: <Final_Sub/>},
            
 
             //SinusitisForm

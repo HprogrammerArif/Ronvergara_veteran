@@ -1,58 +1,401 @@
-"use client"
+// "use client"
 
-import { useState } from "react"
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from "recharts"
+// import { useState } from "react"
+// import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from "recharts"
+// import { useGetDashboardInfoQuery, useMonthlyRevenueQuery } from "../../redux/features/baseApi"
 
-// Mock data for the charts
-const generateChartData = (baseValue, variance) => {
-  return Array.from({ length: 60 }, (_, i) => {
-    let value = baseValue + Math.random() * variance - variance / 2
+// // Mock data for the charts
+// const generateChartData = (baseValue, variance) => {
+//   return Array.from({ length: 60 }, (_, i) => {
+//     let value = baseValue + Math.random() * variance - variance / 2
 
-    // Create a spike around day 20
-    if (i === 20) {
-      value = baseValue * 2
-    }
+//     // Create a spike around day 20
+//     if (i === 20) {
+//       value = baseValue * 2
+//     }
 
-    return {
-      day: i + 1,
-      value: Math.max(20, Math.round(value)),
-      formattedValue: `${Math.round(value).toLocaleString()}`,
-    }
-  })
-}
+//     return {
+//       day: i + 1,
+//       value: Math.max(20, Math.round(value)),
+//       formattedValue: `${Math.round(value).toLocaleString()}`,
+//     }
+//   })
+// }
 
-const revenueData = generateChartData(50, 20)
-const submissionsData = generateChartData(45, 25)
+// const revenueData = generateChartData(50, 20)
+// const submissionsData = generateChartData(45, 25)
+
+// export default function Dashboard() {
+
+//   const [period, setPeriod] = useState("october");
+//   const {data:dashboardData} = useGetDashboardInfoQuery();
+//   const {data:revenueInfo} = useMonthlyRevenueQuery()
+//   console.log(revenueInfo)
+
+//   return (
+//     <div className=" space-y-6 bg-gray-50 min-h-screen">
+
+//       {/* Stats Cards */}
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+//         <StatCard
+//           title="Total Active Users"
+//           value={dashboardData?.total_user}
+//           icon={<UsersIcon className="h-5 w-5 text-indigo-600" />}
+//           // change={8.5}
+//           // trend="up"
+//           // period="yesterday"
+//           bgColor="bg-indigo-50"
+//         />
+//         <StatCard
+//           title="Total Revenue"
+//           value={dashboardData?.total_revenue}
+//           icon={<DollarIcon className="h-5 w-5 text-emerald-600" />}
+//           bgColor="bg-emerald-50"
+//         />
+//         <StatCard
+//           title="Total Completion Rate"
+//           value={dashboardData?.complete_rate}
+//           icon={<CheckSquareIcon className="h-5 w-5 text-amber-600" />}
+//           change={4.3}
+//           trend="down"
+//           period="yesterday"
+//           bgColor="bg-amber-50"
+//         />
+//         <StatCard
+//           title="Active Submissions"
+//           value={dashboardData?.submission_count}
+//           icon={<ClockIcon className="h-5 w-5 text-green-600" />}
+//           bgColor="bg-green-50"
+//         />
+//       </div>
+
+//       {/* Revenue Chart */}
+//       <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+//         <div className="p-6">
+//           <div className="flex justify-between items-center mb-4">
+//             <h2 className="text-lg font-semibold">Total Revenue</h2>
+//             <div className="relative">
+//               <select
+//                 value={period}
+//                 onChange={(e) => setPeriod(e.target.value)}
+//                 className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+//               >
+//                 <option value="october">October</option>
+//                 <option value="september">September</option>
+//                 <option value="august">August</option>
+//               </select>
+//               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+//                 <svg
+//                   className="h-4 w-4"
+//                   fill="none"
+//                   stroke="currentColor"
+//                   viewBox="0 0 24 24"
+//                   xmlns="http://www.w3.org/2000/svg"
+//                 >
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                 </svg>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="h-[300px]">
+//             <ResponsiveContainer width="100%" height="100%">
+//               <AreaChart
+//                 data={revenueData}
+//                 margin={{
+//                   top: 10,
+//                   right: 30,
+//                   left: 0,
+//                   bottom: 0,
+//                 }}
+//               >
+//                 <defs>
+//                   <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+//                     <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
+//                     <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.1} />
+//                   </linearGradient>
+//                 </defs>
+//                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+//                 <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={(value) => `${value}d`} />
+//                 <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value}%`} />
+//                 <Tooltip content={<CustomTooltip />} />
+//                 <Area type="monotone" dataKey="value" stroke="#3b82f6" fillOpacity={1} fill="url(#colorRevenue)" />
+//                 <ReferenceDot x={20} y={revenueData[20].value} r={4} fill="#3b82f6" stroke="none">
+//                   <label position="top" fill="#3b82f6" fontSize={12}>
+//                     $4,509.27
+//                   </label>
+//                 </ReferenceDot>
+//               </AreaChart>
+//             </ResponsiveContainer>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Submissions Chart */}
+//       <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+//         <div className="p-6">
+//           <div className="flex justify-between items-center mb-4">
+//             <h2 className="text-lg font-semibold">Total Submissions</h2>
+//             <div className="relative">
+//               <select
+//                 value={period}
+//                 onChange={(e) => setPeriod(e.target.value)}
+//                 className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+//               >
+//                 <option value="october">October</option>
+//                 <option value="september">September</option>
+//                 <option value="august">August</option>
+//               </select>
+//               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+//                 <svg
+//                   className="h-4 w-4"
+//                   fill="none"
+//                   stroke="currentColor"
+//                   viewBox="0 0 24 24"
+//                   xmlns="http://www.w3.org/2000/svg"
+//                 >
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+//                 </svg>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="h-[300px]">
+//             <ResponsiveContainer width="100%" height="100%">
+//               <AreaChart
+//                 data={submissionsData}
+//                 margin={{
+//                   top: 10,
+//                   right: 30,
+//                   left: 0,
+//                   bottom: 0,
+//                 }}
+//               >
+//                 <defs>
+//                   <linearGradient id="colorSubmissions" x1="0" y1="0" x2="0" y2="1">
+//                     <stop offset="5%" stopColor="#22c55e" stopOpacity={0.8} />
+//                     <stop offset="95%" stopColor="#22c55e" stopOpacity={0.1} />
+//                   </linearGradient>
+//                 </defs>
+//                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+//                 <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={(value) => `${value}d`} />
+//                 <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value}%`} />
+//                 <Tooltip content={<CustomTooltip />} />
+//                 <Area type="monotone" dataKey="value" stroke="#22c55e" fillOpacity={1} fill="url(#colorSubmissions)" />
+//                 <ReferenceDot x={20} y={submissionsData[20].value} r={4} fill="#22c55e" stroke="none">
+//                   <label position="top" fill="#22c55e" fontSize={12}>
+//                     $4,509.27
+//                   </label>
+//                 </ReferenceDot>
+//               </AreaChart>
+//             </ResponsiveContainer>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// // Stat Card Component
+// function StatCard({ title, value, icon, change, trend, period, bgColor }) {
+//   return (
+//     <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+//       <div className="p-6 flex justify-between items-start">
+//         <div className="space-y-2">
+//           <p className="text-sm text-gray-500">{title}</p>
+//           <p className="text-2xl font-bold">{value}</p>
+        
+//         </div>
+//         <div className={`p-3 rounded-full ${bgColor}`}>{icon}</div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// // Custom tooltip for the charts
+// function CustomTooltip({ active, payload }) {
+//   if (active && payload && payload.length) {
+//     return (
+//       <div className="bg-white p-3 border border-gray-200 shadow-md rounded-md">
+//         <p className="font-medium">{`Day ${payload[0].payload.day}`}</p>
+//         <p className="text-gray-700">{`Value: ${payload[0].payload.formattedValue}`}</p>
+//       </div>
+//     )
+//   }
+
+//   return null
+// }
+
+// // Simple SVG Icons
+// function UsersIcon({ className }) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+//       <circle cx="9" cy="7" r="4"></circle>
+//       <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+//       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+//     </svg>
+//   )
+// }
+
+// function DollarIcon({ className }) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <line x1="12" y1="1" x2="12" y2="23"></line>
+//       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+//     </svg>
+//   )
+// }
+
+// function CheckSquareIcon({ className }) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <polyline points="9 11 12 14 22 4"></polyline>
+//       <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+//     </svg>
+//   )
+// }
+
+// function ClockIcon({ className }) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <circle cx="12" cy="12" r="10"></circle>
+//       <polyline points="12 6 12 12 16 14"></polyline>
+//     </svg>
+//   )
+// }
+
+// function ArrowUpIcon({ className }) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <line x1="12" y1="19" x2="12" y2="5"></line>
+//       <polyline points="5 12 12 5 19 12"></polyline>
+//     </svg>
+//   )
+// }
+
+// function ArrowDownIcon({ className }) {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       className={className}
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <line x1="12" y1="5" x2="12" y2="19"></line>
+//       <polyline points="19 12 12 19 5 12"></polyline>
+//     </svg>
+//   )
+// }
+
+
+
+
+import { useState } from "react";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from "recharts";
+import { useGetDashboardInfoQuery, useMonthlyRevenueQuery } from "../../redux/features/baseApi";
+
+// Month names for X-axis
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Process backend data into chart format
+const processChartData = (backendData, year) => {
+  const yearData = backendData.find((item) => item.year === year);
+  if (!yearData) return [];
+
+  return yearData.data.map((value, index) => ({
+    month: monthNames[index],
+    value: value,
+    formattedValue: value.toLocaleString(),
+  }));
+};
 
 export default function Dashboard() {
-  const [period, setPeriod] = useState("october")
+  const [period, setPeriod] = useState("2025"); 
+  const { data: dashboardData } = useGetDashboardInfoQuery();
+  const { data: revenueInfo } = useMonthlyRevenueQuery();
+
+  // Assuming revenueInfo contains the backend data you provided
+  const revenueData = revenueInfo?.all_revenue_data
+    ? processChartData(revenueInfo.all_revenue_data, parseInt(period))
+    : [];
+  const submissionsData = revenueInfo?.all_submission_data
+    ? processChartData(revenueInfo.all_submission_data, parseInt(period))
+    : [];
+
+  
+  const revenuePeak = revenueData.reduce((max, item) => (item.value > max.value ? item : max), revenueData[0] || {});
+  const submissionPeak = submissionsData.reduce(
+    (max, item) => (item.value > max.value ? item : max),
+    submissionsData[0] || {}
+  );
 
   return (
-    <div className=" space-y-6 bg-gray-50 min-h-screen">
-
+    <div className="space-y-6 bg-gray-50 min-h-screen">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Total Active Users"
-          value="40,689"
+          value={dashboardData?.total_user}
           icon={<UsersIcon className="h-5 w-5 text-indigo-600" />}
-          change={8.5}
-          trend="up"
-          period="yesterday"
           bgColor="bg-indigo-50"
         />
         <StatCard
           title="Total Revenue"
-          value="10,293"
+          value={dashboardData?.total_revenue}
           icon={<DollarIcon className="h-5 w-5 text-emerald-600" />}
-          change={1.3}
-          trend="up"
-          period="past week"
           bgColor="bg-emerald-50"
         />
         <StatCard
           title="Total Completion Rate"
-          value="89,000"
+          value={dashboardData?.complete_rate}
           icon={<CheckSquareIcon className="h-5 w-5 text-amber-600" />}
           change={4.3}
           trend="down"
@@ -61,11 +404,8 @@ export default function Dashboard() {
         />
         <StatCard
           title="Active Submissions"
-          value="78%"
+          value={dashboardData?.submission_count}
           icon={<ClockIcon className="h-5 w-5 text-green-600" />}
-          change={1.8}
-          trend="up"
-          period="yesterday"
           bgColor="bg-green-50"
         />
       </div>
@@ -81,9 +421,8 @@ export default function Dashboard() {
                 onChange={(e) => setPeriod(e.target.value)}
                 className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="october">October</option>
-                <option value="september">September</option>
-                <option value="august">August</option>
+                <option value="2025">2025</option>
+                {/* Add more years if backend supports multiple years */}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -116,15 +455,17 @@ export default function Dashboard() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={(value) => `${value}d`} />
-                <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value}%`} />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} />
+                <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value}`} />
                 <Tooltip content={<CustomTooltip />} />
                 <Area type="monotone" dataKey="value" stroke="#3b82f6" fillOpacity={1} fill="url(#colorRevenue)" />
-                <ReferenceDot x={20} y={revenueData[20].value} r={4} fill="#3b82f6" stroke="none">
-                  <label position="top" fill="#3b82f6" fontSize={12}>
-                    $4,509.27
-                  </label>
-                </ReferenceDot>
+                {revenuePeak.month && (
+                  <ReferenceDot x={revenuePeak.month} y={revenuePeak.value} r={4} fill="#3b82f6" stroke="none">
+                    <label position="top" fill="#3b82f6" fontSize={12}>
+                      {revenuePeak.formattedValue}
+                    </label>
+                  </ReferenceDot>
+                )}
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -142,9 +483,8 @@ export default function Dashboard() {
                 onChange={(e) => setPeriod(e.target.value)}
                 className="appearance-none bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="october">October</option>
-                <option value="september">September</option>
-                <option value="august">August</option>
+                <option value="2025">2025</option>
+                {/* Add more years if backend supports multiple years */}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -177,25 +517,40 @@ export default function Dashboard() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={(value) => `${value}d`} />
-                <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value}%`} />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} />
+                <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value}`} />
                 <Tooltip content={<CustomTooltip />} />
                 <Area type="monotone" dataKey="value" stroke="#22c55e" fillOpacity={1} fill="url(#colorSubmissions)" />
-                <ReferenceDot x={20} y={submissionsData[20].value} r={4} fill="#22c55e" stroke="none">
-                  <label position="top" fill="#22c55e" fontSize={12}>
-                    $4,509.27
-                  </label>
-                </ReferenceDot>
+                {submissionPeak.month && (
+                  <ReferenceDot x={submissionPeak.month} y={submissionPeak.value} r={4} fill="#22c55e" stroke="none">
+                    <label position="top" fill="#22c55e" fontSize={12}>
+                      {submissionPeak.formattedValue}
+                    </label>
+                  </ReferenceDot>
+                )}
               </AreaChart>
             </ResponsiveContainer>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-// Stat Card Component
+// Modified CustomTooltip to show month
+function CustomTooltip({ active, payload }) {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-3 border border-gray-200 shadow-md rounded-md">
+        <p className="font-medium">{`Month: ${payload[0].payload.month}`}</p>
+        <p className="text-gray-700">{`Value: ${payload[0].payload.formattedValue}`}</p>
+      </div>
+    );
+  }
+  return null;
+}
+
+// StatCard and Icons remain unchanged
 function StatCard({ title, value, icon, change, trend, period, bgColor }) {
   return (
     <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
@@ -203,38 +558,13 @@ function StatCard({ title, value, icon, change, trend, period, bgColor }) {
         <div className="space-y-2">
           <p className="text-sm text-gray-500">{title}</p>
           <p className="text-2xl font-bold">{value}</p>
-          <div className="flex items-center text-sm">
-            {trend === "up" ? (
-              <ArrowUpIcon className="h-4 w-4 text-green-500 mr-1" />
-            ) : (
-              <ArrowDownIcon className="h-4 w-4 text-red-500 mr-1" />
-            )}
-            <span className={trend === "up" ? "text-green-500" : "text-red-500"}>
-              {change}% {trend} from {period}
-            </span>
-          </div>
         </div>
         <div className={`p-3 rounded-full ${bgColor}`}>{icon}</div>
       </div>
     </div>
-  )
+  );
 }
 
-// Custom tooltip for the charts
-function CustomTooltip({ active, payload }) {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-white p-3 border border-gray-200 shadow-md rounded-md">
-        <p className="font-medium">{`Day ${payload[0].payload.day}`}</p>
-        <p className="text-gray-700">{`Value: ${payload[0].payload.formattedValue}`}</p>
-      </div>
-    )
-  }
-
-  return null
-}
-
-// Simple SVG Icons
 function UsersIcon({ className }) {
   return (
     <svg
@@ -252,7 +582,7 @@ function UsersIcon({ className }) {
       <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
     </svg>
-  )
+  );
 }
 
 function DollarIcon({ className }) {
@@ -270,7 +600,7 @@ function DollarIcon({ className }) {
       <line x1="12" y1="1" x2="12" y2="23"></line>
       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
     </svg>
-  )
+  );
 }
 
 function CheckSquareIcon({ className }) {
@@ -288,7 +618,7 @@ function CheckSquareIcon({ className }) {
       <polyline points="9 11 12 14 22 4"></polyline>
       <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
     </svg>
-  )
+  );
 }
 
 function ClockIcon({ className }) {
@@ -306,41 +636,5 @@ function ClockIcon({ className }) {
       <circle cx="12" cy="12" r="10"></circle>
       <polyline points="12 6 12 12 16 14"></polyline>
     </svg>
-  )
-}
-
-function ArrowUpIcon({ className }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="12" y1="19" x2="12" y2="5"></line>
-      <polyline points="5 12 12 5 19 12"></polyline>
-    </svg>
-  )
-}
-
-function ArrowDownIcon({ className }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="12" y1="5" x2="12" y2="19"></line>
-      <polyline points="19 12 12 19 5 12"></polyline>
-    </svg>
-  )
+  );
 }

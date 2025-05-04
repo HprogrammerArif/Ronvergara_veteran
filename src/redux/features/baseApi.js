@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://192.168.10.8:9000/',
+        baseUrl: 'http://192.168.10.208:8500/',
         prepareHeaders: (headers) => {
             const token = localStorage.getItem("access_token");
             if (token) {
@@ -70,7 +70,7 @@ export const baseApi = createApi({
 
         //subcription
         getPlans: builder.query({
-            query: ()=>"/api/payment/get_all/subscribtions-plan/"
+            query: ()=>"api/payment/get_all/subscribtions-plan/"
         }),
 
         //payment
@@ -101,6 +101,14 @@ export const baseApi = createApi({
         //userManagement
         getUsers: builder.query({
             query: ()=>"api/payment/get_all/subscribtions/"
+        }),
+
+        getDashboardInfo:builder.query({
+            query: ()=> "api/payment/get_all/calculate_for_dashboard/"
+        }),
+
+        monthlyRevenue: builder.query({
+            query: ()=> "api/payment/get_all/calculate_yearly_revenue/"
         })
     
 
@@ -143,5 +151,7 @@ export const {
 
     //admindashboard
     useGetUsersQuery,
+    useGetDashboardInfoQuery,
+    useMonthlyRevenueQuery,
 
 } = baseApi;
