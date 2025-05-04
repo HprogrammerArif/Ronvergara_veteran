@@ -27,6 +27,7 @@ const TinnitusHearingLossForm = () => {
   const onSubmit = (data) => {
    
     console.log(data);
+    localStorage.setItem("tinnitus_hearing_loss", JSON.stringify(data))
     const currentCategoryIndex = selectedCategories.indexOf("Tinnitus and Hearing Loss Claim Information");
 
     if (currentCategoryIndex !== -1) { 
@@ -206,12 +207,12 @@ const TinnitusHearingLossForm = () => {
 
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">
-          <Link
-            to="/progress"
+          <button
+           type="submit"
             className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
           >
             Continue
-          </Link>
+          </button>
           <Link
             to="/previous-page"
             className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"

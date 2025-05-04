@@ -30,6 +30,8 @@ const GastrointestinalForm = () => {
   const onSubmit = (data) => {
    
     console.log(data);
+    localStorage.setItem("gastrointestinal_form", JSON.stringify(data));
+
     const currentCategoryIndex = selectedCategories.indexOf("Gastrointestinal Issues (GERD/IBS) Claim Information");
 
     if (currentCategoryIndex !== -1) { 
@@ -211,12 +213,13 @@ const GastrointestinalForm = () => {
 
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">
-          <Link
-            to="/progress"
+          <button
+            // to="/progress"
+            type="submit"
             className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
           >
             Continue
-          </Link>
+          </button>
           <Link
             to="/previous-page"
             className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"

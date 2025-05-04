@@ -1,29 +1,17 @@
 import React from "react";
+
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { removeCategoryByName } from "../../../redux/slice/IssueSlice";
-import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
+import { useNavigate } from "react-router-dom";
+
 
 const DischargeCondition = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const selectedCategories = useSelector
-  ((state) => state.issueSlice.selectedCategories)
-const dispatch = useDispatch()
-const {navigateToNextCategory} = useCategoryNavigation()
+ const navigate = useNavigate()
+
   const onSubmit = (data) => {
     console.log(data); 
-    console.log(selectedCategories); 
-
-    const currentCategoryIndex = selectedCategories.indexOf("Body Health");
-
-    if (currentCategoryIndex !== -1) {
-      dispatch(removeCategoryByName("Body Health"))
-
-      const nextCategory = selectedCategories?.[0]??"";
-      navigateToNextCategory(nextCategory)
-    }
-
+    localStorage.setItem("discharge_condition", JSON.stringify(data))
+    navigate("/health_details")
   };
 
   return (
@@ -49,42 +37,42 @@ const {navigateToNextCategory} = useCategoryNavigation()
           <label className="block text-sm font-medium text-gray-700">
           Have you been seen since discharge for any of these conditions?
             <select
-              {...register("seenAtSickCall", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.seenAtSickCall ? 'border-red-500' : ''}`}
+              {...register("discharge_conditions", { required: "This field is required" })}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.discharge_conditions ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
-            {errors.seenAtSickCall && <span className="text-red-500 text-sm">{errors.seenAtSickCall.message}</span>}
+            {errors.discharge_conditions && <span className="text-red-500 text-sm">{errors.discharge_conditions.message}</span>}
           </label>
 
 
           <label className="block text-sm font-medium text-gray-700">
           Are you on any regular medications for these conditions?
             <select
-              {...register("seenAtSickCall", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.seenAtSickCall ? 'border-red-500' : ''}`}
+              {...register("regular_medications", { required: "This field is required" })}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.regular_medications ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
-            {errors.seenAtSickCall && <span className="text-red-500 text-sm">{errors.seenAtSickCall.message}</span>}
+            {errors.regular_medications && <span className="text-red-500 text-sm">{errors.regular_medications.message}</span>}
           </label>
 
 
           <label className="block text-sm font-medium text-gray-700">
           Have you had any surgeries relating to these conditions?
             <select
-              {...register("seenAtSickCall", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.seenAtSickCall ? 'border-red-500' : ''}`}
+              {...register("surgeries_conditions", { required: "This field is required" })}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.surgeries_conditions ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
-            {errors.seenAtSickCall && <span className="text-red-500 text-sm">{errors.seenAtSickCall.message}</span>}
+            {errors.surgeries_conditions && <span className="text-red-500 text-sm">{errors.surgeries_conditions.message}</span>}
           </label>
 
       
@@ -95,13 +83,13 @@ const {navigateToNextCategory} = useCategoryNavigation()
           
         >
         
-        <Link
-        to="/health_details"
-            
+        <button
+       
+            type="submit"
               className="btn bg-[#B31942] w-full text-white py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
             >
               Continue
-            </Link>
+            </button>
 
                 </button>
                     <button
@@ -118,3 +106,5 @@ const {navigateToNextCategory} = useCategoryNavigation()
 };
 
 export default DischargeCondition;
+
+

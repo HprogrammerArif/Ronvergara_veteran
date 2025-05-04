@@ -33,8 +33,10 @@ const SinusitisForm = () => {
   const { navigateToNextCategory } = useCategoryNavigation();
   // Handle form submission
   const onSubmit = (data) => {
- 
+    
     console.log(data);
+    localStorage.setItem("sinusitis_form", JSON.stringify(data));
+    
     const currentCategoryIndex = selectedCategories.indexOf("Sinusitis, Rhinitis & Asthma Claim Information");
 
     if (currentCategoryIndex !== -1) { 

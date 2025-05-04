@@ -1,12 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const InjuriesDetails = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const navigate = useNavigate()
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission (e.g., API call, state update, etc.)
+    console.log(data); 
+    localStorage.setItem("injuries_details", JSON.stringify(data));
+    navigate("/sickcall_details")
   };
 
   return (
@@ -54,13 +57,13 @@ const InjuriesDetails = () => {
           </label>
 
         <div className="flex flex-col justify-center gap-5 mx-auto ">
-                           <Link
-                           to="/sickcall_details"
-                             type="button"
+                           <button
+                          //  to="/sickcall_details"
+                             type="submit"
                              className="btn bg-[#B31942] border-gray-400  py-2 text-white text-center font-semibold rounded-md"
                            >
                              Continue
-                           </Link>
+                           </button>
                            <button
                              type="submit"
                              className="btn  text-[#001F3F] font-semibold border  border-[#001F3F] py-2 rounded-md"  
