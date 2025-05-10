@@ -6,10 +6,13 @@ import { IoMdSettings } from "react-icons/io";
 import { FiUsers } from "react-icons/fi";
 
 import { AiOutlineAudit } from "react-icons/ai";
+import { useGetLoggedUserQuery } from "../../redux/features/baseApi";
 
 export default function Dashboard() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selectedItem, setSelectedItem] = useState("Dashboard");
+  const {data:loggedUser} = useGetLoggedUserQuery();
+  console.log(loggedUser)
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -45,6 +48,13 @@ export default function Dashboard() {
     },
   ];
 
+
+  const handleLogOut = () =>{
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+
+    navigate("/login")
+  }
   useEffect(() => {
     // Check both main items and submenu items for current route
     const allItems = menuItems[0].items;
@@ -192,16 +202,16 @@ export default function Dashboard() {
               <div className="flex flex-col">
                 <span className="text-gray-700 font-bold text-xl">{selectedItem}</span>
                 <h1>
-                  Hi, Welcome <span className="text-[#B28D28] font-bold">Admin</span>
+                  Hi, Welcome <span className="text-[#B28D28] font-bold">{loggedUser?.name}</span>
                 </h1>
               </div>
             </div>
             <div className="flex items-center gap-4 me-10">
-              <Link to="/admin/notification">
+              {/* <Link to="/admin/notification">
               <button className="p-2 bg-[#FAE08C1A] hover:bg-[#f8de91] border-2 border-[#B28D2833] rounded-full transition-colors duration-300">
                 <Bell size={24} className="text-[#B28D28]" />
               </button>
-              </Link>
+              </Link> */}
               <div className="flex items-center justify-center gap-2">
                 <div className="w-12">
                   <img
@@ -211,8 +221,8 @@ export default function Dashboard() {
                   />
                 </div>
                 <div>
-                  <h2 className="font-bold text-[14px]">Admin</h2>
-                  <p className="text-gray-900 text-[13px]">admin@hn.com</p>
+                  <h2 className="font-bold text-[14px]">{loggedUser?.name}</h2>
+                  <p className="text-gray-900 text-[13px]">{loggedUser?.email}</p>
                 </div>
                 <div className="dropdown dropdown-end">
                   <div tabIndex={0} role="button">
@@ -228,9 +238,11 @@ export default function Dashboard() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/logout" className="text-gray-700 hover:text-gray-900">
+                      <button
+                       onClick={handleLogOut}
+                       className="text-gray-700 hover:text-gray-900">
                         Logout
-                      </Link>
+                      </button>
                     </li>
                   </ul>
                 </div>

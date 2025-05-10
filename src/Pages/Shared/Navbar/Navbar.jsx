@@ -2,23 +2,46 @@
 // import { useState } from "react";
 // import { Menu, X } from "lucide-react";
 // import logo from "../../../assets/VALR_logo.png";
-// import { Link, useLocation } from "react-router-dom";
-// import { useLoggedInUserMutation } from "../../../redux/features/baseApi";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { useGetLoggedUserQuery } from "../../../redux/features/baseApi";
+// import { FaCog, FaSignOutAlt, FaUser } from "react-icons/fa";
 
 // export default function Navbar() {
 //   const [menuOpen, setMenuOpen] = useState(false);
 //   const location = useLocation();
+//   const navigate = useNavigate()
 
-//   const {data:loggedUser} = useLoggedInUserMutation()
+
+//   const { data: loggedInUser } = useGetLoggedUserQuery();
 
 //   const navLinks = [
 //     { name: "Home", path: "/" },
 //     { name: "About Us", path: "/about_us" },
-//     // { name: "Success Stories", path: "/success" },
-//     // { name: "Services", path: "/services" },
 //     { name: "Calculator", path: "/calculator" },
 //     { name: "Contact", path: "/contact" },
 //   ];
+
+//   //logout
+//   const handleLogout = () => {
+//     console.log("Logging out...");
+//    localStorage.removeItem("acces_token");
+//    localStorage.removeItem("refresh_token");
+
+//    setTimeout(()=>{
+//     navigate("/login")
+//    } ,2000)
+    
+//   };
+
+//   // Function to open logout modal
+//   const openLogoutModal = () => {
+//     const modal = document.getElementById("logout_modal");
+//     if (modal) {
+//       modal.showModal();
+//     } else {
+//       console.error("Modal element not found");
+//     }
+//   };
 
 //   return (
 //     <nav className="fixed top-0 z-50 w-full bg-[#0B2A52] shadow-lg">
@@ -27,14 +50,14 @@
 //         <div className="z-10 flex items-center font-bold text-white">
 //           <img
 //             src={logo}
-//             alt="logo"
+//             alt="VALR Logo"
 //             width={50}
 //             height={50}
 //             className="h-[60px] w-16 pl-2 transition-all duration-300 md:h-[70px] md:w-[70px] md:pl-0"
 //           />
 //         </div>
 
-
+//         {/* Desktop Nav Links */}
 //         <div className="hidden space-x-14 md:flex">
 //           {navLinks.map((link) => (
 //             <Link
@@ -53,20 +76,76 @@
 //           ))}
 //         </div>
 
-//         {/* Buttons */}
-//         <div className="hidden space-x-3 md:flex">
-//           <Link
-//             to="/login"
-//             className="rounded-md bg-[#B31942] px-6 py-2.5 font-semibold text-white transition-all duration-300 hover:transform hover:scale-105 hover:bg-opacity-90 active:scale-95"
-//           >
-//             Sign In
-//           </Link>
-//           <Link
-//             to="/sign_up"
-//             className="rounded-md bg-white px-6 py-2.5 font-semibold text-[#0A3161] transition-all duration-300 hover:transform hover:scale-105 hover:bg-opacity-90 active:scale-95"
-//           >
-//             Sign Up
-//           </Link>
+//         {/* Desktop Buttons or Avatar Dropdown */}
+//         <div className="hidden md:flex items-center space-x-3 relative">
+//           {loggedInUser ? (
+//             <div className="dropdown dropdown-end">
+//               <div tabIndex={0} role="button" className="avatar">
+//                 <div className="w-[50px] rounded-full">
+//                   <img
+//                     src={
+//                       loggedInUser.avatar ||
+//                       "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+//                     }
+//                     alt="User Avatar"
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+//               </div>
+//               <ul
+//                 tabIndex={0}
+//                 className="menu menu-sm dropdown-content mt-1 z-[999] p-3 border border-white/20 shadow bg-[#002b5c] opacity-90 rounded-box w-48 space-y-2"
+//                 role="menu"
+//                 aria-label="User menu"
+//               >
+//                 <li>
+//                   <Link
+//                     to="/profile"
+//                     className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
+//                     role="menuitem"
+//                   >
+//                     <FaUser className="w-5 h-5 text-white" />
+//                     Profile
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link
+//                     to="/settings"
+//                     className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
+//                     role="menuitem"
+//                   >
+//                     <FaCog className="w-5 h-5 text-white" />
+//                     Settings
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <button
+//                     onClick={openLogoutModal}
+//                     className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200 uppercase"
+//                     role="menuitem"
+//                   >
+//                     <FaSignOutAlt className="w-5 h-5 text-red-500" />
+//                     Logout
+//                   </button>
+//                 </li>
+//               </ul>
+//             </div>
+//           ) : (
+//             <>
+//               <Link
+//                 to="/login"
+//                 className="rounded-md bg-[#B31942] px-6 py-2.5 font-semibold text-white transition-all duration-300 hover:transform hover:scale-105 hover:bg-opacity-90 active:scale-95"
+//               >
+//                 Sign In
+//               </Link>
+//               <Link
+//                 to="/sign_up"
+//                 className="rounded-md bg-white px-6 py-2.5 font-semibold text-[#0A3161] transition-all duration-300 hover:transform hover:scale-105 hover:bg-opacity-90 active:scale-95"
+//               >
+//                 Sign Up
+//               </Link>
+//             </>
+//           )}
 //         </div>
 
 //         {/* Mobile Menu Button */}
@@ -96,7 +175,7 @@
 //         <div className="flex h-full flex-col">
 //           {/* Mobile Logo */}
 //           <div className="flex h-[80px] items-center mx-auto border-b border-white/10 px-6">
-//             <img src={logo} alt="logo" width={64} height={48} className="h-12 w-14" />
+//             <img src={logo} alt="VALR Logo" width={64} height={48} className="h-12 w-14" />
 //           </div>
 
 //           {/* Mobile Nav Links */}
@@ -120,27 +199,72 @@
 //             </div>
 //           </div>
 
-//           {/* Mobile Buttons */}
+//           {/* Mobile Buttons or Avatar */}
 //           <div className="border-t border-white/10 p-6">
-//             <div className="flex flex-col gap-3">
-//               <Link
-//                 to="/login"
-//                 className="rounded-md bg-[#B31942] px-6 py-2.5 text-center font-semibold text-white transition-colors hover:bg-opacity-90"
-//                 onClick={() => setMenuOpen(false)}
-//               >
-//                 Sign In
-//               </Link>
-//               <Link
-//                 to="/sign_up"
-//                 className="rounded-md bg-white px-6 py-2.5 text-center font-semibold text-[#0A3161] transition-colors hover:bg-opacity-90"
-//                 onClick={() => setMenuOpen(false)}
-//               >
-//                 Sign Up
-//               </Link>
-//             </div>
+//             {loggedInUser ? (
+//               <div className="flex flex-col items-center gap-4">
+//                 <img
+//                   src={
+//                     loggedInUser.avatar ||
+//                     "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+//                   }
+//                   alt="User Avatar"
+//                   className="h-12 w-12 rounded-full object-cover"
+//                 />
+//                 <button
+//                   onClick={openLogoutModal}
+//                   className="flex items-center gap-3 rounded-md bg-[#B31942] px-6 py-2.5 text-white font-semibold transition-colors duration-200 hover:bg-opacity-90"
+//                 >
+//                   <FaSignOutAlt className="w-5 h-5 text-white" />
+//                   Logout
+//                 </button>
+//               </div>
+//             ) : (
+//               <div className="flex flex-col gap-3">
+//                 <Link
+//                   to="/login"
+//                   className="rounded-md bg-[#B31942] px-6 py-2.5 text-center font-semibold text-white transition-colors hover:bg-opacity-90"
+//                   onClick={() => setMenuOpen(false)}
+//                 >
+//                   Sign In
+//                 </Link>
+//                 <Link
+//                   to="/sign_up"
+//                   className="rounded-md bg-white px-6 py-2.5 text-center font-semibold text-[#0A3161] transition-colors hover:bg-opacity-90"
+//                   onClick={() => setMenuOpen(false)}
+//                 >
+//                   Sign Up
+//                 </Link>
+//               </div>
+//             )}
 //           </div>
 //         </div>
 //       </div>
+
+//       {/* Logout Modal */}
+//       <dialog id="logout_modal" className="modal backdrop-blur-[1px]">
+//         <div className="modal-box bg-[#002b5c] text-white">
+//           <h3 className="font-bold text-lg">Confirm Logout</h3>
+//           <p className="py-4">Are you sure you want to log out?</p>
+//           <div className="modal-action">
+//             <form method="dialog" className="space-x-2">
+//               <button className="btn btn-outline text-white hover:bg-white/10">
+//                 Cancel
+//               </button>
+//               <button
+//                 className="btn btn-error text-white"
+//                 onClick={handleLogout}
+//               >
+//                 Logout
+//               </button>
+//             </form>
+//           </div>
+//         </div>
+//         {/* Allow clicking outside to close the modal */}
+//         <form method="dialog" className="modal-backdrop">
+//           <button>close</button>
+//         </form>
+//       </dialog>
 //     </nav>
 //   );
 // }
@@ -149,15 +273,17 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../../../assets/VALR_logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGetLoggedUserQuery } from "../../../redux/features/baseApi";
+import { FaCog, FaSignOutAlt, FaUser } from "react-icons/fa";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false); // New state for loading
   const location = useLocation();
+  const navigate = useNavigate();
 
- const {data:loggedInUser} = useGetLoggedUserQuery();
- console.log("user",loggedInUser)
+  const { data: loggedInUser } = useGetLoggedUserQuery();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -166,6 +292,29 @@ export default function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
+  // Logout
+  const handleLogout = () => {
+    setIsLoggingOut(true); // Start loading
+    console.log("Logging out...");
+    localStorage.removeItem("acces_token");
+    localStorage.removeItem("refresh_token");
+
+    setTimeout(() => {
+      setIsLoggingOut(false); // Stop loading
+      navigate("/login");
+    }, 2000);
+  };
+
+  // Function to open logout modal
+  const openLogoutModal = () => {
+    const modal = document.getElementById("logout_modal");
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Modal element not found");
+    }
+  };
+
   return (
     <nav className="fixed top-0 z-50 w-full bg-[#0B2A52] shadow-lg">
       <div className="container mx-auto flex items-center justify-between py-3">
@@ -173,7 +322,7 @@ export default function Navbar() {
         <div className="z-10 flex items-center font-bold text-white">
           <img
             src={logo}
-            alt="logo"
+            alt="VALR Logo"
             width={50}
             height={50}
             className="h-[60px] w-16 pl-2 transition-all duration-300 md:h-[70px] md:w-[70px] md:pl-0"
@@ -199,14 +348,60 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Buttons or Avatar */}
-        <div className="hidden md:flex items-center space-x-3">
+        {/* Desktop Buttons or Avatar Dropdown */}
+        <div className="hidden md:flex items-center space-x-3 relative">
           {loggedInUser ? (
-            <img
-              src={loggedInUser.avatar || "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"} // Fallback avatar
-              alt="User Avatar"
-              className="h-12 w-12 rounded-full object-cover"
-            />
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="avatar">
+                <div className="w-[50px] rounded-full">
+                  <img
+                    src={
+                      loggedInUser.avatar ||
+                      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                    }
+                    alt="User Avatar"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-1 z-[999] p-3 border border-white/20 shadow bg-[#002b5c] opacity-90 rounded-box w-48 space-y-2"
+                role="menu"
+                aria-label="User menu"
+              >
+                <li>
+                  <Link
+                    to="/profile"
+                    className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
+                    role="menuitem"
+                  >
+                    <FaUser className="w-5 h-5 text-white" />
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/settings"
+                    className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
+                    role="menuitem"
+                  >
+                    <FaCog className="w-5 h-5 text-white" />
+                    Settings
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={openLogoutModal}
+                    className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200 uppercase"
+                    role="menuitem"
+                  >
+                    <FaSignOutAlt className="w-5 h-5 text-red-500" />
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
           ) : (
             <>
               <Link
@@ -252,7 +447,7 @@ export default function Navbar() {
         <div className="flex h-full flex-col">
           {/* Mobile Logo */}
           <div className="flex h-[80px] items-center mx-auto border-b border-white/10 px-6">
-            <img src={logo} alt="logo" width={64} height={48} className="h-12 w-14" />
+            <img src={logo} alt="VALR Logo" width={64} height={48} className="h-12 w-14" />
           </div>
 
           {/* Mobile Nav Links */}
@@ -279,12 +474,22 @@ export default function Navbar() {
           {/* Mobile Buttons or Avatar */}
           <div className="border-t border-white/10 p-6">
             {loggedInUser ? (
-              <div className="flex justify-center">
+              <div className="flex flex-col items-center gap-4">
                 <img
-                  src={loggedInUser.avatar || "https://via.placeholder.com/40"} // Fallback avatar
+                  src={
+                    loggedInUser.avatar ||
+                    "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                  }
                   alt="User Avatar"
                   className="h-12 w-12 rounded-full object-cover"
                 />
+                <button
+                  onClick={openLogoutModal}
+                  className="flex items-center gap-3 rounded-md bg-[#B31942] px-6 py-2.5 text-white font-semibold transition-colors duration-200 hover:bg-opacity-90"
+                >
+                  <FaSignOutAlt className="w-5 h-5 text-white" />
+                  Logout
+                </button>
               </div>
             ) : (
               <div className="flex flex-col gap-3">
@@ -307,6 +512,36 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Logout Modal */}
+      <dialog id="logout_modal" className="modal backdrop-blur-[1px]">
+        <div className="modal-box bg-[#002b5c] text-white">
+          <h3 className="font-bold text-lg">Confirm Logout</h3>
+          <p className="py-4">Are you sure you want to log out?</p>
+          <div className="modal-action">
+            <form method="dialog" className="space-x-2">
+              <button className="btn btn-outline text-white hover:bg-white/10">
+                Cancel
+              </button>
+              <button
+                className="btn btn-error text-white"
+                onClick={handleLogout}
+                disabled={isLoggingOut} // Disable button during logout
+              >
+                {isLoggingOut ? (
+                  <span className="loading loading-bars loading-xl text-red-600"></span>
+                ) : (
+                  "Logout"
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+        {/* Allow clicking outside to close the modal */}
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
     </nav>
   );
 }

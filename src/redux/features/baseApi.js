@@ -138,6 +138,10 @@ export const {
     //resetpassword
     useResetPasswordMutation,
 
+    //getProfile
+
+    
+
     //get plans
     useGetPlansQuery,
 
