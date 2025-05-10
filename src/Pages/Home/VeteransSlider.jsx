@@ -142,11 +142,11 @@ const EmpoweringVeterans = () => {
         <h2 className="md:text-4xl md:text-start text-2xl  font-bold text-gray-800 mb-8">
           EMPOWERING VETERANS <br /> THROUGH EDUCATION
         </h2>
-        <p className="md:text-lg text-gray-600 mb-8 md:w-2/3 md:text-start">
+        <p className="md:text-lg text-gray-600 mb-8 lg:w-2/3 md:text-start">
           Education transforms lives, and we're committed to empowering veterans with opportunities to learn, grow, and succeed. From skill-building to career advancement, we provide the resources and support needed to unlock your potential and shape a brighter future.
         </p>
 
-       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-4">
   {cards.map((card, index) => (
     <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
       <img className="w-full h-62 object-cover rounded-none" src={card.imgSrc} alt={card.alt} />

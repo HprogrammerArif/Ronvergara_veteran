@@ -13,7 +13,7 @@ import VeteransSlider from "./VeteransSlider"
 
 const Home = () => {
   return (
-    <div className=" mx-auto">
+    <div className=" ">
         
           <Banner />
           <StatsSection/>

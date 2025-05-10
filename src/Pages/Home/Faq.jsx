@@ -32,12 +32,12 @@ export default function FAQ() {
   };
 
   return (
-   <section className="bg-gray-200 md:py-20 md:h-[90vh] ">
+   <section className="bg-gray-200 md:py-20 lg:h-[90vh] ">
      <div className="bg-[#0A3161] container mx-auto text-white py-5 md:px-10">
     <div className=" md:p-14 px-5 md:px-0 text-white">
   <div className=" mx-auto text-center mb-12">
         <h2 className="md:text-4xl text-2xl md:text-start font-bold">Frequently Asked Questions</h2>
-        <p className="text-xl md:text-start mt-4">We have your answers.</p>
+        <p className="text-base md:text-start mt-4">We have your answers.</p>
       </div>
 
       <div className="space-y-4">
@@ -47,7 +47,7 @@ export default function FAQ() {
               onClick={() => toggleAccordion(index)}
               className="flex justify-between items-center p-3  cursor-pointer transition-all"
             >
-              <h3 className="text-lg font-medium">{faq.question}</h3>
+              <h3 className="text-[14px] md:text-[20px] lg:text-[20px] font-medium">{faq.question}</h3>
               <svg
                 className={`w-6 h-6 transform transition-transform ${
                   openIndex === index ? "rotate-180" : ""
@@ -66,7 +66,7 @@ export default function FAQ() {
             </div>
 
             {openIndex === index && (
-              <div className="p-6 bg-white text-gray-800 rounded-none">
+              <div className="p-4 bg-white text-xs md:text-[16px] lg:text-[16px] text-gray-900 rounded-none">
                 <p>{faq.answer}</p>
               </div>
             )}

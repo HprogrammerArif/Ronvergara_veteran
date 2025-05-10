@@ -1,9 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import soldierImage from "../../assets/soldierImg.jpg"; // Ensure the correct path
-import achievement from "../../assets/achievement.png";
-import soldier from "../../assets/soldier.png";
-import star from "../../assets/star.png";
+import soldierImage from "../../assets/soldierImg.jpg"; 
+
 
 const ContactForm = () => {
   const {
@@ -17,7 +15,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-gray-200 py-10 px-4 md:px-8 min-h-screen flex flex-col items-center justify-center">
+    <section className="bg-gray-200 py-10 px-4 md:px-4 md:pb-20 lg:min-h-screen flex flex-col items-center justify-center">
       {/* Stats Section */}
      
 
