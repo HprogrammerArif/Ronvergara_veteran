@@ -1,11 +1,21 @@
 
-// import React from 'react';
+// import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
+// import { toast, ToastContainer } from 'react-toastify'; 
+// import 'react-toastify/dist/ReactToastify.css'; 
 
 // function Final_Sub() {
+//   const [isSubmitting, setIsSubmitting] = useState(false); 
 //   const navigate = useNavigate();
 
+//   const token  = localStorage.getItem("access_token");
+//   console.log(token)
+
 //   const handleSubmit = async () => {
+//     setIsSubmitting(true); // Show loading spinner
+
+//   const excludedKeys = ['access_token', 'refresh_token'];
+
 //     const payload = {};
 
 //     for (let i = 0; i < localStorage.length; i++) {
@@ -18,18 +28,20 @@
 //       }
 //     }
 
+
 //     payload.document = {
 //       discharge_condition: payload["discharge_condition"] || {},
 //       evidenceData: payload["evidenceData"] || {},
 //     };
 
-
 //     try {
 //       const response = await fetch("http://192.168.10.8:4000/api/va/vaform/submit/", {
 //         method: "POST",
 //         headers: {
-//           "Content-Type": "application/json"
+//           "Content-Type": "application/json",
+//           "Authorization": `Bearer ${token}`
 //         },
+
 //         body: JSON.stringify(payload)
 //       });
 
@@ -40,10 +52,13 @@
 //       const result = await response.json();
 //       console.log("✅ Data submitted successfully:", result);
 
+//       toast.success("Form submitted successfully!"); 
 //       navigate("/va_form");
 //     } catch (error) {
 //       console.error("❌ Submission error:", error);
-//       alert("Failed to submit. Please try again.");
+//       toast.error("Failed to submit. Please try again."); 
+//     } finally {
+//       setIsSubmitting(false); 
 //     }
 //   };
 
@@ -57,11 +72,20 @@
 
 //         <button
 //           onClick={handleSubmit}
-//           className="bg-[#0A3161] text-white py-3 px-20 rounded-md hover:bg-[#104381] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+//           className={`bg-[#0A3161] text-white py-3 px-20 rounded-md hover:bg-[#104381] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold ${isSubmitting ? ' cursor-not-allowed' : ''}`}
+//           disabled={isSubmitting}
 //         >
-//           Submit
+//           {isSubmitting ? (
+//             <span className="loading loading-bars loading-lg"></span>
+
+//           ) : (
+//             'Submit'
+//           )}
 //         </button>
 //       </div>
+
+     
+//       <ToastContainer />
 //     </div>
 //   );
 // }
@@ -69,22 +93,33 @@
 // export default Final_Sub;
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Final_Sub() {
-  const [isSubmitting, setIsSubmitting] = useState(false); // Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  const token  = localStorage.getItem("access_token");
-  console.log(token)
-
   const handleSubmit = async () => {
-    setIsSubmitting(true); // Show loading spinner
-    const payload = {};
+    setIsSubmitting(true);
 
+    // Retrieve token from localStorage
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+      toast.error('Authentication token missing. Please log in again.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Define keys to exclude from payload
+    const excludedKeys = ['access_token', 'refresh_token'];
+
+    // Build payload from localStorage
+    const payload = {};
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
+      // Skip excluded keys
+      if (excludedKeys.includes(key)) continue;
       try {
         const value = JSON.parse(localStorage.getItem(key));
         payload[key] = value;
@@ -93,37 +128,46 @@ function Final_Sub() {
       }
     }
 
-
+    // Add document object to payload
     payload.document = {
-      discharge_condition: payload["discharge_condition"] || {},
-      evidenceData: payload["evidenceData"] || {},
+      discharge_condition: payload['discharge_condition'] || {},
+      evidenceData: payload['evidenceData'] || {},
     };
 
     try {
-      const response = await fetch("http://192.168.10.8:4000/api/va/vaform/submit/", {
-        method: "POST",
+      const response = await fetch('http://192.168.10.8:4000/api/va/vaform/submit/', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
-
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit data");
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit data');
       }
 
       const result = await response.json();
-      console.log("✅ Data submitted successfully:", result);
+      console.log('✅ Data submitted successfully:', result);
 
-      toast.success("Form submitted successfully!"); // Success Toast
-      navigate("/va_form");
+      toast.success('Form submitted successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+      });
+
+     
+
+      navigate('/va_form');
     } catch (error) {
-      console.error("❌ Submission error:", error);
-      toast.error("Failed to submit. Please try again."); // Error Toast
+      console.error('❌ Submission error:', error);
+      toast.error(`Failed to submit: ${error.message || 'Please try again.'}`, {
+        position: 'top-right',
+        autoClose: 3000,
+      });
     } finally {
-      setIsSubmitting(false); // Hide loading spinner
+      setIsSubmitting(false);
     }
   };
 
@@ -137,19 +181,19 @@ function Final_Sub() {
 
         <button
           onClick={handleSubmit}
-          className={`bg-[#0A3161] text-white py-3 px-20 rounded-md hover:bg-[#104381] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold ${isSubmitting ? ' cursor-not-allowed' : ''}`}
+          className={`bg-[#0A3161] text-white py-3 px-20 rounded-md hover:bg-[#104381] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold ${
+            isSubmitting ? 'cursor-not-allowed' : ''
+          }`}
           disabled={isSubmitting}
         >
           {isSubmitting ? (
-            <span className="loading loading-bars loading-lg"></span>
-
+           <span className="loading loading-bars loading-lg"></span>
           ) : (
             'Submit'
           )}
         </button>
       </div>
 
-      {/* ToastContainer for notifications */}
       <ToastContainer />
     </div>
   );

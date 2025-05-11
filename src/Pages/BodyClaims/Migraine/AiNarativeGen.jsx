@@ -1,14 +1,14 @@
 
 
-
-// import { useState } from 'react';
 // import { Link, useNavigate } from 'react-router-dom';
 // import { useGenerateNarrationMutation } from '../../../redux/features/baseApi';
 
 // const AiNarrativeGen = () => {
 //   const navigate = useNavigate();
 //   const [generateNarration, { isLoading, isError, error }] = useGenerateNarrationMutation();
-//   const [narrationResult, setNarrationResult] = useState(null); 
+
+//   const savedNotation = localStorage.getItem('generatedNotation');
+//   console.log(savedNotation)
 
 //   const handleGenerateNarrative = async () => {
 //     try {
@@ -28,11 +28,11 @@
 //       }
 
 //       const response = await generateNarration(payload).unwrap();
-//       console.log('Narration generated successfully:', response?.notation);
 
-//       // ✅ Show response on the page
-//       setNarrationResult(response);
-
+//       // ✅ Save the generated notation to localStorage
+//       if (response?.notation) {
+//         localStorage.setItem('generatedNotation', response.notation);
+//       }
 //     } catch (err) {
 //       console.error('Failed to generate narration:', err);
 //     }
@@ -47,6 +47,16 @@
 //         Use this page to generate AI-powered narratives. Choose an option below to continue.
 //       </p>
 
+//       {/* ✅ Display saved notation above buttons */}
+//       {savedNotation && (
+//         <div className="mb-10 w-full max-w-4xl bg-gray-100 p-6 rounded shadow-md">
+//           <h3 className="text-xl font-semibold text-gray-800 mb-4">Generated Narrative</h3>
+//           <pre className="whitespace-pre-wrap text-gray-700 text-sm overflow-x-auto">
+//             {savedNotation}
+//           </pre>
+//         </div>
+//       )}
+
 //       <div className="flex flex-wrap gap-4 justify-center w-full max-w-2xl">
 //         <button
 //           type="button"
@@ -54,12 +64,15 @@
 //           disabled={isLoading}
 //           className="w-48 btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold disabled:opacity-50"
 //         >
-//           {isLoading ? <span className="loading loading-bars loading-lg"></span>
-//  : 'Generate Narrative'}
+//           {isLoading ? (
+//             <span className="loading loading-bars loading-lg"></span>
+//           ) : (
+//             'Generate Narrative'
+//           )}
 //         </button>
 
 //         <Link
-//           to="/progress"
+//           to="/evidence_form"
 //           className="w-48 btn bg-[#B31942] hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold"
 //         >
 //           Continue
@@ -74,23 +87,10 @@
 //         </button>
 //       </div>
 
-//       {/* Error message */}
 //       {isError && (
 //         <p className="text-red-500 mt-4">
 //           {error?.data?.message || 'An error occurred during generation.'}
 //         </p>
-//       )}
-
-//       {/* ✅ Narration Output */}
-//       {narrationResult && (
-//         <div className="mt-10 w-full max-w-4xl bg-gray-100 p-6 rounded shadow-md">
-//           <h3 className="text-xl font-semibold text-gray-800 mb-4">Generated Narrative</h3>
-//           <pre className="whitespace-pre-wrap text-gray-700 text-sm overflow-x-auto">
-//             {typeof narrationResult === 'string'
-//               ? narrationResult
-//               : JSON.stringify(narrationResult, null, 2)}
-//           </pre>
-//         </div>
 //       )}
 //     </div>
 //   );
@@ -106,7 +106,6 @@ const AiNarrativeGen = () => {
   const [generateNarration, { isLoading, isError, error }] = useGenerateNarrationMutation();
 
   const savedNotation = localStorage.getItem('generatedNotation');
-  console.log(savedNotation)
 
   const handleGenerateNarrative = async () => {
     try {
@@ -127,14 +126,17 @@ const AiNarrativeGen = () => {
 
       const response = await generateNarration(payload).unwrap();
 
-      // ✅ Save the generated notation to localStorage
       if (response?.notation) {
         localStorage.setItem('generatedNotation', response.notation);
+        window.location.reload(); // reload to reflect updated localStorage
       }
     } catch (err) {
       console.error('Failed to generate narration:', err);
     }
   };
+
+  const isGenerateDisabled = isLoading || savedNotation !== null;
+  const areOtherButtonsDisabled = isLoading;
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8">
@@ -145,7 +147,6 @@ const AiNarrativeGen = () => {
         Use this page to generate AI-powered narratives. Choose an option below to continue.
       </p>
 
-      {/* ✅ Display saved notation above buttons */}
       {savedNotation && (
         <div className="mb-10 w-full max-w-4xl bg-gray-100 p-6 rounded shadow-md">
           <h3 className="text-xl font-semibold text-gray-800 mb-4">Generated Narrative</h3>
@@ -159,7 +160,7 @@ const AiNarrativeGen = () => {
         <button
           type="button"
           onClick={handleGenerateNarrative}
-          disabled={isLoading}
+          disabled={isGenerateDisabled}
           className="w-48 btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold disabled:opacity-50"
         >
           {isLoading ? (
@@ -170,8 +171,10 @@ const AiNarrativeGen = () => {
         </button>
 
         <Link
-          to="/progress"
-          className="w-48 btn bg-[#B31942] hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold"
+          to="/evidence_form"
+          className={`w-48 btn bg-[#B31942] hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold ${
+            areOtherButtonsDisabled ? 'pointer-events-none opacity-50' : ''
+          }`}
         >
           Continue
         </Link>
@@ -179,7 +182,8 @@ const AiNarrativeGen = () => {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="w-48 btn border border-[#001F3F] text-[#001F3F] hover:bg-gray-100 py-2 px-4 rounded-md font-semibold"
+          disabled={areOtherButtonsDisabled}
+          className="w-48 btn border border-[#001F3F] text-[#001F3F] hover:bg-gray-100 py-2 px-4 rounded-md font-semibold disabled:opacity-50"
         >
           Back
         </button>
@@ -195,4 +199,3 @@ const AiNarrativeGen = () => {
 };
 
 export default AiNarrativeGen;
-

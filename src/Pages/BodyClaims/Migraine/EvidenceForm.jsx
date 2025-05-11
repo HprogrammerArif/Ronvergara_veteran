@@ -164,7 +164,7 @@
 // export default EvidenceForm;
 
 
-import React from "react";
+
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -247,7 +247,7 @@ const EvidenceForm = () => {
         </div>
 
         {/* File Upload Section */}
-        {hasEvidence === "NO" && (
+        {hasEvidence === "YES" && (
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">
               UPLOAD FILE
