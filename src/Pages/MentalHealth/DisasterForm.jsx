@@ -75,12 +75,12 @@ const navigate = useNavigate()
               }`}
             >
               <option value="">Select an option</option>
-              <option value="flood">Flood</option>
-              <option value="combatZone">Combat Zone</option>
-              <option value="earthquake">Earthquake</option>
-              <option value="volcanicEruption">Volcanic Eruption</option>
-              <option value="hurricane">Hurricane</option>
-              <option value="wildfire">Wildfire</option>
+              <option value="flood">FLOOD</option>
+              <option value="combatZone">COMBAT ZONE</option>
+              <option value="earthquake">EARTHQUAKE</option>
+              <option value="volcanicEruption">VOLCANIC ERUPTION</option>
+              <option value="hurricane">HURRICANE</option>
+              <option value="wildfire">WILDFIRE</option>
             </select>
             {errors.incidentType && (
               <span className="text-red-500 text-sm">{errors.incidentType.message}</span>

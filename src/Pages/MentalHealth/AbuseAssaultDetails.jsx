@@ -58,11 +58,11 @@ const AbuseAssaultDetails = () => {
               {...register("abuseType", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseType ? 'border-red-500' : ''}`}
             >
-              <option value="physical">Physical Abuse</option>
-              <option value="assaultEmotional">Assault Emotional</option>
-              <option value="psychological">Psychological Abuse</option>
-              <option value="sexual">Sexual Abuse</option>
-              <option value="other">Other</option>
+              <option value="physical">PHYSICAL ABUSE</option>
+              <option value="assaultEmotional">ASSULT EMOTION</option>
+              <option value="psychological">PSYCHOLOGICAL ABUSE</option>
+              <option value="sexual">SEXUAL ABUSE</option>
+              <option value="other">OTHER</option>
             </select>
             {errors.abuseType && <span className="text-red-500 text-sm">{errors.abuseType.message}</span>}
           </label>

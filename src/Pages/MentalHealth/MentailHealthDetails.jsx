@@ -170,10 +170,10 @@ const MentalHealthDetails = () => {
               {...register("deploymentType", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deploymentType ? 'border-red-500' : ''}`}
             >
-              <option value="combat">Combat Zone</option>
-              <option value="peacekeeping">Peacekeeping Mission</option>
-              <option value="humanitarian">Humanitarian Aid</option>
-              <option value="training">Training/Advisory Role</option>
+              <option value="combat">COMBAT ZONE</option>
+              <option value="peacekeeping">PEACEKEEPING MISSON</option>
+              <option value="humanitarian">HUMANITARIAN AID</option>
+              <option value="training">TRAINING/ADVISORY ROLE</option>
             </select>
             {errors.deploymentType && <span className="text-red-500 text-sm">{errors.deploymentType.message}</span>}
           </label>

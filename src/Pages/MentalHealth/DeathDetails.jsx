@@ -49,9 +49,9 @@ const DeathDetails = () => {
               className={`mt-1 block w-full p-2 border text-sm border-gray-300 rounded-md focus:outline-none ${errors.deathType ? 'border-red-500' : ''}`}
             >
               <option value="">Select an option</option>
-              <option value="accidental">Accidental Death</option>
-              <option value="suicide">Suicide</option>
-              <option value="other">Other</option>
+              <option value="accidental">ACCIDENTAL DEATH</option>
+              <option value="suicide">SUICIDE</option>
+              <option value="other">OTHER</option>
             </select>
             {errors.deathType && <span className="text-red-500 text-sm">{errors.deathType.message}</span>}
           </label>
@@ -64,11 +64,11 @@ const DeathDetails = () => {
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none  ${errors.relationship ? 'border-red-500' : ''}`}
             >
               <option value="">Select an option</option>
-              <option value="serviceMember">Service Member</option>
-              <option value="civilian">Civilian</option>
-              <option value="familyMember">Family Member</option>
-              <option value="friend">Friend</option>
-              <option value="other">Other</option>
+              <option value="serviceMember">SERVICE MEMBER</option>
+              <option value="civilian" className='uppercase'>CIVILIAN</option>
+              <option value="familyMember" className='uppercase'>FAMILY MEMBER</option>
+              <option value="friend" className='uppercase'>FRIEND</option>
+              <option value="other" className='uppercase'>OTHER</option>
             </select>
             {errors.relationship && <span className="text-red-500 text-sm">{errors.relationship.message}</span>}
           </label>
