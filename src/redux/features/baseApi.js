@@ -93,6 +93,14 @@ export const baseApi = createApi({
         // })
 
 
+        //generate narration
+        generateNarration: builder.mutation({
+            query: (narratioData)=>({
+                url: "api/va/narration/narration_genarate/",
+                method: "POST",
+                body: narratioData
+            })
+        }),
 
 
 
@@ -141,6 +149,8 @@ export const {
     //getProfile
 
     
+    //generate Narration
+    useGenerateNarrationMutation,
 
     //get plans
     useGetPlansQuery,
