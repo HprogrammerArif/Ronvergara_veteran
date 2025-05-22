@@ -20,7 +20,7 @@ const Home = () => {
          
           {/* <DisabilityCalculator/> */}
           <FeaturesCard/>
-          <Pricing_Plan/>
+          {/* <Pricing_Plan/> */}
           <Review/>
           <VAC_Trust/>
           <Services/>
