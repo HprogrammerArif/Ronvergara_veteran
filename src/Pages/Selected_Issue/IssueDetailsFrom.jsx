@@ -115,11 +115,11 @@ function IssueDetailsForm() {
                       When Did The Problem Start?
                     </label>
                     <input
-                      type="text"
+                      type="date"
                       {...register(`conditions[${index}].StartDate`, {
                         required: 'This field is required',
                       })}
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+                      className="mt-1 block w-full uppercase border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
                     />
                     {errors.conditions?.[index]?.StartDate && (
                       <span className="text-red-500 text-sm">

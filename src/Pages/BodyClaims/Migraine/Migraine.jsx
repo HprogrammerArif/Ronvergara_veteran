@@ -51,13 +51,13 @@ const Migraine = () => {
             How often do your migraines occur?
             <select
               {...register("migraineFrequency", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.migraineFrequency ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineFrequency ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
                 Select frequency
               </option>
-              <option value="1-2 times per month">1-2 times per month</option>
+              <option value="1-2 times per month ">1-2 times per month</option>
               <option value="3-4 times per month">3-4 times per month</option>
               <option value="5-6 times per month">5-6 times per month</option>
               <option value="6+ times per month">6+ times per month</option>
@@ -70,7 +70,7 @@ const Migraine = () => {
             How long do your migraines typically last?
             <select
               {...register("migraineDuration", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.migraineDuration ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineDuration ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -89,7 +89,7 @@ const Migraine = () => {
             Do your migraines cause any of the following symptoms?
             <select
               {...register("migraineSymptoms", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.migraineSymptoms ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineSymptoms ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -108,7 +108,7 @@ const Migraine = () => {
             How do migraines impact your daily activities?
             <select
               {...register("migraineImpact", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -126,7 +126,7 @@ const Migraine = () => {
             Have you received medical treatment for migraines?
             <select
               {...register("migraineImpact", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -146,7 +146,7 @@ const Migraine = () => {
               type="date"
               placeholder="MM/DD/YYYY"
               {...register("medicalVisitDates", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.medicalVisitDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.medicalVisitDates ? 'border-red-500' : ''}`}
             />
             {errors.medicalVisitDates && <span className="text-red-500 text-sm">{errors.medicalVisitDates.message}</span>}
           </label>
