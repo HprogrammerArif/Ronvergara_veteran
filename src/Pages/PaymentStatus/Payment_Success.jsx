@@ -101,7 +101,7 @@ export default function PaymentSuccess({ initialTransactionId = "", initialAmoun
           </div>
 
           <div className="p-6 pt-0 flex flex-col space-y-3">
-            <Link href="/veteran_information" className="w-full">
+            <Link to="/veteran_information" className="w-full">
               <button className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition-colors flex items-center justify-center">
                 Continue to Next Phase
                 <ArrowRight className="ml-2 h-5 w-5" />
