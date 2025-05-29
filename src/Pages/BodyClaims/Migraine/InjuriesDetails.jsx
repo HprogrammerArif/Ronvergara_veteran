@@ -36,7 +36,7 @@ const InjuriesDetails = () => {
             Did you have any specific injuries during your service?
             <select
               {...register("hadInjuries", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.hadInjuries ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.hadInjuries ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="yes">Yes</option>
@@ -50,7 +50,7 @@ const InjuriesDetails = () => {
             Please list the injuries, how they occurred, and where they occurred (what base/location)
             <textarea
               {...register("injuryDetails", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.injuryDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.injuryDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details"
             />
             {errors.injuryDetails && <span className="text-red-500 text-sm">{errors.injuryDetails.message}</span>}

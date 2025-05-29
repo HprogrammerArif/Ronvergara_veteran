@@ -120,7 +120,7 @@ const MentalHealthSurvey = () => {
               })}
               className="mt-1 block w-full text-[14px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">-- Select an Option --</option>
+              <option value="" className='uppercase'>SELECT AN OPTION</option>
               <option value="1-3" className="uppercase">1-3: LOW STRESS</option>
               <option value="4-6" className="uppercase">4-6: MODERATE STRESS</option>
               <option value="7-9" className="uppercase">7-9: HIGH STRESS</option>

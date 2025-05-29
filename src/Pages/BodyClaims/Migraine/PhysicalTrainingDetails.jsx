@@ -35,7 +35,7 @@ const navigate = useNavigate()
             Were you required to do physical training (PT) daily/weekly?
             <select
               {...register("physicalTrainingRequired", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.physicalTrainingRequired ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.physicalTrainingRequired ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="yes">Yes</option>
@@ -49,7 +49,7 @@ const navigate = useNavigate()
             How many times per week were you required to do physical training?
             <select
               {...register("physicalTrainingFrequency", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.physicalTrainingFrequency ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.physicalTrainingFrequency ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="1-2 Times">1-2 Times</option>

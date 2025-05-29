@@ -33,7 +33,7 @@ const SickCallDetails = () => {
             Were you ever seen at sick call for these injuries?
             <select
               {...register("seenAtSickCall", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.seenAtSickCall ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.seenAtSickCall ? 'border-red-500' : ''}`}
             >
               <option value="" disabled>Select an option</option>
               <option value="yes">Yes</option>
