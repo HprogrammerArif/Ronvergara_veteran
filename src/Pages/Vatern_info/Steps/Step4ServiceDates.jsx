@@ -61,7 +61,7 @@ export default function Step4ServiceDates({ register, errors }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base">
+          <span className="label-text font-medium text-base pb-1">
             Service Exit Date (MM/DD/YYYY)
           </span>
         </label>

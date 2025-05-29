@@ -74,7 +74,7 @@ export default function Step1PersonalInfo({ register, errors }) {
       {/* Email Address Field */}
       <div className="form-control">
         <label htmlFor="email" className="label">
-          <span className="label-text font-semibold text-base">
+          <span className="label-text font-semibold text-base pb-1">
             Email Address
           </span>
         </label>
@@ -111,7 +111,7 @@ export default function Step1PersonalInfo({ register, errors }) {
       {/* Alternate Email Address Field */}
       <div className="form-control">
         <label htmlFor="altEmail" className="label">
-          <span className="label-text font-semibold text-base">
+          <span className="label-text font-semibold text-base pb-1">
             Alternate Email Address{" "}
             <span className="text-gray-500">(Optional)</span>
           </span>

@@ -3,7 +3,7 @@ export default function Step2PhoneNumbers({ register, errors }) {
     <div className="space-y-4">
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base">
+          <span className="label-text font-medium text-base pb-1">
             International Phone Number (If applicable)
           </span>
         </label>
@@ -17,7 +17,7 @@ export default function Step2PhoneNumbers({ register, errors }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base">
+          <span className="label-text font-medium text-base pb-1">
             Telephone Number (Include Area Code)
           </span>
         </label>

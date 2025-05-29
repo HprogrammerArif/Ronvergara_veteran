@@ -11,7 +11,7 @@ export default function Step7CurrentStatus({ register, errors }) {
           {...register("activeDutyOrders", {
             required: "This field is required",
           })}
-          className="select select-bordered w-full py-5 uppercase"
+          className="select select-bordered w-full uppercase"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
@@ -36,7 +36,7 @@ export default function Step7CurrentStatus({ register, errors }) {
           {...register("vaDirectDeposit", {
             required: "This field is required",
           })}
-          className="select select-bordered w-full py-5 uppercase"
+          className="select select-bordered w-full uppercase"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
