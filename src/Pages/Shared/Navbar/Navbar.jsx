@@ -1,6 +1,6 @@
 
 // import { useState } from "react";
-// import { Menu, X } from "lucide-react";
+// import { ChevronDown, Menu, X } from "lucide-react";
 // import logo from "../../../assets/VALR_logo.png";
 // import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { useGetLoggedUserQuery } from "../../../redux/features/baseApi";
@@ -8,12 +8,12 @@
 
 // export default function Navbar() {
 //   const [menuOpen, setMenuOpen] = useState(false);
+//   const [isLoggingOut, setIsLoggingOut] = useState(false); // New state for loading
 //   const location = useLocation();
-//   const navigate = useNavigate()
-
+//   const navigate = useNavigate();
 
 //   const { data: loggedInUser } = useGetLoggedUserQuery();
-
+//   console.log(loggedInUser);
 //   const navLinks = [
 //     { name: "Home", path: "/" },
 //     { name: "About Us", path: "/about_us" },
@@ -21,16 +21,17 @@
 //     { name: "Contact", path: "/contact" },
 //   ];
 
-//   //logout
+//   // Logout
 //   const handleLogout = () => {
+//     setIsLoggingOut(true); // Start loading
 //     console.log("Logging out...");
-//    localStorage.removeItem("acces_token");
-//    localStorage.removeItem("refresh_token");
+//     localStorage.removeItem("acces_token");
+//     localStorage.removeItem("refresh_token");
 
-//    setTimeout(()=>{
-//     navigate("/login")
-//    } ,2000)
-    
+//     setTimeout(() => {
+//       setIsLoggingOut(false); // Stop loading
+//       navigate("/login");
+//     }, 2000);
 //   };
 
 //   // Function to open logout modal
@@ -80,18 +81,33 @@
 //         <div className="hidden md:flex items-center space-x-3 relative">
 //           {loggedInUser ? (
 //             <div className="dropdown dropdown-end">
-//               <div tabIndex={0} role="button" className="avatar">
-//                 <div className="w-[50px] rounded-full">
-//                   <img
-//                     src={
-//                       loggedInUser.avatar ||
-//                       "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
-//                     }
-//                     alt="User Avatar"
-//                     className="w-full h-full object-cover"
-//                   />
-//                 </div>
-//               </div>
+//               <div
+//       tabIndex={0}
+//       role="button"
+//       className="avatar flex items-center"
+//     >
+//       {/* Avatar */}
+//       <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
+//         <img
+//           src={
+//             loggedInUser.avatar ||
+//             "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+//           }
+//           alt="User Avatar"
+//           className="w-full h-full object-cover"
+//         />
+//       </div>
+
+//       {/* Chevron button */}
+//       <button
+//         type="button"
+//         aria-label="Open user menu"
+//         className="p-1 rounded-full"
+//         onClick={() => console.log("toggle menu")}
+//       >
+//         <ChevronDown size={20} className="text-white"/>
+//       </button>
+//     </div>
 //               <ul
 //                 tabIndex={0}
 //                 className="menu menu-sm dropdown-content mt-1 z-[999] p-3 border border-white/20 shadow bg-[#002b5c] opacity-90 rounded-box w-48 space-y-2"
@@ -108,16 +124,7 @@
 //                     Profile
 //                   </Link>
 //                 </li>
-//                 <li>
-//                   <Link
-//                     to="/settings"
-//                     className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
-//                     role="menuitem"
-//                   >
-//                     <FaCog className="w-5 h-5 text-white" />
-//                     Settings
-//                   </Link>
-//                 </li>
+               
 //                 <li>
 //                   <button
 //                     onClick={openLogoutModal}
@@ -175,7 +182,13 @@
 //         <div className="flex h-full flex-col">
 //           {/* Mobile Logo */}
 //           <div className="flex h-[80px] items-center mx-auto border-b border-white/10 px-6">
-//             <img src={logo} alt="VALR Logo" width={64} height={48} className="h-12 w-14" />
+//             <img
+//               src={logo}
+//               alt="VALR Logo"
+//               width={64}
+//               height={48}
+//               className="h-12 w-14"
+//             />
 //           </div>
 
 //           {/* Mobile Nav Links */}
@@ -254,8 +267,13 @@
 //               <button
 //                 className="btn btn-error text-white"
 //                 onClick={handleLogout}
+//                 disabled={isLoggingOut} // Disable button during logout
 //               >
-//                 Logout
+//                 {isLoggingOut ? (
+//                   <span className="loading loading-bars loading-xl text-red-600"></span>
+//                 ) : (
+//                   "Logout"
+//                 )}
 //               </button>
 //             </form>
 //           </div>
@@ -270,8 +288,17 @@
 // }
 
 
+
+
+
+
+
+
+
+
+
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../../../assets/VALR_logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGetLoggedUserQuery } from "../../../redux/features/baseApi";
@@ -279,12 +306,12 @@ import { FaCog, FaSignOutAlt, FaUser } from "react-icons/fa";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false); // New state for loading
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   const { data: loggedInUser } = useGetLoggedUserQuery();
-
+  console.log(loggedInUser);
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about_us" },
@@ -294,13 +321,13 @@ export default function Navbar() {
 
   // Logout
   const handleLogout = () => {
-    setIsLoggingOut(true); // Start loading
+    setIsLoggingOut(true);
     console.log("Logging out...");
     localStorage.removeItem("acces_token");
     localStorage.removeItem("refresh_token");
 
     setTimeout(() => {
-      setIsLoggingOut(false); // Stop loading
+      setIsLoggingOut(false);
       navigate("/login");
     }, 2000);
   };
@@ -312,6 +339,16 @@ export default function Navbar() {
       modal.showModal();
     } else {
       console.error("Modal element not found");
+    }
+  };
+
+  // Function to open profile modal
+  const openProfileModal = () => {
+    const modal = document.getElementById("profile_modal");
+    if (modal) {
+      modal.showModal();
+    } else {
+      console.error("Profile modal element not found");
     }
   };
 
@@ -352,8 +389,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-3 relative">
           {loggedInUser ? (
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="avatar">
-                <div className="w-[50px] rounded-full">
+              <div
+                tabIndex={0}
+                role="button"
+                className="avatar flex items-center"
+              >
+                {/* Avatar */}
+                <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
                   <img
                     src={
                       loggedInUser.avatar ||
@@ -363,6 +405,16 @@ export default function Navbar() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+
+                {/* Chevron button */}
+                <button
+                  type="button"
+                  aria-label="Open user menu"
+                  className="p-1 rounded-full"
+                  onClick={() => console.log("toggle menu")}
+                >
+                  <ChevronDown size={20} className="text-white" />
+                </button>
               </div>
               <ul
                 tabIndex={0}
@@ -371,29 +423,19 @@ export default function Navbar() {
                 aria-label="User menu"
               >
                 <li>
-                  <Link
-                    to="/profile"
-                    className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
+                  <button
+                    onClick={openProfileModal} 
+                    className="flex text-white items-center gap-3 py-2 px-3 text-base hover:bg-[#104685] rounded-md transition-colors duration-200"
                     role="menuitem"
                   >
                     <FaUser className="w-5 h-5 text-white" />
                     Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/settings"
-                    className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200"
-                    role="menuitem"
-                  >
-                    <FaCog className="w-5 h-5 text-white" />
-                    Settings
-                  </Link>
+                  </button>
                 </li>
                 <li>
                   <button
                     onClick={openLogoutModal}
-                    className="flex text-white items-center gap-3 py-2 px-3 hover:bg-[#104685] rounded-md transition-colors duration-200 uppercase"
+                    className="flex text-white items-center gap-3 py-2 text-[13.5px] px-3 hover:bg-[#104685] rounded-md transition-colors duration-200 uppercase"
                     role="menuitem"
                   >
                     <FaSignOutAlt className="w-5 h-5 text-red-500" />
@@ -447,7 +489,13 @@ export default function Navbar() {
         <div className="flex h-full flex-col">
           {/* Mobile Logo */}
           <div className="flex h-[80px] items-center mx-auto border-b border-white/10 px-6">
-            <img src={logo} alt="VALR Logo" width={64} height={48} className="h-12 w-14" />
+            <img
+              src={logo}
+              alt="VALR Logo"
+              width={64}
+              height={48}
+              className="h-12 w-14"
+            />
           </div>
 
           {/* Mobile Nav Links */}
@@ -483,6 +531,13 @@ export default function Navbar() {
                   alt="User Avatar"
                   className="h-12 w-12 rounded-full object-cover"
                 />
+                <button
+                  onClick={openProfileModal} // Added profile modal trigger
+                  className="flex items-center gap-3 rounded-md bg-[#104685] px-6 py-2.5 text-white font-semibold transition-colors duration-200 hover:bg-opacity-90"
+                >
+                  <FaUser className="w-5 h-5 text-white" />
+                  Profile
+                </button>
                 <button
                   onClick={openLogoutModal}
                   className="flex items-center gap-3 rounded-md bg-[#B31942] px-6 py-2.5 text-white font-semibold transition-colors duration-200 hover:bg-opacity-90"
@@ -526,7 +581,7 @@ export default function Navbar() {
               <button
                 className="btn btn-error text-white"
                 onClick={handleLogout}
-                disabled={isLoggingOut} // Disable button during logout
+                disabled={isLoggingOut}
               >
                 {isLoggingOut ? (
                   <span className="loading loading-bars loading-xl text-red-600"></span>
@@ -537,7 +592,52 @@ export default function Navbar() {
             </form>
           </div>
         </div>
-        {/* Allow clicking outside to close the modal */}
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+
+      {/* Profile Modal */}
+      <dialog id="profile_modal" className="modal backdrop-blur-[1px]">
+        <div className="modal-box bg-[#002b5c] text-white max-w-md">
+          <h3 className="font-bold text-lg mb-4">User Profile</h3>
+          {loggedInUser ? (
+            <div className="flex flex-col items-center gap-4">
+              <img
+                src={
+                  loggedInUser.avatar ||
+                  "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                }
+                alt="User Avatar"
+                className="h-24 w-24 rounded-full object-cover border-2 border-white/20"
+              />
+              <div className="text-center">
+                <h4 className="text-xl font-semibold">
+                  {loggedInUser.name || "User Name"}
+                </h4>
+                <p className="text-white/80">{loggedInUser.email || "user@example.com"}</p>
+              </div>
+              <div className="w-full mt-4">
+                <p className="text-sm">
+                  <span className="font-semibold">Joined:</span>{" "}{" "}{" "}
+                  {loggedInUser.joined_date
+                    ? new Date(loggedInUser.joined_date).toLocaleDateString()
+                    : "N/A"}
+                </p>
+                {/* Add more user details as needed */}
+              </div>
+            </div>
+          ) : (
+            <p className="text-white/80">Loading user data...</p>
+          )}
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn btn-outline text-white hover:bg-white/10">
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>

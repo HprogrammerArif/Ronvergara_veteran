@@ -134,7 +134,8 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       console.log("error", error);
-      toast.error("Login failed. Please check your credentials.");
+      // toast.error("Login failed. Please check your credentials.");
+      toast.error(error?.non_field_errors || "Login failed. Please check your credentials.");
     } finally {
       setIsLoading(false);
     }
