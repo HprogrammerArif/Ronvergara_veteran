@@ -26,7 +26,7 @@ export default function Navbar() {
   const handleLogout = () => {
     setIsLoggingOut(true);
     console.log("Logging out...");
-    localStorage.removeItem("acces_token");
+    localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
 
     setTimeout(() => {

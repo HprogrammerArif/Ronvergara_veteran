@@ -13,9 +13,8 @@ const handleSubcription = async (data) =>{
 console.log(data)
 
 const payload = {
-  plan_name: data?.name,
-  price_id: data?.price_id,
-  duration_type: data?.duration_type,
+  plan_id: data?.id,
+  
 }
 
 console.log("payload", payload)

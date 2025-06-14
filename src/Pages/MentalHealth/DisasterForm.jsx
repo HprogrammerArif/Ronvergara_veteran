@@ -37,7 +37,7 @@ const navigate = useNavigate()
             Did You Ever Experience A Natural Disaster While Serving?
             <select
               {...register("experiencedDisaster", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 errors.experiencedDisaster ? "border-red-500" : ""
               }`}
             >
@@ -56,7 +56,7 @@ const navigate = useNavigate()
             <input
               type="date"
               {...register("incidentDate", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 errors.incidentDate ? "border-red-500" : ""
               }`}
             />
@@ -70,11 +70,11 @@ const navigate = useNavigate()
             Type Of Incident
             <select
               {...register("incidentType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 errors.incidentType ? "border-red-500" : ""
               }`}
             >
-              <option value="">Select an option</option>
+              <option value="">SELECT AN OPTION</option>
               <option value="flood">FLOOD</option>
               <option value="combatZone">COMBAT ZONE</option>
               <option value="earthquake">EARTHQUAKE</option>

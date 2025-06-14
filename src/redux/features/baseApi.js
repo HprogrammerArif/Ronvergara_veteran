@@ -4,7 +4,8 @@ export const baseApi = createApi({
     reducerPath: 'baseApi',
     
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://rongever.duckdns.org/',
+        // baseUrl: 'https://rongever.duckdns.org/',
+        baseUrl: "http://192.168.10.124:2000/",
         prepareHeaders: (headers) => {
             const token = localStorage.getItem("access_token");
             if (token) {
@@ -118,6 +119,11 @@ export const baseApi = createApi({
 
         monthlyRevenue: builder.query({
             query: ()=> "api/payment/get_all/calculate_yearly_revenue/"
+        }),
+
+        //pdf view
+        getPdfs:builder.query({
+            query: ()=>"api/va/vaform/generated/list/"
         })
     
 
@@ -161,6 +167,10 @@ export const {
 
     // vainfo
     // useVerternInfoMutation,
+    
+
+    //getPdfs
+    useGetPdfsQuery,
 
 
 

@@ -32,9 +32,9 @@ const DeathDetails = () => {
             Did Anyone Close To You (Service Member Or Civilian) Pass Away?
             <select
               {...register("passedAway", { required: "This field is required" })}
-              className={`mt-1 block text-sm w-full p-2 border border-gray-300 rounded-md focus:outline-none  ${errors.passedAway ? 'border-red-500' : ''}`}
+              className={`mt-1 block text-sm w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none  ${errors.passedAway ? 'border-red-500' : ''}`}
             >
-              <option value="">Select an option</option>
+              <option value="">SELECT AN OPTION</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -48,7 +48,7 @@ const DeathDetails = () => {
               {...register("deathType", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border text-sm border-gray-300 rounded-md focus:outline-none ${errors.deathType ? 'border-red-500' : ''}`}
             >
-              <option value="">Select an option</option>
+              <option value="">SELECT AN OPTION</option>
               <option value="accidental">ACCIDENTAL DEATH</option>
               <option value="suicide">SUICIDE</option>
               <option value="other">OTHER</option>
@@ -61,9 +61,9 @@ const DeathDetails = () => {
             Relationship To The Deceased
             <select
               {...register("relationship", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none  ${errors.relationship ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none  ${errors.relationship ? 'border-red-500' : ''}`}
             >
-              <option value="">Select an option</option>
+              <option value="">SELECT AN OPTION</option>
               <option value="serviceMember">SERVICE MEMBER</option>
               <option value="civilian" className='uppercase'>CIVILIAN</option>
               <option value="familyMember" className='uppercase'>FAMILY MEMBER</option>
