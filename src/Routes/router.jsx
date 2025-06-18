@@ -77,6 +77,7 @@ import Payment_Error from "../Pages/PaymentStatus/Payment_Error";
 import Final_Sub from "../Pages/FinalSubmissio/Final_Sub";
 import UnauthorizedError from "../Pages/Private/UnauthorizedError";
 import AdminRouteSecure from "../Pages/Private/AdminRouteSecure";
+import PrivateRoute from "../hooks/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -88,7 +89,7 @@ export const router = createBrowserRouter([
       { path: "/narrative", element: <Auto_Narative /> },
       { path: "/video", element: <Auto_Narative_Video /> },
       { path: "/subscription", element: <VaSubcription /> },
-      { path: "/plan", element: <Pricing_Plan /> },
+      { path: "/plan", element: <PrivateRoute><Pricing_Plan /></PrivateRoute> },
       { path: "/veteran_information", element: <Veteran_Information /> },
       { path: "/issues", element: <Issues /> },
       { path: "/issue_details", element: <IssueDetailsForm /> },

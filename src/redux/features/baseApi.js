@@ -4,8 +4,8 @@ export const baseApi = createApi({
     reducerPath: 'baseApi',
     
     baseQuery: fetchBaseQuery({
-        // baseUrl: 'https://rongever.duckdns.org/',
-        baseUrl: "http://192.168.10.124:2000/",
+        baseUrl: 'http://192.168.10.124:2000',
+        // baseUrl: "https://192.168.10.124:2000",
         prepareHeaders: (headers) => {
             const token = localStorage.getItem("access_token");
             if (token) {

@@ -99,7 +99,7 @@ export default function Step5Address({ register, errors }) {
           )}
         </div>
 
-        <div className="form-control">
+        {/* <div className="form-control">
           <label className="label">
             <span className="label-text font-medium text-base pb-1">
               ZIP Code (Last 4 digits)
@@ -128,7 +128,7 @@ export default function Step5Address({ register, errors }) {
               </span>
             </label>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

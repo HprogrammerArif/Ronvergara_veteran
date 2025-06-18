@@ -31,17 +31,36 @@ const MentalHealthDetails = () => {
         {/* Form Section */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow">
           {/* Were You Deployed? */}
-          <label className="block text-lg font-medium text-gray-700">
+          {/* <label className="block text-lg font-medium text-gray-700">
             Were You Deployed?
             <select
               {...register("deployed", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployed ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300  uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployed ? 'border-red-500' : ''}`}
             >
+              <option value="" disabled>
+              Select an option
+            </option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
             {errors.deployed && <span className="text-red-500 text-sm">{errors.deployed.message}</span>}
-          </label>
+          </label> */}
+
+<label className="block text-lg font-medium text-gray-700">
+  Were You Deployed?
+  <select
+    defaultValue=""
+    {...register("deployed", { required: "This field is required" })}
+    className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployed ? 'border-red-500' : ''}`}
+  >
+    <option value="" disabled>
+      Select an option
+    </option>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+  {errors.deployed && <span className="text-red-500 text-sm">{errors.deployed.message}</span>}
+</label>
 
           {/* Deployed Area Name */}
           <label className="block text-lg font-medium text-gray-700">
@@ -59,10 +78,12 @@ const MentalHealthDetails = () => {
           <label className="block text-lg font-medium text-gray-700">
             Duration Of Deployment
             <input
-              {...register("duration", { required: "This field is required" })}
+              {...register("duration", 
+                // { required: "This field is required" }
+              )}
               type="number"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.duration ? 'border-red-500' : ''}`}
-              placeholder="Enter duration"
+              placeholder="Enter duration (in months)"
             />
             {errors.duration && <span className="text-red-500 text-sm">{errors.duration.message}</span>}
           </label>
@@ -71,9 +92,13 @@ const MentalHealthDetails = () => {
           <label className="block text-lg font-medium text-gray-700">
             Type Of Deployment
             <select
+              defaultValue=""
               {...register("deploymentType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deploymentType ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deploymentType ? 'border-red-500' : ''}`}
             >
+               <option value="" disabled>
+              Select an option
+            </option>
               <option value="combat">COMBAT ZONE</option>
               <option value="peacekeeping">PEACEKEEPING MISSON</option>
               <option value="humanitarian">HUMANITARIAN AID</option>

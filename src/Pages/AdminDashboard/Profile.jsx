@@ -22,6 +22,7 @@ const Profile = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const baseUrl = localStorage.getItem("baseUrl");
+  console.log(baseUrl)
   const {data:userData} = useGetLoggedUserQuery();
   console.log("userData",userData)
 

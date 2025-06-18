@@ -107,7 +107,8 @@ const SignUp = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [createUser, { isLoading, isError, error, isSuccess }] = useCreateUserMutation();
   const navigate = useNavigate();
-
+const baseUrl = localStorage.getItem("baseUrl");
+  console.log(baseUrl)
   
   const password = watch('password');
 

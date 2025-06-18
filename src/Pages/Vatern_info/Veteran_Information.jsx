@@ -1,7 +1,7 @@
 
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form"; // Added FormProvider
 import Step1PersonalInfo from "./Steps/Step1PersonalInfo";
 import Step2PhoneNumbers from "./Steps/Step2PhoneNumbers";
 import Step3DateOfBirth from "./Steps/Step3DateOfBirth";
@@ -9,7 +9,6 @@ import Step4ServiceDates from "./Steps/Step4ServiceDates";
 import Step5Address from "./Steps/Step5Address";
 import Step6MilitaryService from "./Steps/Step6MilitaryService";
 import Step7CurrentStatus from "./Steps/Step7CurrentStatus";
-import Step8LivingSituation from "./Steps/Step8LivingSituation";
 import ProgressBar from "./Steps/ProgressBar";
 import FormNavigation from "./Steps/FormNavigation";
 import { useNavigate } from "react-router-dom";
@@ -17,15 +16,9 @@ import { useNavigate } from "react-router-dom";
 export default function VeteranInformationForm() {
   const [currentStep, setCurrentStep] = useState(0);
   const navigate = useNavigate();
-  const totalSteps = 8;
+  const totalSteps = 7;
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger,
-    setValue,
-  } = useForm({
+  const methods = useForm({
     defaultValues: {
       Beginning_Date_Month: [""],
       Beginning_Date_Day: [""],
@@ -33,8 +26,22 @@ export default function VeteranInformationForm() {
       Ending_Date_Month: [""],
       Ending_Date_Day: [""],
       Ending_Date_Year: [""],
+      EMAIL_ADDRESS: ["", ""],
+      TelephoneNumber_FirstThreeNumbers: [""],
+      TelephoneNumber_SecondThreeNumbers: [""],
+      TelephoneNumber_LastFourNumbers: [""],
+      vaHealthCare: "",
+      livingSituation: "",
     },
   });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    trigger,
+    setValue,
+  } = methods;
 
   const getFieldsForStep = (step) => {
     switch (step) {
@@ -42,13 +49,11 @@ export default function VeteranInformationForm() {
         return [
           "Veterans_Beneficiary_First_Name[0]",
           "Last_Name[0]",
-          "EMAIL_ADDRESS[0]",
+          // Email is optional
         ];
       case 1:
         return [
-          "TelephoneNumber_FirstThreeNumbers[0]",
-          "TelephoneNumber_SecondThreeNumbers[0]",
-          "TelephoneNumber_LastFourNumbers[0]",
+          // Phone numbers are optional
         ];
       case 2:
         return ["DOB_Month[0]", "DOB_Day[0]", "DOB_Year[0]"];
@@ -57,9 +62,7 @@ export default function VeteranInformationForm() {
           "Beginning_Date_Month[0]",
           "Beginning_Date_Day[0]",
           "Beginning_Date_Year[0]",
-          "Ending_Date_Month[0]",
-          "Ending_Date_Day[0]",
-          "Ending_Date_Year[0]",
+          // Service Exit Date is optional
         ];
       case 4:
         return [
@@ -67,19 +70,20 @@ export default function VeteranInformationForm() {
           "MailingAddress_City[0]",
           "MailingAddress_StateOrProvince[0]",
           "MailingAddress_ZIPOrPostalCode_FirstFiveNumbers[0]",
-          "MailingAddress_ZIPOrPostalCode_LastFourNumbers[0]",
+          // Last four digits of ZIP code are optional
         ];
       case 5:
         return [
           "branchOfService",
-          "serviceUnder",
-          "placeOfService",
           "nationalGuardReserves",
+          // serviceUnder and placeOfService are optional
         ];
       case 6:
-        return ["activeDutyOrders", "vaDirectDeposit", "vaHealthCare"];
-      case 7:
-        return ["livingSituation"];
+        return [
+          "activeDutyOrders",
+          "vaDirectDeposit",
+          // vaHealthCare and livingSituation are optional
+        ];
       default:
         return [];
     }
@@ -126,8 +130,6 @@ export default function VeteranInformationForm() {
         return <Step6MilitaryService {...stepProps} />;
       case 6:
         return <Step7CurrentStatus {...stepProps} />;
-      case 7:
-        return <Step8LivingSituation {...stepProps} />;
       default:
         return null;
     }
@@ -142,7 +144,6 @@ export default function VeteranInformationForm() {
       "Address Information",
       "Military Service Details",
       "Current Status",
-      "Living Situation",
     ];
     return titles[currentStep];
   };
@@ -155,26 +156,28 @@ export default function VeteranInformationForm() {
             Veteran Information
           </h1>
 
-          <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
+          <FormProvider {...methods}>
+            <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />
 
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold text-gray-700">
-              {getStepTitle()}
-            </h2>
-          </div>
+            <div className="mb-4">
+              <h2 className="text-lg font-semibold text-gray-700">
+                {getStepTitle()}
+              </h2>
+            </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            {renderStep()}
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {renderStep()}
 
-            <FormNavigation
-              currentStep={currentStep}
-              totalSteps={totalSteps}
-              onPrevious={handlePrevious}
-              onNext={handleNext}
-              onSubmit={handleSubmit(onSubmit)}
-              isLastStep={currentStep === totalSteps - 1}
-            />
-          </form>
+              <FormNavigation
+                currentStep={currentStep}
+                totalSteps={totalSteps}
+                onPrevious={handlePrevious}
+                onNext={handleNext}
+                onSubmit={handleSubmit(onSubmit)}
+                isLastStep={currentStep === totalSteps - 1}
+              />
+            </form>
+          </FormProvider>
         </div>
       </div>
     </div>
