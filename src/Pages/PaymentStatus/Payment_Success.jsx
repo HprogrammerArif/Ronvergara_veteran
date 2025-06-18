@@ -54,12 +54,7 @@ export default function PaymentSuccess({ initialTransactionId = "", initialAmoun
       })
     )
 
-    // Simulate dynamic data fetch (e.g., from an API)
-    if (!initialTransactionId || !initialAmount) {
-      // Example: Simulate API response
-      setTransactionId(`TXN${Math.floor(100000000 + Math.random() * 900000000)}`)
-      setAmount(`$${(Math.random() * 100 + 50).toFixed(2)}`)
-    }
+  
   }, [initialTransactionId, initialAmount])
 
   return (
@@ -84,10 +79,7 @@ export default function PaymentSuccess({ initialTransactionId = "", initialAmoun
                 <span className="text-gray-500">Transaction ID</span>
                 <span className="font-medium">{transactionId || "Loading..."}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-gray-500">Amount</span>
-                <span className="font-medium text-green-600">{amount || "Loading..."}</span>
-              </div>
+            
               <div className="flex justify-between">
                 <span className="text-gray-500">Date</span>
                 <span className="font-medium">{date || "Loading..."}</span>

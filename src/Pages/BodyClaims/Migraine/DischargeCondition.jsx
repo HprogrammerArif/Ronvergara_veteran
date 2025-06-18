@@ -40,7 +40,7 @@ const DischargeCondition = () => {
               {...register("discharge_conditions", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.discharge_conditions ? 'border-red-500' : ''}`}
             >
-              <option value="" disabled>Select an option</option>
+              <option value="" >Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -54,7 +54,7 @@ const DischargeCondition = () => {
               {...register("regular_medications", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.regular_medications ? 'border-red-500' : ''}`}
             >
-              <option value="" disabled>Select an option</option>
+              <option value="" >Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -68,7 +68,7 @@ const DischargeCondition = () => {
               {...register("surgeries_conditions", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.surgeries_conditions ? 'border-red-500' : ''}`}
             >
-              <option value="" disabled>Select an option</option>
+              <option value="" >Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>

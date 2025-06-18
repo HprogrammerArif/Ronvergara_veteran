@@ -78,7 +78,9 @@ const MentalHealthSymptoms = () => {
                   <div className="flex items-center">
                     <input
                       type="radio"
-                      {...register(`symptoms.question${index}`, { required: "Please select Yes or No" })}
+                      {...register(`symptoms.question${index}`, 
+                        // { required: "Please select Yes or No" }
+                      )}
                       value="yes"
                       className={`w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 ${errors.symptoms?.[`question${index}`] ? 'border-red-500' : ''}`}
                     />
@@ -87,7 +89,10 @@ const MentalHealthSymptoms = () => {
                   <div className="flex items-center">
                     <input
                       type="radio"
-                      {...register(`symptoms.question${index}`, { required: "Please select Yes or No" })}
+                      {...register(`symptoms.question${index}`, 
+                        // { required: "Please select Yes or No" }
+                      )
+                      }
                       value="no"
                       className={`w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 ${errors.symptoms?.[`question${index}`] ? 'border-red-500' : ''}`}
                     />

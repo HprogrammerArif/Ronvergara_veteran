@@ -171,7 +171,7 @@ import { FaRegEye } from "react-icons/fa";
 
 const ITEMS_PER_PAGE = 10;
 // const baseURL = "http://192.168.10.124:2000";
-const baseURL = "https://192.168.10.124:2000";
+const baseURL = "http://192.168.10.124:2000";
 
 const VAForm = () => {
   const { data: pdfs } = useGetPdfsQuery();

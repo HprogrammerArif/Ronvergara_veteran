@@ -3,9 +3,12 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
 const InjuriesDetails = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
 
   const navigate = useNavigate()
+
+const hadInjuries = watch("hadInjuries");
+  
   const onSubmit = (data) => {
     console.log(data); 
     localStorage.setItem("injuries_details", JSON.stringify(data));
@@ -36,16 +39,18 @@ const InjuriesDetails = () => {
             Did you have any specific injuries during your service?
             <select
               {...register("hadInjuries", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.hadInjuries ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.hadInjuries ? 'border-red-500' : ''}`}
             >
-              <option value="" disabled>Select an option</option>
+              <option value="">Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
             {errors.hadInjuries && <span className="text-red-500 text-sm">{errors.hadInjuries.message}</span>}
           </label>
 
-          {/* Please list the injuries, how they occurred, and where they occurred (what base/location) */}
+          {hadInjuries === "yes" && (
+          <>
+              {/* Please list the injuries, how they occurred, and where they occurred (what base/location) */}
           <label className="block text-sm font-medium text-gray-700">
             Please list the injuries, how they occurred, and where they occurred (what base/location)
             <textarea
@@ -55,6 +60,9 @@ const InjuriesDetails = () => {
             />
             {errors.injuryDetails && <span className="text-red-500 text-sm">{errors.injuryDetails.message}</span>}
           </label>
+          </>)}
+
+      
 
         <div className="flex flex-col justify-center gap-5 mx-auto ">
                            <button

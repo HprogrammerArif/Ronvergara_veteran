@@ -254,9 +254,9 @@ function ToxinExposureForm() {
 
           {/* Buttons */}
           <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10 pb-10 md:pb-0">
-            <button
+           <button
               type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center"
+              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center flex items-center justify-center"
             >
               Continue
             </button>

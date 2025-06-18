@@ -9,7 +9,7 @@ const GastrointestinalForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }, watch
   } = useForm({
     defaultValues: {
       acidRising: "",
@@ -20,6 +20,8 @@ const GastrointestinalForm = () => {
       details: "",
     },
   });
+
+
 
 
   const {navigateToNextCategory} = useCategoryNavigation()
@@ -68,11 +70,11 @@ const GastrointestinalForm = () => {
           </label>
           <select
             {...register("acidRising", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.acidRising ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="" >
               Select an option
             </option>
             <option value="ACID_RISING" className="uppercase">ACID RISING IN THROAT</option>
@@ -102,7 +104,7 @@ const GastrointestinalForm = () => {
             {...register("symptomsStartDate", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsStartDate ? "border-red-500" : ""
             }`}
           />
@@ -122,7 +124,7 @@ const GastrointestinalForm = () => {
             {...register("symptomsFrequency", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsFrequency ? "border-red-500" : ""
             }`}
           >
@@ -149,7 +151,7 @@ const GastrointestinalForm = () => {
             {...register("dailyMedication", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.dailyMedication ? "border-red-500" : ""
             }`}
           >
@@ -175,11 +177,11 @@ const GastrointestinalForm = () => {
             {...register("complainedWhileInService", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.complainedWhileInService ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             <option value="YES">YES</option>

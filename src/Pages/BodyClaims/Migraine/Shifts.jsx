@@ -29,16 +29,16 @@ const navigate = useNavigate()
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-10 pt-10">
           {/* Job/Role in the Service */}
           <label className="block text-sm font-medium text-gray-700 mb-14">
           How long were your
           shifts?
             <input
               {...register("shifts_period", { required: "This field is required" })}
-              type="text"
+              type="number"
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
-              placeholder="Enter your job/role"
+              placeholder="Duration of shifts (e.g., 8 hours, 12 hours)"
             />
             {errors.jobRole && <span className="text-red-500 text-sm">{errors.jobRole.message}</span>}
           </label>

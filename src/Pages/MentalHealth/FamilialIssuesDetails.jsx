@@ -4,8 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const FamilialIssuesDetails = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
 const navigate = useNavigate()
+
+const facingFamilialIssues = watch("familialIssues");
   const onSubmit = (data) => {
     console.log("familiar_issues",data); 
     localStorage.setItem("familiar_issues", JSON.stringify(data))
@@ -25,26 +27,31 @@ const navigate = useNavigate()
 
         {/* Form Section */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow overflow-y-auto pt-5">
-          {/* Did You Experience Any Familial Issues During Your Time In Service? */}
-          <label className="block text-lg font-medium text-gray-700">
-            Did You Experience Any Familial Issues During Your Time In Service?
-            <select
+        
+<label className="block text-lg font-medium text-gray-700">
+
+Did you experience any familial issues during your time in service?
+              <select
               {...register("familialIssues", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.familialIssues ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.familialIssues ? 'border-red-500' : ''}`}
             >
-              <option value="yes" selected>Yes</option>
+            
+              <option value="">Select an option</option>
+              <option value="yes" >Yes</option>
               <option value="no">No</option>
             </select>
-            {errors.familialIssues && <span className="text-red-500 text-sm">{errors.familialIssues.message}</span>}
-          </label>
 
-          {/* Dates Of Incident */}
+            </label>
+
+          {facingFamilialIssues ==="yes" && (
+          <>
+   {/* Dates Of Incident */}
           <label className="block text-lg font-medium text-gray-700">
             Dates Of Incident
             <input
               {...register("incidentDates", { required: "This field is required" })}
               type="date"
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md uppercase focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
@@ -66,7 +73,7 @@ const navigate = useNavigate()
             Type Of Familial Issue
             <select
               {...register("issueType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.issueType ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.issueType ? 'border-red-500' : ''}`}
             >
               <option value="issuesWithChildren">Issues With Children</option>
               <option value="divorce" selected>Divorce</option>
@@ -98,26 +105,27 @@ const navigate = useNavigate()
             />
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
           </label>
-           <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
-                                                                                                        <button>
-                                                                                                         <button
-                                                                                                        
-                                                                                                          type="submit"
-                                                                                                          className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-                                                                                                        >
-                                                                                                          Continue
-                                                                                                        </button>
-                                                                                                        </button>
-                                                                                                    <div>
-                                                                                                         <Link
-                                                                                                          type="button"
-                                                                                                          className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-                                                                                                          onClick={() => window.history.back()}
-                                                                                                        >
-                                                                                                          Back
-                                                                                                        </Link>
-                                                                                                    </div>
-                                                                                                      </div>
+
+          </>
+          )}
+
+       
+         <div className="flex justify-center items-center gap-6 md:mt-6 md:pb-10 flex-wrap">
+           <button
+             type="submit"
+             className="bg-[#B31942] text-white py-2 px-6 md:px-20 w-[150px] md:w-[200px] flex items-center justify-center rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+           >
+             Continue
+           </button>
+         
+           <Link
+             type="button"
+             className="bg-white text-blue-800 py-2 px-6 md:px-20 w-[150px] md:w-[200px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold text-center text-sm flex items-center justify-center"
+             onClick={() => window.history.back()}
+           >
+             Back
+           </Link>
+         </div>
         </form>
 
     

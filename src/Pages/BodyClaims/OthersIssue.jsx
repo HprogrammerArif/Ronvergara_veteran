@@ -10,7 +10,7 @@ const OthersIssues = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }, watch
   } = useForm({
     defaultValues: {
       hypertension: "",
@@ -21,6 +21,8 @@ const OthersIssues = () => {
     },
   });
   const {navigateToNextCategory} = useCategoryNavigation()
+
+  const anyComplainedWhileInServiceTime = watch("complainedWhileInService");
 
   const selectedCategories = useSelector((state) => state.issueSlice.selectedCategories); 
 
@@ -64,11 +66,11 @@ const OthersIssues = () => {
           </label>
           <select
             {...register("hypertension", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.hypertension ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="" >
               Select an option
             </option>
             <option value="HYPERTENSION">HYPERTENSION</option>
@@ -93,7 +95,7 @@ const OthersIssues = () => {
             {...register("symptomsStartDate", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsStartDate ? "border-red-500" : ""
             }`}
           />
@@ -113,11 +115,11 @@ const OthersIssues = () => {
             {...register("dailyMedication", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.dailyMedication ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             <option value="YES">YES</option>
@@ -139,11 +141,11 @@ const OthersIssues = () => {
             {...register("complainedWhileInService", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.complainedWhileInService ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             <option value="YES">YES</option>
@@ -156,7 +158,9 @@ const OthersIssues = () => {
           )}
         </div>
 
-        {/* Details */}
+        {anyComplainedWhileInServiceTime === "YES" && (
+          <>
+          {/* Details */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
             PLEASE PROVIDE DETAILS
@@ -174,6 +178,10 @@ const OthersIssues = () => {
             </p>
           )}
         </div>
+          </>
+        ) }
+
+        
 
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">

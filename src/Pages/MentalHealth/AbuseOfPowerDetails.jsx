@@ -4,8 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 const AbuseOfPowerDetails = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
 const navigate = useNavigate()
+
+
+const abuseOfPower = watch("abuseOfPower");
+
   const onSubmit = (data) => {
     console.log("abuse_power_details",data); 
     localStorage.setItem("abuse_power_details", JSON.stringify(data))
@@ -30,21 +34,24 @@ navigate("/dangerous_items_details")
             Did You Experience Any Abuse Of Power By A Superior?
             <select
               {...register("abuseOfPower", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseOfPower ? 'border-red-500' : ''}`}
-            >
-              <option value="yes" selected>Yes</option>
+              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseOfPower ? 'border-red-500' : ''}`}
+            > 
+            <option value="">SELECT AN OPTION</option>
+              <option value="yes" >Yes</option>
               <option value="no">No</option>
             </select>
             {errors.abuseOfPower && <span className="text-red-500 text-sm">{errors.abuseOfPower.message}</span>}
           </label>
 
-          {/* Dates Of Incident */}
+{abuseOfPower === "yes" && (
+  <>
+    {/* Dates Of Incident */}
           <label className="block text-lg font-medium text-gray-700">
             Dates Of Incident
             <input
               {...register("incidentDates", { required: "This field is required" })}
               type="date"
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
@@ -67,10 +74,11 @@ navigate("/dangerous_items_details")
             Type Of Abuse
             <select
               {...register("abuseType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseType ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseType ? 'border-red-500' : ''}`}
             >
+              <option value="">Select an option</option>
               <option value="verbal">Verbal Abuse</option>
-              <option value="physical" selected>Physical Abuse</option>
+              <option value="physical">Physical Abuse</option>
               <option value="emotional">Emotional Abuse</option>
               <option value="sexual">Sexual Abuse</option>
               <option value="other">Other</option>
@@ -99,26 +107,29 @@ navigate("/dangerous_items_details")
             />
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
           </label>
-                       <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
-                                                                                    <button>
-                                                                                     <button
-                                                                                    
-                                                                                      type="submit"
-                                                                                      className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-                                                                                    >
-                                                                                      Continue
-                                                                                    </button>
-                                                                                    </button>
-                                                                                <div>
-                                                                                     <Link
-                                                                                      type="button"
-                                                                                      className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-                                                                                      onClick={() => window.history.back()}
-                                                                                    >
-                                                                                      Back
-                                                                                    </Link>
-                                                                                </div>
-                                                                                  </div>
+
+  </>
+)}
+
+        
+
+
+                        <div className="flex justify-center items-center gap-6 md:mt-6 md:pb-10 flex-wrap">
+  <button
+    type="submit"
+    className="bg-[#B31942] text-white py-2 px-6 md:px-20 w-[150px] md:w-[200px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+  >
+    Continue
+  </button>
+
+  <Link
+    type="button"
+    className="bg-white text-blue-800 py-2 px-6 md:px-20 w-[150px] md:w-[200px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold text-center text-sm flex items-center justify-center"
+    onClick={() => window.history.back()}
+  >
+    Back
+  </Link>
+</div>
         </form>
 
        

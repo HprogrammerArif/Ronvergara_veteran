@@ -9,7 +9,7 @@ const TinnitusHearingLossForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors },watch
   } = useForm({
     defaultValues: {
       exposureWhileServing: "",
@@ -24,6 +24,10 @@ const TinnitusHearingLossForm = () => {
     (state) => state.issueSlice.selectedCategories
   ); // Accessing the selected categories from the Redux state
   const { navigateToNextCategory } = useCategoryNavigation();
+
+
+const complainedWhileInServiceTime = watch("complainedWhileInService");
+
   const onSubmit = (data) => {
    
     console.log(data);
@@ -65,11 +69,11 @@ const TinnitusHearingLossForm = () => {
             {...register("exposureWhileServing", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.exposureWhileServing ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             <option value="AIRCRAFTS">AIRCRAFTS</option>
@@ -94,11 +98,11 @@ const TinnitusHearingLossForm = () => {
             {...register("hearingProtection", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.hearingProtection ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             <option value="YES">YES</option>
@@ -121,7 +125,7 @@ const TinnitusHearingLossForm = () => {
             {...register("symptomsStartDate", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsStartDate ? "border-red-500" : ""
             }`}
           />
@@ -141,11 +145,11 @@ const TinnitusHearingLossForm = () => {
             {...register("symptomsFrequency", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsFrequency ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="" >
               Select an option
             </option>
             <option value="DAILY">DAILY</option>
@@ -169,11 +173,11 @@ const TinnitusHearingLossForm = () => {
             {...register("complainedWhileInService", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.complainedWhileInService ? "border-red-500" : ""
             }`}
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             <option value="YES">YES</option>
@@ -186,7 +190,9 @@ const TinnitusHearingLossForm = () => {
           )}
         </div>
 
-        {/* Details */}
+        { complainedWhileInServiceTime === "YES" && (
+          <>
+             {/* Details */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
             PLEASE PROVIDE DETAILS
@@ -204,6 +210,10 @@ const TinnitusHearingLossForm = () => {
             </p>
           )}
         </div>
+          </>
+        )}
+
+     
 
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">

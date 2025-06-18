@@ -192,13 +192,13 @@ const MentalHealthIndicators = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow">
           {indicatorQuestions.map((question, index) => (
             <div key={index} className="p-4 border border-gray-300 rounded-lg bg-gray-50 shadow-sm">
-              <label className="block text-lg font-medium text-gray-700">
+              <label className="block text-sm font-medium text-gray-700">
                 {question}
                 <div className="mt-1 flex items-center space-x-4">
                   <div className="flex items-center">
                     <input
                       type="radio"
-                      {...register(`indicators.question${index}`, { required: "Please select Yes or No" })}
+                      {...register(`indicators.question${index}`, )}
                       value="yes"
                       className={`w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 ${errors.indicators?.[`question${index}`] ? 'border-red-500' : ''}`}
                     />
@@ -207,7 +207,7 @@ const MentalHealthIndicators = () => {
                   <div className="flex items-center">
                     <input
                       type="radio"
-                      {...register(`indicators.question${index}`, { required: "Please select Yes or No" })}
+                      {...register(`indicators.question${index}`, )}
                       value="no"
                       className={`w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 ${errors.indicators?.[`question${index}`] ? 'border-red-500' : ''}`}
                     />
