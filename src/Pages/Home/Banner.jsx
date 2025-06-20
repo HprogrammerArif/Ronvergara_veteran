@@ -1,138 +1,104 @@
-// import banner from '../../assets/bannerIMG.png';
-// import banner_img from '../../assets/Banner_large.jpg';
 
 
-// const Banner = () => {
+
+
+// const HeroSection = () => {
 //   return (
-//     <>
-//       <div
-//         className="hidden md:flex relative bg-cover bg-center bg-no-repeat h-screen items-center"
-//         style={{ backgroundImage: `url(${banner_img})` }}
-//       >
-//         <div className="container mx-auto">
-//           <div className="max-w-3xl bg-opacity-90 mt-5 flex flex-col justify-center">
-//             <h1 className="text-7xl lg:text-7xl font-bold text-blue-900 leading-tight">
-//               TURNING <br />
-//               <span className="py-5 block">DISABILITIES INTO</span> 
-//               POSSIBILITIES
-//             </h1>
-//             <p className="mt-4 text-gray-700 text-xl capitalize max-w-2xl">
-//               AC is a veteran-owned organization dedicated to simplifying <br /> 
-//               the VA process. Whether you've been denied before or never 
-//               applied, we're here to fight for you.
-//             </p>
-//             <button className="mt-6 bg-[#B31942] text-white w-1/3 px-10 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
-//               Book Now
+//     <div
+//       className="relative min-h-screen bg-cover bg-center"
+//       style={{
+//         backgroundImage:
+//           "url('https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750426678/Screenshot_2025-06-20_193709_lxyqnc.png')",
+//       }}
+//     >
+//       {/* Backdrop overlay with blur */}
+//       <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
+
+//       {/* Content */}
+//       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col md:flex-row gap-10 items-center justify-center min-h-screen text-white">
+//         {/* Left text side */}
+//         <div className="md:w-1/2 space-y-6 text-center md:text-left">
+//           <h1 className="text-4xl md:text-7xl text-[#0B2A52] font-bold">
+//             Made Simple <br /> <span className="text-7xl">VA Benefits</span>
+//           </h1>
+//           <p className="text-lg md:text-xl space-y-10 text-black font-bold">
+//             Veterans, don’t wait—there’s finally an app built just for you. VALR
+//             makes applying for your VA benefits faster, simpler, and less
+//             stressful. You’ve earned this. Get started today.
+//           </p>
+//           <div className="flex justify-center md:justify-start">
+//             <button className="px-6 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold transition py-5 text-3xl md:text-4xl text-center">
+//               CLAIM YOUR <br /> BENEFITS NOW
 //             </button>
 //           </div>
 //         </div>
-//       </div>
 
-//       <div className="md:hidden min-h-screen  text-center pt-24 bg-gray-100">
-//         <h1 className="text-4xl font-bold text-blue-900">
-//           Welcome to Our Platform!
-//         </h1>
-//         <p className="mt-3 text-gray-700 text-lg px-5">
-//           We help you navigate the VA process. Let's get started.
-//         </p>
-//         <button className="mt-6 bg-[#B31942] text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
-//           Get Started
-//         </button>
-
-//         <img src={banner} alt="" className='mt-10 h-[52vh]'/>
+//         {/* Right image side */}
+//         <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+//           <img
+//             src="https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750427954/Untitled_design_4_mgcob5.png"
+//             alt="Nature"
+//             className="rounded-2xl shadow-lg w-[700px] object-cover h-[700px] "
+//           />
+//         </div>
 //       </div>
-//     </>
+//     </div>
 //   );
 // };
 
-// export default Banner;
+// export default HeroSection;
 
-import banner from '../../assets/bannerIMG.png';
-import banner_img from '../../assets/Banner_large.jpg';
 
-const Banner = () => {
+const HeroSection = () => {
   return (
-    <>
-      {/* Desktop view (lg and above) */}
-      <div
-        className="hidden lg:flex relative bg-cover bg-center bg-no-repeat h-screen w-full items-center"
-        style={{ backgroundImage: `url(${banner_img})` }}
-      >
-        <div className="container mx-auto">
-          <div className="max-w-3xl bg-opacity-90 mt-5 flex flex-col justify-center">
-            <h1 className="text-7xl font-bold text-blue-900 leading-tight">
-              TURNING <br />
-              <span className="py-5 block">DISABILITIES INTO</span> 
-              POSSIBILITIES
-            </h1>
-            <p className="mt-4 text-gray-700 text-xl capitalize max-w-2xl">
-              AC is a veteran-owned organization dedicated to simplifying <br />
-              the VA process. Whether you've been denied before or never 
-              applied, we're here to fight for you.
-            </p>
-            <button className="mt-6 bg-[#B31942] text-white w-1/3 px-10 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
-              Book Now
+    <div
+      className="relative min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750426678/Screenshot_2025-06-20_193709_lxyqnc.png')",
+      }}
+    >
+      {/* Backdrop overlay with blur */}
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col md:flex-row gap-10 items-center justify-center min-h-screen text-white">
+        {/* Left text side */}
+        <div className="md:w-1/2 space-y-6 text-center md:text-left">
+          <h1 className="text-4xl md:text-7xl text-[#0B2A52] font-bold">
+            Made Simple <br /> <span className="text-7xl">VA Benefits</span>
+          </h1>
+          <p className="text-lg md:text-xl space-y-10 text-black font-bold">
+            Veterans, don't wait—there's finally an app built just for you. VALR makes applying for your VA benefits
+            faster, simpler, and less stressful. You've earned this. Get started today.
+          </p>
+          <div className="flex justify-center md:justify-start">
+            <button className="px-6 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold transition py-5 text-3xl md:text-4xl text-center">
+              CLAIM YOUR <br /> BENEFITS NOW
             </button>
           </div>
         </div>
+
+        {/* Right image side */}
+        <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center relative">
+          <img
+            src="https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750427954/Untitled_design_4_mgcob5.png"
+            alt="Nature"
+            className="rounded-2xl shadow-lg w-[650px] object-cover h-[700px]"
+          />
+
+          {/* Logo positioned at left bottom of the image */}
+          <div className="absolute -bottom-12 left-[560px]   flex items-center justify-end ">
+            <img
+              src="https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750428531/Untitled_design_6_fbjvbd.png"
+              alt="VALR Logo"
+              className="w-40 h-40 md:w-44 md:h-44 rounded-xl  shadow-lg"
+            />
+          </div>
+        </div>
       </div>
+    </div>
+  )
+}
 
-      {/* Tablet view only (md only) */}
-      <div
-        className="hidden md:flex lg:hidden h-screen w-full bg-cover bg-center bg-no-repeat items-center justify-center"
-        style={{ backgroundImage: `url(${banner_img})` }}
-      >
-        {/* <div className="bg-white bg-opacity-80 p-6 rounded-md text-center max-w-7xl mx-4">
-          <h1 className="text-4xl font-bold text-blue-900 leading-snug">
-            TURNING <br />
-            <span className="block py-2">DISABILITIES INTO</span>
-            POSSIBILITIES
-          </h1>
-          <p className="mt-4 text-gray-700 text-lg">
-            AC is a veteran-owned organization simplifying the VA process.
-            Whether you've been denied or never applied, we’re here to help.
-          </p>
-          <button className="mt-6 bg-[#B31942] text-white px-10 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
-            Book Now
-          </button>
-        </div> */}
-
-        <div className="bg-white bg-opacity-50 backdrop-blur-md p-6 rounded-md text-center max-w-7xl mx-4">
-  <h1 className="text-4xl font-bold text-blue-900 leading-snug">
-    TURNING <br />
-    <span className="block py-2">DISABILITIES INTO</span>
-    POSSIBILITIES
-  </h1>
-  <p className="mt-4 text-gray-700 text-lg">
-    AC is a veteran-owned organization simplifying the VA process.
-    Whether you've been denied or never applied, we’re here to help.
-  </p>
-  <button className="mt-6 bg-[#B31942] text-white px-10 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
-    Book Now
-  </button>
-</div>
-
-      </div>
-
-      {/* Mobile view (below md) */}
-      <div className="md:hidden min-h-screen text-center pt-24 bg-gray-100">
-        <h1 className="text-4xl font-bold text-blue-900">
-          Welcome to Our Platform!
-        </h1>
-        <p className="mt-3 text-gray-700 text-lg px-5">
-          We help you navigate the VA process. Let's get started.
-        </p>
-        <button className="mt-6 bg-[#B31942] text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition duration-300">
-          Get Started
-        </button>
-        <img src={banner} alt="VA support" className="mt-10 h-[52vh]" />
-      </div>
-    </>
-  );
-};
-
-export default Banner;
-
-
-
-
+export default HeroSection
