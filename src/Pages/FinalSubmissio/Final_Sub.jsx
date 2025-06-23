@@ -66,8 +66,8 @@ function Final_Sub() {
       });
 
      
-
       navigate('/va_form');
+
     } catch (error) {
       console.error('❌ Submission error:', error);
       toast.error(`Failed to submit: ${error.message || 'Please try again.'}`, {

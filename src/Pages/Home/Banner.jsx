@@ -66,7 +66,7 @@ const HeroSection = () => {
         {/* Left text side */}
         <div className="md:w-1/2 space-y-6 text-center md:text-left">
           <h1 className="text-4xl md:text-7xl text-[#0B2A52] font-bold">
-            Made Simple <br /> <span className="text-7xl">VA Benefits</span>
+            VA Benefits <br /> <span className="text-7xl">Made Simple</span>
           </h1>
           <p className="text-lg md:text-xl space-y-10 text-black font-bold">
             Veterans, don't wait—there's finally an app built just for you. VALR makes applying for your VA benefits

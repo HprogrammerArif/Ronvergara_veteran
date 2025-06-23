@@ -78,7 +78,7 @@ export default function Footer() {
         <div className="border-t border-gray-300"></div>
 
       <p className="text-center mt-6 text-xs w-10/12 mx-auto text-gray-500">
-        <span className="text-red-700 font-semibold">Disclainer:</span> Vac2023 is not an accredited agent and/or a pool of attorneys, law firm or law office. It is not an accredited or recognized VA claim agent nor is it an individual or entity that is allowed and accredited by the VA to represent any and all of its Affiliates. Vac2023 does NOT represent veterans before the VA or BVA in connection with any claim for VA disability benefits. Veterans are appraised that there are free resources available to aid them in the applications they have before Department of Veterans Affairs (VA) such as but not limited to the preparation, filing, presentation and processing of the VA disability claim.
+        <span className="text-red-700 font-semibold">Disclaimer:</span> Vac2023 is not an accredited agent and/or a pool of attorneys, law firm or law office. It is not an accredited or recognized VA claim agent nor is it an individual or entity that is allowed and accredited by the VA to represent any and all of its Affiliates. Vac2023 does NOT represent veterans before the VA or BVA in connection with any claim for VA disability benefits. Veterans are appraised that there are free resources available to aid them in the applications they have before Department of Veterans Affairs (VA) such as but not limited to the preparation, filing, presentation and processing of the VA disability claim.
 Copyright © 2025 VAC . All Rights Reserved
       </p>
         

@@ -25,6 +25,7 @@ const TinnitusHearingLossForm = () => {
   ); // Accessing the selected categories from the Redux state
   const { navigateToNextCategory } = useCategoryNavigation();
 
+const hearingProtectionIssue = watch("hearingProtection");
 
 const complainedWhileInServiceTime = watch("complainedWhileInService");
 
@@ -105,8 +106,8 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             <option value="">
               Select an option
             </option>
-            <option value="YES">YES</option>
-            <option value="NO">NO</option>
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
           </select>
           {errors.hearingProtection && (
             <p className="text-red-500 text-sm mt-1">
@@ -115,7 +116,9 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
           )}
         </div>
 
-        {/* Symptoms Start Date */}
+        {hearingProtectionIssue === "yes" && (
+          <>
+              {/* Symptoms Start Date */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
             WHEN DID YOUR SYMPTOMS START?
@@ -212,6 +215,10 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
         </div>
           </>
         )}
+          </>
+        )}
+
+    
 
      
 

@@ -9,6 +9,9 @@ import { router } from './Routes/router';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
+const isAuthenticated = localStorage.getItem("access_token"); 
+
+
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>

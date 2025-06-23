@@ -20,7 +20,7 @@ const processChartData = (backendData, year) => {
   }));
 };
 
-export default function Dashboard() {
+export default function Admin_home() {
   const [period, setPeriod] = useState("2025"); 
   const { data: dashboardData } = useGetDashboardInfoQuery();
   const { data: revenueInfo } = useMonthlyRevenueQuery();

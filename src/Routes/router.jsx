@@ -53,7 +53,6 @@ import OthersIssues from "../Pages/BodyClaims/OthersIssue";
 import AdminLogin from "../Pages/AdminLogin/AdminLogin";
 import Recovery from "../Pages/AdminLogin/Recovery";
 import PasswordRecovery from "../Pages/AdminLogin/PasswordRecovery";
-import Dashboard from "../Pages/AdminDashboard/Dashboard";
 import Admin_home from "../Pages/AdminDashboard/Admin_home";
 import UserManagment from "../Pages/AdminDashboard/UserManagment";
 import FormView from "../Pages/AdminDashboard/FormView";
@@ -76,8 +75,9 @@ import Payment_Success from "../Pages/PaymentStatus/Payment_Success";
 import Payment_Error from "../Pages/PaymentStatus/Payment_Error";
 import Final_Sub from "../Pages/FinalSubmissio/Final_Sub";
 import UnauthorizedError from "../Pages/Private/UnauthorizedError";
-import AdminRouteSecure from "../Pages/Private/AdminRouteSecure";
+// import AdminRouteSecure from "../Pages/Private/AdminRouteSecure";
 import PrivateRoute from "../hooks/PrivateRoute";
+import Dashboard from "../Pages//AdminDashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -110,10 +110,7 @@ export const router = createBrowserRouter([
       { path: "/disaster_form", element: <DisasterForm /> },
       { path: "/abuse_assault_form", element: <AbuseAssaultDetails /> },
       { path: "/risk_details", element: <RiskDetails /> },
-      {
-        path: "/medical_position_details",
-        element: <MedicalPositionDetails />,
-      },
+      { path: "/medical_position_details", element: <MedicalPositionDetails />},
       { path: "/crash_details", element: <CrashAccidentDetails /> },
       { path: "/medical_trauma_details", element: <MedicalTraumaDetails /> },
       { path: "/hazing_details", element: <HazingDetails /> },
@@ -122,10 +119,7 @@ export const router = createBrowserRouter([
       { path: "/familiar_issues", element: <FamilialIssuesDetails /> },
       { path: "/comfirm_mental_health", element: <ConfirmMentalHealth /> },
       { path: "/mental_health_symptoms", element: <MentalHealthSymptoms /> },
-      {
-        path: "/mental_health_indicators",
-        element: <MentalHealthIndicators />,
-      },
+      {path: "/mental_health_indicators", element: <MentalHealthIndicators />},
 
       //2nd part
 
@@ -147,7 +141,7 @@ export const router = createBrowserRouter([
 
       //SinusitisForm
       { path: "/sinusitis_form", element: <SinusitisForm /> },
-
+      
       //GastrointestinalForm
       { path: "/gastrointestinal_form", element: <GastrointestinalForm /> },
 
@@ -204,13 +198,7 @@ export const router = createBrowserRouter([
 
   {
     path: "admin",
-
-    element: (
-      <AdminRouteSecure>
-        <Dashboard />
-      </AdminRouteSecure>
-    ),
-    errorElement: <UnauthorizedError />,
+    element: <Dashboard/>,
     children: [
       { index: true, element: <Admin_home /> },
       { path: "admin_home", element: <Admin_home /> },

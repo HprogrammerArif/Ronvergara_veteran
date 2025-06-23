@@ -3,9 +3,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
     reducerPath: 'baseApi',
     
+    // http://192.168.10.124:2000/
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://192.168.10.124:2000',
-        // baseUrl: "https://192.168.10.124:2000",
+        baseUrl: 'http://192.168.10.124:2000/',
+        // baseUrl: "http://192.168.10.124:2000",
         prepareHeaders: (headers) => {
             const token = localStorage.getItem("access_token");
             if (token) {
@@ -26,7 +27,6 @@ export const baseApi = createApi({
             }),
         }),
 
-
         //loggedIn user
         loggedInUser: builder.mutation({
             query: (userData) =>({
@@ -40,8 +40,6 @@ export const baseApi = createApi({
         getLoggedUser: builder.query({
             query: ()=>"api/auth/profile/"
         }),
-
-
 
         // forget password
         forgetPassword: builder.mutation({
