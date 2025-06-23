@@ -5,10 +5,11 @@ import React from 'react';
 import mentalLogo from "../../assets/mental_health_logo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { Watch } from 'lucide-react';
 
 const MentalHealthDetails = () => {
     const navigate = useNavigate()
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
 
   const onSubmit = (data) => {
     console.log(data); 
@@ -16,6 +17,8 @@ const MentalHealthDetails = () => {
     navigate("/death_details")
     
   };
+
+  const everDeployed = watch("deployed");
 
   return (
     <div className="flex justify-center items-center min-h-screen pt-32 bg-gray-100">
@@ -62,8 +65,10 @@ const MentalHealthDetails = () => {
   {errors.deployed && <span className="text-red-500 text-sm">{errors.deployed.message}</span>}
 </label>
 
-          {/* Deployed Area Name */}
-          <label className="block text-lg font-medium text-gray-700">
+{
+  everDeployed === "yes" && (
+    <>
+      <label className="block text-lg font-medium text-gray-700">
             Deployed Area Name
             <input
               {...register("deployedArea", { required: "This field is required" })}
@@ -117,6 +122,12 @@ const MentalHealthDetails = () => {
             />
             {errors.stressDetails && <span className="text-red-500 text-sm">{errors.stressDetails.message}</span>}
           </label>
+    </>
+  )
+}
+
+          {/* Deployed Area Name */}
+        
         </form>
 
         {/* Buttons Section (At the Bottom) */}

@@ -229,15 +229,15 @@ const EvidenceForm = () => {
             {...register("hasEvidence", {
               required: "Please select an option",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.hasEvidence ? "border-red-500" : ""
             }`}
           >
             <option value="" disabled>
               Select an option
             </option>
-            <option value="YES">YES</option>
-            <option value="NO">NO</option>
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
           </select>
           {errors.hasEvidence && (
             <p className="text-red-500 text-sm mt-1">
@@ -247,7 +247,7 @@ const EvidenceForm = () => {
         </div>
 
         {/* File Upload Section */}
-        {hasEvidence === "YES" && (
+        {hasEvidence === "yes" && (
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">
               UPLOAD FILE

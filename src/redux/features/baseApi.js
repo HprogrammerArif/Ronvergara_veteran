@@ -3,9 +3,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
     reducerPath: 'baseApi',
     
-    // http://192.168.10.124:2000/
+    // https://rongever.duckdns.org/
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://192.168.10.124:2000/',
+        baseUrl: 'https://rongever.duckdns.org/',
         // baseUrl: "http://192.168.10.124:2000",
         prepareHeaders: (headers) => {
             const token = localStorage.getItem("access_token");
