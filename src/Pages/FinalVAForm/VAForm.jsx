@@ -6,7 +6,7 @@ import { useGetPdfsQuery } from "../../redux/features/baseApi";
 import { FaRegEye } from "react-icons/fa";
 
 const ITEMS_PER_PAGE = 10;
-const baseURL = "http://rongever.duckdns.org/";
+const baseURL = "http://rongever.duckdns.org";
 
 const VAForm = () => {
   const { data: pdfs } = useGetPdfsQuery();

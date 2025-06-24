@@ -26,24 +26,24 @@ export default function Dashboard() {
         { name: "Document", icon: <LuStickyNote     size={20} />, path: "/admin/document" },
         { name: "Submission", icon: <AiOutlineAudit   size={20} />, path: "/admin/submission" },
 
-        { 
-          name: "Settings",
-          icon: <IoMdSettings size={20} />, 
-          path: "/admin/settings",
-          submenu: true,
-          children: [
-            {
-              name: "Privacy Policy",
-              icon: null,
-              path: "/admin/settings/privacy_policy",
-            },
-            {
-              name: "Terms & Conditions",
-              icon: null,
-              path: "/admin/settings/terms_conditions",
-            },
-          ]
-        },
+        // { 
+        //   name: "Settings",
+        //   icon: <IoMdSettings size={20} />, 
+        //   path: "/admin/settings",
+        //   submenu: true,
+        //   children: [
+        //     {
+        //       name: "Privacy Policy",
+        //       icon: null,
+        //       path: "/admin/settings/privacy_policy",
+        //     },
+        //     {
+        //       name: "Terms & Conditions",
+        //       icon: null,
+        //       path: "/admin/settings/terms_conditions",
+        //     },
+        //   ]
+        // },
       ],
     },
   ];

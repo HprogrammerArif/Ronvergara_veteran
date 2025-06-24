@@ -122,12 +122,12 @@ export const baseApi = createApi({
         //pdf view
         getPdfs:builder.query({
             query: ()=>"api/va/vaform/generated/list/"
+        }),
+
+        getPaymentList: builder.query({
+            query: ()=>"api/dashboard/payments/list/"
         })
     
-
-        
-
-
 
     }),
 });
@@ -176,5 +176,6 @@ export const {
     useGetUsersQuery,
     useGetDashboardInfoQuery,
     useMonthlyRevenueQuery,
+    useGetPaymentListQuery,
 
 } = baseApi;
