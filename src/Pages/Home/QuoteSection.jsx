@@ -146,9 +146,9 @@ export default function SliderWithQuotes() {
 
   return (
     <div>
-      <div className="container mx-auto pt-20 px-4">
+      <div className="container mx-auto md:pt-20 px-4">
         <div
-          className="relative bg-white rounded-xl shadow-md overflow-hidden min-h-[500px] md:h-[500px]"
+          className="relative bg-white rounded-xl md:shadow-md overflow-hidden min-h-[500px] md:h-[500px]"
           onMouseEnter={() => setIsSlidesPaused(true)}
           onMouseLeave={() => setIsSlidesPaused(false)}
         >
