@@ -96,9 +96,9 @@ const MentalHealthSurvey = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 mt-10">
+    <div className="flex justify-center items-center md:min-h-screen min-h-[85vh] bg-gray-100 mt-10">
       <div className="p-2 md:p-6 rounded-lg w-full max-w-4xl h-[75vh] flex flex-col justify-between">
-        {/* Header Section */}
+
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
           <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
             <img
@@ -110,8 +110,7 @@ const MentalHealthSurvey = () => {
           <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
         </div>
 
-        {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-10 px-1 md:px-0">
           <label className="block text-[18px] font-medium text-gray-700">
             How Stressful Was Your Job On A Scale Of 1-10?
             <select
@@ -131,17 +130,9 @@ const MentalHealthSurvey = () => {
             )}
           </label>
 
-          {/* Button Section */}
-          <div className="flex justify-center gap-6 mt-20 pb-10 md:pb-0 items-center">
-            <div className="w-[150px] md:w-[200px]">
-              <button
-                type="submit"
-                className="w-full bg-[#B31942] text-white py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-              >
-                Continue
-              </button>
-            </div>
-            <div className="w-[150px] md:w-[200px]">
+          <div className="flex justify-center gap-4 mt-20 pb-10 md:pb-0 items-center">
+
+        <div className="w-[165px] md:w-[200px]">
               <Link
                 to="#"
                 onClick={() => window.history.back()}
@@ -150,6 +141,16 @@ const MentalHealthSurvey = () => {
                 Back
               </Link>
             </div>
+
+            <div className="w-[150px] md:w-[200px]">
+              <button
+                type="submit"
+                className="w-full bg-[#B31942] text-white uppercase py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+              >
+                Continue
+              </button>
+            </div>
+           
           </div>
         </form>
       </div>

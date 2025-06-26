@@ -21,7 +21,7 @@ const MentalHealthDetails = () => {
   const everDeployed = watch("deployed");
 
   return (
-    <div className="flex justify-center items-center min-h-screen pt-32 bg-gray-100">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen md:pt-32 bg-gray-100">
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section (Centered Image and Text) */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -32,22 +32,8 @@ const MentalHealthDetails = () => {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow">
-          {/* Were You Deployed? */}
-          {/* <label className="block text-lg font-medium text-gray-700">
-            Were You Deployed?
-            <select
-              {...register("deployed", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300  uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployed ? 'border-red-500' : ''}`}
-            >
-              <option value="" disabled>
-              Select an option
-            </option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            {errors.deployed && <span className="text-red-500 text-sm">{errors.deployed.message}</span>}
-          </label> */}
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow px-1 md:px-0">
+         
 
 <label className="block text-lg font-medium text-gray-700">
   Were You Deployed?
@@ -73,7 +59,7 @@ const MentalHealthDetails = () => {
             <input
               {...register("deployedArea", { required: "This field is required" })}
               type="text"
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployedArea ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployedArea ? 'border-red-500' : ''}`}
               placeholder="Enter area name"
             />
             {errors.deployedArea && <span className="text-red-500 text-sm">{errors.deployedArea.message}</span>}
@@ -87,7 +73,7 @@ const MentalHealthDetails = () => {
                 // { required: "This field is required" }
               )}
               type="number"
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.duration ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.duration ? 'border-red-500' : ''}`}
               placeholder="Enter duration (in months)"
             />
             {errors.duration && <span className="text-red-500 text-sm">{errors.duration.message}</span>}
@@ -117,7 +103,7 @@ const MentalHealthDetails = () => {
             Please provide any details from your deployment including names and dates of high stress situations (things such as mortar/rocket attacks, convoy attacks, etc).
             <textarea
               {...register("stressDetails", { required: "This field is required" })}
-              className={`mt-1 block text-sm w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none ${errors.stressDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block text-sm w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none ${errors.stressDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details here..."
             />
             {errors.stressDetails && <span className="text-red-500 text-sm">{errors.stressDetails.message}</span>}
@@ -126,33 +112,31 @@ const MentalHealthDetails = () => {
   )
 }
 
-          {/* Deployed Area Name */}
         
         </form>
+           <div className="flex justify-center gap-4 md:mt-20 mt-10 pb-10 md:pb-0 items-center">
 
-        {/* Buttons Section (At the Bottom) */}
-        <div className="flex justify-center gap-10 md:mt-10 mt-14 pb-10 md:pb-20">
-          <button>
-            <Link
-              
-              type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-              onClick={handleSubmit(onSubmit)} 
-            >
-              Continue
-            </Link>
-          </button>
-          <div>
-            <Link
-          
-              type="button"
-              className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-              onClick={() => window.history.back()}
-            >
-              Back
-            </Link>
+            <div className="w-[165px] md:w-[200px]">
+              <Link
+                to="#"
+                onClick={() => window.history.back()}
+                className="w-full block text-center bg-white text-blue-800 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+              >
+                Back
+              </Link>
+            </div>
+
+            <div className="w-[150px] md:w-[200px]">
+              <button
+                type="submit"
+                 onClick={handleSubmit(onSubmit)} 
+                className="w-full bg-[#B31942] text-white uppercase py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+              >
+                Continue
+              </button>
+            </div>
+           
           </div>
-        </div>
       </div>
     </div>
   );

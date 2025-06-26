@@ -12,11 +12,11 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 mt-14">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl space-y-6 my-10">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen md:bg-gray-100">
+      <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl ">
         {/* Header Section */}
-        <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto">
-          <div className="w-28 h-28 mb-4">
+        <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
+          <div className="md:w-28 md:h-28">
             <img
               src="https://i.ibb.co.com/FLFMyh5F/Group-2147225241.png"
               alt="Mental Health Logo"
@@ -29,16 +29,16 @@ const navigate = useNavigate()
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-10 pt-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-5 ">
           {/* Job/Role in the Service */}
-          <label className="block text-sm font-medium text-gray-700 mb-14">
+          <label className="block text-sm font-medium text-gray-700 ">
           How long were your
           shifts?
             <input
               {...register("shifts_period", { required: "This field is required" })}
               type="number"
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
-              placeholder="Duration of shifts (e.g., 8 hours, 12 hours)"
+              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
+              placeholder="Duration of shifts (hours)"
             />
             {errors.jobRole && <span className="text-red-500 text-sm">{errors.jobRole.message}</span>}
           </label>
@@ -48,13 +48,14 @@ const navigate = useNavigate()
             <div className="flex flex-col justify-center gap-5 mx-auto ">
                     <button
                       type="submit"
-                      className="btn bg-[#B31942] border-gray-400  py-2 text-white text-center font-semibold rounded-md"
+                      className="btn bg-[#B31942] uppercase border-gray-400  py-2 text-white text-center font-semibold rounded-md"
                     >
                       Continue
                     </button>
                     <button
                       type="submit"
-                      className="btn  text-[#001F3F] font-semibold border  border-[#001F3F] py-2 rounded-md"  
+                      className="btn  text-[#001F3F] uppercase font-semibold border  border-[#001F3F] py-2 rounded-md"  
+                      onClick={() => window.history.back()}
                     >
                       Back
                     </button>

@@ -45,9 +45,9 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
     }
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto py-20 pt-40">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto ">
       {/* Header */}
-      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto mb-10">
+      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto mb-10">
           <div className="w-28 h-28 mb-4">
             <img
               src="https://i.ibb.co.com/wNVRsJvd/Group-1597882599.png"
@@ -60,7 +60,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
         </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full px-1 md:px-0">
         {/* Exposure While Serving */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
@@ -231,7 +231,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             Continue
           </button>
           <Link
-            to="/previous-page"
+            onClick={() => window.history.back()}
             className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"
           >
             Back

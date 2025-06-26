@@ -128,7 +128,7 @@ const AiNarrativeGen = () => {
 
       if (response?.notation) {
         localStorage.setItem('generatedNotation', response.notation);
-        window.location.reload(); // reload to reflect updated localStorage
+        window.location.reload(); 
       }
     } catch (err) {
       console.error('Failed to generate narration:', err);
@@ -161,7 +161,7 @@ const AiNarrativeGen = () => {
           type="button"
           onClick={handleGenerateNarrative}
           disabled={isGenerateDisabled}
-          className="md:w-48 w-60 btn uppercase bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold disabled:opacity-50"
+          className="md:w-52 w-60 btn uppercase bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold disabled:opacity-50"
         >
           {isLoading ? (
             <span className="loading loading-bars loading-lg"></span>
@@ -172,7 +172,7 @@ const AiNarrativeGen = () => {
 
         <Link
           to="/progress"
-          className={`md:w-48 w-60 btn bg-[#B31942] uppercase hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold ${
+          className={`md:w-52 w-60 btn bg-[#B31942] uppercase hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold ${
             areOtherButtonsDisabled ? 'pointer-events-none opacity-50' : ''
           }`}
         >
@@ -183,7 +183,7 @@ const AiNarrativeGen = () => {
           type="button"
           onClick={() => navigate(-1)}
           disabled={areOtherButtonsDisabled}
-          className="md:w-48 w-60 btn border border-[#001F3F] uppercase text-[#001F3F] hover:bg-gray-100 py-2 px-4 rounded-md font-semibold disabled:opacity-50"
+          className="md:w-52 w-60 btn border border-[#001F3F] uppercase text-[#001F3F] hover:bg-gray-100 py-2 px-4 rounded-md font-semibold disabled:opacity-50"
         >
           Back
         </button>

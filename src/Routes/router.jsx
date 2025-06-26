@@ -125,6 +125,9 @@ export const router = createBrowserRouter([
       //2nd part
 
       { path: "/migraine", element: <Migraine /> },
+
+      // bodyhealth
+      
       { path: "/service_details", element: <ServiceDetails /> },
       { path: "/shifts", element: <Shifts /> },
       { path: "/physical_training", element: <PhysicalTrainingDetails /> },

@@ -52,24 +52,24 @@ const BodyHealthDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 mt-20">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl space-y-6 my-10">
+    <div className="min-h-screen md:bg-gray-100 flex items-center justify-center md:p-4">
+      <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl space-y-6 my-10">
         {/* Header Section */}
-        <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto">
+      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
           <div className="w-28 h-28 mb-4">
             <img
               src="https://i.ibb.co.com/FLFMyh5F/Group-2147225241.png"
-              alt="Body Health Logo"
+              alt="Mental Health Logo"
               className="w-full h-full object-contain"
             />
           </div>
           <h1 className="text-2xl md:text-[24px] font-semibold text-center text-white">
-            Body Health
+          body health
           </h1>
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 px-1 md:px-0">
           {/* Decreased Range of Motion */}
           <label className="block text-sm font-medium text-gray-700">
             Do you have decreased range of motion?
@@ -426,21 +426,30 @@ const BodyHealthDetails = () => {
             )}
           </label>
 
-          {/* Submit Buttons */}
-          <div className="flex justify-center gap-5 mx-auto">
-            <button
-              type="submit"
-              className="btn bg-[#B31942] text-white py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
+         {/* Buttons */}
+        <div className="flex flex-col justify-center gap-4 mx-auto">
+        <button
+          type="submit"
+          
+        >
+        
+        <button
+       
+            type="submit"
+              className="btn bg-[#B31942] w-full uppercase text-white py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
             >
               Continue
             </button>
-            <Link
-              to="/previous_page"
-              className="btn text-[#001F3F] font-semibold border border-[#001F3F] py-2 rounded-md"
-            >
-              Back
-            </Link>
-          </div>
+
+                </button>
+                    <button
+                      onClick={() => window.history.back()}
+                      className="btn  text-[#001F3F] uppercase font-semibold border  border-[#001F3F] py-2 rounded-md"
+
+                    >
+                      Back
+                    </button>
+                  </div>
         </form>
       </div>
     </div>

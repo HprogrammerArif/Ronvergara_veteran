@@ -4,7 +4,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addCategoryByIssue, removeCategoryIfNoIssuesLeft } from '../../redux/slice/issueSlice';
 
 function Issues() {
@@ -74,8 +74,8 @@ function Issues() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center md:p-4">
-      <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-6">
+    <div className="md:min-h-screen min-h-[85vh] py-10 md:py-0  flex justify-center items-center md:p-4">
+      <div className="w-full max-w-3xl bg-white md:shadow-md rounded-lg md:p-6 p-3">
         <h1 className="text-xl md:text-2xl font-bold text-blue-900 mb-2">
           What condition(s) do you want to start a claim for?
         </h1>

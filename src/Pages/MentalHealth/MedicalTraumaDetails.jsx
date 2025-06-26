@@ -1,137 +1,3 @@
-// import React from 'react';
-
-// import mentalLogo from "../../assets/mental_health_logo.png";
-// import { Link, useNavigate } from 'react-router-dom';
-// import { useForm } from 'react-hook-form';
-
-// const MedicalTraumaDetails = () => {
-//   const { register, handleSubmit, formState: { errors } } = useForm();
-// const navigate = useNavigate()
-
-// // const endureMedicalTrauma = watch("medicalTrauma");
-//   const onSubmit = (data) => {
-//     console.log("medical_trauma_details",data); 
-//     localStorage.setItem("medical_trauma_details", JSON.stringify(data))
-//     navigate("/hazing_details")
-//   };
-
-//   return (
-//     <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-24 pb-10 mt-10">
-//       <div className="md:p-6 rounded-lg w-full max-w-4xl  flex flex-col justify-between">
-//         {/* Header Section (Centered Image and Text) */}
-//         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
-//                                                           <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
-//                                                             <img src={mentalLogo} alt="Mental Health Logo" className="w-32 h-32 object-cover" />
-//                                                           </div>
-//                                                           <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
-//                                                         </div>
-
-//         {/* Form Section */}
-//         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-5">
-//           {/* Did You Endure Any Medical Traumas That Still Affect You Mentally Today? */}
-//           <label className="block text-lg font-medium text-gray-700">
-//             Did You Endure Any Medical Traumas That Still Affect You Mentally Today?
-//             <select
-//               {...register("medicalTrauma", { required: "This field is required" })}
-//               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.medicalTrauma ? 'border-red-500' : ''}`}
-//             >
-//                <option value="" className='uppercase'>SELECT AN OPTION</option>
-//               <option value="yes" selected>Yes</option>
-//               <option value="no">No</option>
-//             </select>
-//             {errors.medicalTrauma && <span className="text-red-500 text-sm">{errors.medicalTrauma.message}</span>}
-//           </label>
-
-//           {/* Dates Of Incident */}
-//           <label className="block text-lg font-medium text-gray-700">
-//             Dates Of Incident
-//             <input
-//               {...register("incidentDates", { required: "This field is required" })}
-//               type="date"
-//               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
-//               placeholder="MM/DD/YYYY"
-//             />
-//             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
-//           </label>
-
-//           {/* Location Of Incident */}
-//           <label className="block text-lg font-medium text-gray-700">
-//             Location Of Incident
-//             <input
-//               {...register("incidentLocation", { required: "This field is required" })}
-//               type="text"
-//               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
-//               placeholder="Enter location"
-//             />
-//             {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
-//           </label>
-
-//           {/* Type Of Medical Trauma */}
-//           <label className="block text-lg font-medium text-gray-700">
-//             Type Of Medical Trauma
-//             <select
-//               {...register("traumaType", { required: "This field is required" })}
-//               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.traumaType ? 'border-red-500' : ''}`}
-//             >
-//               <option value="botchedSurgeries">Botched Surgeries</option>
-//               <option value="severeInjuries" selected>Severe Injuries</option>
-//               <option value="other">Other</option>
-//             </select>
-//             {errors.traumaType && <span className="text-red-500 text-sm">{errors.traumaType.message}</span>}
-//           </label>
-
-//           {/* Names Of Anyone Involved In Incident (If Applicable) */}
-//           <label className="block text-lg font-medium text-gray-700">
-//             Names Of Anyone Involved In Incident (If Applicable)
-//             <input
-//               {...register("involvedNames")}
-//               type="text"
-//               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
-//               placeholder="Enter names"
-//             />
-//             {errors.involvedNames && <span className="text-red-500 text-sm">{errors.involvedNames.message}</span>}
-//           </label>
-
-//           {/* Specific Details Of Incident */}
-//           <label className="block text-lg font-medium text-gray-700 pb-10">
-//             Specific Details Of Incident
-//             <textarea
-//               {...register("incidentDetails", { required: "This field is required" })}
-//               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
-//               placeholder="Enter details here..."
-//             />
-//             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
-//           </label>
-
-//                     <div className="flex justify-center gap-10 md:mt-6  md:pb-10 ">
-//                                                                 <button>
-//                                                                  <button
-                                                                
-//                                                                   type="submit"
-//                                                                   className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-//                                                                 >
-//                                                                   Continue
-//                                                                 </button>
-//                                                                 </button>
-//                                                             <div>
-//                                                                  <Link
-//                                                                   type="button"
-//                                                                   className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-//                                                                   onClick={() => window.history.back()}
-//                                                                 >
-//                                                                   Back
-//                                                                 </Link>
-//                                                             </div>
-//                                                               </div>
-//         </form>
-
-      
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MedicalTraumaDetails;
 
 
 import React from 'react';
@@ -152,8 +18,9 @@ const MedicalTraumaDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-24 pb-10 mt-10">
-      <div className="md:p-6 rounded-lg w-full max-w-4xl flex flex-col justify-between">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 
+      pt-10 md:pt-0">
+      <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
           <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
@@ -162,7 +29,7 @@ const MedicalTraumaDetails = () => {
           <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-5 px-1 md:px-0">
           {/* Medical Trauma Question */}
           <label className="block text-lg font-medium text-gray-700">
             Did You Endure Any Medical Traumas That Still Affect You Mentally Today?
@@ -198,7 +65,7 @@ const MedicalTraumaDetails = () => {
                 <input
                   {...register("incidentLocation", { required: "This field is required" })}
                   type="text"
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
                   placeholder="Enter location"
                 />
                 {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
@@ -225,18 +92,18 @@ const MedicalTraumaDetails = () => {
                 <input
                   {...register("involvedNames")}
                   type="text"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                  className="mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                   placeholder="Enter names"
                 />
               </label>
 
               {/* Specific Details */}
-              <label className="block text-lg font-medium text-gray-700 pb-10">
+              <label className="block text-lg font-medium text-gray-700 md:pb-10">
                 Specific Details Of Incident
                 <textarea
                   {...register("incidentDetails", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
-                  placeholder="Enter details here..."
+                  className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
+                  placeholder="Enter details here"
                 />
                 {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
               </label>
@@ -244,21 +111,26 @@ const MedicalTraumaDetails = () => {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center gap-10 md:mt-6 md:pb-10">
-            <button
-              type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-            >
-              Continue
-            </button>
-            <Link
-              type="button"
-              className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-              onClick={() => window.history.back()}
-            >
-              Back
-            </Link>
-          </div>
+          <div className="flex justify-center gap-4 md:mt-20  pb-10 md:pb-0 items-center">
+                          
+                       <div className="w-[165px] md:w-[200px]">
+                                        <Link
+                                          to="#"
+                                          onClick={() => window.history.back()}
+                                          className="w-full block text-center bg-white text-blue-800 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+                                        >
+                                          Back
+                                        </Link>
+                                      </div>
+                          
+                            <div className="w-[150px] md:w-[200px]">
+                                 <button
+                                     type="submit"    
+                                     className="w-full bg-[#B31942] text-white uppercase py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold">
+                                   Continue
+                             </button>
+                        </div>
+                     </div>
         </form>
       </div>
     </div>

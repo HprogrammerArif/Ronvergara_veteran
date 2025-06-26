@@ -4,17 +4,22 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useCategoryNavigation from "../../../hooks/useCategoryNavigation";
 import { useSelector } from "react-redux";
+import { Watch } from "lucide-react";
 
 const Migraine = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const {navigateToNextCategory} = useCategoryNavigation()
   const selectedCategories = useSelector(
     (state) => state.issueSlice.selectedCategories
   );
 
+  const hasReceivedMedicalTreatment = watch("migraineImpactTreatment")
+
   const onSubmit = (data) => {
     console.log(data);
     localStorage.setItem('migraine', JSON.stringify(data));
+
+    
     
     const currentCategoryIndex = selectedCategories.indexOf("Migraine & Headache Claim Information");
 
@@ -29,11 +34,11 @@ const Migraine = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 pt-20">
-      <div className="bg-white shadow-md rounded-2xl p-8 w-full max-w-4xl space-y-8 my-16">
+    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen md:bg-gray-100 md:py-10">
+      <div className="bg-white md:shadow-md rounded-2xl md:p-8 p-2 w-full max-w-4xl space-y-8 my-16">
         {/* Centered Image and Title */}
-        <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto">
-          <div className="w-28 h-28 mb-4">
+        <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
+          <div className="md:w-28 md:h-28 mb-4">
             <img
               src="https://i.ibb.co.com/VpQtPVqF/Group-1597882744.png"
               alt="Mental Health Logo"
@@ -45,7 +50,7 @@ const Migraine = () => {
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 px-1 md:px-0">
           {/* Frequency */}
           <label className="block text-lg font-medium text-gray-700">
             How often do your migraines occur?
@@ -111,7 +116,7 @@ const Migraine = () => {
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
               defaultValue=""
             >
-              <option value="" disabled>
+              <option value="">
                 Select impact
               </option>
               <option value="Unable to work or perform normal tasks">Unable to work or perform normal tasks</option>
@@ -125,21 +130,24 @@ const Migraine = () => {
           <label className="block text-lg font-medium text-gray-700">
             Have you received medical treatment for migraines?
             <select
-              {...register("migraineImpact", { required: "This field is required" })}
+              {...register("migraineImpactTreatment", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
               defaultValue=""
             >
-              <option value="" disabled>
+              <option value="">
                 Select impact
               </option>
-              <option value="Unable to work or perform normal tasks">Yes</option>
-              <option value="Reduced productivity">No</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
          
             </select>
             {errors.medicalTreatment && <span className="text-red-500 text-sm">{errors.medicalTreatment.message}</span>}
           </label>
 
-          {/* Visit Dates */}
+          {
+            hasReceivedMedicalTreatment === "yes" && (
+              <>
+                {/* Visit Dates */}
           <label className="block text-lg font-medium text-gray-700">
             Dates of medical visits
             <input
@@ -156,24 +164,29 @@ const Migraine = () => {
             Please provide details
             <textarea
               {...register("details", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.details ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.details ? 'border-red-500' : ''}`}
               placeholder="Include any relevant information or context."
             />
             {errors.details && <span className="text-red-500 text-sm">{errors.details.message}</span>}
           </label>
+              </>
+            )
+          }
+
+        
 
           {/* Buttons */}
           <div className="flex flex-col justify-center gap-5 mx-auto">
             <button
             // to="/service_details"
               type="submit"
-              className="btn bg-[#B31942] border-gray-400  py-2 text-white text-center font-semibold rounded-md"
+              className="btn bg-[#B31942] border-gray-400  uppercase py-2 text-white text-center font-semibold rounded-md"
             >
               Continue
             </button>
             <button
               type="submit"
-              className="btn  text-[#001F3F] font-semibold border  border-[#001F3F] py-2 rounded-md"  
+              className="btn  text-[#001F3F] font-semibold border uppercase border-[#001F3F] py-2 rounded-md"  
             >
               Back
             </button>

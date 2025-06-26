@@ -24,7 +24,7 @@ const MedicalPositionDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-24 pb-10 mt-10">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 pt-10 md:pt-0 pb-10 ">
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -39,7 +39,7 @@ const MedicalPositionDetails = () => {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 px-1 md:px-0">
           {/* Main Question */}
           <label className="block text-lg font-medium text-gray-700">
             Did You Work In A Medical Position Or Other Position Where You Witnessed Severe Accidents/Deaths Frequently?
@@ -156,22 +156,29 @@ const MedicalPositionDetails = () => {
           )}
 
           {/* Buttons */}
-          <div className="flex justify-center gap-10 md:mt-6 mt-20 md:pb-10">
-            <button
-              type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-            >
-              Continue
-            </button>
-
-            <Link
-              type="button"
-              className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold flex items-center justify-center"
-              onClick={() => window.history.back()}
-            >
-              Back
-            </Link>
-          </div>
+          <div className="flex justify-center gap-4 md:mt-20 mt-10 pb-10 md:pb-0 items-center">
+         
+                     <div className="w-[165px] md:w-[200px]">
+                       <Link
+                         to="#"
+                         onClick={() => window.history.back()}
+                         className="w-full block text-center bg-white text-blue-800 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+                       >
+                         Back
+                       </Link>
+                     </div>
+         
+                     <div className="w-[150px] md:w-[200px]">
+                       <button
+                         type="submit"
+                          
+                         className="w-full bg-[#B31942] text-white uppercase py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+                       >
+                         Continue
+                       </button>
+                     </div>
+                    
+                   </div>
         </form>
       </div>
     </div>

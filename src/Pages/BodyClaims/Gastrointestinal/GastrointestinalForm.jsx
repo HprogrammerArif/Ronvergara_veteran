@@ -24,7 +24,9 @@ const GastrointestinalForm = () => {
 
 
 
-  const {navigateToNextCategory} = useCategoryNavigation()
+  const {navigateToNextCategory} = useCategoryNavigation();
+
+  const sickCallServiceComplain = watch("complainedWhileInService")
 
   const selectedCategories = useSelector((state) => state.issueSlice.selectedCategories); 
 
@@ -47,9 +49,9 @@ const GastrointestinalForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto py-20 pt-44">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto py-20">
       {/* Header */}
-      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto mb-10">
+      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto mb-10">
           <div className="w-28 h-28 mb-4">
             <img 
               src="https://i.ibb.co.com/jPjS13V8/OBJECTS.png"
@@ -62,7 +64,7 @@ const GastrointestinalForm = () => {
         </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full px-1 md:px-0">
         {/* Acid Rising */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
@@ -184,6 +186,7 @@ const GastrointestinalForm = () => {
             <option value="">
               Select an option
             </option>
+            
             <option value="YES">YES</option>
             <option value="NO">NO</option>
           </select>
@@ -194,17 +197,20 @@ const GastrointestinalForm = () => {
           )}
         </div>
 
-        {/* Details */}
+        {
+          sickCallServiceComplain === "YES" && (
+            <>
+                 {/* Details */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
             PLEASE PROVIDE DETAILS
           </label>
           <textarea
             {...register("details", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
               errors.details ? "border-red-500" : ""
             }`}
-            placeholder="Enter details here..."
+            placeholder="Enter details here"
           />
           {errors.details && (
             <p className="text-red-500 text-sm mt-1">
@@ -212,6 +218,11 @@ const GastrointestinalForm = () => {
             </p>
           )}
         </div>
+            </>
+          )
+        }
+
+   
 
         {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">
@@ -223,7 +234,7 @@ const GastrointestinalForm = () => {
             Continue
           </button>
           <Link
-            to="/previous-page"
+            onClick={() => window.history.back()}
             className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"
           >
             Back

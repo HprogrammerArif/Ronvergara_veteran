@@ -43,9 +43,9 @@ const OthersIssues = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto py-20 pt-40">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto py-10">
       {/* Header */}
-      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto mb-10">
+      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto mb-10">
           <div className="w-28 h-28 mb-4">
             <img
               src="https://i.ibb.co.com/tT3ShjtP/Group-2147225242.png"
@@ -58,7 +58,7 @@ const OthersIssues = () => {
         </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full px-1 md:px-0">
         {/* Hypertension */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2">
@@ -167,10 +167,10 @@ const OthersIssues = () => {
           </label>
           <textarea
             {...register("details", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
+            className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
               errors.details ? "border-red-500" : ""
             }`}
-            placeholder="Enter details here..."
+            placeholder="Enter details here"
           />
           {errors.details && (
             <p className="text-red-500 text-sm mt-1">
@@ -193,7 +193,7 @@ const OthersIssues = () => {
             Continue
           </button>
           <Link
-            to="/previous-page"
+            onClick={() => window.history.back()}
             className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"
           >
             Back

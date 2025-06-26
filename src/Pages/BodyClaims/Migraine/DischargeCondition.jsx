@@ -15,10 +15,10 @@ const DischargeCondition = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl space-y-6 my-10">
+    <div className="min-h-screen md:bg-gray-100 flex items-center justify-center md:p-4">
+      <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl space-y-6 my-10">
         {/* Header Section */}
-        <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto">
+       <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
           <div className="w-28 h-28 mb-4">
             <img
               src="https://i.ibb.co.com/FLFMyh5F/Group-2147225241.png"
@@ -77,7 +77,7 @@ const DischargeCondition = () => {
 
       
         {/* Buttons */}
-        <div className="flex flex-col justify-center gap-5 mx-auto pt-10">
+        <div className="flex flex-col justify-center gap-4 mx-auto">
         <button
           type="submit"
           
@@ -86,15 +86,16 @@ const DischargeCondition = () => {
         <button
        
             type="submit"
-              className="btn bg-[#B31942] w-full text-white py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
+              className="btn bg-[#B31942] w-full text-white uppercase py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
             >
               Continue
             </button>
 
                 </button>
                     <button
-                      type="submit"
-                      className="btn  text-[#001F3F] font-semibold border  border-[#001F3F] py-2 rounded-md"  
+                      onClick={() => window.history.back()}
+                      className="btn  text-[#001F3F] uppercase font-semibold border  border-[#001F3F] py-2 rounded-md"
+
                     >
                       Back
                     </button>

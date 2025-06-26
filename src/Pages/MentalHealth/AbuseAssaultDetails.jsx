@@ -136,7 +136,7 @@ const AbuseAssaultDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-32 md:pb-20 pb-10">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 pt-10 md:pb-20 ">
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -211,7 +211,7 @@ const AbuseAssaultDetails = () => {
                 <input
                   {...register("involvedNames", { required: "This field is required" })}
                   type="text"
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+                  className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                     errors.involvedNames ? 'border-red-500' : ''
                   }`}
                   placeholder="Enter names"
@@ -226,7 +226,7 @@ const AbuseAssaultDetails = () => {
                 Specific Details Of Incident
                 <textarea
                   {...register("incidentDetails", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${
+                  className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${
                     errors.incidentDetails ? 'border-red-500' : ''
                   }`}
                   placeholder="Enter details here..."
@@ -239,22 +239,29 @@ const AbuseAssaultDetails = () => {
           )}
 
           {/* Buttons */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 pb-10 md:pb-0">
-            <button
-              type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 w-40 md:w-52 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-            >
-              Continue
-            </button>
-
-            <Link
-              to="#"
-              onClick={() => navigate(-1)}
-              className="bg-white text-blue-800 py-2 px-6 w-40 md:w-52 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold text-center"
-            >
-              Back
-            </Link>
-          </div>
+          <div className="flex justify-center gap-4 md:mt-20 mt-10 pb-10 md:pb-0 items-center">
+         
+                     <div className="w-[165px] md:w-[200px]">
+                       <Link
+                         to="#"
+                         onClick={() => window.history.back()}
+                         className="w-full block text-center bg-white text-blue-800 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+                       >
+                         Back
+                       </Link>
+                     </div>
+         
+                     <div className="w-[150px] md:w-[200px]">
+                       <button
+                         type="submit"
+                          
+                         className="w-full bg-[#B31942] text-white uppercase py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+                       >
+                         Continue
+                       </button>
+                     </div>
+                    
+                   </div>
         </form>
       </div>
     </div>

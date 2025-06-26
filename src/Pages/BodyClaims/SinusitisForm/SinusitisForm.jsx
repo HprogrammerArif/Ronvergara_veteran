@@ -29,9 +29,9 @@ const SinusitisForm = () => {
   const navigate = useNavigate();
   const selectedCategories = useSelector(
     (state) => state.issueSlice.selectedCategories
-  ); // Accessing the selected categories from the Redux state
+  ); 
   const { navigateToNextCategory } = useCategoryNavigation();
-  // Handle form submission
+  
   const onSubmit = (data) => {
     
     console.log(data);
@@ -178,7 +178,7 @@ const SinusitisForm = () => {
             {...register("symptomsFrequency", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsFrequency ? "border-red-500" : ""
             }`}
           >
@@ -290,7 +290,7 @@ const SinusitisForm = () => {
           </label>
           <textarea
             {...register("details", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border  border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
+            className={`mt-1 block w-full p-2 border  uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
               errors.details ? "border-red-500" : ""
             }`}
             placeholder="Enter details here..."
@@ -311,7 +311,7 @@ const SinusitisForm = () => {
             Continue
           </button>
           <Link
-            to="/previous-page"
+            onClick={() => window.history.back()}
             className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"
           >
             Back
