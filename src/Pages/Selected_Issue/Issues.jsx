@@ -74,18 +74,18 @@ function Issues() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center md:p-4">
       <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-6">
         <h1 className="text-xl md:text-2xl font-bold text-blue-900 mb-2">
           What condition(s) do you want to start a claim for?
         </h1>
-        <p className="text-sm text-gray-600 mb-6">
+        <p className="md:text-sm text-gray-600 mb-6 text-[14px]">
           You can choose multiple conditions. We recommend starting with mental health conditions
           first. We'll guide you step-by-step.
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:mb-0 mb-5">
             {conditionsList.map((condition, index) => (
               <div key={index} className="flex items-center">
                 <input
@@ -122,20 +122,14 @@ function Issues() {
             </span>
           )}
 
-          <div className="flex w-1/3 mx-auto justify-end space-x-4 mt-10 pt-10">
-            <Link
-              to="/"
-              className="w-full bg-[#B31942] text-white py-2 px-4 rounded-md hover:bg-[#aa2b4d] font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 basis-6/12 flex items-center justify-center"
-            >
-              Back
-            </Link>
+          
             <button
               type="submit"
-              className="w-full bg-[#B31942] text-white py-2 px-4 rounded-md hover:bg-[#aa2b4d] font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 basis-6/12"
+              className="w-full bg-[#B31942] text-white uppercase py-2 px-4 rounded-md hover:bg-[#aa2b4d] font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 basis-6/12"
             >
               Continue
             </button>
-          </div>
+       
         </form>
 
         {submittedData && (

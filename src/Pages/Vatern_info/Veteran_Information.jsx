@@ -149,8 +149,8 @@ export default function VeteranInformationForm() {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex justify-center items-center p-4">
-      <div className="card w-full max-w-4xl bg-base-100 shadow-md">
+    <div className="md:min-h-screen py-10 md:py-0 bg-white flex justify-center items-center md:p-4">
+      <div className="card w-full md:max-w-4xl bg-white md:shadow-md">
         <div className="card-body">
           <h1 className="card-title text-2xl font-bold text-blue-800 justify-center mb-4">
             Veteran Information

@@ -3,7 +3,7 @@ export default function Step4ServiceDates({ register, errors }) {
     <div className="space-y-4">
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">
             Service Entry Date (MM/DD/YYYY)
           </span>
         </label>
@@ -61,7 +61,7 @@ export default function Step4ServiceDates({ register, errors }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">
             Service Exit Date (MM/DD/YYYY)
           </span>
         </label>

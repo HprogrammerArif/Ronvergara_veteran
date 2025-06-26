@@ -3,8 +3,13 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
 const PhysicalTrainingDetails = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+const navigate = useNavigate();
+
+
+
+const physicalTraining = watch ("physicalTrainingRequired");
+
   const onSubmit = (data) => {
     console.log(data); 
     localStorage.setItem("physical_training", JSON.stringify(data))
@@ -37,14 +42,19 @@ const navigate = useNavigate()
               {...register("physicalTrainingRequired", { required: "This field is required" })}
               className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.physicalTrainingRequired ? 'border-red-500' : ''}`}
             >
-              <option value="" disabled>Select an option</option>
+              <option value="" >Select an option</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
             {errors.physicalTrainingRequired && <span className="text-red-500 text-sm">{errors.physicalTrainingRequired.message}</span>}
           </label>
 
-          {/* How many times per week were you required to do physical training? */}
+
+        {
+          physicalTraining === "yes" && (
+            <>
+
+  {/* How many times per week were you required to do physical training? */}
           <label className="block text-sm font-medium text-gray-700">
             How many times per week were you required to do physical training?
             <select
@@ -58,6 +68,11 @@ const navigate = useNavigate()
             </select>
             {errors.physicalTrainingFrequency && <span className="text-red-500 text-sm">{errors.physicalTrainingFrequency.message}</span>}
           </label>
+            </>
+          )
+        }
+
+        
 
          {/* Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto  pt-10">

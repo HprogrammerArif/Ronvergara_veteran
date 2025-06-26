@@ -161,15 +161,15 @@ function ToxinExposureForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center md:p-4 p-2 pt-28 md:mt-14">
+    <div className="min-h-screen bg-white flex justify-center items-center md:p-4 p-2 pt-14 md:mt-14">
       <div className="w-full max-w-2xl md:bg-white md:shadow-md rounded-lg md:p-6">
         <h1 className="md:text-2xl text-xl font-bold text-blue-800 mb-6 text-center">
           Have you been exposed to any of the following?
         </h1>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ms-1 md:ms-0">
           {/* Checkboxes for exposures */}
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-4 ">
             <label className="flex items-center space-x-2">
               <input
                 type="checkbox"
@@ -253,19 +253,21 @@ function ToxinExposureForm() {
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10 pb-10 md:pb-0">
-           <button
-              type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center flex items-center justify-center"
-            >
-              Continue
-            </button>
+          <div className="flex justify-center gap-5 md:mt-6 md:pt-10 mt-10 pt-10 pb-10 md:pb-0">
+         
             <button
               type="button"
-              className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+              className="bg-white text-blue-800 py-2 px-6 md:px-20 uppercase md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
               onClick={() => window.history.back()}
             >
               Back
+            </button>
+
+              <button
+              type="submit"
+              className="bg-[#B31942] text-white uppercase py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center flex items-center justify-center"
+            >
+              Continue
             </button>
           </div>
         </form>

@@ -139,7 +139,7 @@ const AiNarrativeGen = () => {
   const areOtherButtonsDisabled = isLoading;
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-8">
+    <div className="md:min-h-screen min-h-[85vh] bg-white flex flex-col items-center justify-center px-4 md:py-8">
       <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
         AI Narrative Generation
       </h2>
@@ -156,12 +156,12 @@ const AiNarrativeGen = () => {
         </div>
       )}
 
-      <div className="flex flex-wrap gap-4 justify-center w-full max-w-2xl">
+      <div className="flex flex-wrap gap-4 justify-center md:max-w-2xl">
         <button
           type="button"
           onClick={handleGenerateNarrative}
           disabled={isGenerateDisabled}
-          className="w-48 btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold disabled:opacity-50"
+          className="md:w-48 w-60 btn uppercase bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold disabled:opacity-50"
         >
           {isLoading ? (
             <span className="loading loading-bars loading-lg"></span>
@@ -171,8 +171,8 @@ const AiNarrativeGen = () => {
         </button>
 
         <Link
-          to="/evidence_form"
-          className={`w-48 btn bg-[#B31942] hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold ${
+          to="/progress"
+          className={`md:w-48 w-60 btn bg-[#B31942] uppercase hover:bg-[#991231] text-white py-2 px-4 rounded-md font-semibold ${
             areOtherButtonsDisabled ? 'pointer-events-none opacity-50' : ''
           }`}
         >
@@ -183,7 +183,7 @@ const AiNarrativeGen = () => {
           type="button"
           onClick={() => navigate(-1)}
           disabled={areOtherButtonsDisabled}
-          className="w-48 btn border border-[#001F3F] text-[#001F3F] hover:bg-gray-100 py-2 px-4 rounded-md font-semibold disabled:opacity-50"
+          className="md:w-48 w-60 btn border border-[#001F3F] uppercase text-[#001F3F] hover:bg-gray-100 py-2 px-4 rounded-md font-semibold disabled:opacity-50"
         >
           Back
         </button>

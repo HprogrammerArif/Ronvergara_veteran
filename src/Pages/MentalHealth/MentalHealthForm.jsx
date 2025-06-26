@@ -198,10 +198,10 @@ export default function MentalHealthForm() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-6 mb-10 ">
             <button
               type="submit"
-              className="bg-[#B31942] text-white py-2 px-6 w-40 md:w-52 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+              className="bg-[#B31942] text-white py-2 px-6 w-full uppercase md:w-52 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
             >
               Continue
             </button>
@@ -209,7 +209,7 @@ export default function MentalHealthForm() {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="bg-white text-blue-800 py-2 px-6 w-40 md:w-52 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+              className="bg-white text-blue-800 py-2 px-6 w-full md:w-52 uppercase mb-10 md:mb-0 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
             >
               Back
             </button>

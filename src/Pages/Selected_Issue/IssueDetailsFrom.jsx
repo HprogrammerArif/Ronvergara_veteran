@@ -87,11 +87,11 @@ function IssueDetailsForm() {
   };
 
   return (
-    <section className="md:mt-44 md:mb-10 mb-0 mt-28">
-      <div className="min-h-screen bg-white flex justify-center items-center md:p-4 p-2">
+    <section className="md:mt-44 md:mb-10 mb-0 px-2">
+      <div className="md:min-h-screen md:py-20 pt-10 bg-white flex justify-center items-center md:p-4 p-2">
         <div className="w-full max-w-4xl bg-white md:shadow-md rounded-lg md:p-6">
           <h1 className="md:text-2xl text-xl font-bold text-blue-800 mb-6 text-center">
-            Provide detailed information regarding your selected issue(s).
+            Provide detailed information regarding your selected issue(s)
           </h1>
 
           {selectedConditions.length === 0 ? (
@@ -140,20 +140,23 @@ function IssueDetailsForm() {
                 </div>
               ))}
 
-              <div className="flex justify-center gap-10 mt-6 pb-10 md:pb-0">
-                <button
-                  type="submit"
-                  className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
-                >
-                  Continue
-                </button>
+              <div className="flex justify-center gap-4 mt-6 pb-5 md:pb-0">
+               
                 <button
                   type="button"
-                  className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+                  className="bg-white text-blue-800 py-2 px-6 uppercase md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
                   onClick={() => window.history.back()}
                 >
                   Back
                 </button>
+
+            <button
+                  type="submit"
+                  className="bg-[#B31942] text-white py-2 uppercase px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+                >
+                  Continue
+                </button>
+
               </div>
             </form>
           )}

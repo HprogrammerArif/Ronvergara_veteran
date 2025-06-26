@@ -12,13 +12,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           {/* Logo */}
           <div className="mb-4 md:mb-0">
-            <img src={logo} alt="logo"  className="md:w-20 md:h-[80px] w-16 h-[60px] mb-5"/>
-            <p className=" text-gray-300 max-w-md">
-            Ac is a veteran-owned organization dedicated to simplifying the VA process, whether you’ve been denied before or never applied, we’re here to fight for you.
+            <img src={logo} alt="logo"  className="md:w-20 flex items-center mx-auto  md:h-[80px] w-16 h-[60px] mb-5"/>
+            <p className=" text-gray-300 text-[12px] text-center max-w-md">
+            Valr is a veteran-owned organization dedicated to simplifying the VA process, whether you’ve been denied before or never applied, we’re here to fight for you.
           </p>
        
           {/* Social Icons */}
-          <div className="flex space-x-4 mb-4 md:mb-0 mt-5">
+          <div className="flex justify-center mx-auto space-x-4 mb-4 md:mb-0 mt-5">
             <a href="https://facebook.com" className="text-gray-300 hover:text-white">
               <FaFacebookF className="h-5 w-5" />
             </a>
@@ -47,14 +47,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Other Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">OTHER LINKS</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
-              <li><a href="/faq" className="hover:text-white">FAQs</a></li>
-            </ul>
-          </div>
+    
 
           {/* Contact Information */}
           <div>
@@ -63,12 +56,12 @@ export default function Footer() {
               <li className="flex items-center">
                 <span className="mr-2 text-red-500"><IoMailOutline  className="text-lg text-[#B31942]"/>
 </span>
-                <a href="mailto:Pappyroy6393@gmail.com" className="hover:text-white">valrOrg@gmail.com</a>
+                <a href="mailto:Pappyroy6393@gmail.com" className="hover:text-white">@gmail.com</a>
               </li>
               <li className="flex items-center">
                 <span className="mr-2 text-red-500"><BsTelephone className="text-lg text-[#B31942]" />
 </span>
-                <a href="tel:01405366393" className="hover:text-white">01405366393</a>
+                <a href="tel:01405366393" className="hover:text-white">0123456789</a>
               </li>
             </ul>
           </div>

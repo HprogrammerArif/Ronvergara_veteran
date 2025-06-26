@@ -37,8 +37,8 @@ function GulfWarLocationsForm() {
     'Saudi Neutral Zone',
     'Bahrain',
     'Qatar',
-    'United Arab Emirates',
     'Persian Gulf',
+    'UAE',
     'Israel',
     'Egypt',
     'Turkey',
@@ -58,15 +58,15 @@ function GulfWarLocationsForm() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-200 flex justify-center items-center md:p-4 p-2 md:pt-32 pt-28">
-      <div className="w-full max-w-5xl h-full md:bg-white md:shadow-md border md:border-none rounded-lg md:p-6">
+    <div className="min-h-screen bg-white flex justify-center items-center md:p-4 p-2 ">
+      <div className="w-full max-w-5xl h-full md:bg-white md:shadow-md  md:border-none rounded-lg md:p-6">
         <h1 className="md:text-2xl text-lg font-bold text-blue-800 mb-6 text-center">
           Have you worked in the following Gulf War-risk locations?
         </h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Checkboxes for locations */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:mt-20 mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 ps-2 md:ps-0 gap-4 md:mt-20 mt-10">
             {locations.map((location) => (
               <label key={location} className="flex items-center space-x-2">
                 <input
@@ -75,30 +75,32 @@ function GulfWarLocationsForm() {
                   checked={selectedLocations.includes(location)}
                   onChange={(e) => handleCheckboxChange(location, e.target.checked)}
                 />
-                <span className="text-blue-800">{location}</span>
+                <span className="text-blue-800 md:text-base text-[13px]">{location}</span>
               </label>
             ))}
           </div>
 
-          {/* Buttons */}
-          <div className="flex justify-center gap-10 md:mt-6 md:pt-10 mt-10 pt-10 pb-10 md:pb-0">
-            <button>
-              <Link
-                onClick={handleSubmit(onSubmit)}
-                type="submit"
-                className="bg-[#B31942] text-white py-2 px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center"
-              >
-                Continue
-              </Link>
-            </button>
-            <button
-              type="button"
-              className="bg-white text-blue-800 py-2 px-6 md:px-20 md:w-[200px] w-[150px] border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
-              onClick={() => window.history.back()}
-            >
-              Back
-            </button>
-          </div>
+
+
+          <div className="flex justify-center gap-4 md:gap-10 mt-10 pt-10 md:mt-6 md:pt-10 md:pb-10">
+  {/* Back Button */}
+  <button
+    type="button"
+    className="w-[150px] md:w-[200px] bg-white text-blue-800 py-2 border uppercase border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
+    onClick={() => window.history.back()}
+  >
+    Back
+  </button>
+
+  {/* Continue Button */}
+  <Link
+    onClick={handleSubmit(onSubmit)}
+    className="w-[150px] md:w-[200px] bg-[#B31942] text-white py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold text-center flex items-center justify-center"
+  >
+    Continue
+  </Link>
+</div>
+
         </form>
       </div>
     </div>

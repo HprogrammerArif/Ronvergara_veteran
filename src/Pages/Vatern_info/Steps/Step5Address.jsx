@@ -3,7 +3,7 @@ export default function Step5Address({ register, errors }) {
     <div className="space-y-4">
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">
             Street Address
           </span>
         </label>
@@ -26,7 +26,7 @@ export default function Step5Address({ register, errors }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">City</span>
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">City</span>
         </label>
         <input
           type="text"
@@ -47,7 +47,7 @@ export default function Step5Address({ register, errors }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">State</span>
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">State</span>
         </label>
         <input
           type="text"
@@ -70,7 +70,7 @@ export default function Step5Address({ register, errors }) {
       <div className="flex items-center jusbify-between gap-2">
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium text-base pb-1">
+            <span className="label-text font-medium md:text-base text-[12px] pb-1">
               ZIP Code (First 5 digits)
             </span>
           </label>
@@ -99,36 +99,6 @@ export default function Step5Address({ register, errors }) {
           )}
         </div>
 
-        {/* <div className="form-control">
-          <label className="label">
-            <span className="label-text font-medium text-base pb-1">
-              ZIP Code (Last 4 digits)
-            </span>
-          </label>
-          <input
-            type="text"
-            maxLength="5"
-            {...register("MailingAddress_ZIPOrPostalCode_LastFourNumbers[0]", {
-              required: "ZIP Code is required",
-              pattern: {
-                value: /^\d{4}$/,
-                message: "Must be 4 digits",
-              },
-            })}
-            className="input input-bordered w-full py-5"
-            placeholder="1234"
-          />
-          {errors.MailingAddress_ZIPOrPostalCode_FirstFiveNumbers?.[0] && (
-            <label className="label">
-              <span className="label-text-alt text-error">
-                {
-                  errors.MailingAddress_ZIPOrPostalCode_LastFourNumbers[0]
-                    .message
-                }
-              </span>
-            </label>
-          )}
-        </div> */}
       </div>
     </div>
   );

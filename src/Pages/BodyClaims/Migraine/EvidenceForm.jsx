@@ -214,11 +214,11 @@ const EvidenceForm = () => {
     console.log("Saved to localStorage:", storedData);
 
     // Navigate to next page
-    navigate("/progress");
+    navigate("/progress_message");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto">
+    <div className="flex flex-col items-center justify-center md:min-h-screen min-h-[85vh] p-4 max-w-4xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         {/* Has Evidence Select */}
         <div className="mb-6">
@@ -282,7 +282,7 @@ const EvidenceForm = () => {
             {...register("evidenceType", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.evidenceType ? "border-red-500" : ""
             }`}
           >
@@ -308,15 +308,16 @@ const EvidenceForm = () => {
         {/* Action Buttons */}
         <div className="flex flex-col justify-center gap-5 mx-auto">
           <button
+        
             type="submit"
-            className="btn bg-[#B31942] border-gray-400 py-2 text-white text-center font-semibold rounded-md"
+            className="btn bg-[#B31942] uppercase border-gray-400 py-2 text-white text-center font-semibold rounded-md"
           >
             Continue
           </button>
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="btn text-[#001F3F] font-semibold border border-[#001F3F] py-2 rounded-md"
+            className="btn text-[#001F3F] uppercase font-semibold border border-[#001F3F] py-2 rounded-md"
           >
             Back
           </button>

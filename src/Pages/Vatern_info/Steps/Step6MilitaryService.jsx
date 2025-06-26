@@ -3,7 +3,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
     <div className="space-y-4">
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">
             Branch of Service
           </span>
         </label>
@@ -11,7 +11,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
           {...register("branchOfService", {
             required: "Branch of Service is required",
           })}
-          className="select select-bordered w-full uppercase py-2"
+          className="select select-bordered md:w-full uppercase py-2"
         >
           <option value="">Select Branch</option>
           <option value="Army">Army</option>
@@ -36,7 +36,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium pb-1">
+          <span className="label-text font-medium pb-1 md:text-base text-[12px]">
             Did you ever serve under another name?
           </span>
         </label>
@@ -61,7 +61,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">
             Place of Separation
           </span>
         </label>
@@ -84,8 +84,8 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
-            Did You Serve in the National Guard or Reserves?
+          <span className="label-text w-9/12 md:w-full font-medium md:text-base text-[12px] pb-1">
+            Did You Serve in the National <br /> Guard or Reserves?
           </span>
         </label>
         <select

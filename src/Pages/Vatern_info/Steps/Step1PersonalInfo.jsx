@@ -2,11 +2,11 @@ import { Mail, MailWarning, User } from "lucide-react";
 
 export default function Step1PersonalInfo({ register, errors }) {
   return (
-    <div className="space-y-6 p-6 bg-base-100 rounded-lg shadow-md max-w-2xl mx-auto">
+    <div className="space-y-6 md:p-6 bg-base-100 rounded-lg md:shadow-md max-w-2xl mx-auto">
       {/* First Name Field */}
       <div className="form-control">
         <label htmlFor="firstName" className="label">
-          <span className="label-text font-semibold text-base pb-1">
+          <span className="label-text  font-semibold md:text-base text-[12px] pb-1">
             First Name
           </span>
         </label>
@@ -41,7 +41,7 @@ export default function Step1PersonalInfo({ register, errors }) {
       {/* Last Name Field */}
       <div className="form-control">
         <label htmlFor="lastName" className="label">
-          <span className="label-text font-semibold text-base pb-1">
+          <span className="label-text font-semibold md:text-base text-[12px] pb-1">
             Last Name
           </span>
         </label>
@@ -74,7 +74,7 @@ export default function Step1PersonalInfo({ register, errors }) {
       {/* Email Address Field */}
       <div className="form-control">
         <label htmlFor="email" className="label">
-          <span className="label-text font-semibold text-base pb-1">
+          <span className="label-text font-semibold md:text-base text-[12px] pb-1">
             Email Address
           </span>
         </label>
@@ -111,7 +111,7 @@ export default function Step1PersonalInfo({ register, errors }) {
       {/* Alternate Email Address Field */}
       <div className="form-control">
         <label htmlFor="altEmail" className="label">
-          <span className="label-text font-semibold text-base pb-1">
+          <span className="label-text font-semibold md:text-base text-[12px] pb-1">
             Alternate Email Address{" "}
             <span className="text-gray-500">(Optional)</span>
           </span>

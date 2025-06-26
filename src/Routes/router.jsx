@@ -78,6 +78,7 @@ import UnauthorizedError from "../Pages/Private/UnauthorizedError";
 // import AdminRouteSecure from "../Pages/Private/AdminRouteSecure";
 import PrivateRoute from "../hooks/PrivateRoute";
 import Dashboard from "../Pages//AdminDashboard/Dashboard";
+import ProgressMessageForm from "../Pages/BodyClaims/Migraine/ProgressMessageForm";
 
 export const router = createBrowserRouter([
   {
@@ -132,9 +133,9 @@ export const router = createBrowserRouter([
       { path: "/discharge_condition", element: <DischargeCondition /> },
       { path: "/health_details", element: <BodyHealthDetails /> },
       { path: "/ai_narrative", element: <AiNarativeGen /> },
-      { path: "/progress", element: <ProgressMessage /> },
+      { path: "/progress", element: <ProgressMessageForm /> },
       { path: "/evidence_form", element: <EvidenceForm /> },
-      { path: "/progress", element: <ProgressMessage /> },
+      { path: "/progress_message", element: <ProgressMessage /> },
       { path: "/e_signature", element: <ESignature /> },
       { path: "/va_form", element: <VAForm /> },
       { path: "/submission", element: <Final_Sub /> },

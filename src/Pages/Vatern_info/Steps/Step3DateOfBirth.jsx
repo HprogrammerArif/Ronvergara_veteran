@@ -3,7 +3,7 @@ export default function Step3DateOfBirth({ register, errors }) {
     <div className="space-y-4">
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium text-base pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1">
             Date of Birth (MM/DD/YYYY)
           </span>
         </label>

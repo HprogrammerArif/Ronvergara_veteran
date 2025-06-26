@@ -194,7 +194,7 @@ const ESignature = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto">
+    <div className="flex flex-col items-center justify-center md:min-h-screen min-h-[85vh] py-10 md:py-0 p-4 max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold text-[#0A3161] mb-6 text-center">
         SECURE & LEGALLY BINDING E-SIGNATURES <br /> SIGN YOUR VA FORMS WITH EASE
       </h2>
@@ -222,18 +222,18 @@ const ESignature = () => {
               })}
             />
           </div>
-          <div className="mt-2 flex gap-2">
+          <div className="mt-5 flex gap-2">
             <button
               type="button"
               onClick={clearCanvas}
-              className="bg-gray-300 text-gray-700 font-semibold py-1 px-4 rounded-md hover:bg-gray-400 transition-colors"
+              className="bg-gray-300 uppercase text-gray-700 font-semibold py-1 px-4 rounded-md hover:bg-gray-400 transition-colors"
             >
               Clear
             </button>
             <button
               type="button"
               onClick={saveSignature}
-              className="bg-blue-500 text-white font-semibold py-1 px-4 rounded-md hover:bg-blue-600 transition-colors"
+              className="bg-[#0A3161] uppercase text-white font-semibold py-1 px-4 rounded-md hover:bg-[#142d4d] transition-colors"
             >
               Save
             </button>
@@ -256,7 +256,7 @@ const ESignature = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors"
+          className="bg-[#B31942] text-white w-full uppercase font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors"
         >
           Submit
         </button>

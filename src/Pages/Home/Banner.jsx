@@ -65,15 +65,15 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col md:flex-row gap-10 items-center justify-center min-h-screen text-white">
         {/* Left text side */}
         <div className="md:w-1/2 space-y-6 text-center md:text-left">
-          <h1 className="text-4xl md:text-7xl text-[#0B2A52] font-bold">
-            VA Benefits <br /> <span className="text-7xl">Made Simple</span>
+          <h1 className="text-4xl md:text-8xl text-[#0B2A52] font-bold">
+            VA Benefits <br /> <span className="md:text-7xl">Made Simple</span>
           </h1>
           <p className="text-lg md:text-xl space-y-10 text-black font-bold">
             Veterans, don't wait—there's finally an app built just for you. VALR makes applying for your VA benefits
             faster, simpler, and less stressful. You've earned this. Get started today.
           </p>
           <div className="flex justify-center md:justify-start">
-            <button className="px-6 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold transition py-5 text-3xl md:text-4xl text-center">
+            <button className="px-6 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold transition py-5 text-2xl md:text-4xl text-center">
               CLAIM YOUR <br /> BENEFITS NOW
             </button>
           </div>
@@ -84,7 +84,7 @@ const HeroSection = () => {
           <img
             src="https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750427954/Untitled_design_4_mgcob5.png"
             alt="Nature"
-            className="rounded-2xl shadow-lg w-[650px] object-cover h-[700px]"
+            className="rounded-2xl shadow-lg md:w-[650px] object-cover md:h-[700px]"
           />
 
           {/* Logo positioned at left bottom of the image */}

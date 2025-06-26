@@ -50,10 +50,10 @@ const SinusitisForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-24 mt-10 p-4 max-w-4xl mx-auto">
+    <div className="flex flex-col items-center justify-center min-h-screen py-24 mt-10 p-4 md:max-w-4xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md w-3/6 mx-auto mb-10">
-        <div className="w-28 h-28 mb-4">
+      <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto mb-10">
+        <div className="md:w-28 md;h-28 mb-4">
           <img
             src="https://i.ibb.co.com/bgjW5zrC/graphic-elements.png"
             alt="Mental Health Logo"
@@ -75,7 +75,7 @@ const SinusitisForm = () => {
           </label>
           <select
             {...register("runnyNose", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.runnyNose ? "border-red-500" : ""
             }`}
           >
@@ -104,7 +104,7 @@ const SinusitisForm = () => {
             {...register("complainedWhileInService", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.complainedWhileInService ? "border-red-500" : ""
             }`}
           >
@@ -131,7 +131,7 @@ const SinusitisForm = () => {
             {...register("exposedToBurnPits", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.exposedToBurnPits ? "border-red-500" : ""
             }`}
           >
@@ -205,7 +205,7 @@ const SinusitisForm = () => {
             {...register("dailyMedication", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.dailyMedication ? "border-red-500" : ""
             }`}
           >
@@ -232,7 +232,7 @@ const SinusitisForm = () => {
             {...register("officiallyDiagnosed", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.officiallyDiagnosed ? "border-red-500" : ""
             }`}
           >
@@ -258,7 +258,7 @@ const SinusitisForm = () => {
             {...register("treatmentProvided", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.treatmentProvided ? "border-red-500" : ""
             }`}
           >
@@ -290,7 +290,7 @@ const SinusitisForm = () => {
           </label>
           <textarea
             {...register("details", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
+            className={`mt-1 block w-full p-2 border  border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
               errors.details ? "border-red-500" : ""
             }`}
             placeholder="Enter details here..."
@@ -306,7 +306,7 @@ const SinusitisForm = () => {
         <div className="flex flex-col justify-center gap-5 mx-auto">
           <button
             type="submit"
-            className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
+            className="bg-[#B31942] text-white uppercase font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
           >
             Continue
           </button>
