@@ -19,7 +19,7 @@ export default function MentalHealthForm() {
   };
 
   return (
-    <div className="min-h-screen p-2 md:p-6 mt-32">
+    <div className="md:min-h-screen min-h-[85vh] p-2 md:p-6 md:mt-32 pt-16 dark:bg-white">
       <div className="max-w-4xl mx-auto">
         {/* Header with Icon */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -33,14 +33,14 @@ export default function MentalHealthForm() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 px-1 md:px-0">
   
           <div>
-  <label className="block text-sm font-medium text-gray-700 mb-1">
+  <label className="block text-sm font-medium text-gray-700 mb-1 ">
     What Was Your Job/Role In The Service?
   </label>
   <input
     type="text"
     placeholder="Enter role/job"
     {...register("mentail_jobRole", { required: "This field is required" })}
-    className="w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+    className="w-full p-2 border border-gray-300 uppercase rounded-md dark:bg-white dark:border-black dark:text-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
   />
   {errors.mentail_jobRole && (
     <p className="text-red-600 text-sm mt-1">{errors.mentail_jobRole.message}</p>
@@ -56,7 +56,7 @@ export default function MentalHealthForm() {
     type="number"
     placeholder="work period (hour)"
     {...register("mentail_hours", { required: "This field is required" })}
-    className="w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+    className="w-full p-2 border uppercase border-gray-300 rounded-md dark:bg-white dark:border-black dark:text-black focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
   />
   {errors.mentail_hours && (
     <p className="text-red-600 text-sm mt-1">{errors.mentail_hours.message}</p>
@@ -72,7 +72,7 @@ export default function MentalHealthForm() {
     type="text"
     placeholder="Stress Level"
     {...register("mentail_stressLevel1", { required: "This field is required" })}
-    className="w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+    className="w-full p-2 border border-gray-300 uppercase dark:bg-white dark:border-black dark:text-black rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
   />
   {errors.mentail_stressLevel1 && (
     <p className="text-red-600 text-sm mt-1">{errors.mentail_stressLevel1.message}</p>
@@ -88,7 +88,7 @@ export default function MentalHealthForm() {
     {...register("mentail_rolesAndDuties", { required: "This field is required" })}
     rows={4}
     placeholder="Please provide as much detail as possible..."
-    className="w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+    className="w-full p-2 border border-gray-300 uppercase dark:bg-white dark:border-black dark:text-black rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
   />
   {errors.mentail_rolesAndDuties && (
     <p className="text-red-600 text-sm mt-1">{errors.mentail_rolesAndDuties.message}</p>

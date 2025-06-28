@@ -18,8 +18,8 @@ const Home = () => {
           <Banner />
          <QuoteSection/>
           {/* <DisabilityCalculator/> */}
-          <FeaturesCard/>
-          {/* <Pricing_Plan/> */}
+          {/* <FeaturesCard/> */}
+          <Pricing_Plan/>
           <Review/>
           <VAC_Trust/>
           <Services/>

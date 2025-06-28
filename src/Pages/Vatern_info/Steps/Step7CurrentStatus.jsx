@@ -141,7 +141,7 @@ export default function Step7CurrentStatus({ register, errors }) {
       {/* Active Duty Orders */}
       <div className="form-control w-full">
         <label className="label w-full">
-          <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal">
+          <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal dark:border-black dark:text-black">
             Are You Currently on Any Active Duty Federal Orders?
           </span>
         </label>
@@ -149,7 +149,7 @@ export default function Step7CurrentStatus({ register, errors }) {
           {...register("activeDutyOrders", {
             required: "This field is required",
           })}
-          className="select select-bordered w-full uppercase"
+          className="select select-bordered w-full uppercase dark:bg-white dark:border-black dark:text-black"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
@@ -167,7 +167,7 @@ export default function Step7CurrentStatus({ register, errors }) {
       {/* VA Direct Deposit */}
       <div className="form-control w-full">
         <label className="label">
-          <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal">
+          <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal dark:border-black dark:text-black">
             VA Direct Deposit Setup?
           </span>
         </label>
@@ -175,7 +175,7 @@ export default function Step7CurrentStatus({ register, errors }) {
           {...register("vaDirectDeposit", {
             required: "This field is required",
           })}
-          className="select select-bordered w-full uppercase"
+          className="select select-bordered w-full uppercase dark:bg-white dark:border-black dark:text-black"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
@@ -193,14 +193,14 @@ export default function Step7CurrentStatus({ register, errors }) {
       {/* Homelessness Question */}
       <div className="form-control w-full">
         <label className="label">
-          <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal">
+          <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal dark:border-black dark:text-black">
             Are you currently homeless or at risk of becoming homeless?{" "}
             <span className="text-gray-500">(Optional)</span>
           </span>
         </label>
         <select
           {...register("vaHealthCare")}
-          className="select select-bordered w-full uppercase"
+          className="select select-bordered w-full uppercase dark:bg-white dark:border-black dark:text-black"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
@@ -219,7 +219,7 @@ export default function Step7CurrentStatus({ register, errors }) {
       {vaHealthCare === "Yes" && (
         <div className="form-control w-full">
           <label className="label">
-            <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal">
+            <span className="label-text font-medium text-sm md:text-base pb-1 break-words whitespace-normal dark:border-black dark:text-black">
               Check The Answer That Most Closely Aligns To Your Living Situation:
             </span>
           </label>
@@ -227,7 +227,7 @@ export default function Step7CurrentStatus({ register, errors }) {
             {...register("livingSituation", {
               required: "Living Situation is required",
             })}
-            className="select select-bordered w-full uppercase"
+            className="select select-bordered w-full uppercase dark:bg-white dark:border-black dark:text-black"
           >
             <option value="">Select an option</option>
             <option value="Living In A Homeless Shelter">

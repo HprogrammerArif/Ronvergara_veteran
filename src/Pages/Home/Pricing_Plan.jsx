@@ -29,12 +29,11 @@ try {
   console.log("subcription error", error)
 }
 
-
 }
 
 
   return (
-   <section className="bg-gray-200 lg:p-20 p-5">
+   <section className=" lg:p-20 p-5">
  <div className="bg-white container md:p-20 p-5  mx-auto">
 
       <div className="text-center mb-10">

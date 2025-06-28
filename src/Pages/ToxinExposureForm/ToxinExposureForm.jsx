@@ -230,13 +230,13 @@ function ToxinExposureForm() {
 
           {/* Other Toxins Input */}
           <div>
-            <label className="block text-sm font-medium text-blue-800 mt-10">
+            <label className="block text-sm font-medium text-blue-800 mt-10 ">
               Please Specify Any Other Toxins You Were Exposed To?
             </label>
             <input
               type="text"
               {...register('OTHER_Specify[2]')}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+              className="mt-1 block w-full border-gray-300 rounded-md dark:bg-white dark:border-black dark:text-black uppercase shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
             />
           </div>
 
@@ -247,7 +247,7 @@ function ToxinExposureForm() {
             </label>
             <textarea
               {...register('Provide_Additional_Dates_And_Locations_Of_Potential_Exposure[0]')}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+              className="mt-1 block w-full border-gray-300 rounded-md dark:bg-white dark:border-black dark:text-black uppercase shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
               rows="4"
             />
           </div>

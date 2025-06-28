@@ -90,7 +90,7 @@ export const router = createBrowserRouter([
       { path: "/narrative", element: <Auto_Narative /> },
       { path: "/video", element: <Auto_Narative_Video /> },
       { path: "/subscription", element: <VaSubcription /> },
-      { path: "/plan", element: <PrivateRoute><Pricing_Plan /></PrivateRoute> },
+      { path: "/plan", element: <Pricing_Plan /> },
       { path: "/veteran_information", element: <Veteran_Information /> },
       { path: "/issues", element: <Issues /> },
       { path: "/issue_details", element: <IssueDetailsForm /> },

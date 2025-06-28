@@ -1,16 +1,142 @@
+// export default function Step4ServiceDates({ register, errors }) {
+//   return (
+//     <div className="space-y-4">
+//       <div className="form-control">
+//         <label className="label">
+//           <span className="label-text font-medium md:text-base text-[12px] pb-1 dark:bg-white dark:border-black dark:text-black">
+//             Service Entry Date (MM/DD/YYYY)
+//           </span>
+//         </label>
+//         <div className="flex space-x-2">
+//           <input
+//             type="text"
+//             maxLength="2"
+//             {...register("Beginning_Date_Month[0]", {
+//               required: "Month is required",
+//               pattern: {
+//                 value: /^(0[1-9]|1[0-2])$/,
+//                 message: "Invalid month (01-12)",
+//               },
+//             })}
+//             className="input input-bordered w-1/3 py-5"
+//             placeholder="MM"
+//           />
+//           <input
+//             type="text"
+//             maxLength="2"
+//             {...register("Beginning_Date_Day[0]", {
+//               required: "Day is required",
+//               pattern: {
+//                 value: /^(0[1-9]|[12][0-9]|3[01])$/,
+//                 message: "Invalid day (01-31)",
+//               },
+//             })}
+//             className="input input-bordered w-1/3 py-5"
+//             placeholder="DD"
+//           />
+//           <input
+//             type="text"
+//             maxLength="4"
+//             {...register("Beginning_Date_Year[0]", {
+//               required: "Year is required",
+//               pattern: {
+//                 value: /^\d{4}$/,
+//                 message: "Invalid year (e.g., 1990)",
+//               },
+//             })}
+//             className="input input-bordered w-1/3 py-5"
+//             placeholder="YYYY"
+//           />
+//         </div>
+//         {(errors.Beginning_Date_Month?.[0] ||
+//           errors.Beginning_Date_Day?.[0] ||
+//           errors.Beginning_Date_Year?.[0]) && (
+//           <label className="label">
+//             <span className="label-text-alt text-error">
+//               Please enter a valid service entry date
+//             </span>
+//           </label>
+//         )}
+//       </div>
+
+//       <div className="form-control">
+//         <label className="label">
+//           <span className="label-text font-medium md:text-base text-[12px] pb-1 dark:bg-white dark:border-black dark:text-black">
+//             Service Exit Date (MM/DD/YYYY)
+//           </span>
+//         </label>
+//         <div className="flex space-x-2">
+//           <input
+//             type="text"
+//             maxLength="2"
+//             {...register("Ending_Date_Month[0]", {
+//               required: "Month is required",
+//               pattern: {
+//                 value: /^(0[1-9]|1[0-2])$/,
+//                 message: "Invalid month (01-12)",
+//               },
+//             })}
+//             className="input input-bordered w-1/3 py-5"
+//             placeholder="MM"
+//           />
+//           <input
+//             type="text"
+//             maxLength="2"
+//             {...register("Ending_Date_Day[0]", {
+//               required: "Day is required",
+//               pattern: {
+//                 value: /^(0[1-9]|[12][0-9]|3[01])$/,
+//                 message: "Invalid day (01-31)",
+//               },
+//             })}
+//             className="input input-bordered w-1/3 py-5"
+//             placeholder="DD"
+//           />
+//           <input
+//             type="text"
+//             maxLength="4"
+//             {...register("Ending_Date_Year[0]", {
+//               required: "Year is required",
+//               pattern: {
+//                 value: /^\d{4}$/,
+//                 message: "Invalid year (e.g., 1990)",
+//               },
+//             })}
+//             className="input input-bordered w-1/3 py-5"
+//             placeholder="YYYY"
+//           />
+//         </div>
+//         {(errors.Ending_Date_Month?.[0] ||
+//           errors.Ending_Date_Day?.[0] ||
+//           errors.Ending_Date_Year?.[0]) && (
+//           <label className="label">
+//             <span className="label-text-alt text-error">
+//               Please enter a valid service exit date
+//             </span>
+//           </label>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+
 export default function Step4ServiceDates({ register, errors }) {
   return (
     <div className="space-y-4">
+      
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium md:text-base text-[12px] pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1 dark:bg-white dark:border-black dark:text-black">
             Service Entry Date (MM/DD/YYYY)
           </span>
         </label>
         <div className="flex space-x-2">
           <input
             type="text"
-            maxLength="2"
+            inputMode="numeric"
+            pattern="\d*"
+            maxLength={2}
             {...register("Beginning_Date_Month[0]", {
               required: "Month is required",
               pattern: {
@@ -18,12 +144,22 @@ export default function Step4ServiceDates({ register, errors }) {
                 message: "Invalid month (01-12)",
               },
             })}
-            className="input input-bordered w-1/3 py-5"
+            onInput={(e) => {
+              const val = e.target.value.replace(/\D/g, "");
+              if (val.length === 1 && parseInt(val) > 1) {
+                e.target.value = "0" + val;
+              } else if (parseInt(val) > 12) {
+                e.target.value = "12";
+              }
+            }}
+            className="input input-bordered w-1/3 py-5 dark:bg-white dark:border-black dark:text-black"
             placeholder="MM"
           />
           <input
             type="text"
-            maxLength="2"
+            inputMode="numeric"
+            pattern="\d*"
+            maxLength={2}
             {...register("Beginning_Date_Day[0]", {
               required: "Day is required",
               pattern: {
@@ -31,12 +167,22 @@ export default function Step4ServiceDates({ register, errors }) {
                 message: "Invalid day (01-31)",
               },
             })}
-            className="input input-bordered w-1/3 py-5"
+            onInput={(e) => {
+              const val = e.target.value.replace(/\D/g, "");
+              if (val.length === 1 && parseInt(val) > 3) {
+                e.target.value = "0" + val;
+              } else if (parseInt(val) > 31) {
+                e.target.value = "31";
+              }
+            }}
+            className="input input-bordered w-1/3 py-5 dark:bg-white dark:border-black dark:text-black"
             placeholder="DD"
           />
           <input
             type="text"
-            maxLength="4"
+            inputMode="numeric"
+            pattern="\d*"
+            maxLength={4}
             {...register("Beginning_Date_Year[0]", {
               required: "Year is required",
               pattern: {
@@ -44,7 +190,7 @@ export default function Step4ServiceDates({ register, errors }) {
                 message: "Invalid year (e.g., 1990)",
               },
             })}
-            className="input input-bordered w-1/3 py-5"
+            className="input input-bordered w-1/3 py-5 dark:bg-white dark:border-black dark:text-black"
             placeholder="YYYY"
           />
         </div>
@@ -59,16 +205,19 @@ export default function Step4ServiceDates({ register, errors }) {
         )}
       </div>
 
+      {/* Service Exit Date */}
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium md:text-base text-[12px] pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1 dark:bg-white dark:border-black dark:text-black">
             Service Exit Date (MM/DD/YYYY)
           </span>
         </label>
         <div className="flex space-x-2">
           <input
             type="text"
-            maxLength="2"
+            inputMode="numeric"
+            pattern="\d*"
+            maxLength={2}
             {...register("Ending_Date_Month[0]", {
               required: "Month is required",
               pattern: {
@@ -76,12 +225,22 @@ export default function Step4ServiceDates({ register, errors }) {
                 message: "Invalid month (01-12)",
               },
             })}
-            className="input input-bordered w-1/3 py-5"
+            onInput={(e) => {
+              const val = e.target.value.replace(/\D/g, "");
+              if (val.length === 1 && parseInt(val) > 1) {
+                e.target.value = "0" + val;
+              } else if (parseInt(val) > 12) {
+                e.target.value = "12";
+              }
+            }}
+            className="input input-bordered w-1/3 py-5 dark:bg-white dark:border-black dark:text-black"
             placeholder="MM"
           />
           <input
             type="text"
-            maxLength="2"
+            inputMode="numeric"
+            pattern="\d*"
+            maxLength={2}
             {...register("Ending_Date_Day[0]", {
               required: "Day is required",
               pattern: {
@@ -89,12 +248,22 @@ export default function Step4ServiceDates({ register, errors }) {
                 message: "Invalid day (01-31)",
               },
             })}
-            className="input input-bordered w-1/3 py-5"
+            onInput={(e) => {
+              const val = e.target.value.replace(/\D/g, "");
+              if (val.length === 1 && parseInt(val) > 3) {
+                e.target.value = "0" + val;
+              } else if (parseInt(val) > 31) {
+                e.target.value = "31";
+              }
+            }}
+            className="input input-bordered w-1/3 py-5 dark:bg-white dark:border-black dark:text-black"
             placeholder="DD"
           />
           <input
             type="text"
-            maxLength="4"
+            inputMode="numeric"
+            pattern="\d*"
+            maxLength={4}
             {...register("Ending_Date_Year[0]", {
               required: "Year is required",
               pattern: {
@@ -102,7 +271,7 @@ export default function Step4ServiceDates({ register, errors }) {
                 message: "Invalid year (e.g., 1990)",
               },
             })}
-            className="input input-bordered w-1/3 py-5"
+            className="input input-bordered w-1/3 py-5 dark:bg-white dark:border-black dark:text-black"
             placeholder="YYYY"
           />
         </div>

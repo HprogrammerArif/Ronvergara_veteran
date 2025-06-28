@@ -21,8 +21,8 @@ const MentalHealthDetails = () => {
   const everDeployed = watch("deployed");
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen md:pt-32 bg-gray-100">
-      <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
+    <div className="md:min-h-screen min-h-[85vh] p-2 md:p-6 md:mt-32 pt-16 dark:bg-white">
+      <div className="md:p-6 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section (Centered Image and Text) */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
           <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
@@ -40,7 +40,7 @@ const MentalHealthDetails = () => {
   <select
     defaultValue=""
     {...register("deployed", { required: "This field is required" })}
-    className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployed ? 'border-red-500' : ''}`}
+    className={`mt-1 block w-full p-2 border border-gray-300 dark:bg-white dark:border-black dark:text-black uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployed ? 'border-red-500' : ''}`}
   >
     <option value="" disabled>
       Select an option
@@ -59,7 +59,7 @@ const MentalHealthDetails = () => {
             <input
               {...register("deployedArea", { required: "This field is required" })}
               type="text"
-              className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployedArea ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deployedArea ? 'border-red-500' : ''}`}
               placeholder="Enter area name"
             />
             {errors.deployedArea && <span className="text-red-500 text-sm">{errors.deployedArea.message}</span>}
@@ -72,8 +72,8 @@ const MentalHealthDetails = () => {
               {...register("duration", 
                 // { required: "This field is required" }
               )}
-              type="number"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.duration ? 'border-red-500' : ''}`}
+              type="number" 
+              className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.duration ? 'border-red-500' : ''}`}
               placeholder="Enter duration (in months)"
             />
             {errors.duration && <span className="text-red-500 text-sm">{errors.duration.message}</span>}
@@ -85,7 +85,7 @@ const MentalHealthDetails = () => {
             <select
               defaultValue=""
               {...register("deploymentType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deploymentType ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[15px] ${errors.deploymentType ? 'border-red-500' : ''}`}
             >
                <option value="" disabled>
               Select an option
@@ -103,7 +103,7 @@ const MentalHealthDetails = () => {
             Please provide any details from your deployment including names and dates of high stress situations (things such as mortar/rocket attacks, convoy attacks, etc).
             <textarea
               {...register("stressDetails", { required: "This field is required" })}
-              className={`mt-1 block text-sm w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none ${errors.stressDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block text-sm w-full dark:bg-white dark:border-black dark:text-black uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none ${errors.stressDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details here..."
             />
             {errors.stressDetails && <span className="text-red-500 text-sm">{errors.stressDetails.message}</span>}
@@ -114,7 +114,7 @@ const MentalHealthDetails = () => {
 
         
         </form>
-           <div className="flex justify-center gap-4 md:mt-20 mt-10 pb-10 md:pb-0 items-center">
+           <div className="flex justify-center gap-4 md:mt-20 mt-10  md:pb-0 items-center mb-10 md:mb-0">
 
             <div className="w-[165px] md:w-[200px]">
               <Link

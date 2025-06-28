@@ -117,7 +117,7 @@ const MentalHealthSurvey = () => {
               {...register('mentail_stressLevel', {
                 required: 'Please select a stress level',
               })}
-              className="mt-1 block w-full text-[14px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 block w-full text-[14px] p-2 border dark:bg-white dark:border-black dark:text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="" className='uppercase'>SELECT AN OPTION</option>
               <option value="1-3" className="uppercase">1-3: LOW STRESS</option>

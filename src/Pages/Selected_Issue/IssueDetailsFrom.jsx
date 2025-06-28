@@ -87,8 +87,8 @@ function IssueDetailsForm() {
   };
 
   return (
-    <section className="md:mt-44 md:mb-10 mb-0 px-2">
-      <div className="md:min-h-screen md:py-20 pt-10 bg-white flex justify-center items-center md:p-4 p-2">
+    <section className="md:mt-44 md:mb-10 mb-0 px-2 dark:bg-white md:min-h-screen min-h-[85vh] flex flex-col items-center justify-center">
+      <div className=" md:py-20  bg-white flex justify-center items-center md:p-4 p-2">
         <div className="w-full max-w-4xl bg-white md:shadow-md rounded-lg md:p-6">
           <h1 className="md:text-2xl text-xl font-bold text-blue-800 mb-6 text-center">
             Provide detailed information regarding your selected issue(s)
@@ -119,7 +119,7 @@ function IssueDetailsForm() {
                       {...register(`conditions[${index}].StartDate`, {
                         required: 'This field is required',
                       })}
-                      className="mt-1 block w-full uppercase border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+                      className="mt-1 block w-full uppercase border-gray-300 rounded-md shadow-sm dark:bg-white dark:border-black dark:text-black focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
                     />
                     {errors.conditions?.[index]?.StartDate && (
                       <span className="text-red-500 text-sm">
@@ -132,8 +132,9 @@ function IssueDetailsForm() {
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Details</label>
                     <textarea
+                    placeholder='Enter details'
                       {...register(`conditions[${index}].details`)}
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+                      className="mt-1 block w-full border-gray-300 dark:bg-white dark:border-black dark:text-black rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
                       rows="4"
                     />
                   </div>

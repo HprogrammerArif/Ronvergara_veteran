@@ -3,7 +3,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
     <div className="space-y-4">
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium md:text-base text-[12px] pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1 dark:border-black dark:text-black">
             Branch of Service
           </span>
         </label>
@@ -11,7 +11,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
           {...register("branchOfService", {
             required: "Branch of Service is required",
           })}
-          className="select select-bordered md:w-full uppercase py-2"
+          className="select select-bordered w-full md:w-full uppercase py-2 dark:bg-white dark:border-black dark:text-black "
         >
           <option value="">Select Branch</option>
           <option value="Army">Army</option>
@@ -36,7 +36,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium pb-1 md:text-base text-[12px]">
+          <span className="label-text font-medium pb-1 md:text-base text-[12px] dark:border-black dark:text-black">
             Did you ever serve under another name?
           </span>
         </label>
@@ -44,7 +44,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
           {...register("serviceUnder", {
             required: "This field is required",
           })}
-          className="select select-bordered w-full py-2 uppercase"
+          className="select select-bordered w-full py-2 uppercase dark:bg-white dark:border-black dark:text-black"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
@@ -61,7 +61,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text font-medium md:text-base text-[12px] pb-1">
+          <span className="label-text font-medium md:text-base text-[12px] pb-1 dark:border-black dark:text-black">
             Place of Separation
           </span>
         </label>
@@ -70,7 +70,7 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
           {...register("placeOfService", {
             required: "Place of Separation is required",
           })}
-          className="input input-bordered w-full py-2 uppercase"
+          className="input input-bordered w-full py-2 uppercase dark:bg-white dark:border-black dark:text-black"
           placeholder="Enter place of separation"
         />
         {errors.placeOfService && (
@@ -84,15 +84,15 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
 
       <div className="form-control">
         <label className="label">
-          <span className="label-text w-9/12 md:w-full font-medium md:text-base text-[12px] pb-1">
-            Did You Serve in the National <br /> Guard or Reserves?
+          <span className="label-text w-9/12 md:w-full font-medium md:text-base text-[12px] pb-1 dark:border-black dark:text-black">
+            Did You Serve in the National  Guard or <br />Reserves?
           </span>
         </label>
         <select
           {...register("nationalGuardReserves", {
             required: "This field is required",
           })}
-          className="select select-bordered w-full py-2 uppercase"
+          className="select select-bordered w-full py-2 uppercase dark:bg-white dark:border-black dark:text-black"
         >
           <option value="">Select</option>
           <option value="Yes">Yes</option>
@@ -106,6 +106,9 @@ export default function Step6MilitaryService({ register, errors, setValue }) {
           </label>
         )}
       </div>
+
+
+
     </div>
   );
 }

@@ -42,7 +42,7 @@ const navigate = useNavigate()
 }
 
   return (
-    <div className="md:min-h-screen min-h-[70vh] md:py-0 bg-white flex justify-center items-center p-4 md:mt-14">
+    <div className="md:min-h-screen min-h-[85vh] md:py-0 bg-white flex justify-center items-center p-4 md:mt-14">
       <div className="w-full max-w-2xl text-center">
         <h1 className="text-5xl font-bold text-[#B31942] mb-6">GREAT!</h1>
         <p className="text-blue-800 md:text-lg text-md mb-8">
