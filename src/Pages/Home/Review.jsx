@@ -61,9 +61,9 @@ const Review = () => {
         
         {/* Section Header */}
         <div className="text-center lg:mb-16 mb-8">
-          <h2 className="text-2xl sm:text-3xl md:mt-14 md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:mt-14 md:text-4xl font-bold text-blue-900 mb-4">
             SEE HOW WE HAVE HELPED{" "} <br />
-            <span className="text-gray-900">VETERANS LIKE YOU</span>
+            <span className="text-blue-900">VETERANS LIKE YOU</span>
           </h2>
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Discover the profound impact we've had in transforming the lives of veterans like you,

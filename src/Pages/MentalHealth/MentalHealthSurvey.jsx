@@ -97,7 +97,7 @@ const MentalHealthSurvey = () => {
 
   return (
     <div className="flex justify-center items-center md:min-h-screen min-h-[85vh] bg-gray-100 mt-10">
-      <div className="p-2 md:p-6 rounded-lg w-full max-w-4xl h-[75vh] flex flex-col justify-between">
+      <div className="p-2 md:p-6 rounded-lg w-full max-w-4xl flex flex-col justify-between">
 
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
           <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
@@ -110,7 +110,7 @@ const MentalHealthSurvey = () => {
           <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-10 px-1 md:px-0">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow md:mt-10 px-1 md:px-0">
           <label className="block text-[18px] font-medium text-gray-700">
             How Stressful Was Your Job On A Scale Of 1-10?
             <select
@@ -130,11 +130,11 @@ const MentalHealthSurvey = () => {
             )}
           </label>
 
-          <div className="flex justify-center gap-4 mt-20 pb-10 md:pb-0 items-center">
+          <div className="flex justify-center gap-4 mt-20 md:pb-0 items-center">
 
         <div className="w-[165px] md:w-[200px]">
               <Link
-                to="#"
+             
                 onClick={() => window.history.back()}
                 className="w-full block text-center bg-white text-blue-800 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-semibold"
               >

@@ -42,7 +42,7 @@ const DisasterForm = () => {
             Did You Ever Experience A Natural Disaster While Serving?
             <select
               {...register("experiencedDisaster", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                 errors.experiencedDisaster ? "border-red-500" : ""
               }`}
             >
@@ -66,7 +66,7 @@ const DisasterForm = () => {
                 <input
                   type="date"
                   {...register("incidentDate", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`mt-1 block w-full dark:bg-white dark:border-black dark:text-black p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     errors.incidentDate ? "border-red-500" : ""
                   }`}
                 />
@@ -81,7 +81,7 @@ const DisasterForm = () => {
                 Type Of Incident
                 <select
                   {...register("incidentType", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     errors.incidentType ? "border-red-500" : ""
                   }`}
                 >
@@ -106,7 +106,7 @@ const DisasterForm = () => {
                 <input
                   type="text"
                   {...register("peopleInvolved")}
-                  className="mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black uppercase border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter names..."
                 />
               </label>
@@ -116,7 +116,7 @@ const DisasterForm = () => {
                 Please Provide As Much Detail As Possible As It Will Help To Strengthen Your Claim.
                 <textarea
                   {...register("incidentDetails", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none ${
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black uppercase border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none ${
                     errors.incidentDetails ? "border-red-500" : ""
                   }`}
                   placeholder="Enter details here..."

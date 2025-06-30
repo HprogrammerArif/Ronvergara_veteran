@@ -24,7 +24,7 @@ const MedicalPositionDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 pt-10 md:pt-0 pb-10 ">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 pt-14 md:pt-0  ">
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -45,7 +45,7 @@ const MedicalPositionDetails = () => {
             Did You Work In A Medical Position Or Other Position Where You Witnessed Severe Accidents/Deaths Frequently?
             <select
               {...register("livesAccident", { required: "This field is required" })}
-              className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.livesAccident ? "border-red-500" : ""
               }`}
               defaultValue=""
@@ -74,7 +74,7 @@ const MedicalPositionDetails = () => {
                     required: "This field is required",
                   })}
                   type="date"
-                  className={`mt-1 block uppercase w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+                  className={`mt-1 block uppercase w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                     errors.incidentDates ? "border-red-500" : ""
                   }`}
                   placeholder="MM/DD/YYYY"
@@ -94,7 +94,7 @@ const MedicalPositionDetails = () => {
                     required: "This field is required",
                   })}
                   type="text"
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+                  className={`mt-1 block uppercase w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                     errors.incidentLocation ? "border-red-500" : ""
                   }`}
                   placeholder="Enter location"
@@ -113,7 +113,7 @@ const MedicalPositionDetails = () => {
                   {...register("incidentType", {
                     required: "This field is required",
                   })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none uppercase focus:ring-2 focus:ring-blue-500 text-sm ${
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none uppercase focus:ring-2 focus:ring-blue-500 text-sm ${
                     errors.incidentType ? "border-red-500" : ""
                   }`}
                   defaultValue=""
@@ -135,13 +135,13 @@ const MedicalPositionDetails = () => {
               </label>
 
               {/* Specific Details Of Incident */}
-              <label className="block text-lg font-medium text-gray-700 pb-10">
+              <label className="block text-lg font-medium text-gray-700">
                 Specific Details Of Incident
                 <textarea
                   {...register("incidentDetails", {
                     required: "This field is required",
                   })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${
+                  className={`mt-1 block w-full p-2 dark:bg-white uppercase dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${
                     errors.incidentDetails ? "border-red-500" : ""
                   }`}
                   placeholder="Enter details here..."
@@ -156,7 +156,7 @@ const MedicalPositionDetails = () => {
           )}
 
           {/* Buttons */}
-          <div className="flex justify-center gap-4 md:mt-20 mt-10 pb-10 md:pb-0 items-center">
+          <div className="flex justify-center gap-4 md:mt-20 pb-10 md:pb-0 items-center">
          
                      <div className="w-[165px] md:w-[200px]">
                        <Link

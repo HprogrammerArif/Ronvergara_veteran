@@ -6,7 +6,7 @@ function ConfirmMentalHealth() {
     <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen bg-gray-100 pt-10 pb-10">
       <div className="w-full max-w-2xl text-center">
         <h1 className="text-5xl font-bold text-[#B31942] mb-6">GREAT!</h1>
-        <p className="text-blue-800 md:text-lg text-md mb-8 w-11/12 md:w-full mx-auto">
+        <p className="text-blue-800 dark:text-gray-900 md:text-lg text-md mb-8 w-11/12 md:w-full mx-auto">
         Now we need some additional information on these conditions.
  In the next step please provide as much detail as you can recall for each condition. This will help 
 make your claim stronger and add verifiable evidenc

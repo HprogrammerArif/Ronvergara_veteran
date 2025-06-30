@@ -43,7 +43,7 @@ function Final_Sub() {
     };
 
     try {
-      const response = await fetch('https://rongever.duckdns.org/api/va/vaform/submit/', {
+      const response = await fetch('http://192.168.10.124:2000/api/va/vaform/submit/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

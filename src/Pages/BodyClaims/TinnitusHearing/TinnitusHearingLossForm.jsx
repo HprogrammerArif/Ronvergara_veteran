@@ -45,7 +45,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
     }
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 max-w-4xl mx-auto ">
+    <div className="flex  flex-col items-center dark:bg-white justify-center md:min-h-screen min-h-[85vh] pt-14   py-20  p-4 max-w-4xl mx-auto ">
       {/* Header */}
       <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto mb-10">
           <div className="w-28 h-28 mb-4">
@@ -70,7 +70,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             {...register("exposureWhileServing", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.exposureWhileServing ? "border-red-500" : ""
             }`}
           >
@@ -99,7 +99,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             {...register("hearingProtection", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.hearingProtection ? "border-red-500" : ""
             }`}
           >
@@ -128,7 +128,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             {...register("symptomsStartDate", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsStartDate ? "border-red-500" : ""
             }`}
           />
@@ -148,7 +148,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             {...register("symptomsFrequency", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.symptomsFrequency ? "border-red-500" : ""
             }`}
           >
@@ -176,7 +176,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
             {...register("complainedWhileInService", {
               required: "This field is required",
             })}
-            className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
+            className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 ${
               errors.complainedWhileInService ? "border-red-500" : ""
             }`}
           >
@@ -202,7 +202,7 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
           </label>
           <textarea
             {...register("details", { required: "This field is required" })}
-            className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
+            className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700 h-32 resize-none ${
               errors.details ? "border-red-500" : ""
             }`}
             placeholder="Enter details here..."
@@ -218,12 +218,9 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
           </>
         )}
 
-    
-
-     
 
         {/* Buttons */}
-        <div className="flex flex-col justify-center gap-5 mx-auto">
+        {/* <div className="flex flex-col justify-center gap-5 mx-auto">
           <button
            type="submit"
             className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
@@ -236,7 +233,23 @@ const complainedWhileInServiceTime = watch("complainedWhileInService");
           >
             Back
           </Link>
-        </div>
+        </div> */}
+         <div className="flex justify-center gap-4 mt-6">
+  <Link
+    to="#"
+    className="bg-white text-blue-800 px-6 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-center font-semibold"
+    onClick={() => window.history.back()}
+  >
+    Back
+  </Link>
+
+  <button
+    type="submit"
+    className="bg-[#B31942] text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-red-500 w-full font-semibold"
+  >
+    Continue
+  </button>
+</div>
       </form>
     </div>
   );

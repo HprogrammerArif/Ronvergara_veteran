@@ -79,6 +79,8 @@ import UnauthorizedError from "../Pages/Private/UnauthorizedError";
 import PrivateRoute from "../hooks/PrivateRoute";
 import Dashboard from "../Pages//AdminDashboard/Dashboard";
 import ProgressMessageForm from "../Pages/BodyClaims/Migraine/ProgressMessageForm";
+import RouteSecure from "../hooks/RouteSecure";
+import NoSubscription from "../Pages/NoSubcription/NoSubscription";
 
 export const router = createBrowserRouter([
   {
@@ -91,69 +93,69 @@ export const router = createBrowserRouter([
       { path: "/video", element: <Auto_Narative_Video /> },
       { path: "/subscription", element: <VaSubcription /> },
       { path: "/plan", element: <Pricing_Plan /> },
-      { path: "/veteran_information", element: <Veteran_Information /> },
-      { path: "/issues", element: <Issues /> },
-      { path: "/issue_details", element: <IssueDetailsForm /> },
-      { path: "/gulf_war_location", element: <GulfWarLocationsForm /> },
-      { path: "/agent_location", element: <AgentOrangeLocationsForm /> },
-      { path: "/toxin_exposure", element: <ToxinExposureForm /> },
-      { path: "/confirmation", element: <GreatConfirmation /> },
+      { path: "/veteran_information", element: <RouteSecure><Veteran_Information /></RouteSecure> },
+      { path: "/issues", element: <RouteSecure><Issues /></RouteSecure> },
+      { path: "/issue_details", element: <RouteSecure><IssueDetailsForm /></RouteSecure> },
+      { path: "/gulf_war_location", element: <RouteSecure><GulfWarLocationsForm /></RouteSecure> },
+      { path: "/agent_location", element: <RouteSecure><AgentOrangeLocationsForm /></RouteSecure> },
+      { path: "/toxin_exposure", element: <RouteSecure><ToxinExposureForm /></RouteSecure> },
+      { path: "/confirmation", element: <RouteSecure><GreatConfirmation /></RouteSecure> },
       { path: "/policy", element: <Policy /> },
       { path: "/calculator", element: <Calculator /> },
       { path: "/about_us", element: <AboutUs /> },
       { path: "/contact", element: <ContactForm /> },
 
       //mental-health-info
-      { path: "/mental_health_info", element: <MentalHealthForm /> },
-      { path: "/mental_health_survey", element: <MentalHealthSurvey /> },
-      { path: "/mental_health_details", element: <MentailHealthDetails /> },
-      { path: "/death_details", element: <DeathDetails /> },
-      { path: "/disaster_form", element: <DisasterForm /> },
-      { path: "/abuse_assault_form", element: <AbuseAssaultDetails /> },
-      { path: "/risk_details", element: <RiskDetails /> },
-      { path: "/medical_position_details", element: <MedicalPositionDetails />},
-      { path: "/crash_details", element: <CrashAccidentDetails /> },
-      { path: "/medical_trauma_details", element: <MedicalTraumaDetails /> },
-      { path: "/hazing_details", element: <HazingDetails /> },
-      { path: "/abuse_power_details", element: <AbuseOfPowerDetails /> },
-      { path: "/dangerous_items_details", element: <DangerousItemsDetails /> },
-      { path: "/familiar_issues", element: <FamilialIssuesDetails /> },
-      { path: "/comfirm_mental_health", element: <ConfirmMentalHealth /> },
-      { path: "/mental_health_symptoms", element: <MentalHealthSymptoms /> },
-      {path: "/mental_health_indicators", element: <MentalHealthIndicators />},
+      { path: "/mental_health_info", element: <RouteSecure><MentalHealthForm /></RouteSecure> },
+      { path: "/mental_health_survey", element: <RouteSecure><MentalHealthSurvey /></RouteSecure> },
+      { path: "/mental_health_details", element: <RouteSecure><MentailHealthDetails /></RouteSecure> },
+      { path: "/death_details", element: <RouteSecure><DeathDetails /></RouteSecure> },
+      { path: "/disaster_form", element: <RouteSecure><DisasterForm /></RouteSecure> },
+      { path: "/abuse_assault_form", element: <RouteSecure><AbuseAssaultDetails /></RouteSecure> },
+      { path: "/risk_details", element: <RouteSecure><RiskDetails /></RouteSecure> },
+      { path: "/medical_position_details", element: <RouteSecure><MedicalPositionDetails /></RouteSecure>},
+      { path: "/crash_details", element: <RouteSecure><CrashAccidentDetails /></RouteSecure> },
+      { path: "/medical_trauma_details", element: <RouteSecure><MedicalTraumaDetails /></RouteSecure> },
+      { path: "/hazing_details", element: <RouteSecure><HazingDetails /></RouteSecure> },
+      { path: "/abuse_power_details", element:<RouteSecure> <AbuseOfPowerDetails /></RouteSecure> },
+      { path: "/dangerous_items_details", element: <RouteSecure><DangerousItemsDetails /></RouteSecure> },
+      { path: "/familiar_issues", element: <RouteSecure><FamilialIssuesDetails /></RouteSecure> },
+      { path: "/comfirm_mental_health", element: <RouteSecure><ConfirmMentalHealth /></RouteSecure> },
+      { path: "/mental_health_symptoms", element: <RouteSecure><MentalHealthSymptoms /></RouteSecure> },
+      {path: "/mental_health_indicators", element: <RouteSecure><MentalHealthIndicators /></RouteSecure>},
 
       //2nd part
 
-      { path: "/migraine", element: <Migraine /> },
+      { path: "/migraine", element: <RouteSecure><Migraine /></RouteSecure> },
 
       // bodyhealth
       
-      { path: "/service_details", element: <ServiceDetails /> },
-      { path: "/shifts", element: <Shifts /> },
-      { path: "/physical_training", element: <PhysicalTrainingDetails /> },
-      { path: "/injuries_details", element: <InjuriesDetails /> },
-      { path: "/sickcall_details", element: <SickCallDetails /> },
-      { path: "/discharge_condition", element: <DischargeCondition /> },
-      { path: "/health_details", element: <BodyHealthDetails /> },
-      { path: "/ai_narrative", element: <AiNarativeGen /> },
-      { path: "/progress", element: <ProgressMessageForm /> },
-      { path: "/evidence_form", element: <EvidenceForm /> },
-      { path: "/progress_message", element: <ProgressMessage /> },
-      { path: "/e_signature", element: <ESignature /> },
-      { path: "/va_form", element: <VAForm /> },
-      { path: "/submission", element: <Final_Sub /> },
+      { path: "/service_details", element: <RouteSecure><ServiceDetails /></RouteSecure> },
+      { path: "/shifts", element: <RouteSecure><Shifts /> </RouteSecure>},
+      { path: "/physical_training", element: <RouteSecure><PhysicalTrainingDetails /></RouteSecure> },
+      { path: "/injuries_details", element: <RouteSecure><InjuriesDetails /></RouteSecure> },
+      { path: "/sickcall_details", element: <RouteSecure><SickCallDetails /></RouteSecure> },
+      { path: "/discharge_condition", element: <RouteSecure><DischargeCondition /></RouteSecure> },
+      { path: "/health_details", element: <RouteSecure><BodyHealthDetails /></RouteSecure> },
+      { path: "/ai_narrative", element: <RouteSecure><AiNarativeGen /></RouteSecure> },
+      { path: "/progress", element: <RouteSecure><ProgressMessageForm /></RouteSecure> },
+      { path: "/evidence_form", element: <RouteSecure><EvidenceForm /></RouteSecure> },
+      { path: "/progress_message", element: <RouteSecure><ProgressMessage /></RouteSecure> },
+      { path: "/e_signature", element: <RouteSecure><ESignature /></RouteSecure> },
+      { path: "/va_form", element: <RouteSecure><VAForm /></RouteSecure> },
+      { path: "/submission", element: <RouteSecure><Final_Sub /></RouteSecure> },
 
       //SinusitisForm
-      { path: "/sinusitis_form", element: <SinusitisForm /> },
+      { path: "/sinusitis_form", element: <RouteSecure><SinusitisForm /></RouteSecure> },
       
       //GastrointestinalForm
-      { path: "/gastrointestinal_form", element: <GastrointestinalForm /> },
+      { path: "/gastrointestinal_form", element: <RouteSecure><GastrointestinalForm /></RouteSecure> },
 
       //TinnitusHearingLossForm
-      { path: "/tinnitus_hearing_loss", element: <TinnitusHearingLossForm /> },
+      { path: "/tinnitus_hearing_loss", element: <RouteSecure><TinnitusHearingLossForm /></RouteSecure> },
 
       //others
-      { path: "/others", element: <OthersIssues /> },
+      { path: "/others", element: <RouteSecure><OthersIssues /></RouteSecure> },
 
       //payment success
 
@@ -163,6 +165,7 @@ export const router = createBrowserRouter([
   },
 
   { path: "/unauthorized", element: <UnauthorizedError /> },
+  {path: "/active", element: <NoSubscription/>},
 
   //authentication
   {

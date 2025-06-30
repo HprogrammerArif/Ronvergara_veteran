@@ -12,8 +12,8 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen md:bg-gray-100 ">
-      <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl space-y-6 my-10">
+    <div className="flex justify-center items-center min-h-[85vh] dark:bg-white md:min-h-screen md:bg-gray-100 ">
+      <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl space-y-6 pt-14 py-10">
         {/* Header Section */}
         <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
           <div className="md:w-28 md:h-28 mb-4">
@@ -36,7 +36,7 @@ const navigate = useNavigate()
             <input
               {...register("body_jobRole", { required: "This field is required" })}
               type="text"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobRole ? 'border-red-500' : ''}`}
               placeholder="Enter your job/role"
             />
             {errors.jobRole && <span className="text-red-500 text-sm">{errors.jobRole.message}</span>}
@@ -47,14 +47,14 @@ const navigate = useNavigate()
             Please describe your responsibilities
             <textarea
               {...register("body_responsibilities", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.responsibilities ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.responsibilities ? 'border-red-500' : ''}`}
               placeholder="Enter description"
             />
             {errors.responsibilities && <span className="text-red-500 text-sm">{errors.responsibilities.message}</span>}
           </label>
 
           {/* Buttons */}
-            <div className="flex flex-col justify-center gap-4 mx-auto">
+            {/* <div className="flex flex-col justify-center gap-4 mx-auto">
                     <button
                    
                       type="submit"
@@ -69,7 +69,24 @@ const navigate = useNavigate()
                     >
                       Back
                     </button>
-                  </div>
+                  </div> */}
+
+                   <div className="flex justify-center gap-4 mt-6">
+  <Link
+    to="#"
+    className="bg-white text-blue-800 px-6 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-center font-semibold"
+    onClick={() => window.history.back()}
+  >
+    Back
+  </Link>
+
+  <button
+    type="submit"
+    className="bg-[#B31942] text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-red-500 w-full font-semibold"
+  >
+    Continue
+  </button>
+</div>
         </form>
       </div>
     </div>

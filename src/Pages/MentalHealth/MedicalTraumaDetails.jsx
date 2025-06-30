@@ -35,7 +35,7 @@ const MedicalTraumaDetails = () => {
             Did You Endure Any Medical Traumas That Still Affect You Mentally Today?
             <select
               {...register("medicalTrauma", { required: "This field is required" })}
-              className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.medicalTrauma ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.medicalTrauma ? 'border-red-500' : ''}`}
             >
               <option value="">SELECT AN OPTION</option>
               <option value="yes">Yes</option>
@@ -53,7 +53,7 @@ const MedicalTraumaDetails = () => {
                 <input
                   {...register("incidentDates", { required: "This field is required" })}
                   type="date"
-                  className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
                   placeholder="MM/DD/YYYY"
                 />
                 {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
@@ -65,7 +65,7 @@ const MedicalTraumaDetails = () => {
                 <input
                   {...register("incidentLocation", { required: "This field is required" })}
                   type="text"
-                  className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
                   placeholder="Enter location"
                 />
                 {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
@@ -76,7 +76,7 @@ const MedicalTraumaDetails = () => {
                 Type Of Medical Trauma
                 <select
                   {...register("traumaType", { required: "This field is required" })}
-                  className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.traumaType ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.traumaType ? 'border-red-500' : ''}`}
                 >
                   <option value="">SELECT TYPE</option>
                   <option value="botchedSurgeries">Botched Surgeries</option>
@@ -92,7 +92,7 @@ const MedicalTraumaDetails = () => {
                 <input
                   {...register("involvedNames")}
                   type="text"
-                  className="mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                  className="mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                   placeholder="Enter names"
                 />
               </label>
@@ -102,7 +102,7 @@ const MedicalTraumaDetails = () => {
                 Specific Details Of Incident
                 <textarea
                   {...register("incidentDetails", { required: "This field is required" })}
-                  className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
                   placeholder="Enter details here"
                 />
                 {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
@@ -111,7 +111,7 @@ const MedicalTraumaDetails = () => {
           )}
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center gap-4 md:mt-20  pb-10 md:pb-0 items-center">
+          <div className="flex justify-center gap-4 md:mt-20  pb-8 md:pb-0 items-center">
                           
                        <div className="w-[165px] md:w-[200px]">
                                         <Link

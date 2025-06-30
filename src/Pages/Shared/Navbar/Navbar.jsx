@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../../../assets/VALR_logo.png";
@@ -11,7 +10,9 @@ export default function Navbar() {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { data: loggedInUser } = useGetLoggedUserQuery();
+  const { data: loggedInUser, isLoading } = useGetLoggedUserQuery();
+
+  
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -20,7 +21,6 @@ export default function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.classList.add("overflow-hidden");
@@ -66,7 +66,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Desktop Links */}
+        {/* Desktop Nav Links */}
         <div className="hidden space-x-14 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -83,9 +83,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop User Menu or Auth */}
+        {/* Desktop User Section */}
         <div className="hidden md:flex items-center space-x-3 relative">
-          {loggedInUser ? (
+          {isLoading ? null : loggedInUser ? (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="avatar flex items-center">
                 <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
@@ -146,7 +146,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Backdrop */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div
           className="fixed inset-0 bg-black/50 transition-opacity md:hidden"
@@ -155,7 +155,6 @@ export default function Navbar() {
         />
       )}
 
-      {/* Mobile Sidebar */}
       <div
         className={`fixed top-0 bottom-0 left-0 z-50 w-[280px] bg-[#0B2A52] shadow-lg transition-transform duration-300 md:hidden ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
@@ -192,7 +191,7 @@ export default function Navbar() {
           </div>
 
           <div className="border-t border-white/10 p-6">
-            {loggedInUser ? (
+            {isLoading ? null : loggedInUser ? (
               <div className="flex flex-col items-center gap-4">
                 <img
                   src={
@@ -252,7 +251,7 @@ export default function Navbar() {
               <button
                 className="btn btn-error text-white"
                 onClick={handleLogout}
-                disabled={isLoggingOut}
+                disabled={isLoading || isLoggingOut}
               >
                 {isLoggingOut ? (
                   <span className="loading loading-bars loading-xl text-red-600"></span>
@@ -269,7 +268,7 @@ export default function Navbar() {
       <dialog id="profile_modal" className="modal backdrop-blur-[1px]">
         <div className="modal-box bg-[#002b5c] text-white max-w-md">
           <h3 className="font-bold text-lg mb-4">User Profile</h3>
-          {loggedInUser ? (
+          {isLoading ? null : loggedInUser ? (
             <div className="flex flex-col items-center gap-4">
               <img
                 src={
@@ -295,7 +294,7 @@ export default function Navbar() {
               </div>
             </div>
           ) : (
-            <p className="text-white/80">Loading user data...</p>
+            <p className="text-white/80">No user data available.</p>
           )}
           <div className="modal-action">
             <form method="dialog">

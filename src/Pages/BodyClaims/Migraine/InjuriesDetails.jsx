@@ -16,7 +16,7 @@ const hadInjuries = watch("hadInjuries");
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen md:bg-gray-100">
+    <div className="flex justify-center items-center min-h-[85vh] dark:bg-white md:min-h-screen pt-14 pb-10 md:bg-gray-100">
       <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl space-y-6 ">
         {/* Header Section */}
         <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
@@ -39,7 +39,7 @@ const hadInjuries = watch("hadInjuries");
             Did you have any specific injuries during your service?
             <select
               {...register("hadInjuries", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.hadInjuries ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.hadInjuries ? 'border-red-500' : ''}`}
             >
               <option value="">Select an option</option>
               <option value="yes">Yes</option>
@@ -55,7 +55,7 @@ const hadInjuries = watch("hadInjuries");
             Please list the injuries, how they occurred, and where they occurred (what base/location)
             <textarea
               {...register("injuryDetails", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.injuryDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.injuryDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details"
             />
             {errors.injuryDetails && <span className="text-red-500 text-sm">{errors.injuryDetails.message}</span>}
@@ -64,7 +64,7 @@ const hadInjuries = watch("hadInjuries");
 
       
 
-        <div className="flex flex-col justify-center gap-4 mx-auto ">
+        {/* <div className="flex flex-col justify-center gap-4 mx-auto ">
                            <button
                              type="submit"
                              className="btn bg-[#B31942] uppercase border-gray-400  py-2 text-white text-center font-semibold rounded-md"
@@ -78,7 +78,23 @@ const hadInjuries = watch("hadInjuries");
                            >
                              Back
                            </button>
-                         </div>
+                         </div> */}
+                    <div className="flex justify-center gap-4 mt-6">
+  <Link
+    to="#"
+    className="bg-white text-blue-800 px-6 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-center font-semibold"
+    onClick={() => window.history.back()}
+  >
+    Back
+  </Link>
+
+  <button
+    type="submit"
+    className="bg-[#B31942] text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-red-500 w-full font-semibold"
+  >
+    Continue
+  </button>
+</div>      
         </form>
       </div>
     </div>

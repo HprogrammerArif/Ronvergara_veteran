@@ -17,15 +17,15 @@ navigate("/dangerous_items_details")
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen bg-gray-100 pt-10 pb-10">
+    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen bg-gray-100 pt-14 ">
       <div className="md:p-6 rounded-lg p-2 w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section (Centered Image and Text) */}
                 <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
-                                                          <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
+              <div className="w-52 h-52 bg-purple-600 rounded-full flex items-center justify-center mb-3">
                                                             <img src={mentalLogo} alt="Mental Health Logo" className="w-32 h-32 object-cover" />
                                                           </div>
                                                           <h1 className="text-white text-2xl font-medium mt-2">Mental Health</h1>
-                                                        </div>
+                                                        </div>                                            
 
         {/* Form Section */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow pt-5 px-1 md:px-0">
@@ -34,7 +34,7 @@ navigate("/dangerous_items_details")
             Did You Experience Any Abuse Of Power By A Superior?
             <select
               {...register("abuseOfPower", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseOfPower ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseOfPower ? 'border-red-500' : ''}`}
             > 
             <option value="">SELECT AN OPTION</option>
               <option value="yes" >Yes</option>
@@ -51,7 +51,7 @@ navigate("/dangerous_items_details")
             <input
               {...register("incidentDates", { required: "This field is required" })}
               type="date"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
@@ -63,7 +63,7 @@ navigate("/dangerous_items_details")
             <input
               {...register("incidentLocation", { required: "This field is required" })}
               type="text"
-              className={`mt-1 block w-full uppercase p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
               placeholder="Enter location"
             />
             {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
@@ -74,7 +74,7 @@ navigate("/dangerous_items_details")
             Type Of Abuse
             <select
               {...register("abuseType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 uppercase border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseType ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 uppercase border dark:bg-white dark:border-black dark:text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.abuseType ? 'border-red-500' : ''}`}
             >
               <option value="">Select an option</option>
               <option value="verbal">Verbal Abuse</option>
@@ -91,7 +91,7 @@ navigate("/dangerous_items_details")
             <input
               {...register("involvedNames")}
               type="text"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
               placeholder="Enter names"
             />
             {errors.involvedNames && <span className="text-red-500 text-sm">{errors.involvedNames.message}</span>}
@@ -102,7 +102,7 @@ navigate("/dangerous_items_details")
             Specific Details Of Incident
             <textarea
               {...register("incidentDetails", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details here..."
             />
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}
@@ -115,7 +115,7 @@ navigate("/dangerous_items_details")
 
 
                         {/* Buttons */}
-              <div className="flex justify-center gap-4 md:mt-20 pb-10 md:pb-0 items-center">
+              <div className="flex justify-center gap-4 md:mt-20 pb-8 md:pb-0 items-center">
          
                      <div className="w-[165px] md:w-[200px]">
                        <Link

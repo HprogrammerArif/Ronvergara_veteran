@@ -134,7 +134,7 @@ function IssueDetailsForm() {
                     <textarea
                     placeholder='Enter details'
                       {...register(`conditions[${index}].details`)}
-                      className="mt-1 block w-full border-gray-300 dark:bg-white dark:border-black dark:text-black rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
+                      className="mt-1 block w-full border-gray-300 uppercase dark:bg-white dark:border-black dark:text-black rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 px-3 border"
                       rows="4"
                     />
                   </div>
@@ -153,7 +153,7 @@ function IssueDetailsForm() {
 
             <button
                   type="submit"
-                  className="bg-[#B31942] text-white py-2 uppercase px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
+                  className="bg-[#B31942] text-white py-2 md:flex items-center justify-center uppercase px-6 md:px-20 md:w-[200px] w-[150px] rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 font-semibold"
                 >
                   Continue
                 </button>

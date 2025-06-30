@@ -33,7 +33,7 @@ const experiencedHazing = watch("experiencedHazing");
             Did You Experience Any Hazing?
             <select
               {...register("experiencedHazing", { required: "This field is required" })}
-              className={`mt-1 block w-full uppercase p-2 border border-gray-300  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.experiencedHazing ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full uppercase p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.experiencedHazing ? 'border-red-500' : ''}`}
             >
               <option value="">SELECT AN OPTION</option>
               <option value="yes">Yes</option>
@@ -50,7 +50,7 @@ const experiencedHazing = watch("experiencedHazing");
             <input
               {...register("incidentDates", { required: "This field is required" })}
               type="date"
-              className={`mt-1 block w-full p-2  border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black  border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
@@ -62,7 +62,7 @@ const experiencedHazing = watch("experiencedHazing");
             <input
               {...register("incidentLocation", { required: "This field is required" })}
               type="text"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
               placeholder="Enter location"
             />
             {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
@@ -74,7 +74,7 @@ const experiencedHazing = watch("experiencedHazing");
             <input
               {...register("involvedNames")}
               type="text"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
               placeholder="Enter names"
             />
             {errors.involvedNames && <span className="text-red-500 text-sm">{errors.involvedNames.message}</span>}
@@ -85,7 +85,7 @@ const experiencedHazing = watch("experiencedHazing");
             Specific Details Of Incident
             <textarea
               {...register("incidentDetails", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details here..."
             />
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}

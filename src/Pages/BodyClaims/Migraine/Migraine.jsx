@@ -34,8 +34,8 @@ const Migraine = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen md:bg-gray-100 md:py-10">
-      <div className="bg-white md:shadow-md rounded-2xl md:p-8 p-2 w-full max-w-4xl space-y-8 my-16">
+    <div className="flex justify-center items-center min-h-[85vh] dark:bg-white  md:min-h-screen md:bg-gray-100 md:py-10">
+      <div className="bg-white md:shadow-md rounded-2xl md:p-8 p-2 w-full max-w-4xl space-y-8 my-14">
         {/* Centered Image and Title */}
         <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
           <div className="md:w-28 md:h-28 mb-4">
@@ -56,7 +56,7 @@ const Migraine = () => {
             How often do your migraines occur?
             <select
               {...register("migraineFrequency", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineFrequency ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineFrequency ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -75,7 +75,7 @@ const Migraine = () => {
             How long do your migraines typically last?
             <select
               {...register("migraineDuration", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineDuration ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineDuration ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -94,7 +94,7 @@ const Migraine = () => {
             Do your migraines cause any of the following symptoms?
             <select
               {...register("migraineSymptoms", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineSymptoms ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineSymptoms ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>
@@ -113,7 +113,7 @@ const Migraine = () => {
             How do migraines impact your daily activities?
             <select
               {...register("migraineImpact", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="">
@@ -131,7 +131,7 @@ const Migraine = () => {
             Have you received medical treatment for migraines?
             <select
               {...register("migraineImpactTreatment", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.migraineImpact ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="">
@@ -154,7 +154,7 @@ const Migraine = () => {
               type="date"
               placeholder="MM/DD/YYYY"
               {...register("medicalVisitDates", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.medicalVisitDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase text-sm ${errors.medicalVisitDates ? 'border-red-500' : ''}`}
             />
             {errors.medicalVisitDates && <span className="text-red-500 text-sm">{errors.medicalVisitDates.message}</span>}
           </label>
@@ -164,7 +164,7 @@ const Migraine = () => {
             Please provide details
             <textarea
               {...register("details", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.details ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.details ? 'border-red-500' : ''}`}
               placeholder="Include any relevant information or context."
             />
             {errors.details && <span className="text-red-500 text-sm">{errors.details.message}</span>}
@@ -173,22 +173,20 @@ const Migraine = () => {
             )
           }
 
-        
-
-          {/* Buttons */}
-          <div className="flex flex-col justify-center gap-5 mx-auto">
-            <button
-            // to="/service_details"
-              type="submit"
-              className="btn bg-[#B31942] border-gray-400  uppercase py-2 text-white text-center font-semibold rounded-md"
-            >
-              Continue
-            </button>
-            <button
-              type="submit"
-              className="btn  text-[#001F3F] font-semibold border uppercase border-[#001F3F] py-2 rounded-md"  
+           <div className="flex justify-center gap-4 mt-6">
+            <Link
+              to="#"
+              className="bg-white text-blue-800 px-6 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 w-[150px] md:w-[200px] text-center font-semibold"
+              onClick={() => window.history.back()}
             >
               Back
+            </Link>
+          
+            <button
+              type="submit"
+              className="bg-[#B31942] text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-red-500 w-[150px] md:w-[200px] font-semibold"
+            >
+              Continue
             </button>
           </div>
         </form>

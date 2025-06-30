@@ -10,12 +10,14 @@ import Services from "./Services"
 import Testimonials from "./Testimonials"
 import VAC_Trust from "./VAC_Trust"
 import VeteransSlider from "./VeteransSlider"
+import Video from "./Video"
 
 const Home = () => {
   return (
     <div className=" ">
         
           <Banner />
+          <Video/>
          <QuoteSection/>
           {/* <DisabilityCalculator/> */}
           {/* <FeaturesCard/> */}

@@ -17,7 +17,7 @@ const handleDengerousItems = watch("handledDangerousItems");
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen bg-gray-100 pt-10 pb-10">
+    <div className="flex justify-center items-center min-h-[85vh]  md:min-h-screen bg-gray-100 pt-14 pb-10">
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section (Centered Image and Text) */}
        <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -34,7 +34,7 @@ const handleDengerousItems = watch("handledDangerousItems");
             Did You Handle Dangerous Items?
             <select
               {...register("handledDangerousItems", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.handledDangerousItems ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.handledDangerousItems ? 'border-red-500' : ''}`}
             >
             
               <option value="">Select an option</option>
@@ -52,7 +52,7 @@ const handleDengerousItems = watch("handledDangerousItems");
             <input
               {...register("incidentDates", { required: "This field is required" })}
               type="date"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentDates ? 'border-red-500' : ''}`}
               placeholder="MM/DD/YYYY"
             />
             {errors.incidentDates && <span className="text-red-500 text-sm">{errors.incidentDates.message}</span>}
@@ -64,7 +64,7 @@ const handleDengerousItems = watch("handledDangerousItems");
             <input
               {...register("incidentLocation", { required: "This field is required" })}
               type="text"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.incidentLocation ? 'border-red-500' : ''}`}
               placeholder="Enter location"
             />
             {errors.incidentLocation && <span className="text-red-500 text-sm">{errors.incidentLocation.message}</span>}
@@ -75,7 +75,7 @@ const handleDengerousItems = watch("handledDangerousItems");
             Type Of Dangerous Items Handled
             <select
               {...register("itemType", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.itemType ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.itemType ? 'border-red-500' : ''}`}
             >
               <option value="explosives">Explosives</option>
               <option value="chemicals" selected>Chemicals</option>
@@ -90,7 +90,7 @@ const handleDengerousItems = watch("handledDangerousItems");
             <input
               {...register("involvedNames")}
               type="text"
-              className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.involvedNames ? 'border-red-500' : ''}`}
               placeholder="Enter names"
             />
             {errors.involvedNames && <span className="text-red-500 text-sm">{errors.involvedNames.message}</span>}
@@ -101,7 +101,7 @@ const handleDengerousItems = watch("handledDangerousItems");
             Specific Details Of Incident
             <textarea
               {...register("incidentDetails", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black uppercase border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
               placeholder="Enter details here..."
             />
             {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}

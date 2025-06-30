@@ -36,14 +36,14 @@ const DeathDetails = () => {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow mt-10 px-1 md:px-0">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex-grow md:mt-10 px-1 md:px-0">
 
           {/* Did Anyone Close To You Pass Away? */}
           <label className="block text-lg font-medium text-gray-700">
             Did Anyone Close To You (Service Member Or Civilian) Pass Away?
             <select
               {...register("passedAway", { required: "This field is required" })}
-              className={`mt-1 block text-sm w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none ${errors.passedAway ? 'border-red-500' : ''}`}
+              className={`mt-1 block text-sm w-full dark:bg-white dark:border-black dark:text-black p-2 border border-gray-300 uppercase rounded-md focus:outline-none ${errors.passedAway ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>SELECT AN OPTION</option>
@@ -61,7 +61,7 @@ const DeathDetails = () => {
                 Type Of Death:
                 <select
                   {...register("deathType", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border text-sm border-gray-300 rounded-md focus:outline-none ${errors.deathType ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border text-sm border-gray-300 rounded-md focus:outline-none ${errors.deathType ? 'border-red-500' : ''}`}
                   defaultValue=""
                 >
                   <option value="" disabled>SELECT AN OPTION</option>
@@ -77,7 +77,7 @@ const DeathDetails = () => {
                 Relationship To The Deceased
                 <select
                   {...register("relationship", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none ${errors.relationship ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full dark:bg-white dark:border-black dark:text-black p-2 border border-gray-300 uppercase rounded-md text-sm focus:outline-none ${errors.relationship ? 'border-red-500' : ''}`}
                   defaultValue=""
                 >
                   <option value="" disabled>SELECT AN OPTION</option>
@@ -95,7 +95,7 @@ const DeathDetails = () => {
                 Please Provide Any Details Of The Incident Including Names And Dates Of The Deceased.
                 <textarea
                   {...register("incidentDetails", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border uppercase border-gray-300 rounded-md text-sm focus:outline-none h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border uppercase border-gray-300 rounded-md text-sm focus:outline-none h-32 resize-none ${errors.incidentDetails ? 'border-red-500' : ''}`}
                   placeholder="Enter details here..."
                 />
                 {errors.incidentDetails && <span className="text-red-500 text-sm">{errors.incidentDetails.message}</span>}

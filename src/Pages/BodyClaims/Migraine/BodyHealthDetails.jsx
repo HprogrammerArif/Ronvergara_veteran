@@ -52,7 +52,7 @@ const BodyHealthDetails = () => {
   };
 
   return (
-    <div className="min-h-screen md:bg-gray-100 flex items-center justify-center md:p-4">
+    <div className="md:min-h-screen min-h-[85vh] dark:bg-white md:bg-gray-100 flex items-center justify-center pt-5 md:p-4">
       <div className="bg-white md:shadow-md rounded-lg md:p-6 p-2 w-full max-w-4xl space-y-6 my-10">
         {/* Header Section */}
       <div className="flex flex-col items-center bg-[#0A3161] p-8 rounded-md md:w-3/6 mx-auto">
@@ -81,7 +81,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("decreasedRangeOfMotion", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.decreasedRangeOfMotion ? "border-red-500" : ""
               }`}
             >
@@ -109,7 +109,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("instability", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.instability ? "border-red-500" : ""
               }`}
             >
@@ -137,7 +137,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("chronicPain", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.chronicPain ? "border-red-500" : ""
               }`}
             >
@@ -165,7 +165,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("difficultyDailyTasks", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.difficultyDailyTasks ? "border-red-500" : ""
               }`}
             >
@@ -193,7 +193,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("limitedPhysicalActivities", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.limitedPhysicalActivities ? "border-red-500" : ""
               }`}
             >
@@ -211,7 +211,7 @@ const BodyHealthDetails = () => {
             {formValues.limitedPhysicalActivities === "yes" && (
               <textarea
                 {...register("limitedPhysicalActivitiesDetails")}
-                className="mt-2 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
+                className="mt-2 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
                 placeholder="Please provide details"
               />
             )}
@@ -229,7 +229,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("difficultyWalkingStanding", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.difficultyWalkingStanding ? "border-red-500" : ""
               }`}
             >
@@ -247,7 +247,7 @@ const BodyHealthDetails = () => {
             {formValues.difficultyWalkingStanding === "yes" && (
               <textarea
                 {...register("difficultyWalkingStandingDetails")}
-                className="mt-2 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
+                className="mt-2 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
                 placeholder="Please provide details"
               />
             )}
@@ -264,7 +264,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("giveUpHobbies", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.giveUpHobbies ? "border-red-500" : ""
               }`}
             >
@@ -282,7 +282,7 @@ const BodyHealthDetails = () => {
             {formValues.giveUpHobbies === "yes" && (
               <textarea
                 {...register("hobbiesList")}
-                className="mt-2 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
+                className="mt-2 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
                 placeholder="Please list the hobbies"
               />
             )}
@@ -299,7 +299,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("jointsPopCrack", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.jointsPopCrack ? "border-red-500" : ""
               }`}
             >
@@ -317,7 +317,7 @@ const BodyHealthDetails = () => {
             {formValues.jointsPopCrack === "yes" && (
               <textarea
                 {...register("jointsPopCrackDetails")}
-                className="mt-2 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
+                className="mt-2 block w-full p-2 border dark:bg-white dark:border-black dark:text-black border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-20 resize-none"
                 placeholder="Please provide details"
               />
             )}
@@ -330,7 +330,7 @@ const BodyHealthDetails = () => {
               {...register("tingling", { required: "This field is required" })}
               value={formValues.tingling}
               onChange={(e) => handleSelectChange("tingling", e.target.value)}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.tingling ? "border-red-500" : ""
               }`}
             >
@@ -354,7 +354,7 @@ const BodyHealthDetails = () => {
               {...register("sensation", { required: "This field is required" })}
               value={formValues.sensation}
               onChange={(e) => handleSelectChange("sensation", e.target.value)}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 border dark:bg-white dark:border-black dark:text-black border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.sensation ? "border-red-500" : ""
               }`}
             >
@@ -381,7 +381,7 @@ const BodyHealthDetails = () => {
               })}
               value={formValues.stuckInBed}
               onChange={(e) => handleSelectChange("stuckInBed", e.target.value)}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.stuckInBed ? "border-red-500" : ""
               }`}
             >
@@ -409,7 +409,7 @@ const BodyHealthDetails = () => {
               onChange={(e) =>
                 handleSelectChange("greatlyDecreased", e.target.value)
               }
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+              className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
                 errors.greatlyDecreased ? "border-red-500" : ""
               }`}
             >
@@ -427,7 +427,7 @@ const BodyHealthDetails = () => {
           </label>
 
          {/* Buttons */}
-        <div className="flex flex-col justify-center gap-4 mx-auto">
+        {/* <div className="flex flex-col justify-center gap-4 mx-auto">
         <button
           type="submit"
           
@@ -449,7 +449,24 @@ const BodyHealthDetails = () => {
                     >
                       Back
                     </button>
-                  </div>
+                  </div> */}
+
+                   <div className="flex justify-center gap-4 mt-6">
+  <Link
+    to="#"
+    className="bg-white text-blue-800 px-6 py-2 border border-blue-800 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-center font-semibold"
+    onClick={() => window.history.back()}
+  >
+    Back
+  </Link>
+
+  <button
+    type="submit"
+    className="bg-[#B31942] text-white px-6 py-2 rounded-md hover:bg-[#aa2b4d] focus:outline-none focus:ring-2 focus:ring-red-500 w-full font-semibold"
+  >
+    Continue
+  </button>
+</div>
         </form>
       </div>
     </div>

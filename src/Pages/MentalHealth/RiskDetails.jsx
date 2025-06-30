@@ -15,7 +15,7 @@ const RiskDetails = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 pt-10 pb-10 mt-10">
+    <div className="flex justify-center items-center min-h-[85vh] md:min-h-screen bg-gray-100 pt-10 md:pb-10 mt-10">
       <div className="md:p-6 p-2 rounded-lg w-full max-w-4xl flex flex-col justify-between">
         {/* Header Section */}
         <div className="bg-[#002B5C] w-full rounded-lg p-6 mb-6 flex flex-col items-center">
@@ -32,7 +32,7 @@ const RiskDetails = () => {
             Were Others Lives At Risk On A Day To Day Basis Due To The Nature Of Your Job?
             <select
               {...register("livesAtRisk", { required: "This field is required" })}
-              className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.livesAtRisk ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full p-2 border border-gray-300 dark:bg-white dark:border-black dark:text-black uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.livesAtRisk ? 'border-red-500' : ''}`}
               defaultValue=""
             >
               <option value="" disabled>Select an option</option>
@@ -51,7 +51,7 @@ const RiskDetails = () => {
                 <input
                   {...register("jobAssignmentDates", { required: "This field is required" })}
                   type="date"
-                  className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobAssignmentDates ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.jobAssignmentDates ? 'border-red-500' : ''}`}
                 />
                 {errors.jobAssignmentDates && <span className="text-red-500 text-sm">{errors.jobAssignmentDates.message}</span>}
               </label>
@@ -61,7 +61,7 @@ const RiskDetails = () => {
                 Type Of Risk
                 <select
                   {...register("riskType", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.riskType ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${errors.riskType ? 'border-red-500' : ''}`}
                   defaultValue=""
                 >
                   <option value="" disabled>Select risk type</option>
@@ -74,11 +74,11 @@ const RiskDetails = () => {
               </label>
 
               {/* Stressful Scenarios */}
-              <label className="block text-lg font-medium text-gray-700 pb-10">
+              <label className="block text-lg font-medium text-gray-700">
                 Please Provide Any Particular Stressful Scenarios That Stood Out Or Occurred Related To Your Job.
                 <textarea
                   {...register("stressfulScenarios", { required: "This field is required" })}
-                  className={`mt-1 block w-full p-2 border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.stressfulScenarios ? 'border-red-500' : ''}`}
+                  className={`mt-1 block w-full p-2 dark:bg-white dark:border-black dark:text-black border border-gray-300 uppercase rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none ${errors.stressfulScenarios ? 'border-red-500' : ''}`}
                   placeholder="Enter details here..."
                 />
                 {errors.stressfulScenarios && <span className="text-red-500 text-sm">{errors.stressfulScenarios.message}</span>}
@@ -87,7 +87,7 @@ const RiskDetails = () => {
           )}
 
           {/* Buttons */}
-              <div className="flex justify-center gap-4 md:mt-20 mt-10 pb-10 md:pb-0 items-center">
+              <div className="flex justify-center gap-4 md:mt-20  pb-10 md:pb-0 items-center">
          
                      <div className="w-[165px] md:w-[200px]">
                        <Link

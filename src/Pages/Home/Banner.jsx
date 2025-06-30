@@ -9,12 +9,12 @@ const HeroSection = () => {
           "url('https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750426678/Screenshot_2025-06-20_193709_lxyqnc.png')",
       }}
     >
-      {/* Backdrop overlay with blur */}
+
       <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
 
-      {/* Content */}
+
       <div className="relative z-10 container mx-auto md:px-6 px-3 py-20 flex flex-col md:flex-row gap-10 items-center justify-center min-h-screen text-white">
-        {/* Left text side */}
+
         <div className="md:w-1/2 space-y-6 text-center md:text-left">
           <h1 className="text-4xl md:text-8xl text-[#0B2A52] font-bold">
             VA Benefits <br /> <span className="md:text-7xl">Made Simple</span>
@@ -30,7 +30,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right image side */}
+
         <div className="md:w-1/2 w-full mt-8 md:mt-0 flex justify-center relative">
           <img
             src="https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750427954/Untitled_design_4_mgcob5.png"
@@ -38,7 +38,6 @@ const HeroSection = () => {
             className="rounded-2xl shadow-lg md:w-[650px] object-cover md:h-[700px]"
           />
 
-          {/* Logo positioned at left bottom of the image */}
           <div className="absolute -bottom-6 md:-bottom-20 md:-right-5 -right-2 md:left-[560px] flex items-center justify-end">
             <img
               src="https://res.cloudinary.com/dpi0t9wfn/image/upload/v1750428531/Untitled_design_6_fbjvbd.png"
