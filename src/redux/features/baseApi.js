@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const baseApi = createApi({
     reducerPath: 'baseApi',
-    
-    // http://192.168.10.124:2000/
+
+    // https://rongever.duckdns.org/
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://192.168.10.124:2000/',
         // baseUrl: "http://192.168.10.124:2000",
@@ -15,35 +15,37 @@ export const baseApi = createApi({
             return headers;
         },
     }),
+    tagTypes: ["user"],
     endpoints: (builder) => ({
-    
+
         //create user
         createUser: builder.mutation({
             query: (userData) => ({
                 url: "api/auth/register/",
                 method: "POST",
                 body: userData,
-                        
+
             }),
         }),
 
         //loggedIn user
         loggedInUser: builder.mutation({
-            query: (userData) =>({
+            query: (userData) => ({
                 url: "api/auth/login/",
                 method: "POST",
-                body: userData
+                body: userData,
+                provideTags: ["user"]
             })
         }),
 
         //getLoggedUser
         getLoggedUser: builder.query({
-            query: ()=>"api/auth/profile/"
+            query: () => "api/auth/profile/"
         }),
 
         // forget password
         forgetPassword: builder.mutation({
-            query: (email)=>({
+            query: (email) => ({
                 url: "api/auth/otp/create/",
                 method: "POST",
                 body: email
@@ -52,16 +54,16 @@ export const baseApi = createApi({
 
         //otpVerification
         otpVerification: builder.mutation({
-                query: ({email,otp}) =>({
-                    url: "api/auth/otp/verify/",
-                    method: "POST",
-                    body: {email, otp }  
-                })
-            }), 
+            query: ({ email, otp }) => ({
+                url: "api/auth/otp/verify/",
+                method: "POST",
+                body: { email, otp }
+            })
+        }),
 
         //resetPassword
         resetPassword: builder.mutation({
-            query: (payload) =>({
+            query: (payload) => ({
                 url: "api/auth/password-reset/confirm/",
                 method: "POST",
                 body: payload
@@ -70,12 +72,12 @@ export const baseApi = createApi({
 
         //subcription
         getPlans: builder.query({
-            query: ()=>"api/payment/get_all/subscribtions-plan/"
+            query: () => "api/payment/get_all/subscribtions-plan/"
         }),
 
         //payment
         paymentCheckout: builder.mutation({
-            query: (payload) =>({
+            query: (payload) => ({
                 url: "api/payment/create-checkout-session/",
                 method: "POST",
                 body: payload
@@ -83,19 +85,11 @@ export const baseApi = createApi({
         }),
         //va form start
 
-        //vainformation
-        // verternInfo: builder.mutation({
-        //     query: (vaData) =>({
-        //         url: "api/va/vaform/submit/",
-        //         method: "POST",
-        //         body: vaData
-        //     })
-        // })
 
 
         //generate narration
         generateNarration: builder.mutation({
-            query: (narratioData)=>({
+            query: (narratioData) => ({
                 url: "api/va/narration/narration_genarate/",
                 method: "POST",
                 body: narratioData
@@ -103,36 +97,87 @@ export const baseApi = createApi({
         }),
 
 
+        //chatsection
+
+        startChat: builder.mutation({
+            query: (subject) => ({
+                url: "api/support/start-chat/",
+                method: "POST",
+                body: { subject }
+            })
+        }),
+
+
+        //send message
+        sendMessage: builder.mutation({
+            query: ({ chatId, message, type = "text" }) => ({
+                url: `api/support/send-message/${chatId}`,
+                method: "POST",
+                body: { message, type }
+            })
+        }),
+
+
+        //getChat
+        getMessages: builder.query({
+            query: (chatId) => `api/support/get-messages/${chatId}/`, // API endpoint for fetching messages
+        }),
 
         //adminDashboard
 
         //userManagement
         getUsers: builder.query({
-            query: ()=>"api/payment/get_all/subscribtions/"
+            query: () => "api/payment/get_all/subscribtions/",
+            providesTags: ["loggedIn"]
+
         }),
 
-        getDashboardInfo:builder.query({
-            query: ()=> "api/payment/get_all/calculate_for_dashboard/"
+        getDashboardInfo: builder.query({
+            query: () => "api/payment/get_all/calculate_for_dashboard/"
         }),
 
         monthlyRevenue: builder.query({
-            query: ()=> "api/payment/get_all/calculate_yearly_revenue/"
+            query: () => "api/payment/get_all/calculate_yearly_revenue/"
         }),
 
         //pdf view
-        getPdfs:builder.query({
-            query: ()=>"api/va/vaform/generated/list/"
+        getPdfs: builder.query({
+            query: () => "api/va/vaform/generated/list/"
         }),
 
         getPaymentList: builder.query({
-            query: ()=>"api/dashboard/payments/list/"
+            query: () => "api/dashboard/payments/list/"
+        }),
+
+        //loggedIn user
+        uploadDDOneFour: builder.mutation({
+            query: (data) => ({
+                url: "api/vaform/submit/",
+                method: "POST",
+                body: data
+            })
+        }),
+        //update profile
+        updateUserProfile: builder.mutation({
+            query: ({ data, id }) => ({
+                url: `api/auth/profile/`,
+                method: "PUT",
+                body: data
+            }),
+            invalidatesTags: ["loggedIn"]
+        }),
+
+        //getForms
+        getForms: builder.query({
+            query: () => "api/dashboard/forms/review/"
         })
-    
+
+
 
     }),
 });
 
-export const { 
+export const {
     //create user
     useCreateUserMutation,
 
@@ -153,7 +198,7 @@ export const {
 
     //getProfile
 
-    
+
     //generate Narration
     useGenerateNarrationMutation,
 
@@ -165,17 +210,27 @@ export const {
 
     // vainfo
     // useVerternInfoMutation,
-    
+
 
     //getPdfs
     useGetPdfsQuery,
 
+    //upload image
+    useUploadDDOneFourMutation,
+    useUpdateUserProfileMutation,
 
+
+
+    //chatmessage
+    useSendMessageMutation,
+    useStartChatMutation,
+    useGetMessagesQuery,
 
     //admindashboard
     useGetUsersQuery,
     useGetDashboardInfoQuery,
     useMonthlyRevenueQuery,
     useGetPaymentListQuery,
+    useGetFormsQuery,
 
 } = baseApi;

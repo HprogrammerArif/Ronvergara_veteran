@@ -25,29 +25,9 @@ export default function Dashboard() {
         { name: "Payment", icon: <LuBadgeDollarSign   size={20} />, path: "/admin/payment" },
         { name: "Document", icon: <LuStickyNote     size={20} />, path: "/admin/document" },
         { name: "Submission", icon: <AiOutlineAudit   size={20} />, path: "/admin/submission" },
-
-        // { 
-        //   name: "Settings",
-        //   icon: <IoMdSettings size={20} />, 
-        //   path: "/admin/settings",
-        //   submenu: true,
-        //   children: [
-        //     {
-        //       name: "Privacy Policy",
-        //       icon: null,
-        //       path: "/admin/settings/privacy_policy",
-        //     },
-        //     {
-        //       name: "Terms & Conditions",
-        //       icon: null,
-        //       path: "/admin/settings/terms_conditions",
-        //     },
-        //   ]
-        // },
       ],
     },
   ];
-
 
   const handleLogOut = () =>{
     localStorage.removeItem("access_token");
@@ -56,7 +36,6 @@ export default function Dashboard() {
     navigate("/login")
   }
   useEffect(() => {
-    // Check both main items and submenu items for current route
     const allItems = menuItems[0].items;
     let currentItem = allItems.find(item => item.path === location.pathname);
     
@@ -207,11 +186,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="flex items-center gap-4 me-10">
-              {/* <Link to="/admin/notification">
-              <button className="p-2 bg-[#FAE08C1A] hover:bg-[#f8de91] border-2 border-[#B28D2833] rounded-full transition-colors duration-300">
-                <Bell size={24} className="text-[#B28D28]" />
-              </button>
-              </Link> */}
+            
               <div className="flex items-center justify-center gap-2">
                 <div className="w-12">
                   <img

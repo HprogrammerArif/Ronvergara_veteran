@@ -1,38 +1,88 @@
 import React, { useState } from 'react';
+import { useUploadDDOneFourMutation } from '../../redux/features/baseApi';
+import { toast, Toaster } from 'sonner';
 
 const DD214 = () => {
-  const [uploadedFile, setUploadedFile] = useState(null);
+ const [uploadedFile, setUploadedFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [uploadDDOneFourDoc, { isLoading }] = useUploadDDOneFourMutation();
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
+
     if (file) {
+      const validImageTypes = ["image/jpeg", "image/png", "image/gif"/ "image/pdf"];
+      if (!validImageTypes.includes(file.type)) {
+        toast.error("Please upload a valid image file (JPEG, PNG, or GIF, PDF).");
+        return;
+      }
+
       setUploadedFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
     }
   };
 
-  return (
+  const handleSubmitFile = async () => {
+    if (!uploadedFile) {
+      toast.error("No file selected.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", uploadedFile);
+
+    try {
+      const res = await uploadDDOneFourDoc(formData).unwrap();
+      toast.success("Document uploaded successfully!");
+      console.log({res});
+    } catch (error) {
+      toast.error("Something went wrong during upload.");
+      console.error(error);
+    }
+  };
+
+  const handleRemoveFile = () => {
+    setUploadedFile(null);
+    setPreviewUrl(null);
+  };
+
+    return (
     <section className="h-screen bg-gray-200 flex flex-col justify-center items-center pt-10 px-2 md:px-0">
-      <h1 className="text-[#0A3161] md:text-4xl text-xl text-center font-bold pb-10">DD-214 Upload & Auto-Population</h1>
+      <Toaster />
+      <h1 className="text-[#0A3161] md:text-4xl text-xl text-center font-bold pb-10">
+        DD-214 Upload & Auto-Population
+      </h1>
+
       <div className="bg-white md:p-20 flex items-center justify-center md:h-[50vh] md:w-[50vw] h-[60vh] w-full md:px-0 shadow-lg rounded-lg">
         <div className="flex flex-col items-center justify-center">
           {uploadedFile ? (
             <div className="text-center px-2 md:px-0">
               <h2 className="text-xl font-semibold mb-4">Uploaded File:</h2>
-              {uploadedFile.type.startsWith('image/') ? (
+              {uploadedFile.type.startsWith("image/") ? (
                 <img
-                  src={URL.createObjectURL(uploadedFile)}
+                  src={previewUrl}
                   alt="Uploaded file preview"
                   className="max-w-full max-h-64 rounded-md"
                 />
               ) : (
                 <p className="text-gray-600">{uploadedFile.name}</p>
               )}
-              <button
-                onClick={() => setUploadedFile(null)}
-                className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-              >
-                Remove File
-              </button>
+
+              <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
+                <button
+                  onClick={handleSubmitFile}
+                  disabled={isLoading}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50"
+                >
+                  {isLoading ? "Uploading..." : "Submit File"}
+                </button>
+                <button
+                  onClick={handleRemoveFile}
+                  className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                >
+                  Remove File
+                </button>
+              </div>
             </div>
           ) : (
             <div className="text-center">
@@ -58,7 +108,7 @@ const DD214 = () => {
                   <input
                     type="file"
                     className="hidden"
-                    accept="*/*"
+                    accept="image/jpeg,image/png,image/gif"
                     onChange={handleFileUpload}
                   />
                 </label>
@@ -68,7 +118,7 @@ const DD214 = () => {
         </div>
       </div>
     </section>
-  );
-};
+    );
+  };
 
-export default DD214;
+  export default DD214;

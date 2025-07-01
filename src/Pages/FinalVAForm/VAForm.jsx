@@ -139,13 +139,7 @@ const VAForm = () => {
                       >
                         View PDF
                       </a>
-                      {/* <a
-                      href={`${baseURL}${doc.file}`}  // Use base URL + relative path to the file
-                      download 
-                      target="_blank" // This triggers the download of the file
-                      className="btn btn-sm bg-green-600 text-white hover:bg-green-700">
-                    Download PDF
-                        </a> */}
+                    
                     </td>
                   </tr>
                 ))}

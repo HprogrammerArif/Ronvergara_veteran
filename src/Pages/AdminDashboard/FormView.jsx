@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Search, Filter, MoreVertical, X } from "lucide-react";
+import { useGetFormsQuery } from "../../redux/features/baseApi";
+import { form } from "framer-motion/client";
 
 const submissionsData = [
   { form: "VA-21-526EZ", submittedBy: "Pappy roy", status: "Pending review", submittedDate: "Jan 15, 2023", veteranName: "John Smith", serviceBranch: "US Army", serviceHistory: "US Army, 2010-2018", lastLogin: "Today at 9:42 AM", disabilities: ["Post-Traumatic Stress Disorder", "Hearing Loss", "Back Injury"], documents: ["Medical Records", "DD-214 Certificate", "Personal Statement"] },
@@ -18,6 +20,8 @@ export default function FormView() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSubmission, setSelectedSubmission] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const {data:formData} = useGetFormsQuery();
+  console.log("formData", formData)
 
   const filteredSubmissions = submissionsData.filter(
     (submission) =>
@@ -232,3 +236,5 @@ export default function FormView() {
     </div>
   );
 }
+
+

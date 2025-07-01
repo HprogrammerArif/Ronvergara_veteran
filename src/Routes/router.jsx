@@ -81,6 +81,7 @@ import Dashboard from "../Pages//AdminDashboard/Dashboard";
 import ProgressMessageForm from "../Pages/BodyClaims/Migraine/ProgressMessageForm";
 import RouteSecure from "../hooks/RouteSecure";
 import NoSubscription from "../Pages/NoSubcription/NoSubscription";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -104,6 +105,7 @@ export const router = createBrowserRouter([
       { path: "/calculator", element: <Calculator /> },
       { path: "/about_us", element: <AboutUs /> },
       { path: "/contact", element: <ContactForm /> },
+      { path: "/va-form", element: <VAForm /> },
 
       //mental-health-info
       { path: "/mental_health_info", element: <RouteSecure><MentalHealthForm /></RouteSecure> },
@@ -205,7 +207,7 @@ export const router = createBrowserRouter([
 
   {
     path: "admin",
-    element: <Dashboard/>,
+    element: <ProtectedRoute><Dashboard/></ProtectedRoute>,
     children: [
       { index: true, element: <Admin_home /> },
       { path: "admin_home", element: <Admin_home /> },
