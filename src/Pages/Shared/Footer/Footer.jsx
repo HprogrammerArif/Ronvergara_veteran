@@ -56,12 +56,12 @@ export default function Footer() {
               <li className="flex items-center">
                 <span className="mr-2 text-red-500"><IoMailOutline  className="text-lg text-[#B31942]"/>
 </span>
-                <a href="mailto:Pappyroy6393@gmail.com" className="hover:text-white">@gmail.com</a>
+                <a href="mailto:Pappyroy6393@gmail.com" className="hover:text-white">support@valrpro.com</a>
               </li>
               <li className="flex items-center">
                 <span className="mr-2 text-red-500"><BsTelephone className="text-lg text-[#B31942]" />
 </span>
-                <a href="tel:01405366393" className="hover:text-white">0123456789</a>
+                <a href="tel:01405366393" className="hover:text-white">725-258-6118</a>
               </li>
             </ul>
           </div>

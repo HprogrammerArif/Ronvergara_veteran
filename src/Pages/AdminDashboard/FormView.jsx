@@ -20,7 +20,7 @@ export default function FormView() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSubmission, setSelectedSubmission] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const {data:formData} = useGetFormsQuery();
+  const {data:formData, isLoading} = useGetFormsQuery();
   console.log("formData", formData)
 
   const filteredSubmissions = submissionsData.filter(
