@@ -13,7 +13,6 @@
 //   const [showNewChatForm, setShowNewChatForm] = useState(false);
 //   const messagesEndRef = useRef(null);
 
-  
 //   useEffect(() => {
 //     const initFirebase = async () => {
 //       try {
@@ -24,7 +23,7 @@
 //           },
 //         });
 //         const data = await response.json();
-        
+
 //         if (data.success) {
 //           const app = initializeApp(data.config);
 //           const db = getDatabase(app);
@@ -76,7 +75,7 @@
 //     };
 
 //     loadChats();
-    
+
 //     return () => {
 //       if (database && isAdmin) {
 //         const activeChatRef = ref(database, 'active_support_chats');
@@ -124,7 +123,7 @@
 //           subject: chatSubject || 'General Support'
 //         }),
 //       });
-      
+
 //       const data = await response.json();
 //       if (data.success) {
 //         setCurrentChat(data.firebase_chat_id);
@@ -151,7 +150,7 @@
 //           type: 'text'
 //         }),
 //       });
-      
+
 //       const data = await response.json();
 //       if (data.success) {
 //         setNewMessage('');
@@ -174,7 +173,7 @@
 //           'Content-Type': 'application/json',
 //         },
 //       });
-      
+
 //       const data = await response.json();
 //       if (data.success) {
 //         setCurrentChat(null);
@@ -192,13 +191,13 @@
 //         <div className="chat-header">
 //           <h3>{isAdmin ? 'Active Support Chats' : 'Your Support Chats'}</h3>
 //           {!isAdmin && (
-//             <button 
+//             <button
 //               onClick={() => setShowNewChatForm(true)}
-//               style={{ 
-//                 padding: '8px 16px', 
-//                 backgroundColor: '#007bff', 
-//                 color: 'white', 
-//                 border: 'none', 
+//               style={{
+//                 padding: '8px 16px',
+//                 backgroundColor: '#007bff',
+//                 color: 'white',
+//                 border: 'none',
 //                 borderRadius: '4px',
 //                 cursor: 'pointer',
 //                 marginBottom: '10px'
@@ -270,13 +269,13 @@
 //             <div className="chat-header" style={{ padding: '15px', borderBottom: '1px solid #ddd', backgroundColor: '#f8f9fa' }}>
 //               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 //                 <h4>Chat: {currentChat}</h4>
-//                 <button 
+//                 <button
 //                   onClick={() => closeChat(currentChat)}
-//                   style={{ 
-//                     padding: '5px 10px', 
-//                     backgroundColor: '#dc3545', 
-//                     color: 'white', 
-//                     border: 'none', 
+//                   style={{
+//                     padding: '5px 10px',
+//                     backgroundColor: '#dc3545',
+//                     color: 'white',
+//                     border: 'none',
 //                     borderRadius: '4px',
 //                     cursor: 'pointer'
 //                   }}
@@ -362,7 +361,6 @@
 
 // export default SupportChat;
 
-
 // import { useState } from "react"
 // import { PiPaperPlaneRightDuotone } from "react-icons/pi"
 
@@ -397,7 +395,7 @@
 
 //   return (
 //     <div className="flex flex-col h-[60vh] w-[400px] mx-auto bg-base-100 shadow-2xl rounded-xl overflow-hidden">
-     
+
 //       <div className="navbar bg-gradient-to-r from-[#0B2A52]/90 to-[#0B2A52] text-base-100 shadow-md px-4">
 //         <div className="flex-1">
 //           <div className="flex items-center gap-3">
@@ -410,9 +408,8 @@
 //             </div>
 //           </div>
 //         </div>
-       
-//       </div>
 
+//       </div>
 
 //       <div className="flex-1 overflow-y-auto p-4 bg-base-200 space-y-4 scroll-smooth">
 //         {messages.length === 0 ? (
@@ -485,191 +482,243 @@
 //   )
 // }
 
-
-
-import { useState, useEffect } from "react"
-import { PiPaperPlaneRightDuotone } from "react-icons/pi"
-import { useDispatch, useSelector } from "react-redux"
-import { useGetMessagesQuery, useSendMessageMutation, useStartChatMutation } from "../../redux/features/baseApi"
-import { addMessage, setCurrentChatId } from "../../redux/slice/chatSlice"
-import { HiOutlineChatAlt2 } from "react-icons/hi"
+import { useState, useEffect } from "react";
+import { PiPaperPlaneRightDuotone } from "react-icons/pi";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	useGetMessagesQuery,
+	useSendMessageMutation,
+	useStartChatMutation,
+} from "../../redux/features/baseApi";
+import { addMessage, setCurrentChatId } from "../../redux/slice/chatSlice";
+import { HiOutlineChatAlt2 } from "react-icons/hi";
 
 export default function SupportChat() {
-  const [newMessage, setNewMessage] = useState("") 
-  const [messages, setMessages] = useState([]) 
-  const [isTyping, setIsTyping] = useState(false)
+	const [newMessage, setNewMessage] = useState("");
+	const [subject, setSubject] = useState("");
+	const [messages, setMessages] = useState([]);
+	const [isTyping, setIsTyping] = useState(false);
 
-  const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-  const [startChat, { isLoading: isStartingChat, error: startChatError }] = useStartChatMutation()
-  const [sendMessage] = useSendMessageMutation()
+	const [startChat, { isLoading: isStartingChat, error: startChatError }] =
+		useStartChatMutation();
+	const [sendMessage] = useSendMessageMutation();
 
-  const currentChatId = useSelector((state) => state.chatSlice.currentChatId)
+	const currentChatId = useSelector((state) => state.chatSlice.currentChatId);
 
-  const { data: fetchedMessages, isLoading, error } = useGetMessagesQuery(currentChatId, {
-    skip: !currentChatId, 
-  })
+	const {
+		data: fetchedMessages,
+		isLoading,
+		error,
+	} = useGetMessagesQuery(currentChatId, {
+		skip: !currentChatId,
+	});
 
-  useEffect(() => {
-    if (fetchedMessages) {
-      const formattedMessages = fetchedMessages.messages.map((message) => ({
-        id: message.id,
-        content: message.content,
-        timestamp: new Date(message.timestamp),
-        // isSent: message.sender.id === 123, 
-      }))
-      setMessages(formattedMessages)
-    }
-  }, [fetchedMessages])
+	useEffect(() => {
+		if (fetchedMessages) {
+			const formattedMessages = fetchedMessages.messages.map(
+				(message) => ({
+					id: message.id,
+					content: message.content,
+					timestamp: new Date(message.timestamp),
+					// isSent: message.sender.id === 123,
+				})
+			);
+			setMessages(formattedMessages);
+		}
+	}, [fetchedMessages]);
 
-  const handleStartChat = async (subject) => {
-    if (!subject.trim()) return; 
+	const handleStartChat = async () => {
+		if (!subject.trim()) return;
 
-    try {
-      console.log("Starting chat with subject:", subject); 
-      const response = await startChat({ subject }).unwrap() 
-      const { chat } = response
-      console.log("Chat started successfully:", chat) 
-      dispatch(setCurrentChatId(chat.id)) 
-      setNewMessage("") 
-    } catch (error) {
-      console.error("Error starting chat:", error)
-    }
-  }
+		try {
+			console.log("Starting chat with subject:", subject);
+			const response = await startChat({ subject }).unwrap();
+			const { chat } = response;
+			console.log("Chat started successfully:", chat);
+			dispatch(setCurrentChatId(chat.firebase_chat_id));
+			setSubject("");
+		} catch (error) {
+			console.error("Error starting chat:", error);
+		}
+	};
 
-  const handleSendMessage = async (e) => {
-    e.preventDefault()
-    if (!newMessage.trim()) return
+	const handleSendMessage = async (e) => {
+		e.preventDefault();
+		if (!newMessage.trim()) return;
 
-    if (!currentChatId) {
-      handleStartChat(newMessage)
-    } else {
-      const message = {
-        content: newMessage,
-        type: "text", 
-      }
+		if (!currentChatId) {
+			handleStartChat(newMessage);
+		} else {
+			const message = {
+				content: newMessage,
+				type: "text",
+			};
 
-      try {
-        const response = await sendMessage({
-          chatId: currentChatId,
-          message: message.content,
-        }).unwrap()
+			try {
+				const response = await sendMessage({
+					chatId: currentChatId,
+					message: message.content,
+				}).unwrap();
 
-        const newMessageData = {
-          id: response.message.id,
-          content: response.message.content,
-          timestamp: new Date(response.message.timestamp),
-          isSent: true,
-        }
-        dispatch(addMessage(newMessageData))
-        setMessages((prevMessages) => [...prevMessages, newMessageData]) 
-        setNewMessage("") 
-      } catch (error) {
-        console.error("Error sending message:", error)
-      }
-    }
-  }
+				const newMessageData = {
+					id: response.message.id,
+					content: response.message.content,
+					timestamp: new Date(response.message.timestamp),
+					isSent: true,
+				};
+				dispatch(addMessage(newMessageData));
+				setMessages((prevMessages) => [
+					...prevMessages,
+					newMessageData,
+				]);
+				setNewMessage("");
+			} catch (error) {
+				console.error("Error sending message:", error);
+			}
+		}
+	};
 
-  const formatTime = (date) =>
-    date.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-    })
+	const formatTime = (date) =>
+		date.toLocaleTimeString("en-US", {
+			hour: "numeric",
+			minute: "2-digit",
+			hour12: true,
+		});
 
-  return (
-    <div className="flex flex-col h-[60vh]  w-[400px] mx-auto bg-base-100 shadow-2xl rounded-xl overflow-hidden">
-      <div className="navbar bg-gradient-to-r from-[#0B2A52]/90 to-[#0B2A52] text-base-100 shadow-md px-4">
-        <div className="flex-1">
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="w-10 h-10 rounded-full  bg-white/20"></div>
-            </div>
-            <div>
-              <h2 className="font-bold text-lg dark:text-white">Assistant</h2>
-              <p className="text-sm text-success">Online</p>
-            </div>
-          </div>
-        </div>
-      </div>
+	return (
+		<div className="flex flex-col h-[60vh]  w-[400px] mx-auto bg-base-100 shadow-2xl rounded-xl overflow-hidden">
+			<div className="navbar bg-gradient-to-r from-[#0B2A52]/90 to-[#0B2A52] text-base-100 shadow-md px-4">
+				<div className="flex-1">
+					<div className="flex items-center gap-3">
+						<div className="avatar">
+							<div className="w-10 h-10 rounded-full  bg-white/20"></div>
+						</div>
+						<div>
+							<h2 className="font-bold text-lg dark:text-white">
+								Assistant
+							</h2>
+							<p className="text-sm text-success">Online</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <div className="flex-1 overflow-y-auto p-4 bg-base-200 dark:bg-white space-y-4 scroll-smooth">
-        {isLoading ? (
-          <div className="flex justify-center items-center h-full">
-            <span>Loading...</span>
-          </div>
-        ) : error ? (
-          <div className="flex justify-center items-center h-full text-red-600">
-            <span>Error loading messages. Please try again.</span>
-          </div>
-        ) : messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-base-content/60">
-            <div className="text-6xl mb-3 animate-bounce dark:text-black"><HiOutlineChatAlt2 /></div>
-            <p className="text-center text-lg dark:text-gray-900 font-medium">Start the conversation!</p>
-          </div>
-        ) : (
-          messages.map((message, index) => (
-            <div
-              key={message.id}
-              className={`chat ${message.isSent ? "chat-end" : "chat-start"} fade-in-up`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {!message.isSent && (
-                <div className="chat-image avatar">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-secondary"></div>
-                </div>
-              )}
-              <div
-                className={`chat-bubble text-base ${
-                  message.isSent ? "chat-bubble-primary" : "chat-bubble-accent"
-                } shadow-md`}
-              >
-                {message.content}
-              </div>
-              <div className="chat-footer text-xs opacity-50 mt-1">{formatTime(message.timestamp)}</div>
-            </div>
-          ))
-        )}
+			<div className="flex-1 overflow-y-auto p-4 bg-base-200 dark:bg-white space-y-4 scroll-smooth">
+				{isLoading ? (
+					<div className="flex justify-center items-center h-full">
+						<span>Loading...</span>
+					</div>
+				) : error ? (
+					<div className="flex justify-center items-center h-full text-red-600">
+						<span>Error loading messages. Please try again.</span>
+					</div>
+				) : !currentChatId ? (
+					<div className="flex flex-col items-center justify-center h-full text-base-content/60">
+						<div className="text-6xl mb-3 animate-bounce dark:text-black">
+							<HiOutlineChatAlt2 />
+						</div>
+						<p className="text-center text-lg dark:text-gray-900 font-medium">
+							Start the conversation!
+						</p>
 
-        {isTyping && (
-          <div className="chat chat-start animate-pulse">
-            <div className="chat-image avatar">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-secondary"></div>
-            </div>
-            <div className="chat-bubble chat-bubble-accent">
-              <div className="flex space-x-1">
-                <div className="w-2 h-2 rounded-full bg-white animate-bounce"></div>
-                <div className="w-2 h-2 rounded-full bg-white animate-bounce delay-100"></div>
-                <div className="w-2 h-2 rounded-full bg-white animate-bounce delay-200"></div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+						<div className="w-full h-auto flex flex-col items-center justify-center py-10 gap-4">
+							<input
+								type="text"
+								placeholder="Chat Subject"
+								value={subject}
+								onChange={(e) => setSubject(e.target.value)}
+								className="py-3 w-full input input-bordered flex-1 rounded-md focus-white transition-all"
+							/>
 
-      <div className="p-4 bg-base-100 border-t border-base-300 dark:border-base-100">
-        <form onSubmit={handleSendMessage} className="flex gap-3 items-center">
-          <input
-            type="text"
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            placeholder={currentChatId ? "Type a message..." : "Enter chat subject..."}
-            className="input input-bordered flex-1 rounded-full focus-white transition-all"
-          />
-          <button
-            type="submit"
-            disabled={isStartingChat || !newMessage.trim()}
-            className={`btn btn-circle text-white cursor-pointer ${
-              newMessage.trim() && !isStartingChat
-                ? " hover:text-white  hover:scale-105 shadow-lg "
-                : "btn-disabled opacity-80"
-            }`}
-          >
-            <PiPaperPlaneRightDuotone className="text-black dark:text-white " size={22} />
-          </button>
-        </form>
-      </div>
-    </div>
-  )
+							<button
+								onClick={handleStartChat}
+								disabled={isStartingChat || !subject.trim()}
+								className={`w-full rounded-md flex items-center justify-center btn bg-[#0b2a52] text-white cursor-pointer`}
+							>
+								Start
+							</button>
+						</div>
+					</div>
+				) : (
+					messages.map((message, index) => (
+						<div
+							key={message.id}
+							className={`chat ${message.isSent ? "chat-end" : "chat-start"} fade-in-up`}
+							style={{ animationDelay: `${index * 100}ms` }}
+						>
+							{!message.isSent && (
+								<div className="chat-image avatar">
+									<div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-secondary"></div>
+								</div>
+							)}
+							<div
+								className={`chat-bubble text-base ${
+									message.isSent
+										? "chat-bubble-primary"
+										: "chat-bubble-accent"
+								} shadow-md`}
+							>
+								{message.content}
+							</div>
+							<div className="chat-footer text-xs opacity-50 mt-1">
+								{formatTime(message.timestamp)}
+							</div>
+						</div>
+					))
+				)}
+
+				{isTyping && (
+					<div className="chat chat-start animate-pulse">
+						<div className="chat-image avatar">
+							<div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-secondary"></div>
+						</div>
+						<div className="chat-bubble chat-bubble-accent">
+							<div className="flex space-x-1">
+								<div className="w-2 h-2 rounded-full bg-white animate-bounce"></div>
+								<div className="w-2 h-2 rounded-full bg-white animate-bounce delay-100"></div>
+								<div className="w-2 h-2 rounded-full bg-white animate-bounce delay-200"></div>
+							</div>
+						</div>
+					</div>
+				)}
+			</div>
+
+			{currentChatId && (
+				<div className="p-4 bg-base-100 border-t border-base-300 dark:border-base-100">
+					<form
+						onSubmit={handleSendMessage}
+						className="flex gap-3 items-center"
+					>
+						<input
+							type="text"
+							value={newMessage}
+							onChange={(e) => setNewMessage(e.target.value)}
+							placeholder={
+								currentChatId
+									? "Type a message..."
+									: "Enter chat subject..."
+							}
+							className="input input-bordered flex-1 rounded-full focus-white transition-all"
+						/>
+						<button
+							type="submit"
+							disabled={isStartingChat || !newMessage.trim()}
+							className={`btn btn-circle text-white cursor-pointer ${
+								newMessage.trim() && !isStartingChat
+									? " hover:text-white  hover:scale-105 shadow-lg "
+									: "btn-disabled opacity-80"
+							}`}
+						>
+							<PiPaperPlaneRightDuotone
+								className="text-black dark:text-white "
+								size={22}
+							/>
+						</button>
+					</form>
+				</div>
+			)}
+		</div>
+	);
 }
-
