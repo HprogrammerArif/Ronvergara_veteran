@@ -8,7 +8,6 @@ import { CheckCircle, ArrowRight, Download } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export default function PaymentSuccess({ initialTransactionId = "", initialAmount = "" }) {
-  const [transactionId, setTransactionId] = useState(initialTransactionId)
   const [amount, setAmount] = useState(initialAmount)
   const [date, setDate] = useState("")
 
@@ -46,10 +45,7 @@ export default function PaymentSuccess({ initialTransactionId = "", initialAmoun
             </div>
 
             <div className="bg-gray-50 rounded-lg p-4 space-y-3 mt-6">
-              <div className="flex justify-between">
-                <span className="text-gray-500">Transaction ID</span>
-                <span className="font-medium">{transactionId || "Loading..."}</span>
-              </div>
+              
             
               <div className="flex justify-between">
                 <span className="text-gray-500">Date</span>
@@ -64,16 +60,13 @@ export default function PaymentSuccess({ initialTransactionId = "", initialAmoun
           </div>
 
           <div className="p-6 pt-0 flex flex-col space-y-3">
-            <Link to="/veteran_information" className="w-full">
+            <Link to="/" className="w-full">
               <button className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition-colors flex items-center justify-center">
                 Continue to Next Phase
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>
-            {/* <button className="w-full border border-gray-300 text-gray-700 py-2 rounded-md hover:bg-gray-50 transition-colors flex items-center justify-center">
-              <Download className="mr-2 h-4 w-4" />
-              Download Receipt
-            </button> */}
+     
           </div>
         </div>
       </div>

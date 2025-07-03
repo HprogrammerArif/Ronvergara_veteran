@@ -38,7 +38,7 @@ const ContactForm = () => {
                     type="text"
                     placeholder="First Name"
                     {...register("first_name", { required: "First Name is required" })}
-                    className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600"
+                    className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600 dark:text-gray-100 dark:bg-gray-600"
                   />
                   {errors.first_name && <p className="text-red-500 text-xs mt-1">{errors.first_name.message}</p>}
                 </div>
@@ -48,7 +48,7 @@ const ContactForm = () => {
                     type="text"
                     placeholder="Last Name"
                     {...register("last_name", { required: "Last Name is required" })}
-                    className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600"
+                    className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600 dark:text-gray-100 dark:bg-gray-600"
                   />
                   {errors.last_name && <p className="text-red-500 text-xs mt-1">{errors.last_name.message}</p>}
                 </div>
@@ -61,7 +61,7 @@ const ContactForm = () => {
                   type="email"
                   placeholder="Email"
                   {...register("email", { required: "Email is required", pattern: /^\S+@\S+\.\S+$/ })}
-                  className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600"
+                  className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600 dark:text-gray-100 dark:bg-gray-600"
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
               </div>
@@ -73,7 +73,7 @@ const ContactForm = () => {
                   type="tel"
                   placeholder="Phone Number"
                   {...register("phone", { required: "Phone number is required" })}
-                  className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600"
+                  className="border border-gray-300 p-2 rounded w-full text-sm text-gray-600  dark:text-gray-100 dark:bg-gray-600"
                 />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
               </div>
@@ -84,7 +84,7 @@ const ContactForm = () => {
                 <textarea
                   placeholder="Your Message"
                   {...register("message", { required: "Message is required" })}
-                  className="border border-gray-300 p-2 rounded w-full h-24 text-sm text-gray-600"
+                  className="border border-gray-300 p-2 rounded w-full h-24 text-sm text-gray-600 dark:text-gray-100 dark:bg-gray-600"
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
               </div>

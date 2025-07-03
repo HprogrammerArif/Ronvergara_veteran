@@ -269,7 +269,7 @@ export default function Dashboard() {
 				</nav>
 			</aside>
 
-			<div className="flex-1 flex flex-col overflow-hidden">
+			<div className="flex-1 flex flex-col overflow-hidden dark:text-gray-900">
 				<header className="h-16 bg-white border-b border-gray-200">
 					<div className="h-full px-4 flex items-center justify-between">
 						<div className="flex items-center gap-4">
@@ -287,16 +287,18 @@ export default function Dashboard() {
 								<span className="text-gray-700 font-bold text-xl">
 									{selectedItem}
 								</span>
-								<h1>
-									Hi, Welcome{" "}
+								<h1 >
+									<span className="dark:text-gray-900">
+										Hi, Welcome{" "}
+										</span>
 									<span className="text-[#B28D28] font-bold">
 										{loggedUser?.name}
 									</span>
 								</h1>
 							</div>
 						</div>
-						<div className="flex items-center gap-4 me-10">
-							<div className="flex items-center justify-center gap-2">
+						<div className="flex items-center gap-4 me-10 dark:text-gray-900">
+							<div className="flex items-center justify-center gap-2 dark:text-gray-900">
 								<div className="w-12">
 									<img
 										src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -305,7 +307,7 @@ export default function Dashboard() {
 									/>
 								</div>
 								<div>
-									<h2 className="font-bold text-[14px]">
+									<h2 className="font-bold text-[14px] dark:text-gray-900">
 										{loggedUser?.name}
 									</h2>
 									<p className="text-gray-900 text-[13px]">
@@ -318,7 +320,7 @@ export default function Dashboard() {
 									</div>
 									<ul
 										tabIndex={0}
-										className="dropdown-content mt-4 menu bg-base-200 rounded-box z-50 w-32 p-2 shadow-md border border-gray-400"
+										className="dropdown-content mt-4 dark:text-gray-900 dark:bg-gray-100 menu bg-base-200 rounded-box z-50 w-32 p-2 shadow-md border border-gray-400"
 									>
 										<li>
 											<Link

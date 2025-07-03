@@ -368,15 +368,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetActiveChatsQuery } from "../../redux/features/baseApi";
 
-interface User {
-	id: string;
-	name: string;
+interface ActiveChatUserProps {
+	firebase_chat_id: string;
+	user_id: number;
+	user_name: string;
 	email: string;
-	avatar: string;
-	isOnline: boolean;
-	lastMessage: string;
-	timestamp: string;
-	unreadCount: number;
+	subject: string;
+	status: string;
+	last_message_at: string;
 }
 
 interface Message {
@@ -397,127 +396,31 @@ const LiveChat = () => {
 	const [newMessage, setNewMessage] = useState("");
 
 	// Mock data for users
-	const users: User[] = [
+	const users: ActiveChatUserProps[] = [
 		{
-			id: "1",
-			name: "John Doe",
-			email: "john@example.com",
-			avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-			isOnline: true,
-			lastMessage: "Hi, I need help with my account",
-			timestamp: "2 min ago",
-			unreadCount: 3,
+			firebase_chat_id: "chat_a1b2c3d4e5f6g7h8",
+			user_id: 123,
+			user_name: "john_doe",
+			subject: "Login Issues",
+			status: "in_progress",
+			last_message_at: "2025-07-01T10:45:00Z"
 		},
 		{
-			id: "2",
-			name: "Sarah Wilson",
-			email: "sarah@example.com",
-			avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b2ad?w=150",
-			isOnline: true,
-			lastMessage: "Thank you for your help!",
-			timestamp: "5 min ago",
-			unreadCount: 0,
+			firebase_chat_id: "chat_b2c3d4e5f6g7h8i9",
+			user_id: 124,
+			user_name: "jane_smith",
+			subject: "Payment Problem",
+			status: "open",
+			last_message_at: "2025-07-01T10:20:00Z"
 		},
 		{
-			id: "3",
-			name: "Mike Johnson",
-			email: "mike@example.com",
-			avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
-			isOnline: false,
-			lastMessage: "Can you check my transaction?",
-			timestamp: "1 hour ago",
-			unreadCount: 1,
-		},
-		{
-			id: "1",
-			name: "John Doe",
-			email: "john@example.com",
-			avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-			isOnline: true,
-			lastMessage: "Hi, I need help with my account",
-			timestamp: "2 min ago",
-			unreadCount: 3,
-		},
-		{
-			id: "2",
-			name: "Sarah Wilson",
-			email: "sarah@example.com",
-			avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b2ad?w=150",
-			isOnline: true,
-			lastMessage: "Thank you for your help!",
-			timestamp: "5 min ago",
-			unreadCount: 0,
-		},
-		{
-			id: "3",
-			name: "Mike Johnson",
-			email: "mike@example.com",
-			avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
-			isOnline: false,
-			lastMessage: "Can you check my transaction?",
-			timestamp: "1 hour ago",
-			unreadCount: 1,
-		},
-		{
-			id: "1",
-			name: "John Doe",
-			email: "john@example.com",
-			avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-			isOnline: true,
-			lastMessage: "Hi, I need help with my account",
-			timestamp: "2 min ago",
-			unreadCount: 3,
-		},
-		{
-			id: "2",
-			name: "Sarah Wilson",
-			email: "sarah@example.com",
-			avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b2ad?w=150",
-			isOnline: true,
-			lastMessage: "Thank you for your help!",
-			timestamp: "5 min ago",
-			unreadCount: 0,
-		},
-		{
-			id: "3",
-			name: "Mike Johnson",
-			email: "mike@example.com",
-			avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
-			isOnline: false,
-			lastMessage: "Can you check my transaction?",
-			timestamp: "1 hour ago",
-			unreadCount: 1,
-		},
-		{
-			id: "1",
-			name: "John Doe",
-			email: "john@example.com",
-			avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-			isOnline: true,
-			lastMessage: "Hi, I need help with my account",
-			timestamp: "2 min ago",
-			unreadCount: 3,
-		},
-		{
-			id: "2",
-			name: "Sarah Wilson",
-			email: "sarah@example.com",
-			avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b2ad?w=150",
-			isOnline: true,
-			lastMessage: "Thank you for your help!",
-			timestamp: "5 min ago",
-			unreadCount: 0,
-		},
-		{
-			id: "3",
-			name: "Mike Johnson",
-			email: "mike@example.com",
-			avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
-			isOnline: false,
-			lastMessage: "Can you check my transaction?",
-			timestamp: "1 hour ago",
-			unreadCount: 1,
-		},
+			firebase_chat_id: "chat_c3d4e5f6g7h8i9j0",
+			user_id: 125,
+			user_name: "mike_wilson",
+			subject: "Feature Request",
+			status: "open",
+			last_message_at: "2025-07-01T09:55:00Z",
+		}
 	];
 
 	// Mock data for messages
@@ -547,7 +450,7 @@ const LiveChat = () => {
 
 	const filteredUsers = users.filter(
 		(user) =>
-			user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			user.user_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			user.email.toLowerCase().includes(searchTerm.toLowerCase())
 	);
 
@@ -631,8 +534,8 @@ const LiveChat = () => {
 									<div className="flex items-center space-x-3">
 										<div className="relative">
 											<img
-												src={user.avatar}
-												alt={user.name}
+												src={"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+												alt={user.user_name}
 												className="w-10 h-10 rounded-full object-cover"
 											/>
 											<div
@@ -646,22 +549,21 @@ const LiveChat = () => {
 										<div className="flex-1 min-w-0">
 											<div className="flex items-center justify-between">
 												<p className="text-sm font-medium text-gray-900 truncate">
-													{user.name}
+													{user.user_name}
 												</p>
-												{user.unreadCount > 0 && (
+												{/* {user.unreadCount > 0 && (
 													<span className="bg-blue-600 text-white text-xs rounded-full px-2 py-1 min-w-[20px] text-center">
 														{user.unreadCount}
 													</span>
-												)}
+												)} */}
 											</div>
 											<p className="text-xs text-gray-500 truncate">
-												{user.email}
+												{/* {user.} */}
 											</p>
 											<p className="text-xs text-gray-400 truncate">
-												{user.lastMessage}
 											</p>
 											<p className="text-xs text-gray-400">
-												{user.timestamp}
+												{user.last_message_at}
 											</p>
 										</div>
 									</div>
@@ -679,7 +581,7 @@ const LiveChat = () => {
 									<div className="flex items-center space-x-3">
 										<div className="relative">
 											<img
-												src={selectedUser.avatar}
+												src={"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
 												alt={selectedUser.name}
 												className="w-10 h-10 rounded-full object-cover"
 											/>

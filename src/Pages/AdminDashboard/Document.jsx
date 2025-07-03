@@ -52,7 +52,7 @@ export default function Document() {
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
           </div>
-          <button className="btn btn-outline">
+          <button className="btn btn-outline dark:text-gray-900">
             <Filter className="h-5 w-5 mr-2" />
             Filter
           </button>
@@ -74,7 +74,7 @@ export default function Document() {
           </thead>
           <tbody>
             {filteredDocuments.map((doc, index) => (
-              <tr key={index} className="border-b">
+              <tr key={index} className="border-b dark:text-gray-900">
                 <td className="py-3 px-4 flex items-center gap-2">
                     <VscFilePdf  size={20}/>
                     {doc.document}
@@ -115,7 +115,7 @@ export default function Document() {
       {/* Modal */}
       {isModalOpen && selectedDocument && (
         <div className="modal modal-open">
-          <div className="modal-box max-w-2xl">
+          <div className="modal-box max-w-2xl dark:text-gray-200">
             {/* Modal Header */}
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center space-x-4">
@@ -128,7 +128,7 @@ export default function Document() {
                 </div>
                 <div>
                   <p className="font-bold text-lg">{selectedDocument.uploadedBy}</p>
-                  <p className="text-sm text-gray-500">{selectedDocument.email}</p>
+                  <p className="text-sm text-gray-100">{selectedDocument.email}</p>
                 </div>
               </div>
               <button onClick={closeModal} className="btn btn-sm btn-circle">

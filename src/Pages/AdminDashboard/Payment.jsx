@@ -67,7 +67,7 @@ export default function Payment() {
     </thead>
     <tbody>
       {paymentInfo?.map((payment, index) => (
-        <tr key={index} className="border-b">
+        <tr key={index} className="border-b dark:text-gray-900">
           <td className="py-3 px-4">
             <div>
               <p className="font-medium">{payment?.user_name}</p>

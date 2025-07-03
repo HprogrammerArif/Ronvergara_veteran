@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CiEdit } from "react-icons/ci";
 import { useGetLoggedUserQuery } from "../../redux/features/baseApi";
+import { toast, Toaster } from "sonner";
 
 const Profile = () => {
   const {
@@ -34,10 +35,10 @@ const Profile = () => {
       setIsLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log("Password change data:", data);
-      alert("Password changed successfully!");
+      toast.success("Password changed successfully!");
     } catch (error) {
       console.error("Failed to change password:", error);
-      alert("Failed to change password: Simulated error");
+      toast.error("Failed to change password: Simulated error");
     } finally {
       setIsLoading(false);
     }
@@ -50,17 +51,18 @@ const Profile = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setProfileData({ name: data.name, email: data.email, image:data.image });
       console.log("Profile update data:", data);
-      alert("Profile updated successfully!");
+      toast.success("Profile updated successfully!");
     } catch (error) {
       console.error("Failed to update profile:", error);
-      alert("Failed to update profile: Simulated error");
+      toast.error("Failed to update profile: Simulated error");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center dark:text-gray-100 dark:bg-gray-300">
+      <Toaster/>
       <div className="bg-white p-8 rounded-lg w-full max-w-2xl">
         {/* Profile Section */}
         <div className="flex items-start justify-start mb-6">
@@ -118,7 +120,7 @@ const Profile = () => {
                   {...register("name", {
                     required: "Name is required",
                   })}
-                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 "
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>

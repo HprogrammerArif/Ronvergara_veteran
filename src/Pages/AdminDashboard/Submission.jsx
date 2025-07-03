@@ -38,7 +38,7 @@ export default function Submission() {
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
           </div>
-          <button className="btn btn-outline">
+          <button className="btn btn-outline dark:text-gray-900">
             <Filter className="h-5 w-5 mr-2" />
             Filter
           </button>
@@ -60,7 +60,7 @@ export default function Submission() {
           </thead>
           <tbody>
             {filteredForms.map((form, index) => (
-              <tr key={index} className="border-b">
+              <tr key={index} className="border-b dark:text-gray-900">
                 <td className="py-3 px-4">{form.form}</td>
                 <td className="py-3 px-4">{form.submittedBy}</td>
                 <td className="py-3 px-4">

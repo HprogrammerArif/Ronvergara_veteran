@@ -162,7 +162,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(prev => !pr
           <input
             type="text"
             id="name"
-            className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800"
+            className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800 dark:text-gray-100"
             placeholder="Name"
             {...register('name', { required: 'Name is required' })}
           />
@@ -175,7 +175,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(prev => !pr
           <input
             type="email"
             id="email"
-            className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800"
+            className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800 dark:text-gray-100"
             placeholder="Enter Email"
             {...register('email', {
               required: 'Email is required',
@@ -196,7 +196,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(prev => !pr
     <input
       type={showPassword ? 'text' : 'password'}
       id="password"
-      className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800"
+      className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800 dark:text-gray-100"
       placeholder="Enter New Password"
       {...register('password', {
         required: 'Password is required',
@@ -225,7 +225,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(prev => !pr
     <input
       type={showConfirmPassword ? 'text' : 'password'}
       id="confirmPassword"
-      className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800"
+      className="w-full p-3 border border-gray-300 rounded-lg mt-2 text-sm text-gray-800 dark:text-gray-100"
       placeholder="Confirm New Password"
       {...register('confirmPassword', {
         required: 'Please confirm your password',

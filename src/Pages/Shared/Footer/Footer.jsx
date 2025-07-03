@@ -188,7 +188,7 @@ export default function Footer() {
 					</div>
 
 					{/* Helpful Links & Contact Info */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
 						{/* Helpful Links */}
 						<div>
 							<h3 className="text-base font-semibold mb-3 underline">
@@ -197,7 +197,7 @@ export default function Footer() {
 							<ul className="space-y-2 text-sm text-gray-300">
 								<li>
 									<a
-										href="/about"
+										href="/about_us"
 										className="hover:text-white"
 									>
 										About us
@@ -229,10 +229,10 @@ export default function Footer() {
 							</h3>
 							<ul className="space-y-3 text-sm text-gray-300">
 								<li className="flex items-center">
-									<IoMailOutline className="mr-2 text-[#B31942]" />
+									<IoMailOutline className="text-sm text-[#B31942]" />
 									<a
 										href="mailto:support@valrpro.com"
-										className="hover:text-white"
+										className="hover:text-white text-sm "
 									>
 										support@valrpro.com
 									</a>

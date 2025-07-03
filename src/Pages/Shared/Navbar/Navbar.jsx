@@ -386,7 +386,7 @@ export default function Navbar() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Name"
-                      className="input input-bordered w-full mb-2 text-black"
+                      className="input input-bordered w-full mb-2 text-black dark:text-gray-100 dark:bg-sky-900"
                     />
                     <input
                       type="email"
@@ -395,7 +395,7 @@ export default function Navbar() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Email"
-                      className="input input-bordered w-full mb-2 text-black"
+                      className="input input-bordered w-full mb-2 text-black dark:text-gray-100 dark:bg-sky-900"
                     />
                     <input
                       type="text"
@@ -403,7 +403,7 @@ export default function Navbar() {
                       value={formData.phone_number}
                       onChange={handleChange}
                       placeholder="Phone Number"
-                      className="input input-bordered w-full mb-2 text-black"
+                      className="input input-bordered w-full mb-2 text-black dark:text-gray-100 dark:bg-sky-900"
                     />
                   </>
                 ) : (
@@ -469,9 +469,7 @@ export default function Navbar() {
               </div>
             )}
 
-            {/* <form method="dialog">
-              
-            </form> */}
+         
           </div>
         </div>
       </dialog>
