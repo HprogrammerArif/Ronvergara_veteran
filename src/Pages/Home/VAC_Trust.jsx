@@ -25,7 +25,7 @@ const VAC_Trust = () => {
   
               <div className="flex items-start gap-4 lg:gap-8">
                 <div className="bg-[#0A3161] p-3 rounded-md">
-                  <img src={client} alt="" className="w-[40px] md:w-[67px] md:h-[67px]" />
+                  <img src={client} alt="" className="w-[40px] md:w-[75px] md:h-[67px]" />
                 </div>
                 <div className="w-full">
                   <h2 className="uppercase text-lg md:text-2xl font-semibold text-gray-900 mb-1">
@@ -40,7 +40,7 @@ const VAC_Trust = () => {
       
               <div className="flex items-start gap-4 lg:gap-8">
                 <div className="bg-[#0A3161] p-3 rounded-md">
-                  <img src={confidence} alt="" className="w-[40px] md:w-[67px] md:h-[67px]" />
+                  <img src={confidence} alt="" className="w-[40px] md:w-[75px] md:h-[67px]" />
                 </div>
                 <div className="w-full">
                   <h2 className="uppercase text-lg md:text-2xl font-semibold text-gray-900 mb-1">
@@ -55,7 +55,7 @@ const VAC_Trust = () => {
    
               <div className="flex items-start gap-4 lg:gap-8">
                 <div className="bg-[#0A3161] p-3 rounded-md">
-                  <img src={bar} alt="" className="w-[40px] md:w-[67px] md:h-[67px]" />
+                  <img src={bar} alt="" className="w-[40px] md:w-[75px] md:h-[67px]" />
                 </div>
                 <div className="w-full">
                   <h2 className="uppercase text-lg md:text-2xl font-semibold text-gray-900 mb-1">

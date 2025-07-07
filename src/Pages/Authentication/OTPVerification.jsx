@@ -1,11 +1,16 @@
-
 import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useOtpVerificationMutation } from "../../redux/features/baseApi";
+import { useOtpVerificationMutation, useResetPasswordMutation } from "../../redux/features/baseApi";
+import { Toaster, toast } from "sonner";
 
 const OTPVerification = () => {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,reset,
+    setValue,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       otp1: "",
       otp2: "",
@@ -15,11 +20,13 @@ const OTPVerification = () => {
       otp6: "",
     },
   });
+
   const [otpVerify, setOTPVerify] = useState(false);
   const [email, setEmail] = useState("");
   const inputRefs = useRef([]);
   const navigate = useNavigate();
   const [otpVerification] = useOtpVerificationMutation();
+  const [resetPassword] = useResetPasswordMutation();
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("email");
@@ -31,7 +38,7 @@ const OTPVerification = () => {
   }, []);
 
   const handleChange = (e, index) => {
-    const value = e.target.value.replace(/[^0-9]/g, ""); 
+    const value = e.target.value.replace(/[^0-9]/g, "");
     if (!value) return;
 
     setValue(`otp${index + 1}`, value.slice(-1), { shouldValidate: true });
@@ -46,42 +53,53 @@ const OTPVerification = () => {
       if (!e.target.value && index > 0) {
         inputRefs.current[index - 1].focus();
       }
-     
+
       setValue(`otp${index + 1}`, "", { shouldValidate: true });
     }
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const otp = Object.values(data).join("");
     localStorage.setItem("otp", otp);
+   
 
     if (otp.length === 6) {
-      console.log("OTP Entered:", otp);
-
       const email = localStorage.getItem("email");
 
-     try {
-      const response = otpVerification({email, otp}).unwrap();
-      console.log("otpveri", response)
-      setOTPVerify(true);
-      setTimeout(() => navigate("/reset_password"), 1000);
-     } catch (error) {
-      console.log("error", error)
-     }
+      try {
+        setOTPVerify(true); // Start loading
+        const response = await otpVerification({ email, otp }).unwrap();
+        console.log("OTP verified:", response);
 
-      
+        toast.success("OTP verified successfully!");
+        reset()
+        setTimeout(() => navigate("/reset_password"), 1000);
+      } catch (error) {
+        console.error("OTP verification failed", error);
+        toast.error("Invalid OTP. Please try again.");
+        setOTPVerify(false); 
+        reset()
+      }
     }
   };
 
-  const handleResend = () => {
-    console.log("Resend Code Triggered");
-    // TODO: Implement resend logic with forgetPassword mutation
+  const handleResend = async () => {
+    const email = localStorage.getItem("email");
+
+    try {
+      const response = await resetPassword({ email }).unwrap();
+      console.log("Resend response:", response);
+      toast.success("Verification code resent successfully.");
+    } catch (error) {
+      console.error("Resend error:", error);
+      toast.error("Failed to resend code. Try again.");
+    }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#0B2A52] text-white">
       <div className="max-w-md w-full p-4 md:px-0">
-        <h2 className="text-3xl font-bold mb-2 text-start">Account Verification</h2>
+        <h2 className="md:text-3xl text-2xl font-bold mb-2 text-start">Account Verification</h2>
         <p className="text-sm text-gray-300 mb-10 text-start">
           Enter the code sent to{" "}
           <span className="font-semibold text-white">{email || "user@example.com"}</span>
@@ -119,19 +137,22 @@ const OTPVerification = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#B31942] py-2 rounded-md text-white font-semibold hover:opacity-90"
+          className="w-full bg-[#B31942] py-2 rounded-md text-white uppercase font-semibold hover:opacity-90"
+          disabled={otpVerify}
           onClick={handleSubmit(onSubmit)}
         >
-          {otpVerify ? "Verifying OTP" : "Verify OTP"}
+          {otpVerify ? <span className="loading loading-bars loading-sm"></span> : "Verify OTP"}
         </button>
 
         <p className="mt-4 text-gray-300 text-end">
-          Did not receive code?{" "}
-          <span onClick={handleResend} className="text-[#B31942] font-semibold cursor-pointer">
+          Didn’t receive code?{" "}
+          <span onClick={handleResend} className="text-[#B31942] font-semibold hover:underline cursor-pointer">
             Resend
           </span>
         </p>
       </div>
+
+      <Toaster position="top-right" richColors />
     </div>
   );
 };

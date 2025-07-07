@@ -104,7 +104,7 @@ const ResetPassword = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#0B2A52] text-white">
       <div className="w-full max-w-md p-4">
-        <h2 className="text-3xl font-bold">Create New Password</h2>
+        <h2 className="md:text-3xl text-2xl font-bold">Create New Password</h2>
         <p className="text-sm text-gray-300 mb-6">
           Your new password must be unique from those previously used.
         </p>
@@ -124,7 +124,7 @@ const ResetPassword = () => {
                 message: "Password must be at least 8 characters long",
               },
             })}
-            className={`w-full px-4 py-3 rounded-md text-sm text-black mt-1 border ${
+            className={`w-full px-4 py-3 dark:bg-white dark:text-black rounded-md text-sm text-black mt-1 border ${
               errors.password ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Enter New Password"
@@ -141,7 +141,7 @@ const ResetPassword = () => {
               validate: (value) =>
                 value === watch("password") || "Passwords do not match",
             })}
-            className={`w-full px-4 py-3 rounded-md text-black mt-1 border text-sm ${
+            className={`w-full px-4 py-3 rounded-md dark:bg-white dark:text-black text-black mt-1 border text-sm ${
               errors.confirmPassword ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Confirm New Password"
@@ -152,10 +152,10 @@ const ResetPassword = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#B31942] py-2 mt-4 rounded-md text-white font-semibold hover:opacity-90"
+            className="w-full bg-[#B31942] py-2 uppercase mt-4 rounded-md text-white font-semibold hover:opacity-90"
             disabled={isLoading}
           >
-            {isLoading ? "Resetting..." : "Reset Password"}
+            {isLoading ? <span className="loading loading-bars loading-md"></span> : "Reset Password"}
           </button>
         </form>
       </div>

@@ -126,8 +126,9 @@ export default function Footer() {
 					presentation and processing of the VA disability claim.
 					<br />
 					<span className="block mt-2">
-						Copyright © 2025 VALR. All Rights Reserved.
+					© {new Date().getFullYear()} VALR. All Rights Reserved.
 					</span>
+
 				</p>
 			</div>
 		</footer>

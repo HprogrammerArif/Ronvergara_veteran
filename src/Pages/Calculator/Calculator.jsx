@@ -480,12 +480,7 @@ export default function VeteransDisabilityCalculator() {
             for the application that you have determined or selected for your use. We are not responsible for the
             preparation of any output or deliverable that you have determined or selected for your use.
           </p>
-          <p className="text-white text-xs text-center mt-4">
-            Website Powered by Wildwood LLC © September 2023. Please Review{" "}
-            <a href="#" className="underline hover:text-gray-300 transition-colors duration-300">
-              Terms & Privacy Policy
-            </a>
-          </p>
+         
         </div>
       </div>
     </div>

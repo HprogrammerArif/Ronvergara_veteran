@@ -105,7 +105,7 @@ const Forgot_Password = () => {
           <input
             type="email"
             {...register("email", { required: "Email is required" })}
-            className="w-full px-4 py-3 rounded-md text-black mt-1 border text-sm"
+            className="w-full px-4 py-3 dark:text-black dark:bg-white rounded-md text-black mt-1 border text-sm"
             placeholder="user@email.com"
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
