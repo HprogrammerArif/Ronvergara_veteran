@@ -28,7 +28,7 @@ const Auto_Narative_Video = () => {
       <div className="w-full max-w-5xl aspect-video mb-5">
         <iframe
           className="w-full h-full rounded"
-          src="https://www.youtube.com/embed/ako1EFS7hB4?si=6mF_7lBlDUjukOhO"
+          src="https://www.youtube.com/embed/1lRK_AFhlv0?si=rG4sj6UxAtVfeZWj"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

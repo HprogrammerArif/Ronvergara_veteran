@@ -7,18 +7,16 @@ import {
 	LuStickyNote,
 } from "react-icons/lu";
 import {
-	BadgePercent,
-	Bell,
+
 	ChevronDown,
 	ChevronsLeft,
 	ChevronsRight,
 	Link2,
 	MessageSquareMore,
 } from "lucide-react";
-import { IoMdSettings } from "react-icons/io";
+
 import { FiUsers } from "react-icons/fi";
 
-import { AiOutlineAudit } from "react-icons/ai";
 import { useGetLoggedUserQuery } from "../../redux/features/baseApi";
 
 export default function Dashboard() {
@@ -26,6 +24,7 @@ export default function Dashboard() {
 	const [selectedItem, setSelectedItem] = useState("Dashboard");
 	const { data: loggedUser } = useGetLoggedUserQuery();
 	console.log(loggedUser);
+	const baseURL = "https://rongever.duckdns.org"
 	const location = useLocation();
 	const navigate = useNavigate();
 
@@ -57,11 +56,7 @@ export default function Dashboard() {
 					icon: <LuStickyNote size={20} />,
 					path: "/admin/document",
 				},
-				{
-					name: "Submission",
-					icon: <AiOutlineAudit size={20} />,
-					path: "/admin/submission",
-				},
+				
 				{
 					name: "LiveChat",
 					icon: <MessageSquareMore size={20} />,
@@ -301,10 +296,15 @@ export default function Dashboard() {
 							<div className="flex items-center justify-center gap-2 dark:text-gray-900">
 								<div className="w-12">
 									<img
-										src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-										className="rounded-full"
-										alt="Admin Avatar"
-									/>
+  src={
+    loggedUser?.image
+      ? `${baseURL}${loggedUser.image}`
+      : "https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png"
+  }
+  className="rounded-full w-[50px] h-[50px] object-cover"
+  alt="Admin Avatar"
+/>
+
 								</div>
 								<div>
 									<h2 className="font-bold text-[14px] dark:text-gray-900">
@@ -333,7 +333,7 @@ export default function Dashboard() {
 										<li>
 											<button
 												onClick={handleLogOut}
-												className="text-gray-700 hover:text-gray-900"
+												className="text-gray-700 uppercase hover:text-gray-900"
 											>
 												Logout
 											</button>

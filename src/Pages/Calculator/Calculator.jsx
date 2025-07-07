@@ -29,7 +29,6 @@ const smcLevels = [
   { level: "S", amount: "$4,071.15" },
 ];
 
-// Updated dependent adjustments for children (VA 2025 rates for 50% rating)
 const dependentAdjustments = {
   under18: 46, // Each additional child under 18
   between18And23: 149, // Each child 18-24 in qualifying school program
@@ -228,7 +227,7 @@ export default function VeteransDisabilityCalculator() {
   return (
     <div className="min-h-screen bg-[#002b5c] text-white flex flex-col items-center p-4 md:p-8">
       {/* Header */}
-      <h1 className="text-2xl md:text-3xl font-bold mb-4 mt-10">Veterans Disability Calculator</h1>
+      <h1 className="text-2xl text-center md:text-start md:text-3xl font-bold mb-4 mt-10">Veterans Disability Calculator</h1>
 
       {/* Calculator Section */}
       <div className="w-full max-w-4xl flex flex-col items-center">
@@ -240,7 +239,7 @@ export default function VeteransDisabilityCalculator() {
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <div className="w-full mb-8">
             <div className="bg-[#002b5c] text-white p-4 rounded-md">
               <p className="uppercase">Bilateral Arm Factor Applied: {bilateralFactors.armFactor}</p>
@@ -248,7 +247,7 @@ export default function VeteransDisabilityCalculator() {
               <p className="uppercase">Bilateral Foot Factor Applied: {bilateralFactors.footFactor}</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Physical Disability Selection */}
         <h2 className="text-xl font-bold mb-4">Physical Disability</h2>
@@ -388,10 +387,10 @@ export default function VeteransDisabilityCalculator() {
 
         {/* Spouse Aid and Attendance */}
         {maritalStatus === "Married" && (
-          <div className="w-full mb-8">
-            <label className="text-sm mb-1 block text-center">Does your spouse need Aid and Attendance (A/A)?</label>
+          <div className=" mb-8">
+            <label className="text-sm mb-2 block text-center">Does your spouse need Aid and Attendance (A/A)?</label>
             <select
-              className="select select-bordered w-full max-w-xs mx-auto bg-white text-black rounded-md"
+              className="select flex items-center justify-center select-bordered w-full max-w-xs mx-auto bg-white text-black rounded-md"
               value={spouseAidAndAttendance}
               onChange={(e) => {
                 setSpouseAidAndAttendance(e.target.value);
@@ -427,10 +426,10 @@ export default function VeteransDisabilityCalculator() {
 
       {/* VA Rating and SMC Tables */}
       <div className="w-full max-w-4xl mt-12">
-        {/* Combined VA Rating Table */}
-        <div className="bg-[#c41e3a] text-white p-4 flex justify-between items-center rounded-t-md">
-          <h2 className="text-xl font-bold">Combined VA Rating</h2>
-          <h2 className="text-xl font-bold">2025 VA Disability Pay Rate</h2>
+      
+        <div className="bg-[#c41e3a] text-white p-4 flex justify-between items-center gap-6 md:gap-0 rounded-t-md">
+          <h2 className="md:text-xl font-bold">Combined VA Rating</h2>
+          <h2 className="md:text-xl font-bold text-end">2025 VA Disability Pay Rate</h2>
         </div>
         <div className="bg-white text-[#002b5c] w-full rounded-b-md">
           {vaRatingTable.map((item) => (
@@ -441,12 +440,7 @@ export default function VeteransDisabilityCalculator() {
           ))}
         </div>
 
-        {/* Link to Learn More */}
-        <div className="mt-8 text-center">
-          <a href="#" className="text-[#c41e3a] underline font-bold hover:text-[#a11830] transition-colors duration-300">
-            To Find Out More, Click Here.
-          </a>
-        </div>
+      
 
         {/* Special Monthly Compensation Section */}
         <h2 className="text-2xl font-bold text-[#c41e3a] mt-8 text-center">
@@ -463,8 +457,8 @@ export default function VeteransDisabilityCalculator() {
         {/* SMC Levels Table */}
         <div className="bg-white text-[#002b5c] w-full mt-6 rounded-md">
           <div className="bg-[#c41e3a] text-white p-4 flex justify-between items-center rounded-t-md">
-            <h2 className="text-xl font-bold">SMC Level</h2>
-            <h2 className="text-xl font-bold">2025 VA SMC Amount</h2>
+            <h2 className="md:text-xl font-bold">SMC Level</h2>
+            <h2 className="md:text-xl font-bold md:text-end">2025 VA SMC Amount</h2>
           </div>
           {smcLevels.map((item) => (
             <div key={item.level} className="flex justify-between p-3 border-b last:border-b-0">

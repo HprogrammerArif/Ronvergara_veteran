@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoChevronDownOutline } from "react-icons/io5";
 
 const faqs = [
   {
@@ -32,9 +33,9 @@ export default function FAQ() {
   };
 
   return (
-   <section className="bg-gray-200 md:py-20 lg:h-[90vh] ">
+   <section className="bg-gray-200 md:py-20  ">
      <div className="bg-[#0A3161] container mx-auto text-white py-5 md:px-10">
-    <div className=" md:p-14 px-5 md:px-0 text-white">
+    <div className=" md:p-14 px-2 md:px-0 text-white">
   <div className=" mx-auto text-center mb-12">
         <h2 className="md:text-4xl text-2xl md:text-start font-bold">Frequently Asked Questions</h2>
         <p className="text-base md:text-start mt-4">We have your answers.</p>
@@ -48,21 +49,7 @@ export default function FAQ() {
               className="flex justify-between items-center p-3  cursor-pointer transition-all"
             >
               <h3 className="text-[14px] md:text-[20px] lg:text-[20px] font-medium">{faq.question}</h3>
-              <svg
-                className={`w-6 h-6 transform transition-transform ${
-                  openIndex === index ? "rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+           <IoChevronDownOutline />
             </div>
 
             {openIndex === index && (

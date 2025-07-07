@@ -1,177 +1,174 @@
+
+
+
 import React, { useState } from "react";
 import { Search, Filter, MoreVertical, X } from "lucide-react";
-import { PiFilePdf } from "react-icons/pi";
 import { VscFilePdf } from "react-icons/vsc";
-
-const documentsData = [
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Verified", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Pending", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Verified", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Pending", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Verified", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Pending", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Verified", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Pending", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Verified", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-  { document: "DD-214.pdf", uploadedBy: "Pappy roy", email: "pappyroy6539@gmail.com", uploadDate: "Jun 16, 2023", status: "Pending", date: "Jan 15, 2023", documentType: "Military Services Record", description: "Certificate Of Release Or Discharge From Active Duty" },
-];
+import { toast, Toaster } from "sonner";
+import { useGetDocumentsQuery } from "../../redux/features/baseApi";
+import { BsThreeDots } from "react-icons/bs";
+import { FaRegEye } from "react-icons/fa";
 
 export default function Document() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isActionTaken, setIsActionTaken] = useState(false);
+  const { data: allDocuments, isLoading } = useGetDocumentsQuery();
 
-  const filteredDocuments = documentsData.filter(
+  const baseURL = "https://rongever.duckdns.org";
+
+  console.log("documents", allDocuments);
+
+  const filteredDocuments = allDocuments?.filter(
     (doc) =>
-      doc.document.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      doc.uploadedBy.toLowerCase().includes(searchTerm.toLowerCase())
+      doc.document_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      doc.user_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      doc.user_email?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const openModal = (doc) => {
     setSelectedDocument(doc);
+    setIsActionTaken(doc?.status === "Approved" || doc?.status === "Rejected");
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedDocument(null);
+    setIsActionTaken(false);
+  };
+
+  const getFileName = (filePath) => {
+    if (!filePath) return "Unknown File";
+    const fileName = filePath.split("/").pop();
+    const nameWithoutTimestamp = fileName.replace(/^\d{8}_\d{6}_/, "");
+    return nameWithoutTimestamp.replace(/\.pdf$/, "");
   };
 
   return (
-    <div className=" bg-gray-50 min-h-screen">
-      {/* Header with Search and Filter */}
+    <div className="bg-gray-50 min-h-screen p-6">
+      <Toaster position="top-right" richColors className="z-[1000]" />
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-4">
           <div className="relative">
             <input
               type="text"
               placeholder="Search"
-              className="input input-bordered pl-10 w-64"
+              className="input input-bordered pl-10 w-64 dark:bg-white dark:border dark:border-black"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
           </div>
-          <button className="btn btn-outline dark:text-gray-900">
-            <Filter className="h-5 w-5 mr-2" />
-            Filter
-          </button>
+   
         </div>
       </div>
 
-      {/* Table */}
       <div className="overflow-x-auto">
-        <table className="table w-full">
-          <thead>
-            <tr className="bg-[#0A3161] text-white">
-              <th className="py-3 px-4">Document</th>
-              <th className="py-3 px-4">Uploaded By</th>
-              <th className="py-3 px-4">Upload Date</th>
-              <th className="py-3 px-4">Status</th>
-              <th className="py-3 px-4">Date</th>
-              <th className="py-3 px-4">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredDocuments.map((doc, index) => (
-              <tr key={index} className="border-b dark:text-gray-900">
-                <td className="py-3 px-4 flex items-center gap-2">
-                    <VscFilePdf  size={20}/>
-                    {doc.document}
-                </td>
-                <td className="py-3 px-4">
-                  <div>
-                    <p className="font-medium">{doc.uploadedBy}</p>
-                    <p className="text-sm text-gray-500">{doc.email}</p>
-                  </div>
-                </td>
-                <td className="py-3 px-4">{doc.uploadDate}</td>
-                <td className="py-3 px-4">
-                  <span
-                    className={`badge ${
-                      doc.status === "Verified"
-                        ? "badge-success"
-                        : "badge-warning"
-                    } text-white`}
-                  >
-                    {doc.status}
-                  </span>
-                </td>
-                <td className="py-3 px-4">{doc.date}</td>
-                <td className="py-3 px-4">
-                  <button
-                    className="btn btn-ghost btn-sm"
-                    onClick={() => openModal(doc)}
-                  >
-                    <MoreVertical className="h-5 w-5" />
-                  </button>
-                </td>
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64 z-50">
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ) : !allDocuments || allDocuments.length === 0 ? (
+          <div className="text-center text-gray-500">No documents found.</div>
+        ) : (
+          <table className="table w-full">
+            <thead>
+              <tr className="bg-[#0A3161] text-white">
+                <th className="py-3 px-4">Document</th>
+                <th className="py-3 px-4">Uploaded By</th>
+                <th className="py-3 px-4">Upload Date</th>
+                <th className="py-3 px-4">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredDocuments.map((doc) => (
+                <tr key={doc.id} className="border-b dark:text-gray-900">
+                  <td className="py-3 px-4 flex items-center gap-2">
+                    <VscFilePdf size={20} />
+                    {doc.document_name || "N/A"}
+                  </td>
+                  <td className="py-3 px-4">
+                    <div>
+                      <p className="font-medium">{doc.user_name || "N/A"}</p>
+                      <p className="text-sm text-gray-500">{doc.user_email || "N/A"}</p>
+                    </div>
+                  </td>
+                  <td className="py-3 px-4">
+                    {doc?.created_at
+                      ? new Date(doc.created_at).toLocaleString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })
+                      : "N/A"}
+                  </td>
+                  <td className="py-3 px-4">
+                    <button
+                      className=" dark:bg-white"
+                      onClick={() => openModal(doc)}
+                    >
+                     <FaRegEye className="h-5 w-5 text-[#0A3161] " />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
 
       {/* Modal */}
       {isModalOpen && selectedDocument && (
-        <div className="modal modal-open">
-          <div className="modal-box max-w-2xl dark:text-gray-200">
-            {/* Modal Header */}
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center space-x-4">
-                <div className="avatar placeholder">
-                  <div className="bg-[#0A3161] text-white rounded-full w-12 h-12 flex items-center justify-center">
-                    <span className="text-xl">
-                      {selectedDocument.uploadedBy.charAt(0)}
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <p className="font-bold text-lg">{selectedDocument.uploadedBy}</p>
-                  <p className="text-sm text-gray-100">{selectedDocument.email}</p>
-                </div>
+        <div className="modal modal-open backdrop-blur-[2px]">
+          <div className="modal-box bg-[#002b5c] text-white max-w-2xl p-8 rounded-xl shadow-2xl">
+            <h3 className="text-2xl font-bold mb-6 text-center">Document Details</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col">
+                <span className="font-semibold text-white/80">Document ID:</span>
+                <span>{selectedDocument.id || "N/A"}</span>
               </div>
-              <button onClick={closeModal} className="btn btn-sm btn-circle">
-                <X className="h-5 w-5" />
-              </button>
-            </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-white/80">Uploaded By:</span>
+                <span>{selectedDocument.user_name || "N/A"}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-white/80">Email:</span>
+                <span>{selectedDocument.user_email || "N/A"}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-white/80">Document Name:</span>
+                <span>{selectedDocument.document_name || "N/A"}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-white/80">Document Type:</span>
+                <span>{selectedDocument.document_type || "N/A"}</span>
+              </div>
+              <div className="flex flex-col col-span-2">
+  <span className="font-semibold text-white/80">Document:</span>
+  {selectedDocument?.file_url ? (
+    <a
+      href={`${baseURL}${selectedDocument.file_url}`}
+      target="_blank"
+      // rel="noopener noreferrer"
+      className="text-blue-400 hover:underline"
+    >
+      {getFileName(selectedDocument.file_url)}
+    </a>
+  ) : (
+    <span className="text-white/80">No document available.</span>
+  )}
+</div>
 
-            {/* Status Badge */}
-            <div className="flex items-center mb-4">
-              <span
-                className={`badge ${
-                  selectedDocument.status === "Verified"
-                    ? "badge-success"
-                    : "badge-warning"
-                } text-white`}
+            </div>
+            <div className="modal-action mt-6 w-full flex justify-end gap-4">
+              <button
+                className="btn btn-outline text-white hover:bg-white/10 px-6 py-2"
+                onClick={closeModal}
               >
-                {selectedDocument.status}
-              </span>
-            </div>
-
-            {/* Document Details */}
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-sm text-gray-500">File Name</p>
-                  <p className="font-medium">{selectedDocument.document}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Document Type</p>
-                  <p className="font-medium">{selectedDocument.documentType}</p>
-                </div>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Description</p>
-                <p className="font-medium">{selectedDocument.description}</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500 font-medium">Document preview</p>
-                <div className="border border-gray-200 rounded-lg p-4 text-center h-48 flex items-center justify-center">
-                  <p className="text-gray-500">Document preview unavailable here</p>
-                </div>
-              
-              </div>
+                Close
+              </button>
             </div>
           </div>
         </div>

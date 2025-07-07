@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const HeroSection = () => {
@@ -24,9 +25,11 @@ const HeroSection = () => {
             faster, simpler, and less stressful. You've earned this. Get started today.
           </p>
           <div className="flex justify-center md:justify-start">
-            <button className="px-6 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold transition py-5 text-2xl md:text-4xl text-center">
+            <Link
+            to="/plan"
+            className="px-6 bg-red-600 hover:bg-red-700 rounded-xl text-white font-semibold transition py-5 text-2xl md:text-4xl text-center">
               CLAIM YOUR <br /> BENEFITS NOW
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -9,14 +9,14 @@ import FAQ from "./Faq";
 import FeaturesCard from "./Features";
 import Pricing_Plan from "./Pricing_Plan";
 import QuoteSection from "./QuoteSection";
-import Review from "./Review";
+// import Review from "./Review";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 import VAC_Trust from "./VAC_Trust";
 import VeteransSlider from "./VeteransSlider";
 import Video from "./Video";
 import MessaageIcon from "../../../public/message.png"
-import SupportChat from "../SupportChat/SupportChat";
+// import SupportChat from "../SupportChat/SupportChat";
 
 const Home = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -33,12 +33,13 @@ const Home = () => {
       <QuoteSection />
       {/* <DisabilityCalculator /> */}
       {/* <FeaturesCard /> */}
+    
       <Pricing_Plan />
-      <Review />
+      {/* <Review /> */}
       <VAC_Trust />
       <Services />
       <VeteransSlider />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FAQ />
       <ContactForm />
 
@@ -51,12 +52,12 @@ const Home = () => {
             <img src={MessaageIcon} alt="Chat Support" className="w-[50px] h-[50px]" />
           </button>
 
-          {isChatOpen && (
+          {/* {isChatOpen && (
             <div className="fixed bottom-24 right-6 z-50 ">
               <SupportChat onClose={toggleChat} />
               
             </div>
-          )}
+          )} */}
         </>
       )}
 

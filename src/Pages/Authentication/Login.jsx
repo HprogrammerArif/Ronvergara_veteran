@@ -339,15 +339,15 @@ const Login = () => {
 				</div>
 
 				{/* Remember Me + Forgot */}
-				<div className="flex justify-between items-center mb-4">
-					<label className="flex items-center text-sm">
+				<div className="flex justify-end items-center mb-4">
+					{/* <label className="flex items-center text-sm">
 						<input
 							type="checkbox"
 							{...register("rememberMe")}
 							className="mr-2 checkbox checkbox-sm"
 						/>
 						Remember Me
-					</label>
+					</label> */}
 					<Link
 						to="/email_verification"
 						className="text-sm text-[#B31942] font-medium hover:underline"

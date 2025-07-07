@@ -14,6 +14,8 @@ const Pricing_Plan = () => {
 	const [paymentCheckout] = usePaymentCheckoutMutation();
 	const navigate = useNavigate();
 
+	const payment_video = "../../../public/payment.mov"
+
 	if (isLoading) return null;
 
 	const hasSubscription = loggedInUser?.subscription_plan;
@@ -48,16 +50,28 @@ const Pricing_Plan = () => {
 	};
 
 	return (
-		<section className="  md:p-5 dark:bg-white md:py-0 py-10 md:min-h-[70vh] min-h-[60vh]">
+		<section className="  md:p-5 dark:bg-gray-200 md:py-0 md:pt-10  py-10 md:min-h-[75vh] min-h-[60vh]">
 			<ToastContainer />
-			<div className="bg-white dark:bg-white container  p-2 mx-auto">
+			<div className="bg-white dark:bg-gray-200 container  p-2 mx-auto md:Pb-10">
+
+ 			<div className="md:mb-20 conatiner mx-auto md:h-2/3 md:w-2/3  aspect-video mb-5">
+        <iframe
+          className="w-full h-full rounded"
+src="https://www.youtube.com/embed/0PX_92ItgHE?si=8dVeZR8W2che838e"          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      			</div>
+
 				<div className="text-center mb-10">
 					<h2 className="text-xl md:w-1/2 mx-auto md:text-4xl font-bold text-[#0B2559]">
 						Choose Your Plan to Complete the Veteran Benefits Form
 					</h2>
 				</div>
 
-				<div className="md:max-w-4xl w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:gap-20 gap-8">
+				<div className="md:max-w-5xl w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:gap-20 gap-8">
 					{plans?.map((plan, index) => (
 						<div
 							key={index}
@@ -67,10 +81,10 @@ const Pricing_Plan = () => {
 								{plan?.name}
 							</h3>
 							<p className="text-3xl font-bold mt-2">
-								$ {plan?.amount}
+								${plan?.amount}
 							</p>
 
-							<ul className="mt-4 space-y-2 text-sm">
+							<ul className="mt-4 space-y-2 md:text-base text-[10px]">
 								{plan?.descriptions.map((feature, i) => (
 									<li
 										key={i}
@@ -79,7 +93,7 @@ const Pricing_Plan = () => {
 										<span className="text-green-400">
 											✔
 										</span>
-										<span>{feature?.text}</span>
+										<span className="text-xs">{feature?.text}</span>
 									</li>
 								))}
 							</ul>

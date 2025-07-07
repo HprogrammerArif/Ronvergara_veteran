@@ -57,7 +57,7 @@ const Review = () => {
 
   return (
     <section className="bg-gray-200">
-      <div className="py-8 px-4 lg:py-16 lg:px-8 container mx-auto relative">
+      <div className="py-8 px-4  lg:px-8 container mx-auto relative">
         
         {/* Section Header */}
         <div className="text-center lg:mb-16 mb-8">
@@ -90,25 +90,7 @@ const Review = () => {
                       <video.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-700" />
                     </div>
                   </div>
-                  <div className="p-4 sm:p-6 space-y-3 transform transition-all duration-300 group-hover:bg-gray-50">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 group-hover:text-blue-700">
-                      {video.name}
-                    </h3>
-                    <div className="space-y-2">
-                      <p className="text-gray-700 flex items-center gap-2 transform transition-all hover:translate-x-1 text-sm sm:text-base">
-                        <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-blue-700" />
-                        <span className="font-medium">{video.branch}</span>
-                      </p>
-                      <p className="text-gray-600 flex items-center gap-2 transform transition-all hover:translate-x-1 text-sm sm:text-base">
-                        <Star className="w-4 h-4 sm:w-5 sm:h-5 text-red-600" />
-                        <span>{video.period}</span>
-                      </p>
-                      <p className="text-gray-600 flex items-center gap-2 transform transition-all hover:translate-x-1 text-sm sm:text-base">
-                        <Medal className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
-                        <span className="font-medium">{video.service}</span>
-                      </p>
-                    </div>
-                  </div>
+             
                 </div>
               </div>
             ))}

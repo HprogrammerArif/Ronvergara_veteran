@@ -4,9 +4,10 @@ export const baseApi = createApi({
 	reducerPath: "baseApi",
 
 	// https://rongever.duckdns.org/
+
 	baseQuery: fetchBaseQuery({
-		baseUrl: "http://192.168.10.124:2000/",
-		// baseUrl: "http://192.168.10.124:2000",
+		baseUrl: "https://rongever.duckdns.org/",
+		// baseUrl: "https://rongever.duckdns.org",
 		prepareHeaders: (headers) => {
 			const token = localStorage.getItem("access_token");
 			if (token) {
@@ -15,7 +16,7 @@ export const baseApi = createApi({
 			return headers;
 		},
 	}),
-	tagTypes: ["user"],
+	tagTypes: ["user", "forms", "documents"],
 	endpoints: (builder) => ({
 		//create user
 		createUser: builder.mutation({
@@ -73,6 +74,17 @@ export const baseApi = createApi({
 			query: () => "api/payment/get_all/subscribtions-plan/",
 		}),
 
+
+		//contact form
+
+		contactForm: builder.mutation({
+			query: (formData) => ({
+				url: "api/va/email/get_in_touch_today/",
+				method: "POST",
+				body: formData
+			})
+		}),
+
 		//payment
 		paymentCheckout: builder.mutation({
 			query: (payload) => ({
@@ -113,7 +125,7 @@ export const baseApi = createApi({
 
 		//getChat
 		getMessages: builder.query({
-			query: (chatId) => `api/support/get-messages/${chatId}/`, // API endpoint for fetching messages
+			query: (chatId) => `api/support/get-messages/${chatId}/`,
 		}),
 
 		//adminDashboard
@@ -167,7 +179,35 @@ export const baseApi = createApi({
 		//getForms
 		getForms: builder.query({
 			query: () => "api/dashboard/forms/review/",
+			providesTags: ["forms"]
 		}),
+
+		//approvedForm form
+		approvedForm: builder.mutation({
+			query: ({ status, id }) => ({
+				url: `api/dashboard/forms/${id}/status/`,
+				method: "PUT",
+				body: { status }
+			}),
+			invalidatesTags: ["forms"]
+		}),
+
+		//reject form
+
+		rejectForm: builder.mutation({
+			query: ({ status, id }) => ({
+				url: `api/dashboard/forms/${id}/status/`,
+				method: "PUT",
+				body: { status }
+			}),
+			invalidatesTags: ["forms"]
+		}),
+
+		//document view
+		getDocuments: builder.query({
+			query: () => "api/dashboard/documents/list/",
+			providesTags: ["documents"]
+		})
 	}),
 });
 
@@ -198,6 +238,10 @@ export const {
 	//get plans
 	useGetPlansQuery,
 
+	//contact form
+
+	useContactFormMutation,
+
 	//paymentCheckout
 	usePaymentCheckoutMutation,
 
@@ -223,4 +267,11 @@ export const {
 	useMonthlyRevenueQuery,
 	useGetPaymentListQuery,
 	useGetFormsQuery,
+
+	//form data
+	useApprovedFormMutation,
+	useRejectFormMutation,
+
+	//documents
+	useGetDocumentsQuery,
 } = baseApi;

@@ -5,7 +5,7 @@ import bar from "../../assets/bar.png";
 
 const VAC_Trust = () => {
   return (
-    <section className="bg-gray-200 py-10 md:py-16">
+    <section className="bg-gray-200 md:pt-32 py-10 md:py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center md:gap-12 lg:gap-32">
 
@@ -25,7 +25,7 @@ const VAC_Trust = () => {
   
               <div className="flex items-start gap-4 lg:gap-8">
                 <div className="bg-[#0A3161] p-3 rounded-md">
-                  <img src={client} alt="" className="w-10 h-10 md:w-[67px] md:h-[67px]" />
+                  <img src={client} alt="" className="w-[40px] md:w-[67px] md:h-[67px]" />
                 </div>
                 <div className="w-full">
                   <h2 className="uppercase text-lg md:text-2xl font-semibold text-gray-900 mb-1">
@@ -40,7 +40,7 @@ const VAC_Trust = () => {
       
               <div className="flex items-start gap-4 lg:gap-8">
                 <div className="bg-[#0A3161] p-3 rounded-md">
-                  <img src={confidence} alt="" className="w-10 h-10 md:w-[67px] md:h-[67px]" />
+                  <img src={confidence} alt="" className="w-[40px] md:w-[67px] md:h-[67px]" />
                 </div>
                 <div className="w-full">
                   <h2 className="uppercase text-lg md:text-2xl font-semibold text-gray-900 mb-1">
@@ -55,7 +55,7 @@ const VAC_Trust = () => {
    
               <div className="flex items-start gap-4 lg:gap-8">
                 <div className="bg-[#0A3161] p-3 rounded-md">
-                  <img src={bar} alt="" className="w-10 h-10 md:w-[67px] md:h-[67px]" />
+                  <img src={bar} alt="" className="w-[40px] md:w-[67px] md:h-[67px]" />
                 </div>
                 <div className="w-full">
                   <h2 className="uppercase text-lg md:text-2xl font-semibold text-gray-900 mb-1">

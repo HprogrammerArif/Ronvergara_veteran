@@ -140,8 +140,8 @@ export default function SliderWithQuotes() {
 	const currentQuote = quotes[quoteIndex];
 
 	return (
-		<div className="bg-white md:mb-10">
-			<div className="container mx-auto md:pt-20 md:px-4 px-2  dark:bg-white">
+		<div className="bg-gray-200 dark:bg-gray-200 md:pb-10">
+			<div className="container mx-auto md:pt-20 md:px-4 px-2  dark:bg-gray-200">
 				<div
 					className="relative bg-white rounded-xl md:shadow-md overflow-hidden min-h-[500px] md:h-[500px]"
 					onMouseEnter={() => setIsSlidesPaused(true)}
@@ -223,7 +223,7 @@ export default function SliderWithQuotes() {
 				</div>
 			</div>
 
-			<div className="py-16 container mx-auto md:px-4 px-2 dark:bg-white">
+			<div className="py-16 container mx-auto md:px-4 px-2 dark:bg-gray-200">
 				<div className="relative bg-gradient-to-r from-[#000000]/95 to-[#3533cd] rounded-2xl overflow-hidden shadow-2xl min-h-[400px] border border-gray-200">
 					<div className="relative flex flex-col lg:flex-row h-full md:min-h-[400px]">
 						<div className="w-full lg:w-2/5 p-6 md:p-8 flex flex-col justify-center  text-white">

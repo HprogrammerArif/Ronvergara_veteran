@@ -58,7 +58,7 @@ import UserManagment from "../Pages/AdminDashboard/UserManagment";
 import FormView from "../Pages/AdminDashboard/FormView";
 import Payment from "../Pages/AdminDashboard/Payment";
 import Document from "../Pages/AdminDashboard/Document";
-import Submission from "../Pages/AdminDashboard/Submission";
+// import Submission from "../Pages/AdminDashboard/Submission";
 import Notification from "../Pages/AdminDashboard/Notification";
 import Profile from "../Pages/AdminDashboard/Profile";
 import PrivacyPolicy from "../Pages/AdminDashboard/PrivacyPolicy";
@@ -522,7 +522,7 @@ export const router = createBrowserRouter([
 			{ path: "forms", element: <FormView /> },
 			{ path: "payment", element: <Payment /> },
 			{ path: "document", element: <Document /> },
-			{ path: "submission", element: <Submission /> },
+			// { path: "submission", element: <Submission /> },
 			{ path: "livechat", element: <LiveChat /> },
 			{ path: "settings/privacy_policy", element: <PrivacyPolicy /> },
 			{ path: "settings/terms_conditions", element: <TermsConditions /> },

@@ -5,9 +5,9 @@ import CheckList from "../../assets/checklist.png"
 
 const Services = () => {
   return (
-    <section  className='bg-gray-200 pb-10 pt-20 lg:pt-0 px-5 lg:px-0'>
+    <section  className='bg-gray-200 pb-10 pt-20 md:px-5 px-2 lg:px-0'>
     
-      <h2 className="text-4xl font-bold text-gray-900 mb-6 text-center">SERVICES WE PROVIDE</h2>
+      <h2 className="md:text-4x text-2xl font-bold text-gray-900 mb-6 text-center">SERVICES WE PROVIDE</h2>
       <p className="md:text-lg text-gray-600 mb-12 max-w-4xl mx-auto text-center">
         We offer a wide range of services to support your needs, including benefits assistance, financial guidance, healthcare resources, educational opportunities, and personalized plans. Our goal is to simplify the process and ensure you have access to the tools and support you deserve. Let us help you every step of the way.
       </p>
