@@ -30,13 +30,13 @@ const Home = () => {
     <div className="relative">
       <Banner />
       <Video />
-      <QuoteSection />
+      {/* <QuoteSection /> */}
       {/* <DisabilityCalculator /> */}
       {/* <FeaturesCard /> */}
     
       <Pricing_Plan />
       {/* <Review /> */}
-      <VAC_Trust />
+      {/* <VAC_Trust /> */}
       <Services />
       <VeteransSlider />
       {/* <Testimonials /> */}

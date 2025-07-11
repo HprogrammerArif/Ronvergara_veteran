@@ -14,7 +14,6 @@ const Auto_Narative = () => {
       have_you_ever_field_a_claim_with_va: data.applied,
     };
 
-    // Save to localStorage
     localStorage.setItem("va_claim_data", JSON.stringify(mappedData));
 
     console.log("\u{1F4BE} Saved Form Data:", mappedData);
@@ -34,7 +33,13 @@ const Auto_Narative = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="md:min-h-screen min-h-[85vh] bg-[#0A3161] text-white flex justify-center items-center md:p-6 p-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="md:min-h-screen min-h-[85vh] bg-[#0A3161] text-white flex justify-center items-center md:p-6 p-2"
+       style={{ 
+        backgroundImage: 'url("../../../public/narrative.png")', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center' 
+      }}
+    >
       <div className="bg-white text-black md:p-6 p-2 rounded shadow-md w-full max-w-xl space-y-4">
 
         {step === 'start' && (
@@ -45,7 +50,6 @@ const Auto_Narative = () => {
               onChange={(e) => {
                 const value = e.target.value;
 
-                // Save immediately to localStorage
                 localStorage.setItem("va_claim_data", JSON.stringify({
                   have_you_ever_field_a_claim_with_va: value
                 }));
@@ -62,7 +66,7 @@ const Auto_Narative = () => {
           </>
         )}
 
-        {/* YES Flow */}
+
         {step === 'yesFlowStart' && (
           <>
             <h2 className="text-xl font-semibold">Do you have a decision letter within the past year?</h2>
