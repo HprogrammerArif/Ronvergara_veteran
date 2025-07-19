@@ -16,7 +16,6 @@ const isAuthenticated = localStorage.getItem("access_token");
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>
-  
     <RouterProvider router={router} />
   </StrictMode>
   </Provider>,

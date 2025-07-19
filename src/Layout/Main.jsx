@@ -7,9 +7,9 @@ const Main = () => {
   return (
     <div>
       <ScrollToTop/>
-      <div className="mb-20">
-      <Navbar />
-      </div>
+   
+        <Navbar/>
+
       <Outlet/>
       <Footer/>
     </div>

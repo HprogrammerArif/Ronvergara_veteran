@@ -2,21 +2,16 @@
 
 
 import { useState } from "react";
-import Banner from "./Banner";
 import ContactForm from "./ContactForm";
-import DisabilityCalculator from "./DisabilityCalculator";
 import FAQ from "./Faq";
-import FeaturesCard from "./Features";
 import Pricing_Plan from "./Pricing_Plan";
 import QuoteSection from "./QuoteSection";
-// import Review from "./Review";
+import Banner from "./Banner"
 import Services from "./Services";
-import Testimonials from "./Testimonials";
-import VAC_Trust from "./VAC_Trust";
+
 import VeteransSlider from "./VeteransSlider";
 import Video from "./Video";
 import MessaageIcon from "../../../public/message.png"
-// import SupportChat from "../SupportChat/SupportChat";
 
 const Home = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -28,18 +23,11 @@ const Home = () => {
 
   return (
     <div className="relative">
-      <Banner />
-      <Video />
-      {/* <QuoteSection /> */}
-      {/* <DisabilityCalculator /> */}
-      {/* <FeaturesCard /> */}
-    
+       <Banner/>
+       <Video />
       <Pricing_Plan />
-      {/* <Review /> */}
-      {/* <VAC_Trust /> */}
       <Services />
       <VeteransSlider />
-      {/* <Testimonials /> */}
       <FAQ />
       <ContactForm />
 

@@ -1,5 +1,3 @@
-
-
 import {  FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useGetLoggedUserQuery } from "../../redux/features/baseApi";
@@ -16,26 +14,12 @@ const FeaturesCard = () => {
 			<div className="bg-white ">
 			{/* Feature Cards */}
 			<div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-8 min-h-[90vh] ">
-				{/* DD-214 Upload Card */}
-				{/* <Link
-					to="/dd_214_info"
-					className="bg-[#0A3161] flex flex-col items-center justify-start text-center w-full md:w-[45%] lg:w-2/6 rounded-lg  p-6 md:p-8 lg:p-10 mb-6 md:mb-0"
-				>
-					<img
-						src={uploadImg}
-						alt="DD-214 Upload"
-						className="w-[180px] md:w-[200px] lg:w-[250px] h-auto"
-					/>
-					<h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mt-6 leading-snug">
-						DD-214 Upload & Auto-Population
-					</h1>
-				</Link> */}
+			
 
 				<div className="basis-6/12 ">
-					<img src="https://i.ibb.co/chH8jp2j/Blue-and-White-Modern-Cricket-Match-Sports-Banner.png" alt="" />
+					<img src="https://i.ibb.co/chH8jp2j/Blue-and-White-Modern-Cricket-Match-Sports-Banner.png" className="mt-6" />
 				</div>
 
-			
 			<div className="basis-6/12 px-10 space-y-10">
 					<div>
 						<h1 className="text-4xl font-bold text-[#0B2A52] ">Unmatched Experience</h1>
@@ -52,11 +36,6 @@ const FeaturesCard = () => {
 						<h1 className="text-4xl font-bold text-[#0B2A52]">100% Success Rate</h1>
 					<p className="pt-3 text-gray-500">We’ve never failed to achieve our clients’ goals. Every veteran we’ve worked with has seen results.</p>
 					</div>
-
-					{/* <div className="flex items-center bg-red-500 w-[280px] cursor-pointer shadow-md shadow-gray-400">
-						<Link className="px-5  py-4 text-white text-lg font-semibold uppercase rounded-sm">Start Your Claim </Link><FaArrowRightLong  size={28} className="text-white"/>
-					
-					</div> */}
 
 					<div className="group flex items-center bg-red-500 w-[280px] rounded-md cursor-pointer shadow-lg shadow-gray-500 overflow-hidden transform transition-transform duration-300 hover:-translate-y-1 ">
 						<Link

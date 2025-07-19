@@ -53,22 +53,10 @@ const Pricing_Plan = () => {
 		<section className="  md:p-5 dark:bg-gray-200 md:py-0 md:pt-10  py-10 md:min-h-[75vh] min-h-[60vh]">
 			<ToastContainer />
 			<div className="bg-white dark:bg-gray-200 container  p-2 mx-auto md:Pb-10">
-
- 			{/* <div className="md:mb-20 conatiner mx-auto md:h-2/3 md:w-2/3  aspect-video mb-5">
-					<iframe
-					className="w-full h-full rounded"
-					src="https://www.youtube.com/embed/0PX_92ItgHE?si=8dVeZR8W2che838e"          title="YouTube video player"
-					frameBorder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					referrerPolicy="strict-origin-when-cross-origin"
-					allowFullScreen
-					></iframe>
-      		</div> */}
-
 			<div className="w-full  mx-auto pb-5">
 					<iframe
 					className="w-[1150px] h-[630px] mx-auto pb-10 rounded"
-					src="https://www.youtube.com/embed/0PX_92ItgHE?si=8dVeZR8W2che838e"           
+					src="https://www.youtube.com/embed/tkoxvKiBtwc?si=aspqN1u1M7Gm_TfP"           
 					title="YouTube video player"
 					frameBorder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
