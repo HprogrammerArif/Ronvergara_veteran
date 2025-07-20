@@ -25,8 +25,8 @@ const Home = () => {
     <div className="relative">
        <Banner/>
        <Video />
-      <Pricing_Plan />
       <Services />
+      <Pricing_Plan />
       <VeteransSlider />
       <FAQ />
       <ContactForm />
