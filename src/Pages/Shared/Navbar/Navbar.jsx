@@ -70,7 +70,6 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about_us" },
     { name: "Calculator", path: "/calculator" },
-    { name: "Contact", path: "/contact" },
   ];
 
   useEffect(() => {

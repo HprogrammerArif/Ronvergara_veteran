@@ -177,7 +177,8 @@ const Pricing_Plan = () => {
   };
 
   return (
-    <section className="md:p-5 dark:bg-gray-200 md:py-0 md:pt-10 py-10 md:min-h-[75vh] min-h-[60vh]">
+    <section className="md:p-5 dark:bg-gray-200 md:py-20 pt-32  md:pt-28 pb-20 md:pb-10 md:min-h-[75vh] flex items-center justify-ce20ter"
+> 
       <ToastContainer />
       {/* Large Device View */}
       <div className="hidden md:block bg-white dark:bg-gray-200 container p-2 mx-auto md:pb-10">

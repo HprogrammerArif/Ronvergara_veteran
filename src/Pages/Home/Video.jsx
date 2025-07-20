@@ -1,18 +1,26 @@
+
+
+
+
+
 import React from 'react';
+import { useGetLoggedUserQuery } from '../../redux/features/baseApi';
 
 const Video = () => {
+  const { data: loggedInUser, isLoading } = useGetLoggedUserQuery();
+  const hasSubscription = loggedInUser?.subscription_plan;
+
+  const videoUrl = loggedInUser && hasSubscription
+    ? "https://www.youtube.com/embed/LWHixRchlYc?si=9AeuHvP1C_C5MEAj"
+    : "https://www.youtube.com/embed/q4cFBVU0r7Q?si=ztT5O7d5lnFZantP";
+
   return (
     <section className="md:pt-20 pt-6 md:px-4 pb-6 px-2 bg-[#16437e] md:pb-16 dark:bg-gray-200">
       <div className="max-w-6xl mx-auto">
-      
-        <div className="w-full mx-auto aspect-video  relative group">
-          <div className="absolute inset-0 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none
-            md:bg-gradient-to-r from-blue-400/30 via-purple-400/30 to-pink-400/30
-            animate-glow">
-          </div>
+        <div className="w-full mx-auto aspect-video relative group">
           <iframe
             className="md:w-[1150px] md:rounded-r-[50px] md:rounded-bl-[50px] rounded-r-[20px] rounded-bl-[20px] rounded-tl-none md:h-[630px] w-full h-[250px] rounded relative z-10"
-            src="https://www.youtube.com/embed/q4cFBVU0r7Q?si=ztT5O7d5lnFZantP"
+            src={videoUrl}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -20,7 +28,6 @@ const Video = () => {
             allowFullScreen
           ></iframe>
         </div>
-     
       </div>
     </section>
   );

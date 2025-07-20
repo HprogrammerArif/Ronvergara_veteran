@@ -35,7 +35,7 @@ const Auto_Narative = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="md:min-h-screen min-h-[85vh] bg-[#0A3161] text-white flex justify-center items-center md:p-6 p-2"
        style={{ 
-        backgroundImage: 'url("../../../public/narrative.png")', 
+        backgroundImage: 'url("https://i.ibb.co/Zr60P6f/Group-2147226338.png")', 
         backgroundSize: 'cover', 
         backgroundPosition: 'center' 
       }}
