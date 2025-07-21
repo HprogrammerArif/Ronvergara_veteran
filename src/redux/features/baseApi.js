@@ -76,7 +76,6 @@ export const baseApi = createApi({
 
 
 		//contact form
-
 		contactForm: builder.mutation({
 			query: (formData) => ({
 				url: "api/va/email/get_in_touch_today/",

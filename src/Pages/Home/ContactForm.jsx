@@ -55,7 +55,9 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-blue-50 p-4" >
+      <div 
+      
+      className="min-h-screen flex items-center justify-center bg-blue-50 p-4" >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -75,7 +77,9 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="md:min-h-[80vh] bg-blue-50 py-20 px-4 flex items-center justify-center"
+    <div 
+    id="contact_us"
+    className="md:min-h-[80vh] bg-blue-50 py-20 px-4 flex items-center justify-center"
        style={{ 
         backgroundImage: 'url("https://i.ibb.co/0pWC3fzm/Group-2147226355.png")', 
         backgroundSize: 'cover', 

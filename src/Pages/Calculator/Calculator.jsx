@@ -30,12 +30,12 @@ const smcLevels = [
 ];
 
 const dependentAdjustments = {
-  under18: 46, // Each additional child under 18
-  between18And23: 149, // Each child 18-24 in qualifying school program
-  parentSingle: 0, // Single parent
-  parentTwo: 90, // Per parent when exactly 2
-  spouse: 73, // Married status
-  spouseAidAndAttendance: 64, // A/A for spouse
+  under18: 46, 
+  between18And23: 149, 
+  parentSingle: 0, 
+  parentTwo: 90, 
+  spouse: 73, 
+  spouseAidAndAttendance: 64, 
 };
 
 const calculateCombinedRating = (ratings) => {
@@ -162,7 +162,6 @@ export default function VeteransDisabilityCalculator() {
     { id: "leftFoot", label: "Left Foot" },
     { id: "rightFoot", label: "Right Foot" },
     { id: "back", label: "Back" },
-    { id: "ssd", label: "SSD" },
     { id: "ptsd", label: "PTSD" },
     { id: "tinnitus", label: "Tinnitus" },
     { id: "migraine", label: "Migraine" },
@@ -225,7 +224,7 @@ export default function VeteransDisabilityCalculator() {
   const roundedRating = calculateCombinedRating(selectedPercentages).rounded;
 
   return (
-    <div className="min-h-screen bg-[#002b5c] text-white flex flex-col items-center p-4 md:p-8">
+    <div className="min-h-screen mt-20 bg-[#002b5c] text-white flex flex-col items-center p-4 md:p-8">
       {/* Header */}
       <h1 className="text-2xl text-center md:text-start md:text-3xl font-bold mb-4 mt-10">Veterans Disability Calculator</h1>
 

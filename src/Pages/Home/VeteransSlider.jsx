@@ -137,10 +137,10 @@ const EmpoweringVeterans = () => {
   ];
 
   return (
-    <section className="bg-gray-200 md:pt-32 pt-10 pb-10 px-2 md:px-0">
+    <section className="bg-gray-200  pt-10 pb-10 px-2 md:px-0">
       <div className="container mx-auto text-center">
         <h2 className="md:text-4xl md:text-start text-2xl  font-bold text-gray-800 mb-8">
-          EMPOWERING VETERANS <br /> THROUGH EDUCATION
+           <br /> THROUGH EDUCATION
         </h2>
         <p className="md:text-lg text-gray-600 mb-8 lg:w-2/3 md:text-start">
           Education transforms lives, and we're committed to empowering veterans with opportunities to learn, grow, and succeed. From skill-building to career advancement, we provide the resources and support needed to unlock your potential and shape a brighter future.
@@ -148,12 +148,12 @@ const EmpoweringVeterans = () => {
 
        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-4">
   {cards.map((card, index) => (
-    <div key={index} className="bg-white rounded-t-lg shadow-lg overflow-hidden flex flex-col">
+    <div key={index} className="bg-white rounded-t-lg shadow-lg overflow-hidden flex flex-col md:mb-10 ">
       <img className="w-full h-62 object-cover rounded-none" src={card.imgSrc} alt={card.alt} />
       <div className="flex-1 md:p-6 p-3">
         <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-4 text-start">{card.title}</h3>
-          <p className="text-gray-600 text-start text-[16px]  md:text-base">{card.description}</p>
+          <h3 className="text-xl font-semibold text-gray-800 mb-4 md:text-start text-center">{card.title}</h3>
+          <p className="text-gray-600 text-[16px]  md:text-base md:text-start text-center">{card.description}</p>
         </div>
       </div>
       {/* <div className="p-6">
