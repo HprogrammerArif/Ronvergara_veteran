@@ -79,7 +79,7 @@ export default function ContactForm() {
   return (
     <div 
     id="contact_us"
-    className="md:min-h-[80vh] bg-blue-50 py-20 px-4 flex items-center justify-center"
+    className="md:min-h-[80vh] bg-blue-50 py-20 md:px-4 flex items-center justify-center"
        style={{ 
         backgroundImage: 'url("https://i.ibb.co/0pWC3fzm/Group-2147226355.png")', 
         backgroundSize: 'cover', 
@@ -93,11 +93,11 @@ export default function ContactForm() {
           animate="visible"
           className="text-center mb-8"
         >
-          <h1 className="text-3xl text-start md:text-4xl font-bold mb-2 text-[#16437E]">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#16437E] text-center md:text-start">
             get in touch
             today
           </h1>
-          <p className="text-gray-600 text-sm pt-5 md:text-base text-start md:w-2/4">
+          <p className="text-gray-600 text-sm pt-5 md:text-base md:w-2/4 text-center md:text-start">
             Reach out to us with your questions, concerns, or inquiries. We’re here to help and look forward to connecting!
           </p>
         </motion.div>
@@ -107,7 +107,7 @@ export default function ContactForm() {
             initial="hidden"
             animate="visible"
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-5 bg-white p-6 rounded-lg shadow-md w-full"
+            className="space-y-5 bg-white p-6 rounded-none shadow-md w-full"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>

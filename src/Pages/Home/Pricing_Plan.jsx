@@ -253,7 +253,9 @@ const Pricing_Plan = () => {
     return <FeaturesCard />
   }
 
-  const handleSubscription = async () => {
+  const handleSubscription = async (id) => {
+    console.log("id", id)
+
     if (!loggedInUser) {
       toast.error("Please login to continue", {
         position: "top-right",
@@ -265,8 +267,12 @@ const Pricing_Plan = () => {
       return
     }
 
+    const payload = {
+      plan_id: id,
+    }
+
     try {
-      const response = await paymentCheckout().unwrap()
+      const response = await paymentCheckout(payload).unwrap()
       window.location.href = response?.checkout_url
     } catch (error) {
       console.log("subscription error", error)
@@ -370,10 +376,7 @@ const Pricing_Plan = () => {
                 <div className="mt-auto">
                   <button
                     className="w-full bg-[#0A3161] text-white py-3 px-6 rounded-lg hover:bg-[#0d2036] transition duration-300 font-medium text-lg"
-                    onClick={() => {
-                      closeModal()
-                      handleSubscription()
-                    }}
+                    onClick={() => handleSubscription(plan?.id)}
                   >
                     Subscribe now
                   </button>

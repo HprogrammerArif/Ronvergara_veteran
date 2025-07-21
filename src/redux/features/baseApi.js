@@ -86,9 +86,10 @@ export const baseApi = createApi({
 
 		//payment
 		paymentCheckout: builder.mutation({
-			query: () => ({
+			query: (payload) => ({
 				url: "api/payment/create-checkout-session/",
 				method: "POST",
+				body: payload
 			}),
 		}),
 		//va form start

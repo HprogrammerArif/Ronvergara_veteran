@@ -42,9 +42,11 @@ const Banner = () => {
                   </p>
                 </div>
                 <div className="uppercase font-semibold mt-3 ps-44">
-                  <Link to="/plan" className="uppercase text-3xl bg-[#003794] text-[#FFFFFF] p-4 px-10 rounded-md">
+                  <a
+                  href="/#pricing_plan"
+                  to="/plan" className="uppercase text-3xl bg-[#003794] text-[#FFFFFF] p-4 px-10 rounded-md">
                     get started
-                  </Link>
+                  </a>
                 </div>
               </>
             ) : (
@@ -65,12 +67,12 @@ const Banner = () => {
                     Get the support you deserve, with no more confusion and no more waiting.
                     It’s time to take control of your claim with confidence and clarity.
                   </p>
-                  <Link
-                    to="/plan"
+                  <a
+                    href="/#pricing_plan  "
                     className="bg-[#003794] text-white font-semibold text-lg md:text-2xl px-6 md:px-8 py-4 md:py-5 rounded-md uppercase tracking-wide inline-block"
                   >
                     Start Your Claim Now!
-                  </Link>
+                  </a>
                 </div>
               </div>
             )}
@@ -138,12 +140,12 @@ const Banner = () => {
         ) : (
           // Mobile view for logged-in user with subscription
           <div className="px-4">
-            <h2 className="text-3xl font-bold text-[#003794] uppercase leading-tight text-start">
+            <h2 className="text-3xl font-bold text-[#003794] uppercase leading-tight md:text-start text-center ">
               Let’s Get Your
               <br />
               <span className="text-[#003794] text-4xl mt-2 inline-block">Benefits</span>
             </h2>
-            <p className="text-gray-700 text-base leading-relaxed my-6 text-start">
+            <p className="text-gray-700 text-base leading-relaxed my-6 md:text-start text-center">
               Congratulations! Finally, you’re one step closer to receiving the benefits you’ve rightfully earned.
               Get the support you deserve, with no more confusion and no more waiting.
               It’s time to take control of your claim with confidence and clarity.
