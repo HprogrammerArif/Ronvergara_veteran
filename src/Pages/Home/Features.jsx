@@ -73,7 +73,9 @@ const FeaturesCard = () => {
   }
 
   return (
-    <div className="bg-[#fff] md:pt-10 md:pb-10 ">
+    <div 
+    id="features"
+    className="bg-[#fff] md:pt-10 md:pb-10 ">
       <div className="md:bg-[url('https://i.ibb.co/mV4kpQdX/Group-1.png')] bg-cover bg-center bg-no-repeat min-h-[50vh] md:min-h-[90vh]">
         <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-8 min-h-[50vh] md:min-h-[90vh] px-4 md:px-0">
           {/* Image Section (Moved to bottom,on mobile, left on md) */}

@@ -33,7 +33,7 @@ export default function FAQ() {
   };
 
   return (
-   <section className="bg-white md:py-20 pt-20 md:pt-20 ">
+   <section className="bg-white md:py-20  md:pt-20 ">
      <div className="bg-[#0A3161] container mx-auto text-white py-5 md:px-10">
     <div className=" md:p-14 px-2 md:px-0 text-white">
   <div className=" mx-auto text-center mb-12">

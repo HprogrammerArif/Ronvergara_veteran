@@ -16,7 +16,7 @@
 // //   useEffect(() => {
 // //     const initFirebase = async () => {
 // //       try {
-// //         const response = await fetch('https://rongever.duckdns.org/
+// //         const response = await fetch(' https://ronvergara.duckdns.org/
 //  api/support/firebase-config/', {
 // //           headers: {
 // //             'Authorization': `Bearer ${authToken}`,

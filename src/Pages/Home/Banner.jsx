@@ -20,7 +20,6 @@ const Banner = () => {
         <div className="relative md:flex items-center justify-between mx-auto w-full">
           {/* Left Content */}
           <div className="relative z-10 basis-8/12">
-            {/* Conditionally show content based on subscription */}
             {!loggedInUser || !hasSubscription ? (
               <>
                 <div className="bg-[#FFFFFF] rounded-tr-[50px] shadow-lg border border-gray-200">
@@ -68,7 +67,7 @@ const Banner = () => {
                     It’s time to take control of your claim with confidence and clarity.
                   </p>
                   <a
-                    href="/#pricing_plan  "
+                    href="/#features"
                     className="bg-[#003794] text-white font-semibold text-lg md:text-2xl px-6 md:px-8 py-4 md:py-5 rounded-md uppercase tracking-wide inline-block"
                   >
                     Start Your Claim Now!
@@ -106,7 +105,7 @@ const Banner = () => {
               Tired of delays, paperwork, and confusion? VALR makes filing your VA claim fast and stress-free. Our system is built to help you get every dollar and benefit you deserve—quickly, clearly, and without the usual hassle. No stress. No confusion. Just results.
             </p>
             <div className="text-center bg-[#B31942] text-white py-4 px-6">
-              <p className="text-2xl font-bold">Only $195*</p>
+              <p className="text-3xl font-bold">Only $195*</p>
               <p className="text-md opacity-90 font-semibold">Complete VA Disability Support</p>
             </div>
             <p className="text-[#25456F] mt-3 font-extrabold text-lg md:text-xl text-center mb-3">
@@ -151,7 +150,7 @@ const Banner = () => {
               It’s time to take control of your claim with confidence and clarity.
             </p>
             <a
-              href="/#pricing_plan"
+              href="/#features"
               className="bg-[#003794] text-white font-semibold text-lg px-6 py-4 rounded-md uppercase tracking-wide inline-block"
             >
               Start Your Claim Now!

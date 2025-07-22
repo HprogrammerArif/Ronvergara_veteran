@@ -17,7 +17,7 @@ const Profile = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const baseURL = "https://rongever.duckdns.org";
+  const baseURL = "https://ronvergara.duckdns.org";
   const { data: loggedUser, isLoading: isUserLoading, error, refetch } = useGetLoggedUserQuery();
   const [updateProfile, { isLoading: isUpdating }] = useUpdateUserProfileMutation();
 

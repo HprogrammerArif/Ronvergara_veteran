@@ -129,7 +129,7 @@ export default function SubmissionsModal({ submissions, isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const baseApi = "https://rongever.duckdns.org"
+  const baseApi = "https://ronvergara.duckdns.org"
 
   return (
     <div

@@ -109,7 +109,7 @@ export default function ContactForm() {
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-5 bg-white p-6 rounded-none shadow-md w-full"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:mt-8 mt-0">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                   <User className="w-4 h-4" /> First Name
@@ -181,11 +181,11 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex items-center justify-center w-full py-2.5 md:py-3 bg-[#0B2A52] text-white rounded-lg hover:bg-blue-700 transition text-sm md:text-base"
+              className="flex items-center uppercase justify-center w-full py-2.5 md:py-3 bg-[#0B2A52] text-white rounded-lg hover:bg-[#0B2A52] transition text-sm md:text-base"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...
+                  <span className="loading loading-bars loading-md"></span>
                 </>
               ) : (
                 <>
@@ -202,9 +202,9 @@ export default function ContactForm() {
             className="hidden md:flex justify-center items-center"
           >
             <img
-              src="https://png.pngtree.com/png-vector/20240824/ourmid/pngtree-cute-usa-veteran-army-with-transparent-background-png-image_13605303.png"
+              src="https://i.ibb.co/HTSk1Wzk/contact-img.jpg"
               alt="Veteran illustration"
-              className="w-3/4 max-w-xl"
+              className=" max-w-2xl rounded-tr-[50px] rounded-bl-[50px]"
             />
           </motion.div>
         </div>

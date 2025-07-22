@@ -137,7 +137,7 @@ const EmpoweringVeterans = () => {
   ];
 
   return (
-    <section className="bg-gray-200  pt-10 pb-10 px-2 md:px-0">
+    <section className="bg-gray-200  md:pt-10 pb-10 px-2 md:px-0">
       <div className="container mx-auto text-center">
         <h2 className="md:text-4xl md:text-start text-2xl  font-bold text-gray-800 mb-8">
            <br /> THROUGH EDUCATION
