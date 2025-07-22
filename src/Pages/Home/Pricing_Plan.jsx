@@ -319,71 +319,225 @@ const Pricing_Plan = () => {
 
           </button>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 ">
-            {plans?.map((plan) => (
-              <div
-                key={plan.id}
-                className="text-center md:border md:border-gray-200 md:border-b-4 md:border-b-[#2D5A4A] rounded-xl md:p-6 p-2 md:hover:shadow-lg transition-shadow duration-300 flex flex-col"
->
-              
-                
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">{plan.name}</h2>
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+  {plans?.map((plan) => (
+    <div
+      key={plan.id}
+      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
+    >
 
-              
-                <div className="mb-4">
-                  <span className="text-5xl font-bold text-gray-900">${plan.amount}</span>
-                </div>
+      <div className="bg-gradient-to-r from-[#0A3161] to-[#0d2036] text-white p-6 relative">
+      
+        <div className="absolute top-4 right-4">
+          <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            ${plan.amount} value
+          </span>
+        </div>
+        
+        <h2 className="text-2xl font-bold mb-2">{plan.name}</h2>
+        
 
-                {/* Duration Type */}
-                <p className="text-gray-600 mb-2 text-lg capitalize">
-                  {plan.duration_type === "monthly" ? "Every month" : plan.duration_type}
-                </p>
-                <p className="text-gray-600 mb-6 font-medium">
-                  {plan.name === "6 Months" ? "Short-term trial for beginners" : "Flexible monthly subscription"}
-                </p>
-                <p className="text-gray-600 mb-6 font-medium">
-                  {plan.name === "6 Months" ? "Valid for 6 months" : "Cancel anytime"}
-                </p>
+        <div className="flex items-center text-sm opacity-90">
+          <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+          </svg>
+          <span>
+            {plan.duration_type === "monthly" ? "Valid for 1 month" : `Valid for ${plan.name}`}
+          </span>
+        </div>
+      </div>
 
-                {/* Features List */}
-                <div className="space-y-3 text-left mb-6">
-                  {plan.descriptions && plan.descriptions.length > 0 ? (
-                    plan.descriptions.map((feature) => (
-                      <div key={feature.id} className="flex items-center text-gray-700">
-                        <span className="mr-3 text-gray-400 mt-1 font-medium">→</span>
-                        <span className="text-sm font-medium">{feature.text}</span>
-                      </div>
-                    ))
-                  ) : (
-                    <>
-                      <div className="flex items-center text-gray-700">
-                        <span className="mr-3 text-gray-400 mt-1">→</span>
-                        <span className="text-sm">Basic VA Benefits Support</span>
-                      </div>
-                      <div className="flex items-center text-gray-700">
-                        <span className="mr-3 text-gray-400 mt-1">→</span>
-                        <span className="text-sm">Monthly Access</span>
-                      </div>
-                      <div className="flex items-center text-gray-700">
-                        <span className="mr-3 text-gray-400 mt-1">→</span>
-                        <span className="text-sm">Email Support</span>
-                      </div>
-                    </>
-                  )}
-                </div>
 
-                {/* Subscribe Button at Bottom */}
-                <div className="mt-auto">
-                  <button
-                    className="w-full bg-[#0A3161] text-white py-3 px-6 rounded-lg hover:bg-[#0d2036] transition duration-300 font-medium text-lg"
-                    onClick={() => handleSubscription(plan?.id)}
-                  >
-                    Subscribe now
-                  </button>
-                </div>
+      <div className="p-6 flex-1 flex flex-col">
+   
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-semibold text-gray-900">Benefits Include:</h3>
+          <span className="text-green-600 font-bold">Premium Access</span>
+        </div>
+
+
+        <div className="space-y-3 mb-6 flex-1">
+          {plan.descriptions && plan.descriptions.length > 0 ? (
+            plan.descriptions.map((feature) => (
+              <div key={feature.id} className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">{feature.text}</span>
               </div>
-            ))}
+            ))
+          ) : (
+            <>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">Basic VA Benefits Support</span>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">
+                  {plan.duration_type === "monthly" ? "Monthly Access" : "Extended Access"}
+                </span>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">Email Support</span>
+              </div>
+            </>
+          )}
+        </div>
+
+  
+        <div className="mb-4">
+          <span className="text-4xl font-bold text-gray-900">${plan.amount}</span>
+          <span className="text-gray-600 ml-2">USD</span>
+        </div>
+
+ 
+        <button
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg transition duration-300 font-medium text-lg"
+          onClick={() => handleSubscription(plan?.id)}
+        >
+          Get Started
+        </button>
+      </div>
+    </div>
+  ))}
+            </div> */}
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+  {plans?.map((plan) => (
+    <div
+      key={plan.id}
+      className="bg-white rounded-tr-[30px] rounded-bl-[30px] border-l border-[#16467e] shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
+    >
+      {/* Header with Background Image + Overlay */}
+      <div
+        className="relative text-white p-6 bg-cover bg-center "
+        style={{
+          backgroundImage: "url('https://i.ibb.co/KtxkstY/american-flag.jpg')",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/75 rounded-tr-[30px]"></div>
+
+        {/* Content on top of overlay */}
+        <div className="relative z-10">
+          {/* Benefits Badge */}
+          <div className="absolute top-4 right-4">
+            <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+              ${plan.amount} value
+            </span>
           </div>
+
+          <h2 className="text-2xl font-bold mb-2">{plan.name}</h2>
+
+          {/* Duration with icon */}
+          <div className="flex items-center text-sm opacity-90">
+            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>
+              {plan.duration_type === "monthly"
+                ? "Valid for 1 month"
+                : `Valid for ${plan.name}`}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="p-6 flex-1 flex flex-col">
+        {/* Benefits Header */}
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-semibold text-gray-900">Benefits Include:</h3>
+          <span className="text-green-600 font-bold">Premium Access</span>
+        </div>
+
+        {/* Features List with Checkmarks */}
+        <div className="space-y-3 mb-6 flex-1">
+          {plan.descriptions && plan.descriptions.length > 0 ? (
+            plan.descriptions.map((feature) => (
+              <div key={feature.id} className="flex items-start">
+                <svg
+                  className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">{feature.text}</span>
+              </div>
+            ))
+          ) : (
+            <>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">Basic VA Benefits Support</span>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">
+                  {plan.duration_type === "monthly" ? "Monthly Access" : "Extended Access"}
+                </span>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="text-gray-700 text-sm leading-relaxed">Email Support</span>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Price */}
+        <div className="mb-4">
+          <span className="text-4xl font-bold text-[#B31942]">${plan.amount}</span>
+          <span className="text-gray-600 ml-2 font-semibold">USD</span>
+        </div>
+
+        {/* Subscribe Button */}
+        <button
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg transition duration-300 font-medium text-lg"
+          onClick={() => handleSubscription(plan?.id)}
+        >
+          Get Started
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
+
         </div>
       </div>
 
@@ -400,10 +554,10 @@ const Pricing_Plan = () => {
           </div>
           <div
             onClick={() => setIsModalOpen(true)}
-            className="bg-[#0A3161] cursor-pointer h-36 w-36 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-105"
+            className="bg-[#0A3161] cursor-pointer shadow-lg shadow-black/80 h-44 w-44 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-105"
           >
             <span className="text-xl text-white mt-4">
-              buy now <FiArrowUpRight className="flex mx-auto" size={36} />
+              Claim now <FiArrowUpRight className="flex mx-auto" size={36} />
             </span>
           </div>
         </div>

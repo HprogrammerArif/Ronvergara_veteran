@@ -150,12 +150,12 @@ const Banner = () => {
               Get the support you deserve, with no more confusion and no more waiting.
               It’s time to take control of your claim with confidence and clarity.
             </p>
-            <Link
-              to="/plan"
+            <a
+              href="/#pricing_plan"
               className="bg-[#003794] text-white font-semibold text-lg px-6 py-4 rounded-md uppercase tracking-wide inline-block"
             >
               Start Your Claim Now!
-            </Link>
+            </a>
             <div className="relative flex justify-center mt-8">
               <img
                 src="https://i.ibb.co/23fFSDqr/Group-2147226361.png"
