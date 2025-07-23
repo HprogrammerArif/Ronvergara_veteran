@@ -33,8 +33,8 @@ export default function FAQ() {
   };
 
   return (
-   <section className="bg-white md:py-20  md:pt-20 ">
-     <div className="bg-[#0A3161] container mx-auto text-white py-5 md:px-10">
+   <section className="bg-[#E0F7FF] dark:bg-[#E0F7FF] md:py-20 md:pt-20 bg-faq-pattern">
+     <div className="bg-[#0A3161] container mx-auto text-white py-5 md:px-10 bg-faq-pattern">
     <div className=" md:p-14 px-2 md:px-0 text-white">
   <div className=" mx-auto text-center mb-12">
         <h2 className="md:text-4xl text-2xl md:text-start font-bold">Frequently Asked Questions</h2>

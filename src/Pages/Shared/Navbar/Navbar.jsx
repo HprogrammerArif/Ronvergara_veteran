@@ -346,12 +346,7 @@ export default function Navbar() {
         </div>
       </dialog>
 
-      
-{/* <dialog id="profile_modal" className="modal backdrop-blur-[1px] ">
-  <div className="modal-box text-white h-[70vh]">
-    {isLoading ? null : loggedInUser ? <Profile/> : <p className="text-white/80">No user data available.</p>}
-  </div>
-</dialog> */}
+
 
     </nav>
   );

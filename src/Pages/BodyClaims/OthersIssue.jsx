@@ -183,22 +183,6 @@ const OthersIssues = () => {
 
         
 
-        {/* Buttons */}
-        {/* <div className="flex flex-col justify-center gap-5 mx-auto">
-          <button
-            // to="/progress"
-          type="submit"
-            className="bg-[#B31942] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#a01638] transition-colors text-center"
-          >
-            Continue
-          </button>
-          <Link
-            onClick={() => window.history.back()}
-            className="text-[#001F3F] font-semibold border border-[#001F3F] py-2 px-6 rounded-md hover:bg-gray-100 transition-colors text-center"
-          >
-            Back
-          </Link>
-        </div> */}
 
  <div className="flex justify-center gap-4 mt-6">
   <Link

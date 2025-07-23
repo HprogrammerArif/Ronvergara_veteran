@@ -75,31 +75,6 @@ const DischargeCondition = () => {
             {errors.surgeries_conditions && <span className="text-red-500 text-sm">{errors.surgeries_conditions.message}</span>}
           </label>
 
-      
-        {/* Buttons */}
-        {/* <div className="flex flex-col justify-center gap-4 mx-auto">
-        <button
-          type="submit"
-          
-        >
-        
-        <button
-       
-            type="submit"
-              className="btn bg-[#B31942] w-full text-white uppercase py-2 px-6 rounded-md hover:bg-[#aa2b4d]"
-            >
-              Continue
-            </button>
-
-                </button>
-                    <button
-                      onClick={() => window.history.back()}
-                      className="btn  text-[#001F3F] uppercase font-semibold border  border-[#001F3F] py-2 rounded-md"
-
-                    >
-                      Back
-                    </button>
-                  </div> */}
 
                    <div className="flex justify-center gap-4 mt-6">
   <Link

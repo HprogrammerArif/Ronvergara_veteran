@@ -1,7 +1,3 @@
-
-
-
-import { Link } from "react-router-dom";
 import { useGetLoggedUserQuery } from "../../redux/features/baseApi";
 
 const Banner = () => {
@@ -12,28 +8,28 @@ const Banner = () => {
     <section className="relative">
       {/* ===== Desktop & Tablet View ===== */}
       <div
-        className="hidden md:flex bg-cover bg-center bg-no-repeat min-h-screen items-center justify-between pt-24"
+        className="hidden md:flex bg-cover bg-center bg-no-repeat min-h-auto items-center justify-between pb-40 pt-32"
         style={{
-          backgroundImage: "url('https://i.ibb.co/y9PChVN/Group-2147226363-1.png')",
+          backgroundImage: "url('https://i.ibb.co/1GFVFjRz/Desktop-9.png')",
         }}
       >
-        <div className="relative md:flex items-center justify-between mx-auto w-full">
+        <div className="relative md:flex items-center justify-between mx-auto w-full py-24">
           {/* Left Content */}
-          <div className="relative z-10 basis-8/12">
+          <div className="relative z-10 w-auto max-w-[800px]">
             {!loggedInUser || !hasSubscription ? (
               <>
-                <div className="bg-[#FFFFFF] rounded-tr-[50px] shadow-lg border border-gray-200">
+                <div className="bg-[#FFFFFF] rounded-tr-[50px] shadow-lg ">
                   <div className="py-3">
-                    <h1 className="text-[#003794] ps-44 text-center md:text-start pt-56 md:pt-0 text-4xl md:text-6xl font-bold leading-relaxed md:leading-[5rem]">
-                      Submit your VA Disability claim <br /> today with <span className="font-extrabold text-7xl">VALR</span>
+                    <h1 className="text-[#003794] ps-44 text-center md:text-start pt-56 md:pt-0 text-3xl md:text-5xl font-bold leading-relaxed md:leading-[5rem]">
+                      Submit your VA <br /> Disability claim <br /> today with <span className="font-extrabold text-7xl">VALR</span>
                     </h1>
                   </div>
                 </div>
                 <div className="bg-[#B31942] py-6 rounded-br-[20px]">
-                  <h1 className="ps-44 text-white font-bold text-8xl">For only $195*</h1>
+                  <h1 className="ps-44 text-white font-bold text-6xl">For only $195*</h1>
                 </div>
                 <div className="container ms-44 py-10">
-                  <p className="text-[#25456F] text-lg md:text-xl font-medium w-10/12 leading-relaxed md:leading-[2rem]">
+                  <p className="text-[#25456F] text-base font-semibold w-10/12 leading-relaxed md:leading-[1.8rem]">
                     Tired of delays, paperwork, and confusion? VALR makes filing your VA claim fast and stress-free. Our system is built to help you get every dollar and benefit you deserve—quickly, clearly, and without the usual hassle. No stress. No confusion. Just results.
                   </p>
                   <p className="text-[#25456F] mt-5 font-extrabold text-lg md:text-xl w-10/12 leading-relaxed md:leading-[2rem]">
@@ -44,7 +40,7 @@ const Banner = () => {
                   <a
                   href="/#pricing_plan"
                   to="/plan" className="uppercase text-3xl bg-[#003794] text-[#FFFFFF] p-4 px-10 rounded-md">
-                    get started
+                    get started!
                   </a>
                 </div>
               </>
@@ -89,7 +85,7 @@ const Banner = () => {
       </div>
 
       {/* ===== Mobile View ===== */}
-      <div className="block min-h-screen pb-10 pt-32 md:hidden bg-gradient-to-b from-blue-50 to-blue-100 text-center relative overflow-hidden">
+      <div className="block min-h-screen pb-10 pt-32 md:hidden bg-[#E0F7FF] dark:bg-[#E0F7FF] text-center relative overflow-hidden">
         {(!loggedInUser || !hasSubscription) ? (
           <>
             <p className="text-orange-500 px-2 text-lg  font-semibold tracking-wider uppercase mb-4 md:text-start text-center">

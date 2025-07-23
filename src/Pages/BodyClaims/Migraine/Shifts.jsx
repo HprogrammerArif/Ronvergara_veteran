@@ -44,23 +44,6 @@ const navigate = useNavigate()
           </label>
 
 
-          {/* Buttons */}
-            {/* <div className="flex flex-col justify-center gap-5 mx-auto ">
-                    <button
-                      type="submit"
-                      className="btn bg-[#B31942] uppercase border-gray-400  py-2 text-white text-center font-semibold rounded-md"
-                    >
-                      Continue
-                    </button>
-                    <button
-                      type="submit"
-                      className="btn  text-[#001F3F] uppercase font-semibold border  border-[#001F3F] py-2 rounded-md"  
-                      onClick={() => window.history.back()}
-                    >
-                      Back
-                    </button>
-                  </div> */}
-
                    <div className="flex justify-center gap-4 mt-6">
   <Link
     to="#"

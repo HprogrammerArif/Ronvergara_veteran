@@ -72,7 +72,7 @@ const Pricing_Plan = () => {
   return (
     <section 
     id="pricing_plan"
-    className="md:p-5 dark:bg-gray-200 md:py-20 pt-10 md:pt-28 pb-10 md:pb-10 md:min-h-[75vh] flex items-center justify-center">
+    className="md:p-5 bg-[#F1F8FE] dark:bg-[#F1F8FE] md:py-20 pt-10 md:pt-28 pb-10 md:pb-10 md:min-h-[75vh] flex items-center justify-center">
       <ToastContainer />
 
       {/* DaisyUI Modal */}
@@ -161,13 +161,7 @@ const Pricing_Plan = () => {
           )}
         </div>
 
-        {/* Price */}
-        {/* <div className="mb-4">
-          <span className="text-4xl bg-gradient-to-r from-[#B31942] via-[#e54860] to-[#B31942] bg-clip-text text-transparent font-bold">${plan.amount}</span>
-          <span className="text-[#0B2A52] ml-2 font-semibold">/USD</span>
-        </div> */}
-
-        {/* Subscribe Button */}
+     
         <button
           className="w-full mb-3 md:mb-0 bg-[#10355f] uppercase hover:bg-[#123053] text-white md:py-3 py-2 px-6 rounded-lg transition duration-300 font-medium text-lg"
           onClick={() => handleSubscription(plan?.id)}
@@ -184,7 +178,7 @@ const Pricing_Plan = () => {
       </div>
 
       {/* Large Device View */}
-      <div className="hidden md:block bg-white dark:bg-gray-200 container p-2 mx-auto md:pb-10">
+      <div className="hidden md:block bg-[#F1F8FE] dark:bg-[#F1F8FE] container p-2 mx-auto md:pb-10">
         <div className="container w-3/4 mx-auto text-start flex items-start justify-between mb-10 text-4xl font-bold">
           <div>
             <h1 className="text-[#16437E]">
@@ -205,7 +199,7 @@ const Pricing_Plan = () => {
         </div>
         <div className="w-full mx-auto pb-5">
           <iframe
-            className="md:w-[1150px] md:rounded-r-[50px] mx-auto md:rounded-bl-[50px] rounded-r-[20px] rounded-bl-[20px] rounded-tl-none md:h-[630px] w-full h-[250px] rounded relative z-10"
+            className="md:w-[1150px] md:rounded-r-[50px] mx-auto md:rounded-bl-[50px] rounded-r-[20px] rounded-bl-[20px] rounded-tl-none md:h-[630px] w-full h-[250px] rounded relative z-10 border-4 border-[#9AEFFF] shadow-lg"
             src="https://www.youtube.com/embed/tkoxvKiBtwc?si=aspqN1u1M7Gm_TfP"
             title="YouTube video player"
             frameBorder="0"
@@ -217,7 +211,7 @@ const Pricing_Plan = () => {
       </div>
 
       {/* Mobile Device View */}
-      <div className="md:hidden bg-white dark:bg-gray-200 container p-2 mx-auto">
+      <div className="md:hidden bg-[#E0F7FF] dark:bg-[#E0F7FF] container p-2 mx-auto">
         <motion.div variants={mobileTextVariants} initial="hidden" animate="visible" className="text-center mb-8">
           <h1 className="text-2xl font-bold text-[#16437E]">Complete the Veterans Benefits form with a</h1>
           <h1 className="bg-[#B31942] text-white w-full max-w-[350px] mx-auto flex items-center justify-center rounded-full p-3 text-2xl shadow-md shadow-gray-700 font-bold mt-5">

@@ -24,7 +24,7 @@ export default function Dashboard() {
 	const [selectedItem, setSelectedItem] = useState("Dashboard");
 	const { data: loggedUser } = useGetLoggedUserQuery();
 	console.log(loggedUser);
-	const baseURL = "https://ronvergara.duckdns.org"
+	const baseURL = "https://rongever.duckdns.org"
 	const location = useLocation();
 	const navigate = useNavigate();
 

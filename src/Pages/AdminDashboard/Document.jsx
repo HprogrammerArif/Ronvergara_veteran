@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import { Search, Filter, MoreVertical, X } from "lucide-react";
 import { VscFilePdf } from "react-icons/vsc";

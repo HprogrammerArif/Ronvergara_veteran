@@ -1,6 +1,3 @@
-
-
-
 import { useForm } from "react-hook-form";
 import { CheckCircle, Mail, Phone, User, MessageSquare, Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -42,7 +39,6 @@ export default function ContactForm() {
     }
   };
 
-  // Animation variants for mobile and desktop
   const formVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -111,8 +107,8 @@ export default function ContactForm() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:mt-8 mt-0">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
-                  <User className="w-4 h-4" /> First Name
+                <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                  <User className="w-4 h-4" /> First Name 
                 </label>
                 <input
                   {...register("first_name", { required: "Please enter your first name" })}
@@ -122,7 +118,7 @@ export default function ContactForm() {
                 {errors.first_name && <p className="text-xs text-red-500 mt-1">{errors.first_name.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                   <User className="w-4 h-4" /> Last Name
                 </label>
                 <input
@@ -135,7 +131,7 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+              <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                 <Mail className="w-4 h-4" /> Email
               </label>
               <input
@@ -154,7 +150,7 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+              <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                 <Phone className="w-4 h-4" /> Phone
               </label>
               <input
@@ -167,7 +163,7 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+              <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                 <MessageSquare className="w-4 h-4" /> Message
               </label>
               <textarea
